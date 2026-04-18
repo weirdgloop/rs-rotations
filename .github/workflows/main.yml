@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     # Ensure that we only deploy to staging
-    if: github.repository == 'weirdgloop/osrs-dps-calc' && github.event_name != 'pull_request'
+    if: github.repository == 'weirdgloop/rs-rotations' && github.event_name != 'pull_request'
     env:
       DIRECTORY_NAME: 'rs-rot/'
     steps:

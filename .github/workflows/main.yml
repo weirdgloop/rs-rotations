@@ -1,48 +1,77 @@
-name: Deploy to GitHub Pages
+name: Build, run tests, and deploy if necessary
 
 on:
+  # Push to main and tag push
   push:
-    branches: ['main']
+    branches:
+      - main
+    tags:
+      - '*'
+  # PR to main
+  pull_request:
+    branches:
+      - main
+  
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
-      - name: Install Node.js
+    steps:
+      - uses: actions/checkout@v3
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: build
-        env:
-          BASE_PATH: '/${{ github.event.repository.name }}'
+          node-version: '20.x'
+      - run: npm install
+      - name: Build project
         run: npm run build
-
-      - name: Upload Artifacts
-        uses: actions/upload-pages-artifact@v3
+      - run: mv cdn out/
+      - uses: actions/upload-artifact@v4
         with:
-          path: 'build/'
+          name: output
+          path: out/
 
   deploy:
-    needs: build
     runs-on: ubuntu-latest
-
-    permissions:
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
+    needs: build
+    # Ensure that we only deploy to staging
+    if: github.repository == 'weirdgloop/osrs-dps-calc' && github.event_name != 'pull_request'
+    env:
+      DIRECTORY_NAME: 'rs-rot/'
     steps:
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: output
+          path: out
+      - name: Deploy to server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          ARGS: "-rlgoDzvc -i --delete"
+          SOURCE: "out/"
+          TARGET: "/var/www/html/$DIRECTORY_NAME"
+          SCRIPT_AFTER: |
+            whoami
+            echo $RSYNC_STDOUT
+      - name: Purge cache on Cloudflare
+        run: |
+          curl --request POST \
+            --url https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE }}/purge_cache \
+            -H 'Content-Type: application/json' \
+            -H 'Authorization: Bearer ${{ secrets.CLOUDFLARE_TOKEN }}' \
+            --data '{
+              "prefixes": [
+                "tools.runescape.wiki/${{ env.DIRECTORY_NAME }}"
+              ]
+            }'

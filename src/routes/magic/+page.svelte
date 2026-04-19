@@ -170,7 +170,7 @@
 </script>
 
 <Navbar />
-<Header img="/magic_background.png" text="Magic Calculator" icon="/style_icons/magic-white.svg" />
+<Header img="/rs-rot/magic_background.png" text="Magic Calculator" icon="/rs-rot/style_icons/magic-white.svg" />
 
 <div class="space-y-14 mt-10 z-20">
     <div class="responsive-container">
@@ -248,7 +248,7 @@
                                 <Number
                                     bind:setting={settings[SETTINGS.ESSENCE_CORRUPTION]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/essence_corruption.png"
+                                    img="/rs-rot/effect_icons/essence_corruption.png"
                                     step="1"
                                     max="100"
                                     min="0"
@@ -256,12 +256,12 @@
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.INSTABILITY]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/instability.png"
+                                    img="/rs-rot/effect_icons/instability.png"
                                 />
                                 <Number
                                     bind:setting={settings[SETTINGS.TARGET_HP_PERCENT]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/target_hp.png"
+                                    img="/rs-rot/effect_icons/target_hp.png"
                                     step="1"
                                     max="100"
                                     min="0"
@@ -269,7 +269,7 @@
                                 <Number
                                     bind:setting={settings[SETTINGS.MAGIC_LEVEL]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/magic.png"
+                                    img="/rs-rot/effect_icons/magic.png"
                                     step="1"
                                     max="150"
                                     min="1"
@@ -277,12 +277,12 @@
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.REAPER_CREW]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/death.png"
+                                    img="/rs-rot/effect_icons/death.png"
                                 />
                                 <Number
                                     bind:setting={settings[SETTINGS.HIT_CHANCE]}
                                     onchange={() => updateDamages()}
-                                    img="/settings_icons/Zero_weakness_icon.png"
+                                    img="/rs-rot/settings_icons/Zero_weakness_icon.png"
                                     step="1"
                                     max="100"
                                     min="0"
@@ -299,12 +299,12 @@
                                 <Select
                                     bind:setting={settings[SETTINGS.VULN]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/magic/Vulnerability_icon.webp"
+                                    img="/rs-rot/effect_icons/magic/Vulnerability_icon.webp"
                                 />
                                 <Number
                                     bind:setting={settings[SETTINGS.INFERNAL_PUZZLE_BOX]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/infernal_puzzlebox.png"
+                                    img="/rs-rot/effect_icons/infernal_puzzlebox.png"
                                     step="1"
                                     max="6"
                                     min="0"
@@ -312,17 +312,17 @@
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.CRYPTBLOOM]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/Cryptbloom_helm.png"
+                                    img="/rs-rot/effect_icons/Cryptbloom_helm.png"
                                 />
                                 <Select
                                     bind:setting={settings[SETTINGS.SLAYER_SIGIL]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/Undead_slayer_sigil_detail.png"
+                                    img="/rs-rot/effect_icons/Undead_slayer_sigil_detail.png"
                                 />
                                 <Number
                                     bind:setting={settings[SETTINGS.NOPE]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/nopenopenope.png"
+                                    img="/rs-rot/effect_icons/nopenopenope.png"
                                     step="1"
                                     max="3"
                                     min="0"
@@ -330,7 +330,7 @@
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.HAUNTED]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/haunted.png"
+                                    img="/rs-rot/effect_icons/haunted.png"
                                 />
                                 <Number
                                     bind:setting={settings[SETTINGS.HAUNTED_AD]}
@@ -351,46 +351,46 @@
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.CONFLAGRATE]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/conflagrate.png"
+                                    img="/rs-rot/effect_icons/conflagrate.png"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.KERAPACS_WRIST_WRAPS]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/kerapac_wristwraps.png"
+                                    img="/rs-rot/effect_icons/kerapac_wristwraps.png"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.ENCHANTMENT_OF_FLAMES]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/magic/Enchantment_of_flames_detail.png"
+                                    img="/rs-rot/effect_icons/magic/Enchantment_of_flames_detail.png"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.CONC_CRIT]}
                                     onchange={() => updateDamages()}
-                                    img="/ability_icons/magic/30x30/concentrated_blast.png"
+                                    img="/rs-rot/ability_icons/magic/30x30/concentrated_blast.png"
                                     title="Conc Crit"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.GCONC_CRIT]}
                                     onchange={() => updateDamages()}
-                                    img="/ability_icons/magic/30x30/greater_concentrated_blast.png"
+                                    img="/rs-rot/ability_icons/magic/30x30/greater_concentrated_blast.png"
                                     title="GConc Crit"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.CONC_CRIT_AC]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/magic/Conc_AC.png"
+                                    img="/rs-rot/effect_icons/magic/Conc_AC.png"
                                     title="Conc Crit (AC)"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.GCONC_CRIT_AC]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/magic/GConc_AC.png"
+                                    img="/rs-rot/effect_icons/magic/GConc_AC.png"
                                     title="GConc Crit (AC)"
                                 />
                                 <Number
                                     bind:setting={settings[SETTINGS.STONE_OF_JAS]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/stone_of_jas.png"
+                                    img="/rs-rot/effect_icons/stone_of_jas.png"
                                     step="1"
                                     max="6"
                                     min="0"
@@ -398,12 +398,12 @@
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.DRACONIC_FRUIT]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/draconic_fruit.png"
+                                    img="/rs-rot/effect_icons/draconic_fruit.png"
                                 />
                                 <Number
                                     bind:setting={settings[SETTINGS.RUBY_AURORA]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/Ruby_Aurora_icon.webp"
+                                    img="/rs-rot/effect_icons/Ruby_Aurora_icon.webp"
                                     step="1"
                                     max="3"
                                     min="0"
@@ -411,7 +411,7 @@
                                 <Number
                                     bind:setting={settings[SETTINGS.GRAVITATE]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/gravitate.png"
+                                    img="/rs-rot/effect_icons/gravitate.png"
                                     step="1"
                                     max="20"
                                     min="0"
@@ -419,7 +419,7 @@
                                 <Select
                                     bind:setting={settings[SETTINGS.MAGIC_PRAYER]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/Prayer.webp"
+                                    img="/rs-rot/effect_icons/Prayer.webp"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.DIVINE_RAGE]}
@@ -435,7 +435,7 @@
                                 <Number
                                     bind:setting={settings[SETTINGS.BLOOD_TITHE]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/blood_tithe.png"
+                                    img="/rs-rot/effect_icons/blood_tithe.png"
                                     step="1"
                                     max="12"
                                     min="0"
@@ -443,7 +443,7 @@
                                 <Number
                                     bind:setting={settings[SETTINGS.REVENGE]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/revenge.png"
+                                    img="/rs-rot/effect_icons/revenge.png"
                                     step="1"
                                     max="10"
                                     min="0"
@@ -451,7 +451,7 @@
                                 <Select
                                     bind:setting={settings[SETTINGS.SLAYER_HELM]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/slayer_helmet.png"
+                                    img="/rs-rot/effect_icons/slayer_helmet.png"
                                 />
                                 <Select
                                     bind:setting={settings[SETTINGS.GUARDHOUSE]}
@@ -460,12 +460,12 @@
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.SWIFTNESS_OF_THE_AVIANSIE]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/swiftness_of_the_avianse.png"
+                                    img="/rs-rot/effect_icons/swiftness_of_the_avianse.png"
                                 />
                                 <Number
                                     bind:setting={settings[SETTINGS.BERSERKERS_FURY]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/berserkers_fury.png"
+                                    img="/rs-rot/effect_icons/berserkers_fury.png"
                                     step="0.5"
                                     max="5.5"
                                     min="0"
@@ -473,32 +473,32 @@
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.SMOKE_CLOUD]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/smoke_cloud.png"
+                                    img="/rs-rot/effect_icons/smoke_cloud.png"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.CHANNELLED_MIGHT]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/magic/Channelled_Might.png"
+                                    img="/rs-rot/effect_icons/magic/Channelled_Might.png"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.GREATER_CHANNELLED_MIGHT]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/magic/Channelled_Might.png"
+                                    img="/rs-rot/effect_icons/magic/Channelled_Might.png"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.ANIMA_CHARGED]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/magic/Anima_Charged.png"
+                                    img="/rs-rot/effect_icons/magic/Anima_Charged.png"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.BLAST_INFUSED]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/magic/Blast_Infused.png"
+                                    img="/rs-rot/effect_icons/magic/Blast_Infused.png"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.COMBUSTED]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/magic/Combusted_(status).png"
+                                    img="/rs-rot/effect_icons/magic/Combusted_(status).png"
                                 />
                                 <Checkbox
                                     bind:setting={settings[SETTINGS.TELOS_RED_BEAM]}
@@ -557,7 +557,7 @@
                                 class="flex items-center justify-center gap-2 w-full text-xs text-sky-300 hover:text-white border border-sky-300/30 hover:border-sky-300 rounded px-2 py-1.5 mt-2 transition-colors"
                                 onclick={() => showGearManager = true}
                             >
-                                <img src="/settings_icons/Options_icon.png" alt="" class="w-4 h-4" />
+                                <img src="/rs-rot/settings_icons/Options_icon.png" alt="" class="w-4 h-4" />
                                 Manage Gear
                             </button>
                             <GearManager bind:show={showGearManager} initialStyle="magic" />
@@ -570,7 +570,7 @@
                                 <Number
                                     bind:setting={settings[SETTINGS.BALANCE_OF_POWER]}
                                     onchange={() => updateDamages()}
-                                    img="/effect_icons/bosses/Balance_of_Power_Edict_(self_status).png"
+                                    img="/rs-rot/effect_icons/bosses/Balance_of_Power_Edict_(self_status).png"
                                     step="1"
                                     min="0"
                                     max="6"

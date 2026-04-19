@@ -65,7 +65,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Custom Main-Hand Weapon',
-        icon: '/gear_icons/shared/custom main-hand weapon.png'    
+        icon: '/rs-rot/gear_icons/shared/custom main-hand weapon.png'    
     },
     [WEAPONS.CUSTOM_OH]: {
         style: 'hybrid',
@@ -76,7 +76,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Custom Off-Hand Weapon',
-        icon: '/gear_icons/shared/custom off-hand weapon.png'    
+        icon: '/rs-rot/gear_icons/shared/custom off-hand weapon.png'    
     },
     [WEAPONS.CUSTOM_TH]: {
         style: 'hybrid',
@@ -87,7 +87,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Custom Two-Hand Weapon',
-        icon: '/gear_icons/shared/custom two-hand weapon.png'    
+        icon: '/rs-rot/gear_icons/shared/custom two-hand weapon.png'    
     },
     [WEAPONS.CUSTOM_SHIELD]: {
         style: 'hybrid',
@@ -98,7 +98,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Custom Shield',
-        icon: '/gear_icons/shared/custom shield.png'    
+        icon: '/rs-rot/gear_icons/shared/custom shield.png'    
     },
     [WEAPONS.PRAESUL_WAND]: {
         style: 'magic',
@@ -108,7 +108,7 @@ export const weapons: Record<string, Equipment> = {
         type: 'wand',
         classification: 'none',
         title: 'Wand of the Praesul',
-        icon: '/gear_icons/magic/wand of the praesul.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/magic/wand of the praesul.png', // TODO: icon missing
     },
     [WEAPONS.IMPERIUM_CORE]: {
         style: 'magic',
@@ -118,7 +118,7 @@ export const weapons: Record<string, Equipment> = {
         type: 'core',
         classification: 'none',
         title: 'Imperium Core',
-        icon: '/gear_icons/magic/imperium core.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/magic/imperium core.png', // TODO: icon missing
     },
     [WEAPONS.INQUISITOR_STAFF]: {
         style: 'magic',
@@ -128,7 +128,7 @@ export const weapons: Record<string, Equipment> = {
         type: 'staff',
         classification: 'none',
         title: 'Inquisitor Staff',
-        icon: '/gear_icons/magic/inquisitor staff.png'    
+        icon: '/rs-rot/gear_icons/magic/inquisitor staff.png'    
     },
     [WEAPONS.INQUISITOR_STAFF_PLUS]: {
         style: 'magic',
@@ -139,7 +139,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Inquisitor Staff+',
-        icon: '/gear_icons/magic/inquisitor staff.png'    
+        icon: '/rs-rot/gear_icons/magic/inquisitor staff.png'    
     },
     [WEAPONS.TERRASAUR_MAUL]: {
         style: 'melee',
@@ -149,7 +149,7 @@ export const weapons: Record<string, Equipment> = {
         type: 'none',
         classification: 'none',
         title: 'Terrasaur Maul',
-        icon: '/gear_icons/melee/terrasaur maul.png'    
+        icon: '/rs-rot/gear_icons/melee/terrasaur maul.png'    
     },
     [WEAPONS.TERRASAUR_MAUL_PLUS]: {
         style: 'melee',
@@ -160,7 +160,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Terrasaur Maul+',
-        icon: '/gear_icons/melee/terrasaur maul.png'    
+        icon: '/rs-rot/gear_icons/melee/terrasaur maul.png'    
     },
     [WEAPONS.HEXHUNTER_BOW]: {
         style: 'ranged',
@@ -171,7 +171,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Hexhunter Bow',
-        icon: '/gear_icons/ranged/hexhunter bow.png'    
+        icon: '/rs-rot/gear_icons/ranged/hexhunter bow.png'    
     },
     [WEAPONS.HEXHUNTER_BOW_PLUS]: {
         style: 'ranged',
@@ -181,7 +181,7 @@ export const weapons: Record<string, Equipment> = {
         type: 'bow',
         classification: 'none',
         title: 'Hexhunter Bow+',
-        icon: '/gear_icons/ranged/hexhunter bow.png'    
+        icon: '/rs-rot/gear_icons/ranged/hexhunter bow.png'    
     },
     [WEAPONS.BOW_OF_THE_LAST_GUARDIAN]: {
         style: 'ranged',
@@ -191,7 +191,7 @@ export const weapons: Record<string, Equipment> = {
         type: 'bow',
         classification: 'none',
         title: 'Bow of the Last Guardian',
-        icon: '/gear_icons/ranged/bow of the last guardian.png'    
+        icon: '/rs-rot/gear_icons/ranged/bow of the last guardian.png'    
     },
     [WEAPONS.BOW_OF_THE_LAST_GUARDIAN_IM]: {
         style: 'ranged',
@@ -202,7 +202,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Bow of the Last Guardian [IM]',
-        icon: '/gear_icons/ranged/bow of the last guardian.png'    
+        icon: '/rs-rot/gear_icons/ranged/bow of the last guardian.png'    
     },
     [WEAPONS.BLIGHTBOUND_CROSSBOW]: {
         style: 'ranged',
@@ -212,7 +212,7 @@ export const weapons: Record<string, Equipment> = {
         type: 'crossbow',
         classification: 'none',
         title: 'Blightbound Crossbow',
-        icon: '/gear_icons/ranged/blightbound crossbow.png'    
+        icon: '/rs-rot/gear_icons/ranged/blightbound crossbow.png'    
     },
     [WEAPONS.OFF_HAND_BLIGHTBOUND_CROSSBOW]: {
         style: 'ranged',
@@ -222,7 +222,7 @@ export const weapons: Record<string, Equipment> = {
         type: 'crossbow',
         classification: 'none',
         title: 'Off-Hand Blightbound Crossbow',
-        icon: '/gear_icons/ranged/off-hand blightbound crossbow.png'    
+        icon: '/rs-rot/gear_icons/ranged/off-hand blightbound crossbow.png'    
     },
     [WEAPONS.OMNI_GUARD]: {
         style: 'necromancy',
@@ -233,7 +233,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Omni Guard',
-        icon: '/gear_icons/necro/omni guard.png'    
+        icon: '/rs-rot/gear_icons/necro/omni guard.png'    
     },
     [WEAPONS.OMNI_GUARD_IM]: {
         style: 'necromancy',
@@ -244,7 +244,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Omni Guard [IM]',
-        icon: '/gear_icons/necro/omni guard.png'    
+        icon: '/rs-rot/gear_icons/necro/omni guard.png'    
     },
     [WEAPONS.DEVOURERS_GUARD]: {
         style: 'necromancy',
@@ -254,7 +254,7 @@ export const weapons: Record<string, Equipment> = {
         type: 'armguard',
         classification: 'none',
         title: 'Devourer\'S Guard',
-        icon: '/gear_icons/necro/devourer\'s guard.png',
+        icon: '/rs-rot/gear_icons/necro/devourer\'s guard.png',
     },
     [WEAPONS.DEVOURERS_GUARD_IM]: {
         style: 'necromancy',
@@ -265,7 +265,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Devourer\'S Guard [IM]',
-        icon: '/gear_icons/necro/devourer\'s guard.png',
+        icon: '/rs-rot/gear_icons/necro/devourer\'s guard.png',
     },
     [WEAPONS.SOULBOUND_LANTERN]: {
         style: 'necromancy',
@@ -276,7 +276,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Soulbound Lantern',
-        icon: '/gear_icons/necro/soulbound lantern.png'    
+        icon: '/rs-rot/gear_icons/necro/soulbound lantern.png'    
     },
     [WEAPONS.CUSTOM_OH_LEGACY]: {
         style: 'hybrid',
@@ -284,7 +284,7 @@ export const weapons: Record<string, Equipment> = {
         slot: 'offhand',
         tier: 0,
         title: 'Custom Oh',
-        icon: '/gear_icons/shared/custom oh.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/shared/custom oh.png', // TODO: icon missing
     },
     [WEAPONS.CUSTOM_TH_LEGACY]: {
         style: 'hybrid',
@@ -292,7 +292,7 @@ export const weapons: Record<string, Equipment> = {
         slot: 'mainhand',
         tier: 0,
         title: 'Custom Th',
-        icon: '/gear_icons/shared/custom th.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/shared/custom th.png', // TODO: icon missing
     },
     [WEAPONS.ROAR_OF_AWAKENING]: {
         style: 'magic',
@@ -302,7 +302,7 @@ export const weapons: Record<string, Equipment> = {
         type: 'wand',
         classification: 'none',
         title: 'Roar of Awakening',
-        icon: '/gear_icons/magic/roar of awakening.png'    
+        icon: '/rs-rot/gear_icons/magic/roar of awakening.png'    
     },
     [WEAPONS.ROAR_OF_AWAKENING_IM]: {
         style: 'magic',
@@ -313,7 +313,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Roar of Awakening [IM]',
-        icon: '/gear_icons/magic/roar of awakening.png'    
+        icon: '/rs-rot/gear_icons/magic/roar of awakening.png'    
     },
     [WEAPONS.ODE_TO_DECEIT]: {
         style: 'magic',
@@ -323,7 +323,7 @@ export const weapons: Record<string, Equipment> = {
         type: 'orb',
         classification: 'none',
         title: 'Ode To Deceit',
-        icon: '/gear_icons/magic/ode to deceit.png'    
+        icon: '/rs-rot/gear_icons/magic/ode to deceit.png'    
     },
     [WEAPONS.ODE_TO_DECEIT_IM]: {
         style: 'magic',
@@ -334,7 +334,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
     popular: true,
         title: 'Ode To Deceit [IM]',
-        icon: '/gear_icons/magic/ode to deceit.png'    
+        icon: '/rs-rot/gear_icons/magic/ode to deceit.png'    
     },
     [WEAPONS.DARK_SHARD_OF_LENG]: {
         style: 'melee',
@@ -345,7 +345,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Dark Shard of Leng',
-        icon: '/gear_icons/melee/dark shard of leng.png'    
+        icon: '/rs-rot/gear_icons/melee/dark shard of leng.png'    
     },
     [WEAPONS.DARK_SLIVER_OF_LENG]: {
         style: 'melee',
@@ -356,7 +356,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Dark Sliver of Leng',
-        icon: '/gear_icons/melee/dark sliver of leng.png'    
+        icon: '/rs-rot/gear_icons/melee/dark sliver of leng.png'    
     },
     [WEAPONS.DARK_SHARD_OF_LENG_IM]: {
         style: 'melee',
@@ -367,7 +367,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Dark Sliver of Leng [IM]',
-        icon: '/gear_icons/melee/dark shard of leng.png'    
+        icon: '/rs-rot/gear_icons/melee/dark shard of leng.png'    
     },
     [WEAPONS.DARK_SLIVER_OF_LENG_IM]: {
         style: 'melee',
@@ -378,7 +378,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Dark Sliver of Leng [IM]',
-        icon: '/gear_icons/melee/dark sliver of leng.png'    
+        icon: '/rs-rot/gear_icons/melee/dark sliver of leng.png'    
     },
     [WEAPONS.KERIS]: {
         style: 'melee', 
@@ -389,7 +389,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Keris',
-        icon: '/gear_icons/melee/keris.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/melee/keris.png', // TODO: icon missing
     },
     [WEAPONS.KERIS_PROC]: {
         style: 'melee',
@@ -400,7 +400,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Keris Proc',
-        icon: '/gear_icons/melee/keris proc.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/melee/keris proc.png', // TODO: icon missing
     },
     [WEAPONS.KERIS_AVG]: {
         style: 'melee',
@@ -411,7 +411,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,    
         title: 'Keris Avg',
-        icon: '/gear_icons/melee/keris avg.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/melee/keris avg.png', // TODO: icon missing
     },
     [WEAPONS.PRIMED_KERIS]: {
         style: 'melee',
@@ -422,7 +422,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Primed Keris',
-        icon: '/gear_icons/melee/primed keris.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/melee/primed keris.png', // TODO: icon missing
     },
     [WEAPONS.PRIMED_KERIS_PROC]: {
         style: 'melee',
@@ -433,7 +433,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Primed Keris Proc',
-        icon: '/gear_icons/melee/primed keris proc.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/melee/primed keris proc.png', // TODO: icon missing
     },
     [WEAPONS.PRIMED_KERIS_AVG]: {
         style: 'melee',
@@ -444,7 +444,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,    
        title: 'Primed Keris Avg',
-       icon: '/gear_icons/melee/primed keris avg.png', // TODO: icon missing
+       icon: '/rs-rot/gear_icons/melee/primed keris avg.png', // TODO: icon missing
     },
     [WEAPONS.CONSECRATED_KERIS]: {
         style: 'melee',
@@ -455,7 +455,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Consecrated Keris',
-        icon: '/gear_icons/melee/consecrated keris.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/melee/consecrated keris.png', // TODO: icon missing
     },
     [WEAPONS.CONSECRATED_KERIS_PROC]: {
         style: 'melee',
@@ -466,7 +466,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Consecrated Keris Proc',
-        icon: '/gear_icons/melee/consecrated keris proc.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/melee/consecrated keris proc.png', // TODO: icon missing
     },
     [WEAPONS.CONSECRATED_KERIS_AVG]: {
         style: 'melee',
@@ -477,7 +477,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Consecrated Keris Avg',
-        icon: '/gear_icons/melee/consecrated keris avg.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/melee/consecrated keris avg.png', // TODO: icon missing
     },
     [WEAPONS.DARK_ICE_SHARD]: {
         style: 'melee',
@@ -488,7 +488,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Dark Ice Shard',
-        icon: '/gear_icons/melee/dark ice shard.png'    
+        icon: '/rs-rot/gear_icons/melee/dark ice shard.png'    
     },
     [WEAPONS.DARK_ICE_SLIVER]: {
         style: 'melee',
@@ -499,7 +499,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
     popular: false,
         title: 'Dark Ice Sliver',
-        icon: '/gear_icons/melee/dark ice sliver.png'    
+        icon: '/rs-rot/gear_icons/melee/dark ice sliver.png'    
     },
     [WEAPONS.MASTERWORK_SPEAR_OF_ANNIHILATION]: {
         style: 'melee',
@@ -510,7 +510,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
     popular: true,
         title: 'Masterwork Spear of Annihilation',
-        icon: '/gear_icons/melee/masterwork spear of annihilation.png'    
+        icon: '/rs-rot/gear_icons/melee/masterwork spear of annihilation.png'    
     },
     [WEAPONS.SOULBOUND_LANTERN_IM]: {
         style: 'necromancy',
@@ -521,7 +521,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Soulbound Lantern [IM]',
-        icon: '/gear_icons/necro/soulbound lantern.png'    
+        icon: '/rs-rot/gear_icons/necro/soulbound lantern.png'    
     },
     [WEAPONS.SPECTRAL_SHIELD]: {
         style: 'necromancy',
@@ -532,7 +532,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Spectral Shield',
-        icon: '/gear_icons/necro/spectral shield.png', // TODO: icon missing
+        icon: '/rs-rot/gear_icons/necro/spectral shield.png', // TODO: icon missing
     },
     [WEAPONS.EZK]:{
         style: 'melee',
@@ -543,7 +543,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'obsidian',
         popular: false,
         title: 'Ezk',
-        icon: '/gear_icons/melee/ezk.png'    
+        icon: '/rs-rot/gear_icons/melee/ezk.png'    
     },
     [WEAPONS.EZK_IM]:{
         style: 'melee',
@@ -554,7 +554,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'obsidian',
         popular: true,
         title: 'Ezk [IM]',
-        icon: '/gear_icons/melee/ezk.png'    
+        icon: '/rs-rot/gear_icons/melee/ezk.png'    
     },
     [WEAPONS.FRACTURED_STAFF_OF_ARMADYL]:{
         style: 'magic',
@@ -565,7 +565,7 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: false,
         title: 'Fractured Staff of Armadyl',
-        icon: '/gear_icons/magic/fractured staff of armadyl.png'    
+        icon: '/rs-rot/gear_icons/magic/fractured staff of armadyl.png'    
     },
     [WEAPONS.FRACTURED_STAFF_OF_ARMADYL_IM]:{
         style: 'magic',
@@ -576,6 +576,6 @@ export const weapons: Record<string, Equipment> = {
         classification: 'none',
         popular: true,
         title: 'Fractured Staff of Armadyl [IM]',
-        icon: '/gear_icons/magic/fractured staff of armadyl.png'    
+        icon: '/rs-rot/gear_icons/magic/fractured staff of armadyl.png'    
     },
 };

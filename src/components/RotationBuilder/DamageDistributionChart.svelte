@@ -120,7 +120,7 @@
         const fam = (familiarKey && familiarKey !== 'none') ? familiars[familiarKey] : null;
         if (fam && fam.name === key) return fam.scroll_icon || fam.icon;
         // Poison (not yet in distributionStats)
-        if (key === '_poison') return '/rs-rot/effect_icons/poison.png';
+        if (key === '_poison') return '/effect_icons/poison.png';
         return null;
     }
 

@@ -33,17 +33,17 @@
                             </div>
                         </div>
                     </div>
-                    <a href="/rs-rot/magic" class="flex flex-col group">
+                    <a href="/magic" class="flex flex-col group">
                         <div class="card border-b border-card-light">
                             <div
                                 class="flex items-center transform-gpu translate-x-0 group-hover:translate-x-2 transition-all"
                             >
-                                <img class="card-icon" src="/rs-rot/style_icons/magic.svg" alt="" />
+                                <img class="card-icon" src="/style_icons/magic.svg" alt="" />
                                 <div class="card-title">Magic Damage Calculator</div>
                             </div>
                         </div>
                     </a>
-                    <a href="/rs-rot/melee" class="flex flex-col group">
+                    <a href="/melee" class="flex flex-col group">
                         <div class="card border-b border-card-light">
                             <div
                                 class="flex items-center transform-gpu translate-x-0 group-hover:translate-x-2 transition-all"
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="/rs-rot/ranged" class="flex flex-col group">
+                    <a href="/ranged" class="flex flex-col group">
                         <div class="card border-b border-card-light">
                             <div
                                 class="flex items-center transform-gpu translate-x-0 group-hover:translate-x-2 transition-all"
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="/rs-rot/necromancy" class="flex flex-col group">
+                    <a href="/necromancy" class="flex flex-col group">
                         <div class="card border-b border-card-light">
                             <div
                                 class="flex items-center transform-gpu translate-x-0 group-hover:translate-x-2 transition-all"
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="/rs-rot/rotation_builder" class="flex flex-col group">
+                    <a href="/rotation_builder" class="flex flex-col group">
                         <div class="card">
                             <div class="flex items-center transform-gpu translate-x-0 group-hover:translate-x-2 transition-all">
                                 <div class="icon-position">
@@ -92,7 +92,7 @@
                 <div class="flex flex-col">
                     <h1 class="main-header mb-6 ml-3">Most Recent Publication</h1>
                     <div class="card card-home">
-                        <a href="/rs-rot/pdf/2024.001.pdf">
+                        <a href="/pdf/2024.001.pdf">
                             <div class="card-title hover:text-link">
                                 Quantitative Analysis of RuneScape 3 Combat
                             </div>
@@ -128,7 +128,7 @@
                             <p>Comments:</p>
                             <p>Subjects: Statistics - Methods, Dynamic Programming, Game Theory</p>
                         </div>
-                        <a href="/rs-rot/pdf/2024.001.pdf" class="hover:text-link">Open PDF</a>
+                        <a href="/pdf/2024.001.pdf" class="hover:text-link">Open PDF</a>
                     </div>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                             <ul>
                                 <li class="block transition-all duration-75 relative">
                                     <a
-                                        href="/rs-rot/research"
+                                        href="/research"
                                         class="py-2 font-normal text-xl hover:text-link"
                                         title=""
                                     >
@@ -204,7 +204,7 @@
                                 <div
                                     class="mx-auto w-24 h-24 rounded-full bg-none overflow-hidden mb-3"
                                 >
-                                    <img src="/rs-rot/contributors/akritia.webp" alt="" />
+                                    <img src="/contributors/akritia.webp" alt="" />
                                 </div>
                                 <div class="text-center text-gray-light">Akritia</div>
                                 <div class="text-center text-gray-light">
@@ -217,7 +217,7 @@
                                 <div
                                     class="mx-auto w-24 h-24 rounded-full bg-black overflow-hidden mb-3"
                                 >
-                                    <img src="/rs-rot/contributors/kyroh.webp" alt="" />
+                                    <img src="/contributors/kyroh.webp" alt="" />
                                 </div>
                                 <div class="text-center text-gray-light">Kyroh</div>
                                 <div class="text-center text-gray-light">
@@ -230,7 +230,7 @@
                                 <div
                                     class="mx-auto w-24 h-24 rounded-full bg-black overflow-hidden mb-3"
                                 >
-                                    <img src="/rs-rot/contributors/sfox.webp" alt="" />
+                                    <img src="/contributors/sfox.webp" alt="" />
                                 </div>
                                 <div class="text-center text-gray-light">Sfox</div>
                                 <div class="text-center text-gray-light">Research</div>
@@ -241,7 +241,7 @@
                                 <div
                                     class="mx-auto w-24 h-24 rounded-full bg-black overflow-hidden mb-3"
                                 >
-                                    <img src="/rs-rot/contributors/hight.webp" alt="" />
+                                    <img src="/contributors/hight.webp" alt="" />
                                 </div>
                                 <div class="text-center text-gray-light">HightDetal</div>
                                 <div class="text-center text-gray-light">Development</div>
@@ -252,7 +252,7 @@
                                 <div
                                     class="mx-auto w-24 h-24 rounded-full bg-black overflow-hidden mb-3"
                                 >
-                                    <img src="/rs-rot/contributors/code.webp" alt="" />
+                                    <img src="/contributors/code.webp" alt="" />
                                 </div>
                                 <div class="text-center text-gray-light">Codemati</div>
                                 <div class="text-center text-gray-light">Development</div>
@@ -264,7 +264,7 @@
                                     <div
                                         class="mx-auto w-24 h-24 rounded-full bg-black overflow-hidden mb-3"
                                     >
-                                        <img src="/rs-rot/contributors/dolf.webp" alt="" />
+                                        <img src="/contributors/dolf.webp" alt="" />
                                     </div>
                                     <div class="text-center text-gray-light">Gamedolf</div>
                                     <div class="text-center text-gray-light">RS Math</div>
@@ -276,7 +276,7 @@
                                 <div
                                     class="mx-auto w-24 h-24 rounded-full bg-black overflow-hidden mb-3"
                                 >
-                                    <img src="/rs-rot/contributors/rex.webp" alt="" />
+                                    <img src="/contributors/rex.webp" alt="" />
                                 </div>
                                 <div class="text-center text-gray-light">RexT</div>
                                 <div class="text-center text-gray-light">Legacy Sheet</div>
@@ -287,7 +287,7 @@
                                 <div
                                     class="mx-auto w-24 h-24 rounded-full bg-black overflow-hidden mb-3"
                                 >
-                                    <img src="/rs-rot/style_icons/rota_icon2.svg" alt="" />
+                                    <img src="/style_icons/rota_icon2.svg" alt="" />
                                 </div>
                                 <div class="text-center text-gray-light">Lo Sugar</div>
                                 <div class="text-center text-gray-light">Rotation Builder</div>
@@ -306,13 +306,13 @@
                                     Join us on discord
                                 </h1>
                                 <a href="https://discord.gg/RBWwPy4NkJ">
-                                    <img class="w-7/8 sm:w-1/3 pb-2" src="/rs-rot/logo.png" alt="" />
+                                    <img class="w-7/8 sm:w-1/3 pb-2" src="/logo.png" alt="" />
                                 </a>
                                 <div class="flex flex-row items-center">
                                     <a href="https://discord.gg/RBWwPy4NkJ">
                                         <img
                                             class="w-auto mr-4"
-                                            src="/rs-rot/google_icons/discord-blue.svg"
+                                            src="/google_icons/discord-blue.svg"
                                             alt=""
                                         />
                                     </a>
@@ -333,7 +333,7 @@
                             <div class="effect-container">
                                 <div class="card-icon rounded-full bg-black overflow-hidden mb-3">
                                     <a href="https://discord.gg/pvme">
-                                        <img src="/rs-rot/contributors/pvme.jpeg" alt="" />
+                                        <img src="/contributors/pvme.jpeg" alt="" />
                                     </a>
                                 </div>
                                 <ul>
@@ -351,7 +351,7 @@
                             <div class="effect-container">
                                 <div class="card-icon rounded-full bg-black overflow-hidden mb-3">
                                     <a href="https://discord.gg/BGjvs8Y28n">
-                                        <img src="/rs-rot/contributors/rsmath.png" alt="" />
+                                        <img src="/contributors/rsmath.png" alt="" />
                                     </a>
                                 </div>
                                 <ul>

@@ -59,7 +59,7 @@
 </script>
 
 <Navbar />
-<Header img="/rs-rot/rota_background.png" text="Rotation Builder Guide" textColour="#b2dbee" shadow={true} />
+<Header img="/rota_background.png" text="Rotation Builder Guide" textColour="#b2dbee" shadow={true} />
 
 
 <div class="space-y-14 z-20">
@@ -127,7 +127,7 @@
                             <strong>Adrenaline</strong> is tracked tick by tick.
                         </p>
 
-                        <img src="/rs-rot/guide_images/buffs_stacks_cds.svg" alt="Buffs, stacks and cooldowns on the rotation timeline" class="my-4 rounded-lg border border-gray-700" style="max-width: 100%;" />
+                        <img src="/guide_images/buffs_stacks_cds.svg" alt="Buffs, stacks and cooldowns on the rotation timeline" class="my-4 rounded-lg border border-gray-700" style="max-width: 100%;" />
 
                         
                         <p class="mb-4">

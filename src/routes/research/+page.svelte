@@ -4,7 +4,7 @@
 </script>
 
 <Navbar />
-<Header img="/rs-rot/main_background.png" />
+<Header img="/main_background.png" />
 
 <!--MAIN CONTENT-->
 <div class="space-y-14 z-20">
@@ -14,7 +14,7 @@
                 <div class="flex flex-col">
                     <h1 class="main-header mb-6 ml-3">Research Papers</h1>
                     <div class="card card-home">
-                        <a href="/rs-rot/pdf/2024.001.pdf">
+                        <a href="/pdf/2024.001.pdf">
                             <div class="card-title hover:text-link">
                                 Quantitative Analysis of RuneScape 3 Combat
                             </div>
@@ -50,7 +50,7 @@
                             <p>Comments:</p>
                             <p>Subjects: Statistics - Methods, Dynamic Programming, Game Theory</p>
                         </div>
-                        <a href="/rs-rot/pdf/2024.001.pdf" class="hover:text-link">Open PDF</a>
+                        <a href="/pdf/2024.001.pdf" class="hover:text-link">Open PDF</a>
                     </div>
                 </div>
             </div>

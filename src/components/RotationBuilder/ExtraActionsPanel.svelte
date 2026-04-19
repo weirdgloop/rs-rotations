@@ -84,16 +84,16 @@
     }
 
     const slotFallbacks = {
-        helmet: '/rs-rot/armour_icons/Head_slot.webp',
-        body: '/rs-rot/armour_icons/Torso_slot.png',
-        legs: '/rs-rot/armour_icons/Legs_slot.png',
-        gloves: '/rs-rot/armour_icons/Hands_slot.webp',
-        boots: '/rs-rot/armour_icons/Feet_slot.png',
-        necklace: '/rs-rot/armour_icons/Neck_slot.png',
-        cape: '/rs-rot/armour_icons/Back_slot.png',
-        ring: '/rs-rot/armour_icons/Ring_slot.png',
-        pocket: '/rs-rot/armour_icons/Pocket_slot.webp',
-        ammo: '/rs-rot/armour_icons/Ammo_slot.png',
+        helmet: '/armour_icons/Head_slot.webp',
+        body: '/armour_icons/Torso_slot.png',
+        legs: '/armour_icons/Legs_slot.png',
+        gloves: '/armour_icons/Hands_slot.webp',
+        boots: '/armour_icons/Feet_slot.png',
+        necklace: '/armour_icons/Neck_slot.png',
+        cape: '/armour_icons/Back_slot.png',
+        ring: '/armour_icons/Ring_slot.png',
+        pocket: '/armour_icons/Pocket_slot.webp',
+        ammo: '/armour_icons/Ammo_slot.png',
     };
 
     const stylePrefix = { ranged: 'ranged', magic: 'magic', melee: 'melee', necro: 'necro' };
@@ -216,9 +216,9 @@
     }
 
     function getWeaponFallback(hand) {
-        return hand === 'mh' ? '/rs-rot/armour_icons/Main_hand_slot.webp'
-            : hand === 'th' ? '/rs-rot/armour_icons/2h_slot.png'
-            : '/rs-rot/armour_icons/Off-hand_slot.webp';
+        return hand === 'mh' ? '/armour_icons/Main_hand_slot.webp'
+            : hand === 'th' ? '/armour_icons/2h_slot.png'
+            : '/armour_icons/Off-hand_slot.webp';
     }
 
     // Get perks for an equipped item by value

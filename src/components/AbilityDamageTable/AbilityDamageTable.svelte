@@ -132,7 +132,7 @@
 </table>
 
 <button onclick={copyCSV}>
-    <img class="w-auto h-[64px]" src="/rs-rot/csv.png" alt="copy-to-csv" />
+    <img class="w-auto h-[64px]" src="/csv.png" alt="copy-to-csv" />
 </button>
 
 <style>

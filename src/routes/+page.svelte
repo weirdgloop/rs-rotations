@@ -155,7 +155,7 @@
                             <ul>
                                 <li class="block transition-all duration-75 relative">
                                     <a
-                                        href="/projects"
+                                        href="/rs-rot/projects"
                                         class="py-2 font-normal text-xl hover:text-link"
                                         title=""
                                     >
@@ -183,7 +183,7 @@
                             <ul>
                                 <li class="block transition-all duration-75 relative">
                                     <a
-                                        href="/faq"
+                                        href="/rs-rot/faq"
                                         class="py-2 font-normal text-xl hover:text-link"
                                         title=""
                                     >

@@ -360,7 +360,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'melee',
         cooldown: 0,
         title: 'Auto',
-        icon: '/ability_icons/melee/Attack_ability.png',
+        icon: '/rs-rot/ability_icons/melee/Attack_ability.png',
     },
     [ABILITIES.GREATER_BARGE]: {
         // ability name
@@ -376,7 +376,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 20.4,
         title: 'Greater barge',
-        icon: '/ability_icons/melee/30x30/gbarge.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/gbarge.png',
     },
     [ABILITIES.REND]: {
         minHit: 1.35,
@@ -390,7 +390,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'melee',
         cooldown: 5.4,
         title: 'Rend',
-        icon: '/ability_icons/melee/Rend.png',
+        icon: '/rs-rot/ability_icons/melee/Rend.png',
     },
     [ABILITIES.CHAOS_ROAR]: {
         // ability name
@@ -405,7 +405,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'melee',
         cooldown: 60,
         title: 'Chaos roar',
-        icon: '/ability_icons/melee/30x30/roar.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/roar.png',
     },
     [ABILITIES.PUNISH]: {
         // ability name
@@ -421,7 +421,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 24,
         title: 'Punish',
-        icon: '/ability_icons/melee/30x30/punish.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/punish.png',
     },
     [ABILITIES.FURY]: {
         // ability name
@@ -437,7 +437,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 15
     ,
         title: 'Fury',
-        icon: '/ability_icons/melee/30x30/fury.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/fury.png',
     },
     [ABILITIES.GREATER_FURY]: {
         // ability name
@@ -453,7 +453,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 15,
         title: 'Greater fury',
-        icon: '/ability_icons/melee/30x30/gfury.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/gfury.png',
     },
     [ABILITIES.ADAPTIVE_STRIKE_HIT]: {
         minHit: 0.6,
@@ -484,7 +484,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         },
         cooldown: 5.4,
         title: 'Adaptive strike',
-        icon: '/ability_icons/melee/Adaptive_Strike.png',
+        icon: '/rs-rot/ability_icons/melee/Adaptive_Strike.png',
     },
     [ABILITIES.ADAPTIVE_STRIKE_TH]: {
         minHit: 1.2,
@@ -511,7 +511,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 15,
         title: 'Backhand',
-        icon: '/ability_icons/melee/30x30/backhand.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/backhand.png',
     },
     [ABILITIES.BLADED_DIVE]: {
         // ability name
@@ -527,7 +527,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 20.4,
         title: 'Bladed dive',
-        icon: '/ability_icons/melee/30x30/bd.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/bd.png',
     },
     [ABILITIES.BARGE]: {
         // ability name
@@ -543,7 +543,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 20.4,
         title: 'Barge',
-        icon: '/ability_icons/melee/30x30/barge.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/barge.png',
     },
     
     // Melee Enhanced Abilities
@@ -587,7 +587,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [0, 1, 2, 3, 4, 5, 6, 7]
     ,
         title: 'Greater flurry',
-        icon: '/ability_icons/melee/30x30/gflurry.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/gflurry.png',
     },
     // Greater Barge → Greater Flurry (Endless Assault): channel converted to multihit
     [ABILITIES.GREATER_FLURRY_BARGE]: {
@@ -649,7 +649,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 6,
         hitTimings: [0, 2, 4, 6],
         title: 'Assault',
-        icon: '/ability_icons/melee/30x30/assault.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/assault.png',
     },
     // Greater Barge → Assault (Endless Assault): channel converted to multihit, player free to act
     [ABILITIES.ASSAULT_BARGE]: {
@@ -716,7 +716,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 20.4
     ,
         title: 'Hurricane',
-        icon: '/ability_icons/melee/30x30/cane.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/cane.png',
     },
     [ABILITIES.BLOODLUST_HURRICANE_HIT]: {
         minHit: 0.75,
@@ -787,7 +787,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [0, 2, 4, 6]
     ,
         title: 'Flurry',
-        icon: '/ability_icons/melee/30x30/flurry.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/flurry.png',
     },
     // Greater Barge → Flurry (Endless Assault): channel converted to multihit
     [ABILITIES.FLURRY_BARGE]: {
@@ -850,7 +850,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 24,
         hitTimings: [1, 3, 5, 7, 9, 11, 13, 15],
         title: 'Dismember',
-        icon: '/ability_icons/melee/Dismember.png',
+        icon: '/rs-rot/ability_icons/melee/Dismember.png',
     },
     [ABILITIES.SLAUGHTER]: {
         // ability name
@@ -878,7 +878,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [1, 4, 7, 10, 13, 16]
     ,
         title: 'Slaughter',
-        icon: '/ability_icons/melee/Slaughter.png',
+        icon: '/rs-rot/ability_icons/melee/Slaughter.png',
     },
     [ABILITIES.MASSACRE_INITIAL]: {
         // ability name
@@ -931,7 +931,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 60,
         title: 'Massacre',
-        icon: '/ability_icons/melee/Massacre.png',
+        icon: '/rs-rot/ability_icons/melee/Massacre.png',
     },
     // Melee Ultimate Abilities
     [ABILITIES.OVERPOWER_HIT]: {
@@ -968,7 +968,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 30
     ,
         title: 'Overpower',
-        icon: '/ability_icons/melee/30x30/overpower.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/overpower.png',
     },
     [ABILITIES.METEOR_STRIKE]: {
         // ability name
@@ -984,7 +984,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 60,
         cooldown: 60,
         title: 'Meteor strike',
-        icon: '/ability_icons/melee/30x30/meteor.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/meteor.png',
     },
     [ABILITIES.PULVERISE]: {
         // ability name
@@ -1000,7 +1000,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 60,
         cooldown: 60,
         title: 'Pulverise',
-        icon: '/ability_icons/melee/30x30/pulverise.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/pulverise.png',
     },
     // Melee Special Attacks
     [ABILITIES.IGNEOUS_SHOWDOWN_HIT]: {
@@ -1046,7 +1046,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 50,
         cooldown: 60,
         title: 'Igneous showdown',
-        icon: '/ability_icons/melee/30x30/ezk-bg.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/ezk-bg.png',
     },
     [ABILITIES.THE_FINAL_FLURRY_1]: {
         minHit: 0.8,
@@ -1091,7 +1091,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         }
     ,
         title: 'The Final Flurry',
-        icon: '/gear_icons/melee/varanus\'s mercy.png',
+        icon: '/rs-rot/gear_icons/melee/varanus\'s mercy.png',
     },
     [ABILITIES.QUICK_SMASH]: {
         // ability name
@@ -1107,7 +1107,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 50,
         cooldown: 0.0,
         title: 'Quick smash',
-        icon: '/ability_icons/melee/30x30/gmaul-bg.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/gmaul-bg.png',
         common: false
     },
     [ABILITIES.ICY_TEMPEST_1]: {
@@ -1156,7 +1156,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [0, 0], 
         cooldown: 15,
         title: 'Icy tempest',
-        icon: '/ability_icons/melee/leng.png',
+        icon: '/rs-rot/ability_icons/melee/leng.png',
     },
     [ABILITIES.SUNFALL_SLAM]: {
         // ability name
@@ -1172,7 +1172,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 40,
         cooldown: 60.0,
         title: 'Sunfall Slam',
-        icon: '/gear_icons/melee/tumeken\'s light.png',
+        icon: '/rs-rot/gear_icons/melee/tumeken\'s light.png',
     },
     [ABILITIES.LESSER_PURIFYING_LIGHT]: {
         // ability name
@@ -1261,7 +1261,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 3,
         adrenaline: 50,
         title: 'Slice & dice',
-        icon: '/ability_icons/melee/30x30/dclaw-bg.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/dclaw-bg.png',
     },
     [ABILITIES.POWERSTAB]: {
         // ability name
@@ -1277,7 +1277,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 50,
         cooldown: 0,
         title: 'Powerstab',
-        icon: '/ability_icons/melee/30x30/dragon_2h_sword.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/dragon_2h_sword.png',
         common: false
     },
     [ABILITIES.DRACONIC_SLASH]: {
@@ -1294,7 +1294,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 0,
         title: 'Draconic Slash',
-        icon: '/ability_icons/melee/30x30/dragon_scimitar.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/dragon_scimitar.png',
         common: false
     },
     [ABILITIES.OBLITERATE]: {
@@ -1311,7 +1311,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 35,
         cooldown: 0,
         title: 'Obliterate',
-        icon: '/ability_icons/melee/30x30/statius_warhammer.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/statius_warhammer.png',
         common: false
     },
     [ABILITIES.DRACONIC_CLEAVE]: {
@@ -1328,7 +1328,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 7.2,
         title: 'Draconic Cleave',
-        icon: '/ability_icons/melee/30x30/dlong-bg.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/dlong-bg.png',
         common: false
     },
     [ABILITIES.ARMADYLS_JUDGEMENT]: {
@@ -1345,7 +1345,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 50,
         cooldown: 0,
         title: 'Armadyl\'s judgement',
-        icon: '/ability_icons/melee/ags.png',
+        icon: '/rs-rot/ability_icons/melee/ags.png',
         common: false
     },
     [ABILITIES.DRACONIC_PUNCTURE_HIT]: {
@@ -1380,7 +1380,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 0,
         adrenaline: 25,
         title: 'Draconic Puncture',
-        icon: '/ability_icons/melee/dds.png',
+        icon: '/rs-rot/ability_icons/melee/dds.png',
         common: false
     },
     [ABILITIES.SWEEP_HIT]: {
@@ -1414,7 +1414,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [1, 1], //Todo fix
         cooldown: 0,
         title: 'Sweep',
-        icon: '/ability_icons/melee/30x30/dhally.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/dhally.png',
         common: false
     },
     [ABILITIES.DRACONIC_BLOW]: {
@@ -1431,7 +1431,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 20,
         cooldown: 0,
         title: 'Draconic Blow',
-        icon: '/ability_icons/melee/dmace.png',
+        icon: '/rs-rot/ability_icons/melee/dmace.png',
         common: false
     },
     [ABILITIES.VINE_CALL_INITIAL]: {
@@ -1484,7 +1484,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 19.8,
         hitTimings: [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30],
         title: 'Vine Call',
-        icon: '/gear_icons/melee/Abyssal_vine_whip.png',
+        icon: '/rs-rot/gear_icons/melee/Abyssal_vine_whip.png',
         common: false
     },
     [ABILITIES.WARSTRIKE]: {
@@ -1502,7 +1502,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 0
     ,
         title: 'Warstrike',
-        icon: '/ability_icons/melee/30x30/bandos_godsword.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/bandos_godsword.png',
         common: false
     },
     [ABILITIES.SUNDER]: {
@@ -1520,7 +1520,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 0
     ,
         title: 'Sunder',
-        icon: '/ability_icons/melee/30x30/barrelchest_anchor.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/barrelchest_anchor.png',
         common: false
     },
     [ABILITIES.BACKSTAB]: {
@@ -1537,7 +1537,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 0
     ,
         title: 'Backstab',
-        icon: '/ability_icons/melee/30x30/bone_dagger.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/bone_dagger.png',
         common: false
     },
     [ABILITIES.LIQUEFY]: {
@@ -1554,7 +1554,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 0
     ,
         title: 'Liquefy',
-        icon: '/ability_icons/melee/30x30/brine_sabre.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/brine_sabre.png',
         common: false
     },
     [ABILITIES.CLOBBER]: {
@@ -1571,7 +1571,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Clobber',
-        icon: '/ability_icons/melee/30x30/dragon_hatchet.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/dragon_hatchet.png',
         common: false
     },
     [ABILITIES.WEAKEN_SPECIAL_ATTACK]: {
@@ -1588,7 +1588,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 50,
         cooldown: 0,
         title: 'Weaken',
-        icon: '/ability_icons/melee/30x30/darklight.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/darklight.png',
         common: false
     },
     [ABILITIES.SHOVE]: {
@@ -1617,7 +1617,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Aimed strike',
-        icon: '/ability_icons/melee/30x30/keenblade.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/keenblade.png',
         common: false
     },
     [ABILITIES.DISRUPT]: {
@@ -1634,7 +1634,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Disrupt',
-        icon: '/ability_icons/melee/30x30/korasis_sword.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/korasis_sword.png',
         common: false
     },
     [ABILITIES.GET_OVER_HERE]: {
@@ -1664,7 +1664,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Impale',
-        icon: '/ability_icons/melee/30x30/rune_claws.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/rune_claws.png',
         common: false
     },
     [ABILITIES.HEALING_BLADE]: {
@@ -1681,7 +1681,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Healing Blade',
-        icon: '/ability_icons/melee/30x30/saradomin_godsword.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/saradomin_godsword.png',
         common: false
     },
     [ABILITIES.SARADOMINS_LIGHTNING_HIT]: {
@@ -1717,7 +1717,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 0
     ,
         title: 'Saradomin\'s Lightning',
-        icon: '/ability_icons/melee/30x30/saradomin_sword.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/saradomin_sword.png',
         common: false
     },
     [ABILITIES.FEINT]: {
@@ -1734,7 +1734,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 0,
         title: 'Feint',
-        icon: '/ability_icons/melee/30x30/vls.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/vls.png',
         common: false
     },
     [ABILITIES.SPEAR_WALL]: {
@@ -1751,7 +1751,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 50,
         cooldown: 0,
         title: 'Spear Wall',
-        icon: '/ability_icons/melee/30x30/vestas_spear.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/vestas_spear.png',
         common: false
     },
     [ABILITIES.ICE_CLEAVE]: {
@@ -1768,7 +1768,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 60,
         cooldown: 7.2,
         title: 'Ice Cleave',
-        icon: '/ability_icons/melee/30x30/zamorak_godsword.png',
+        icon: '/rs-rot/ability_icons/melee/30x30/zamorak_godsword.png',
         common: false
     },
     [ABILITIES.RAMPAGE]: {
@@ -1784,7 +1784,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 100,
         cooldown: 0,
         title: 'Rampage',
-        icon: '/gear_icons/melee/dragon battleaxe.png',
+        icon: '/rs-rot/gear_icons/melee/dragon battleaxe.png',
     },
     [ABILITIES.BERSERK]: {
         minHit: 0.0, // min % of abil expressed as a decimal
@@ -1799,7 +1799,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 100,
         cooldown: 60,
         title: 'Berserk',
-        icon: '/ability_icons/melee/berserk.webp',
+        icon: '/rs-rot/ability_icons/melee/berserk.webp',
     },
     [ABILITIES.BLACKHOLE]: {
         minHit: 0.0, // min % of abil expressed as a decimal
@@ -1814,7 +1814,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 50,
         cooldown: 0,
         title: 'Blackhole',
-        icon: '/ability_icons/melee/blackhole.webp',
+        icon: '/rs-rot/ability_icons/melee/blackhole.webp',
     },
     // Mage Basic Abilities
     [ABILITIES.MAGIC_AUTO]: {
@@ -1830,7 +1830,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'magic',
         cooldown: 0,
         title: 'Auto',
-        icon: '/ability_icons/magic/Magic_ability.png',
+        icon: '/rs-rot/ability_icons/magic/Magic_ability.png',
     },
     [ABILITIES.GREATER_CONCENTRATED_BLAST_1]: {
         // ability name
@@ -1889,7 +1889,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         },
         cooldown: 5.4,
         title: 'Greater Concentrated Blast',
-        icon: '/ability_icons/magic/30x30/greater_concentrated_blast.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/greater_concentrated_blast.png',
     },
     [ABILITIES.GREATER_SONIC_WAVE]: {
         // ability name
@@ -1904,7 +1904,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'magic',
         cooldown: 15,
         title: 'Greater sonic wave',
-        icon: '/ability_icons/magic/30x30/greater_sonic_wave.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/greater_sonic_wave.png',
     },
     [ABILITIES.DRAGON_BREATH]: {
         // ability name
@@ -1919,7 +1919,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'magic',
         cooldown: 7.2,
         title: 'Dragon breath',
-        icon: '/ability_icons/magic/30x30/dragon_breath.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/dragon_breath.png',
     },
     [ABILITIES.GREATER_CHAIN]: {
         // ability name
@@ -1935,7 +1935,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 10.2,
         title: 'Greater chain',
-        icon: '/ability_icons/magic/30x30/greater_chain.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/greater_chain.png',
     },
     [ABILITIES.CONCENTRATED_BLAST_1]: {
         // ability name
@@ -1998,7 +1998,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 5.4
     ,
         title: 'Concentrated blast',
-        icon: '/ability_icons/magic/30x30/concentrated_blast.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/concentrated_blast.png',
         common: false
     },
     [ABILITIES.SONIC_WAVE]: {
@@ -2014,7 +2014,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'magic',
         cooldown: 15,
         title: 'Sonic wave',
-        icon: '/ability_icons/magic/30x30/sonic_wave.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/sonic_wave.png',
         common: false
     },
     [ABILITIES.COMBUST_HIT]: {
@@ -2059,7 +2059,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [0, 3, 6, 9, 12, 15, 18, 21, 24, 27]
     ,
         title: 'Combust',
-        icon: '/ability_icons/magic/30x30/combust.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/combust.png',
     },
     [ABILITIES.CHAIN]: {
         // ability name
@@ -2075,7 +2075,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 10.2,
         title: 'Chain',
-        icon: '/ability_icons/magic/30x30/chain.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/chain.png',
         common: false
     },
     [ABILITIES.IMPACT]: {
@@ -2091,7 +2091,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'magic',
         cooldown: 15,
         title: 'Impact',
-        icon: '/ability_icons/magic/30x30/impact.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/impact.png',
         common: false
     },
     [ABILITIES.SHOCK]: {
@@ -2122,7 +2122,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 0,
         cooldown: 0,
         title: 'Smoke cloud',
-        icon: '/effect_icons/smoke_cloud.png',
+        icon: '/rs-rot/effect_icons/smoke_cloud.png',
     },
     // Mage Enhanced Abilities
     [ABILITIES.ASPHYXIATE_HIT]: {
@@ -2175,7 +2175,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         },
         cooldown: 20.4,
         title: 'Asphyxiate',
-        icon: '/ability_icons/magic/30x30/asphyxiate.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/asphyxiate.png',
     },
     // Tumeken's Resplendence Asphyxiate (4+ pieces): 8 hits, 71-84% per hit
     [ABILITIES.TUMEKEN_ASPHYXIATE_HIT]: {
@@ -2226,7 +2226,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
             8: [ABILITIES.TUMEKEN_ASPHYXIATE_LAST_HIT]
         },
         cooldown: 20.4,
-        icon: '/ability_icons/magic/30x30/asphyxiate.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/asphyxiate.png',
     },
     [ABILITIES.WILD_MAGIC_HIT]: {
         // ability name
@@ -2260,7 +2260,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 5.4,
         hitTimings: [1, 1],
         title: 'Wild magic',
-        icon: '/ability_icons/magic/30x30/wild_magic.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/wild_magic.png',
     },
     [ABILITIES.SMOKE_TENDRILS_1]: {
         // ability name
@@ -2339,7 +2339,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 45
     ,
         title: 'Smoke tendrils',
-        icon: '/ability_icons/magic/30x30/smoke_tendrils.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/smoke_tendrils.png',
     },
     [ABILITIES.MAGMA_TEMPEST_HIT]: {
         // ability name
@@ -2381,7 +2381,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [3, 5, 7, 9, 11, 13, 15, 17]
     ,
         title: 'Magma tempest',
-        icon: '/ability_icons/magic/30x30/magma_tempest.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/magma_tempest.png',
     },
     [ABILITIES.CORRUPTION_BLAST]: {
         // ability name
@@ -2408,7 +2408,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [1, 3, 5, 7, 9],
     
         title: 'Corruption blast',
-        icon: '/ability_icons/magic/30x30/corruption_blast.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/corruption_blast.png',
     },
     [ABILITIES.CORRUPTION_BLAST_HIT_1]: {
         // ability name
@@ -2525,7 +2525,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 30,
         hitTimings: [0, 0, 0, 0],
         title: 'Omnipower',
-        icon: '/ability_icons/magic/30x30/omnipower.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/omnipower.png',
     },
     [ABILITIES.TSUNAMI]: {
         // ability name
@@ -2540,7 +2540,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'magic', // basic, threshold, special attack, ability (necromancy classification), ultimate
         cooldown: 60,
         title: 'Tsunami',
-        icon: '/ability_icons/magic/30x30/tsunami.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/tsunami.png',
     },
     [ABILITIES.SUNSHINE_DOT]: {
         // ability name
@@ -2573,7 +2573,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 60,
         hitTimings: [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49],//TODO Find out what these actually are
         title: 'Sunshine',
-        icon: '/ability_icons/magic/Sunshine.png',
+        icon: '/rs-rot/ability_icons/magic/Sunshine.png',
     },
     [ABILITIES.GREATER_SUNSHINE]: {
         //TODO check number of dot hits
@@ -2593,7 +2593,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 60,
         hitTimings: [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49],//TODO Find out what these actually are
         title: 'Greater Sunshine',
-        icon: '/ability_icons/magic/Greater_Sunshine.png',
+        icon: '/rs-rot/ability_icons/magic/Greater_Sunshine.png',
     },
     // Mage Special Attacks
     [ABILITIES.INSTABILITY]: {
@@ -2610,7 +2610,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 50,
         cooldown: 60,
         title: 'Instability',
-        icon: '/ability_icons/magic/Fractured_Staff_of_Armadyl.webp',
+        icon: '/rs-rot/ability_icons/magic/Fractured_Staff_of_Armadyl.webp',
     },
     [ABILITIES.TIME_STRIKE]: {
         // ability name
@@ -2626,7 +2626,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Timestrike',
-        icon: '/ability_icons/magic/30x30/time_strike-bg.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/time_strike-bg.png',
     },
     [ABILITIES.SOULFIRE_INITIAL]: {
         // ability name
@@ -2682,7 +2682,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [0, 0, 3, 6, 9, 12, 15],
         adrenaline: 35,
         title: 'Soulfire',
-        icon: '/ability_icons/magic/30x30/roar_of_awakening.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/roar_of_awakening.png',
     },
     [ABILITIES.THE_LAST_COMMAND]: {
         minHit: 2.4,
@@ -2697,7 +2697,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 0,
         adrenaline: 35,
         title: 'The Last Command', 
-        icon: '/ability_icons/magic/30x30/Legatus\'s_Emberstaff.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/Legatus\'s_Emberstaff.png',
     },
     [ABILITIES.TEMPEST_OF_ARMADYL_HIT_1]: {
         // ability name
@@ -2792,7 +2792,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         duration: 5,
         adrenaline: 50,
         title: 'Tempest of Armadyl',
-        icon: '/ability_icons/magic/30x30/armadyl_battlestaff-bg.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/armadyl_battlestaff-bg.png',
     },
     [ABILITIES.IBAN_BLAST]: {
         // ability name
@@ -2808,7 +2808,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 50,
         cooldown: 0,
         title: 'Iban blast',
-        icon: '/ability_icons/magic/30x30/iban_staff.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/iban_staff.png',
         common: true
     },
     [ABILITIES.CLAWS_OF_GUTHIX]: {
@@ -2826,7 +2826,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Claws of Guthix',
-        icon: '/ability_icons/magic/30x30/guthix_staff-bg.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/guthix_staff-bg.png',
     },
     [ABILITIES.RUNE_FLAME]: {
         // ability name
@@ -2843,7 +2843,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Rune flame',
-        icon: '/ability_icons/magic/30x30/mindspike.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/mindspike.png',
         common: false
     },
     [ABILITIES.DEVOUR]: {
@@ -2861,7 +2861,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Devour',
-        icon: '/ability_icons/magic/30x30/obliteration.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/obliteration.png',
         common: false
     },
     [ABILITIES.REAP]: {
@@ -2879,7 +2879,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Reap',
-        icon: '/ability_icons/magic/30x30/penance_trident.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/penance_trident.png',
         common: false
     },
     [ABILITIES.SARADOMIN_STRIKE]: {
@@ -2897,7 +2897,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Saradomin strike',
-        icon: '/ability_icons/magic/30x30/saradomin_staff.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/saradomin_staff.png',
         common: false
     },
     [ABILITIES.FROM_THE_SHADOWS_HIT]: {
@@ -2937,7 +2937,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [2, 4, 6, 8, 10],
         adrenaline: 50,
         title: 'From the shadows',
-        icon: '/ability_icons/magic/30x30/staff_of_sliske.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/staff_of_sliske.png',
         common: false
     },
     [ABILITIES.FLAMES_OF_ZAMORAK]: {
@@ -2954,7 +2954,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 0,
         title: 'Flames of Zamorak',
-        icon: '/ability_icons/magic/30x30/zamorak_staff.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/zamorak_staff.png',
         common: false
     },
     [ABILITIES.MIASMIC_BARRAGE]: {
@@ -2971,7 +2971,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 50,
         cooldown: 0,
         title: 'Miasmic barrage',
-        icon: '/ability_icons/magic/30x30/zuriels_staff.png',
+        icon: '/rs-rot/ability_icons/magic/30x30/zuriels_staff.png',
         common: false
     },
     // Necro Basic Abilities
@@ -2989,7 +2989,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Necro auto',
-        icon: '/ability_icons/necro/30x30/auto.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/auto.png',
     },
     [ABILITIES.TOUCH_OF_DEATH]: {
         // ability name
@@ -3004,7 +3004,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'necrotic', // basic, threshold, special attack, ability (necromancy classification), ultimate
         cooldown: 14.4,
         title: 'Touch of Death',
-        icon: '/ability_icons/necro/30x30/tod.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/tod.png',
     },
     [ABILITIES.SOUL_SAP]: {
         // ability name
@@ -3019,7 +3019,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'necrotic', // basic, threshold, special attack, ability (necromancy classification), ultimate
         cooldown: 5.4,
         title: 'Soul sap',
-        icon: '/ability_icons/necro/30x30/soul-sap.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/soul-sap.png',
     },
     // Necro Enhanced Abilities
     [ABILITIES.FINGER_OF_DEATH]: {
@@ -3036,7 +3036,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 60,
         cooldown: 0,
         title: 'Finger of death',
-        icon: '/ability_icons/necro/30x30/FOD.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/FOD.png',
     },
     [ABILITIES.BLOAT]: {
         // ability name
@@ -3052,7 +3052,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 20,
         cooldown: 0,
         title: 'Bloat',
-        icon: '/ability_icons/necro/30x30/bloat.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/bloat.png',
     },
     [ABILITIES.SPECTRAL_SCYTHE_1]: {
         // ability name
@@ -3068,7 +3068,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 10,
         cooldown: 15,
         title: 'Spectral scythe 1',
-        icon: '/ability_icons/necro/30x30/scyth-1.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/scyth-1.png',
     },
     [ABILITIES.SPECTRAL_SCYTHE_2]: {
         // ability name
@@ -3084,7 +3084,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 20,
         cooldown: 15,
         title: 'Spectral scythe 2',
-        icon: '/ability_icons/necro/30x30/scyth-2.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/scyth-2.png',
     },
     [ABILITIES.SPECTRAL_SCYTHE_3]: {
         // ability name
@@ -3100,7 +3100,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 30,
         cooldown: 15,
         title: 'Spectral scythe 3',
-        icon: '/ability_icons/necro/30x30/scyth-3.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/scyth-3.png',
     },
     // Necro Abilities
     [ABILITIES.SOUL_STRIKE]: {
@@ -3117,7 +3117,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 0,
         cooldown: 0,
         title: 'Soul Strike Main',
-        icon: '/ability_icons/necro/30x30/soul_strike.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/soul_strike.png',
     },
     [ABILITIES.SOUL_STRIKE_AOE]: {
         // ability name
@@ -3132,7 +3132,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'necrotic', // basic, threshold, special attack, ability (necromancy classification), ultimate
         cooldown: 0,
         title: 'Soul strike aoe',
-        icon: '/ability_icons/necro/30x30/soul_strike.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/soul_strike.png',
     },
     [ABILITIES.VOLLEY_OF_SOULS]: {
         // ability name - single hit component used by multihit
@@ -3165,7 +3165,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 0,
         adrenaline: 0,
         title: 'Volley of souls',
-        icon: '/ability_icons/necro/30x30/volley.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/volley.png',
     },
     [ABILITIES.VOLLEY_OF_SOULS_2]: {
         // ability name
@@ -3272,7 +3272,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 0,
         cooldown: 60,
         title: 'Conjure Undead Army',
-        icon: '/ability_icons/necro/30x30/conj-undead-army.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/conj-undead-army.png',
     },
     [ABILITIES.CONJURE_SKELETON_WARRIOR]: {
         minHit: 0.0,
@@ -3287,7 +3287,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 0,
         cooldown: 60,
         title: 'Conjure Skeleton Warrior',
-        icon: '/ability_icons/necro/30x30/conj-skele.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/conj-skele.png',
     },
     [ABILITIES.SKELETON_WARRIOR_AUTO]: {
         // ability name
@@ -3302,7 +3302,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'spirit', // basic, threshold, special attack, ability (necromancy classification), ultimate
         adrenaline: 0,
         title: 'Skeleton Warrior Auto',
-        icon: '/ability_icons/necro/30x30/conj-skele.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/conj-skele.png',
         cooldown: 0
     },
     [ABILITIES.COMMAND_SKELETON_WARRIOR]: {
@@ -3318,7 +3318,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'necrotic',
         cooldown: 15,
         title: 'Command Skeleton Warrior',
-        icon: '/ability_icons/necro/Command_Skeleton_Warrior.png',
+        icon: '/rs-rot/ability_icons/necro/Command_Skeleton_Warrior.png',
     },
     [ABILITIES.SKELETON_WARRIOR_AUTO_10]: {
         // ability name
@@ -3357,7 +3357,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'necrotic',
         cooldown: 60,
         title: 'Conjure Vengeful Ghost',
-        icon: '/ability_icons/necro/30x30/ghost.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/ghost.png',
     },
     [ABILITIES.VENGEFUL_GHOST_AUTO]: {
         // ability name
@@ -3372,7 +3372,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'spirit', // basic, threshold, special attack, ability (necromancy classification), ultimate
         cooldown: 0,
         title: 'Vengeful Ghost Auto',
-        icon: '/ability_icons/necro/30x30/ghost.png'
+        icon: '/rs-rot/ability_icons/necro/30x30/ghost.png'
     },
     [ABILITIES.CONJURE_PUTRID_ZOMBIE]: {
         minHit: 0.0,
@@ -3386,7 +3386,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'necrotic',
         cooldown: 60,
         title: 'Conjure Putrid Zombie',
-        icon: '/ability_icons/necro/30x30/conj-zom.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/conj-zom.png',
     },
     [ABILITIES.PUTRID_ZOMBIE_AUTO]: {
         // ability name
@@ -3401,7 +3401,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'spirit', // basic, threshold, special attack, ability (necromancy classification), ultimate
         cooldown: 0,
         title: 'Putrid Zombie Auto',
-        icon: '/ability_icons/necro/30x30/conj-zom.png'
+        icon: '/rs-rot/ability_icons/necro/30x30/conj-zom.png'
     },
     [ABILITIES.PUTRID_ZOMBIE_POISON]: {
         // Putrid Zombie fetid stench: 8-12% poison damage every 1.8s
@@ -3428,7 +3428,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'necrotic',
         cooldown: 60,
         title: 'Conjure Phantom Guardian',
-        icon: '/ability_icons/necro/30x30/command_phantom_guardian.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/command_phantom_guardian.png',
     },
     [ABILITIES.COMMAND_PUTRID_ZOMBIE]: {
         // Command Putrid Zombie: single 360-440% spirit damage explosion
@@ -3443,7 +3443,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'spirit',
         cooldown: 15,
         title: 'Command Putrid Zombie',
-        icon: '/ability_icons/necro/Command_Putrid_Zombie.png'
+        icon: '/rs-rot/ability_icons/necro/Command_Putrid_Zombie.png'
     },
     [ABILITIES.COMMAND_PHANTOM_GUARDIAN]: {
         // ability name
@@ -3458,7 +3458,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'spirit', // basic, threshold, special attack, ability (necromancy classification), ultimate
         cooldown: 9,
         title: 'Command Phantom Guardian',
-        icon: '/ability_icons/necro/30x30/command_phantom_guardian.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/command_phantom_guardian.png',
     },
     [ABILITIES.BLOOD_SIPHON_BLEED_HIT]: {
         // ability name
@@ -3518,7 +3518,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
 
 
         title: 'Blood siphon',
-        icon: '/ability_icons/necro/30x30/blood-siphon.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/blood-siphon.png',
     },
     [ABILITIES.INVOKE_DEATH]: {
         // Invoke Death: applies Death Mark on next necro attack, 12s duration
@@ -3533,7 +3533,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'necrotic',
         cooldown: 0,
         title: 'Invoke Death',
-        icon: '/ability_icons/necro/incantations/Invoke_Death_icon.png',
+        icon: '/rs-rot/ability_icons/necro/incantations/Invoke_Death_icon.png',
     },
     
     [ABILITIES.COMMAND_VENGEFUL_GHOST]: {
@@ -3549,7 +3549,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'necrotic',
         cooldown: 0,
         title: 'Command Vengeful Ghost',
-        icon: '/ability_icons/necro/Command_Vengeful_Ghost.png',
+        icon: '/rs-rot/ability_icons/necro/Command_Vengeful_Ghost.png',
     },
     // Necro Ultimate Abilities
     [ABILITIES.DEATHSKULLS]: {
@@ -3591,7 +3591,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 60
     ,
         title: 'Death Skulls',
-        icon: '/ability_icons/necro/30x30/skulls.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/skulls.png',
     },
     [ABILITIES.DEATHSKULLS_7]: {
         // ability name
@@ -3632,7 +3632,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 100,
         cooldown: 90,
         title: 'Living Death',
-        icon: '/effect_icons/living_death.png',
+        icon: '/rs-rot/effect_icons/living_death.png',
     },
     // Necro Special Attacks
     [ABILITIES.DEATH_GRASP]: {
@@ -3649,7 +3649,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 30,
         title: 'Death Grasp',
-        icon: '/ability_icons/necro/30x30/deathguard-bg.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/deathguard-bg.png',
     },
     [ABILITIES.DEATH_ESSENCE]: {
         // ability name
@@ -3665,7 +3665,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 30,
         cooldown: 0,
         title: 'Death essence',
-        icon: '/ability_icons/necro/30x30/omniguard-bg.png',
+        icon: '/rs-rot/ability_icons/necro/30x30/omniguard-bg.png',
     },
     [ABILITIES.SOUL_CRUSH]: {
         minHit: 1.35,
@@ -3680,7 +3680,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 60,
         title: 'Soul Crush',
-        icon: '/gear_icons/necro/devourer\'s guard.png',
+        icon: '/rs-rot/gear_icons/necro/devourer\'s guard.png',
     },
     //Necro Incantations
     [ABILITIES.LIFE_TRANSFER]: {
@@ -3696,7 +3696,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'necrotic',
         cooldown: 45,
         title: 'Life Transfer',
-        icon: '/ability_icons/necro/incantations/Life_Transfer.png',
+        icon: '/rs-rot/ability_icons/necro/incantations/Life_Transfer.png',
     },
     [ABILITIES.THREADS_OF_FATE]: {
         // Threads of Fate: single-target necro attacks also hit up to 4 additional enemies, 6.6s
@@ -3711,7 +3711,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'necrotic',
         cooldown: 0,
         title: 'Threads of Fate',
-        icon: '/ability_icons/necro/incantations/Threads_of_Fate_icon.png',
+        icon: '/rs-rot/ability_icons/necro/incantations/Threads_of_Fate_icon.png',
     },
     [ABILITIES.SPLIT_SOUL_NECRO]: {
         // Split Soul (Necromancy incantation): 20.4s duration, 60s cooldown
@@ -3726,7 +3726,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'split soul',
         cooldown: 60,
         title: 'Split Soul',
-        icon: '/ability_icons/necro/incantations/Split_Soul_icon.png',
+        icon: '/rs-rot/ability_icons/necro/incantations/Split_Soul_icon.png',
     },
 
     // Ranged Basic Abilities
@@ -3743,7 +3743,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'ranged',
         cooldown: 0,
         title: 'Ranged',
-        icon: '/ability_icons/ranged/Ranged_ability.png',
+        icon: '/rs-rot/ability_icons/ranged/Ranged_ability.png',
     },
     [ABILITIES.GREATER_RICOCHET_1]: {
         minHit: 0.75, // 75-85% initial hit
@@ -3811,7 +3811,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         },
         cooldown: 10.2,
         title: 'Greater Ricochet',
-        icon: '/ability_icons/ranged/30x30/grico.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/grico.png',
     },
     [ABILITIES.GALESHOT]: {
         minHit: 0.9,
@@ -3825,7 +3825,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'ranged',
         cooldown: 20.4,
         title: 'Galeshot',
-        icon: '/ability_icons/ranged/30x30/galeshot.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/galeshot.png',
     },
     [ABILITIES.PIERCING_SHOT_HIT]: {
         // ability name
@@ -3857,7 +3857,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         },
         cooldown: 3,
         title: 'Piercing shot',
-        icon: '/ability_icons/ranged/30x30/piercing.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/piercing.png',
     },
     [ABILITIES.RICOCHET]: {
         minHit: 0.75, // 75-85% initial hit
@@ -3881,7 +3881,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         },
         cooldown: 10.2,
         title: 'Ricochet',
-        icon: '/ability_icons/ranged/30x30/rico.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/rico.png',
         common: false
     },
     [ABILITIES.BINDING_SHOT]: {
@@ -3897,7 +3897,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'ranged',
         cooldown: 15,
         title: 'Binding shot',
-        icon: '/ability_icons/ranged/30x30/binding.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/binding.png',
     },
     // Ranged Enhanced Abilities
     [ABILITIES.SNAP_SHOT_HIT]: {
@@ -3930,7 +3930,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 0,
         title: 'Snap shot',
-        icon: '/ability_icons/ranged/30x30/snapshot.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/snapshot.png',
     },
     [ABILITIES.RAPID_FIRE_HIT]: {
         minHit: 0.75, 
@@ -3981,7 +3981,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 20.4,
         hitTimings: [1, 2, 3, 4, 5, 6, 7, 8],
         title: 'Rapid Fire',
-        icon: '/ability_icons/ranged/30x30/rapid.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/rapid.png',
     },
     [ABILITIES.SNIPE_HIT]: {
         // ability name
@@ -4030,7 +4030,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [3],
         cooldown: 60.0,
         title: 'Snipe',
-        icon: '/ability_icons/ranged/30x30/snipe.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/snipe.png',
     },
     [ABILITIES.SHADOW_TENDRILS]: {
         // ability name
@@ -4046,7 +4046,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 0,
         cooldown: 45,
         title: 'Shadow Tendrils',
-        icon: '/ability_icons/ranged/30x30/tendril.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/tendril.png',
     },
     [ABILITIES.IMBUE_SHADOWS]: {
         minHit: 0,
@@ -4061,7 +4061,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 40,
         cooldown: 60,
         title: 'Imbue Shadows',
-        icon: '/ability_icons/ranged/30x30/imbue_shadows.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/imbue_shadows.png',
     },
     [ABILITIES.CORRUPTION_SHOT]: {
         // ability name
@@ -4088,7 +4088,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [1, 3, 5, 7, 9],
     
         title: 'Corruption shot',
-        icon: '/ability_icons/ranged/30x30/corrupt-shot.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/corrupt-shot.png',
     },
     [ABILITIES.CORRUPTION_SHOT_HIT_1]: {
         // ability name
@@ -4169,7 +4169,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 0,
         title: 'Bombardment',
-        icon: '/ability_icons/ranged/30x30/bombard.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/bombard.png',
     },
     // Ranged Ultimate Abilities
     [ABILITIES.DEADSHOT_HIT]: {
@@ -4207,7 +4207,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 60,
     
         title: 'Deadshot',
-        icon: '/ability_icons/ranged/30x30/deadshot.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/deadshot.png',
     },
     [ABILITIES.IGNEOUS_DEADSHOT_HIT]: {
         // ability name
@@ -4222,7 +4222,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'ranged',
         cooldown: 30},
     [ABILITIES.IGNEOUS_DEADSHOT]: {
-        icon: '/ability_icons/ranged/30x30/deadshot.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/deadshot.png',
         minHit: 1.15, // min % of abil expressed as a decimal
         varHit: 0.2,
         onHitEffects: true, // does the ability get on-hit effects
@@ -4255,7 +4255,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'ranged',
         cooldown: 60,
         title: 'Death\'s Swiftness',
-        icon: '/ability_icons/ranged/Death\'s_Swiftness.png',
+        icon: '/rs-rot/ability_icons/ranged/Death\'s_Swiftness.png',
     },
     [ABILITIES.GREATER_DEATHS_SWIFTNESS]: {
         //TODO check number of dot hits
@@ -4271,7 +4271,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'ranged',
         cooldown: 60,
         title: 'Greater Death\'s Swiftness',
-        icon: '/ability_icons/ranged/Greater_Death\'s_Swiftness.png',
+        icon: '/rs-rot/ability_icons/ranged/Greater_Death\'s_Swiftness.png',
     },
     // Ranged Special Attacks
     [ABILITIES.CRYSTAL_RAIN]: {
@@ -4289,7 +4289,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 30,
         cooldown: 30,
         title: 'Crystal Rain',
-        icon: '/ability_icons/ranged/30x30/sgb.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/sgb.png',
     },
     [ABILITIES.SHADOWFALL_1]: {
         // ability name
@@ -4333,7 +4333,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [1, 1, 2] // TODO check
     ,
         title: 'Shadowfall',
-        icon: '/gear_icons/ranged/gloomfire bow.png',
+        icon: '/rs-rot/gear_icons/ranged/gloomfire bow.png',
     },
     [ABILITIES.BALANCE_BY_FORCE]: {
         // ability name
@@ -4349,7 +4349,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 30,
         cooldown: 0,
         title: 'Balance by force',
-        icon: '/ability_icons/ranged/30x30/bolg.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/bolg.png',
     },
     [ABILITIES.DESCENT_OF_DARKNESS_HIT]: {
         // ability name
@@ -4384,7 +4384,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 65
     ,
         title: 'Descent of Darkness',
-        icon: '/ability_icons/ranged/30x30/dbow.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/dbow.png',
     },
     [ABILITIES.DESTRUCTIVE_SHOT_HIT]: {
         // ability name
@@ -4417,7 +4417,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 40
     ,
         title: 'Destructive shot',
-        icon: '/ability_icons/ranged/30x30/zamorak_bow.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/zamorak_bow.png',
     },
     [ABILITIES.BALANCED_SHOT]: {
         // ability name
@@ -4434,7 +4434,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Balanced shot',
-        icon: '/ability_icons/ranged/30x30/guthix_bow.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/guthix_bow.png',
         common: false
     },
     [ABILITIES.RESTORATIVE_SHOT]: {
@@ -4452,7 +4452,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Restorative shot',
-        icon: '/ability_icons/ranged/30x30/saradomin_bow.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/saradomin_bow.png',
         common: false
     },
     [ABILITIES.AIMED_SHOT_HIT]: {
@@ -4494,7 +4494,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 0,
         adrenaline: 35,
         title: 'Aimed shot',
-        icon: '/ability_icons/ranged/30x30/hand_cannon.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/hand_cannon.png',
         common: false
     },
     [ABILITIES.POWER_SHOT]: {
@@ -4512,7 +4512,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 0,
     
         title: 'Power shot',
-        icon: '/ability_icons/ranged/30x30/magic_shieldbow.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/magic_shieldbow.png',
         common: false
     },
     [ABILITIES.TWIN_FANG_HIT]: {
@@ -4547,7 +4547,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 50
     ,
         title: 'Twin fang',
-        icon: '/ability_icons/ranged/30x30/msb.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/msb.png',
         common: false
     },
     [ABILITIES.PHANTOM_STRIKE_INITIAL]: {
@@ -4602,7 +4602,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 50
     ,
         title: 'Phantom strike',
-        icon: '/ability_icons/ranged/30x30/morrigans_javelin.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/morrigans_javelin.png',
         common: false
     },
     [ABILITIES.HAMSTRING]: {
@@ -4620,7 +4620,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Hamstring',
-        icon: '/ability_icons/ranged/30x30/morrigans_throwing_axe.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/morrigans_throwing_axe.png',
         common: false
     },
     [ABILITIES.TWIN_SHOT_HIT]: {
@@ -4655,7 +4655,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 35
     ,
         title: 'Twin shot',
-        icon: '/ability_icons/ranged/30x30/quickbow.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/quickbow.png',
         common: false
     },
     [ABILITIES.CHAIN_HIT]: {
@@ -4673,7 +4673,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 10.2,
         title: 'Chain hit',
-        icon: '/ability_icons/ranged/30x30/rune_throwing_axe.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/rune_throwing_axe.png',
         common: false
     },
     [ABILITIES.SOUL_SHOT]: {
@@ -4691,7 +4691,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     ,
         cooldown: 0,
         title: 'Soul shot',
-        icon: '/ability_icons/ranged/30x30/seercull.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/seercull.png',
         common: false
     },
     [ABILITIES.SPLIT_SOUL_ECB]: {
@@ -4708,7 +4708,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 0,
         title: 'Split soul (ECB)',
-        icon: '/ability_icons/ranged/Eldritch_crossbow.png',
+        icon: '/rs-rot/ability_icons/ranged/Eldritch_crossbow.png',
     },
     [ABILITIES.DEEP_BURN]: {
         // ability name
@@ -4724,7 +4724,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 0,
         title: 'Deep burn',
-        icon: '/ability_icons/ranged/30x30/strykebow.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/strykebow.png',
         common: false
     },
     [ABILITIES.DEFIANCE]: {
@@ -4742,7 +4742,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 0
     ,
         title: 'Defiance',
-        icon: '/ability_icons/ranged/30x30/zaniks_crossbow.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/zaniks_crossbow.png',
         common: false
     },
     [ABILITIES.LOCATE]: {
@@ -4759,7 +4759,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 35,
         cooldown: 0,
         title: 'Locate',
-        icon: '/ability_icons/ranged/Decimation.png',
+        icon: '/rs-rot/ability_icons/ranged/Decimation.png',
         common: false
     },
     [ABILITIES.BOLG_PROC]: {
@@ -4775,7 +4775,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'ranged', // basic, threshold, special attack, ability (necromancy classification), ultimate
         cooldown: 0,
         title: 'Bolg proc',
-        icon: '/ability_icons/ranged/30x30/bolg.png',
+        icon: '/rs-rot/ability_icons/ranged/30x30/bolg.png',
     },
     [ABILITIES.BOLG_PROC_PERCENTAGES]: {
         // ability name
@@ -4804,7 +4804,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 100,
         cooldown: 120,
         title: 'Natural Instinct',
-        icon: '/ability_icons/defence/30px-Natural_Instinct.png'
+        icon: '/rs-rot/ability_icons/defence/30px-Natural_Instinct.png'
     },
     [ABILITIES.RESONANCE]: {
         // ability name
@@ -4831,7 +4831,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'defence',//TODO??
         cooldown: 30,
         title: 'Freedom',
-        icon: '/ability_icons/defence/30px-Freedom.png'
+        icon: '/rs-rot/ability_icons/defence/30px-Freedom.png'
     },
     [ABILITIES.DIVERT]: {
         // ability name
@@ -4846,7 +4846,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'defence',//TODO??
         cooldown: 30,
         title: 'Divert',
-        icon: '/ability_icons/defence/Divert.png'},
+        icon: '/rs-rot/ability_icons/defence/Divert.png'},
     [ABILITIES.PREPARATION]: {
         // ability name
         minHit: 0.0, // min % of abil expressed as a decimal
@@ -4860,7 +4860,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'defence',//TODO??
         cooldown: 20.4,
         title: 'Preparation',
-        icon: '/ability_icons/defence/30px-Preparation.png'
+        icon: '/rs-rot/ability_icons/defence/30px-Preparation.png'
     },
     [ABILITIES.ANTICIPATION]: {
         // ability name
@@ -4875,7 +4875,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'defence',//TODO??
         cooldown: 24.6,
         title: 'Anticipation',
-        icon: '/ability_icons/defence/30px-Anticipation.png'
+        icon: '/rs-rot/ability_icons/defence/30px-Anticipation.png'
     },
     [ABILITIES.REFLECT]: {
         // ability name
@@ -4891,7 +4891,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 15,
         cooldown: 30,
         title: 'Reflect',
-        icon: '/ability_icons/defence/30px-Reflect.png'
+        icon: '/rs-rot/ability_icons/defence/30px-Reflect.png'
     },
     [ABILITIES.DEVOTION]: {
         // ability name
@@ -4907,7 +4907,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 15,
         cooldown: 60,
         title: 'Devotion',
-        icon: '/ability_icons/defence/30px-Devotion.png'
+        icon: '/rs-rot/ability_icons/defence/30px-Devotion.png'
     },
     [ABILITIES.REVENGE]: {
         // ability name
@@ -4923,7 +4923,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 15,
         cooldown: 45,
         title: 'Revenge',
-        icon: '/ability_icons/defence/30px-Revenge.png'        
+        icon: '/rs-rot/ability_icons/defence/30px-Revenge.png'        
     },
     [ABILITIES.IMMORTALITY]: {
         // ability name
@@ -4938,7 +4938,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'defence',//TODO??
         cooldown: 120,
         title: 'Immortality',
-        icon: '/ability_icons/defence/30px-Immortality.png'
+        icon: '/rs-rot/ability_icons/defence/30px-Immortality.png'
     },
     [ABILITIES.BARRICADE]: {
         // ability name
@@ -4953,7 +4953,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'defence',//TODO??
         cooldown: 60,
         title: 'Barricade',
-        icon: '/ability_icons/defence/30px-Barricade.png'
+        icon: '/rs-rot/ability_icons/defence/30px-Barricade.png'
     },
     [ABILITIES.POWER_OF_DARKNESS]: {
         // ability name
@@ -5147,7 +5147,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         abilityType: 'perk', mainStyle: 'ranged', damageType: 'ranged'
     ,
         title: 'Aftershock',
-        icon: '/effect_icons/perks/Aftershock.png',
+        icon: '/rs-rot/effect_icons/perks/Aftershock.png',
     },
     [ABILITIES.AFTERSHOCK_MAGIC]: {
         minHit: 0.24, varHit: 0.156,
@@ -5156,7 +5156,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         abilityType: 'perk', mainStyle: 'magic', damageType: 'magic'
     ,
         title: 'Aftershock',
-        icon: '/effect_icons/perks/Aftershock.png',
+        icon: '/rs-rot/effect_icons/perks/Aftershock.png',
         common: false
     },
     [ABILITIES.AFTERSHOCK_MELEE]: {
@@ -5166,7 +5166,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         abilityType: 'perk', mainStyle: 'melee', damageType: 'melee'
     ,
         title: 'Aftershock',
-        icon: '/effect_icons/perks/Aftershock.png',
+        icon: '/rs-rot/effect_icons/perks/Aftershock.png',
     },
     [ABILITIES.AFTERSHOCK_NECRO]: {
         minHit: 0.24, varHit: 0.156,
@@ -5175,7 +5175,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         abilityType: 'perk', mainStyle: 'necromancy', damageType: 'necrotic'
     ,
         title: 'Aftershock',
-        icon: '/effect_icons/perks/Aftershock.png',
+        icon: '/rs-rot/effect_icons/perks/Aftershock.png',
     },
     [ABILITIES.CRACKLING_RANGED]: {
         minHit: 0.5, varHit: 0,
@@ -5183,7 +5183,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damagePotentialEffects: false, abilityClassification: 'perk',
         abilityType: 'perk', mainStyle: 'ranged', damageType: 'ranged',
         title: 'Crackling',
-        icon: '/effect_icons/perks/Crackling.webp',
+        icon: '/rs-rot/effect_icons/perks/Crackling.webp',
     },
     [ABILITIES.CRACKLING_MAGIC]: {
         minHit: 0.5, varHit: 0,
@@ -5191,7 +5191,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damagePotentialEffects: false, abilityClassification: 'perk',
         abilityType: 'perk', mainStyle: 'magic', damageType: 'magic',
         title: 'Crackling',
-        icon: '/effect_icons/perks/Crackling.webp',
+        icon: '/rs-rot/effect_icons/perks/Crackling.webp',
         common: false
     },
     [ABILITIES.CRACKLING_MELEE]: {
@@ -5200,7 +5200,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damagePotentialEffects: false, abilityClassification: 'perk',
         abilityType: 'perk', mainStyle: 'melee', damageType: 'melee',
         title: 'Crackling',
-        icon: '/effect_icons/perks/Crackling.webp',
+        icon: '/rs-rot/effect_icons/perks/Crackling.webp',
     },
     [ABILITIES.CRACKLING_NECRO]: {
         minHit: 0.5, varHit: 0,
@@ -5208,7 +5208,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damagePotentialEffects: false, abilityClassification: 'perk',
         abilityType: 'perk', mainStyle: 'necromancy', damageType: 'necrotic',
         title: 'Crackling',
-        icon: '/effect_icons/perks/Crackling.webp',
+        icon: '/rs-rot/effect_icons/perks/Crackling.webp',
     },
     [ABILITIES.RUNIC_CHARGE]: {
         minHit: 0,
@@ -5263,7 +5263,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 20
     ,
         title: 'Glacial Embrace',
-        icon: '/effect_icons/Glacial_Embrace.png',
+        icon: '/rs-rot/effect_icons/Glacial_Embrace.png',
     },
     [ABILITIES.POISON_DAMAGE]: {
         // ability name

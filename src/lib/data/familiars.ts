@@ -37,8 +37,8 @@ export const familiars: Record<string, Familiar> = {
         ranged_accuracy: 0,
         magic_accuracy: 0,
         spec_min_roll: 2.0 / 3.2, // min roll: 200% of max_hit → 200/320 = 0.625 of spec_damage
-        icon: '/familiars/Ripper_Demon_chathead.png',
-        scroll_icon: '/familiars/scrolls/Ripper_Demon_scroll_(Death_From_Above).png'
+        icon: '/rs-rot/familiars/Ripper_Demon_chathead.png',
+        scroll_icon: '/rs-rot/familiars/scrolls/Ripper_Demon_scroll_(Death_From_Above).png'
     },
     'kalgerion demon': {
         name: "Kal'gerion Demon",
@@ -52,7 +52,7 @@ export const familiars: Record<string, Familiar> = {
         melee_accuracy: 3399,
         ranged_accuracy: 0,
         magic_accuracy: 3399,
-        icon: '/familiars/Kal\'gerion_demon_(familiar)_chathead.png',
+        icon: '/rs-rot/familiars/Kal\'gerion_demon_(familiar)_chathead.png',
     },
     'blood reaver': {
         name: 'Blood Reaver',
@@ -66,7 +66,7 @@ export const familiars: Record<string, Familiar> = {
         melee_accuracy: 1816,
         ranged_accuracy: 0,
         magic_accuracy: 1816,
-        icon: '/familiars/Blood_reaver_(familiar)_chathead.png'
+        icon: '/rs-rot/familiars/Blood_reaver_(familiar)_chathead.png'
     },
     'steel titan': {
         name: 'Steel Titan',
@@ -81,8 +81,8 @@ export const familiars: Record<string, Familiar> = {
         ranged_accuracy: 3023,
         magic_accuracy: 3023,
         spec_min_roll: 0.2,
-        icon: '/familiars/Steel_titan_chathead.png',
-        scroll_icon: '/familiars/scrolls/Steel_Titan_scroll_(Steel_of_Legends).png'
+        icon: '/rs-rot/familiars/Steel_titan_chathead.png',
+        scroll_icon: '/rs-rot/familiars/scrolls/Steel_Titan_scroll_(Steel_of_Legends).png'
     },
     'nihil': {
         name: 'Nihil',
@@ -96,7 +96,7 @@ export const familiars: Record<string, Familiar> = {
         melee_accuracy: 2795,
         ranged_accuracy: 2795,
         magic_accuracy: 2795,
-        icon: '/familiars/Shadow_nihil_(familiar)_chathead.png',
+        icon: '/rs-rot/familiars/Shadow_nihil_(familiar)_chathead.png',
     },
     'talon beast': {
         name: 'Talon Beast',
@@ -111,7 +111,7 @@ export const familiars: Record<string, Familiar> = {
         ranged_accuracy: 1816,
         magic_accuracy: 1816,
         spec_min_roll: 0.2,
-        icon: '/familiars/Talon_beast_chathead.png',
+        icon: '/rs-rot/familiars/Talon_beast_chathead.png',
     },
     'hellhound': {
         name: 'Hellhound',
@@ -125,7 +125,7 @@ export const familiars: Record<string, Familiar> = {
         melee_accuracy: 1816,
         ranged_accuracy: 1508,
         magic_accuracy: 1508,
-        icon: '/familiars/Hellhound_(familiar)_chathead.png',
+        icon: '/rs-rot/familiars/Hellhound_(familiar)_chathead.png',
     },
     'smoke devil': {
         name: 'Smoke Devil',
@@ -139,7 +139,7 @@ export const familiars: Record<string, Familiar> = {
         melee_accuracy: 1197,
         ranged_accuracy: 1197,
         magic_accuracy: 1197,
-        icon: '/familiars/Smoke_devil_chathead.png',
+        icon: '/rs-rot/familiars/Smoke_devil_chathead.png',
     },
     'wolpertinger': {
         name: 'Wolpertinger',
@@ -153,7 +153,7 @@ export const familiars: Record<string, Familiar> = {
         melee_accuracy: 2542,
         ranged_accuracy: 2542,
         magic_accuracy: 2542,
-        icon: '/familiars/Wolpertinger_chathead.png',
+        icon: '/rs-rot/familiars/Wolpertinger_chathead.png',
     },
 };
 

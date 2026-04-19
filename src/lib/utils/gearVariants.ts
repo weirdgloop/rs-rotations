@@ -13,7 +13,7 @@ export interface GearBadge {
 
 /** All recognised variant suffixes and their badge representations */
 const VARIANT_SUFFIXES: { pattern: RegExp; endsWith: string; badge: GearBadge }[] = [
-    { pattern: / \[IM\]$/, endsWith: ' [IM]', badge: { img: '/effect_icons/shard_of_genesis.png' } },
+    { pattern: / \[IM\]$/, endsWith: ' [IM]', badge: { img: '/rs-rot/effect_icons/shard_of_genesis.png' } },
     { pattern: / \(i\)$/, endsWith: ' (i)', badge: { text: 'i' } },
     { pattern: /\+$/, endsWith: '+', badge: { text: '+' } },
     { pattern: / \(or\)$/, endsWith: ' (or)', badge: { text: 'or' } },

@@ -766,7 +766,7 @@
 	}
 
 	.null-cursor {
-		cursor: url('/cursor_icons/abort-icon.svg') 16 16, not-allowed;
+		cursor: url('/rs-rot/cursor_icons/abort-icon.svg') 16 16, not-allowed;
 	}
 
 	.insert-cursor {
@@ -1089,7 +1089,7 @@
 	}
 
 	.null-cursor {
-		cursor: url('/cursor_icons/abort-icon.svg') 16 16, not-allowed; 
+		cursor: url('/rs-rot/cursor_icons/abort-icon.svg') 16 16, not-allowed; 
 	}
 
 	.settings-panel {
@@ -1153,7 +1153,7 @@
 </style>
 
 <Navbar />
-<Header img="/range_background.png" text="Rotation Calculator Beta" icon="/style_icons/rota_icon.svg" />
+<Header img="/rs-rot/range_background.png" text="Rotation Calculator Beta" icon="/rs-rot/style_icons/rota_icon.svg" />
 
 <div class="space-y-14 mt-10 z-20">
 	<div class="responsive-container {uiStore.activeTool.toLowerCase()}-cursor {uiStore.stallingAbility ? 'stalling' : ''}" 
@@ -1482,7 +1482,7 @@
 					<div class="pb-3">
 						<p class="text-sm">
 							Please report any bugs or errors in the RSA discord. For a more comprehensive guide, check out our
-							<a href="/rotation_builder_guide" class="text-blue-400 hover:underline hover:text-blue-300">
+							<a href="/rs-rot/rotation_builder_guide" class="text-blue-400 hover:underline hover:text-blue-300">
 							full guide</a>.
 						</p>
 					</div>

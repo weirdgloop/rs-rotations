@@ -237,7 +237,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'ring',
         style: 'hybrid',
         title: 'Tokkul-Zo',
-        icon: "/gear_icons/shared/tokkul-zo.png",
+        icon: "/rs-rot/gear_icons/shared/tokkul-zo.png",
     },
     [ARMOUR.TUSKA_GAUNTLETS]: {
         'necromancy strength': 0,
@@ -248,7 +248,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'gloves',
         style: 'hybrid',
         title: 'Warpriest of Tuska Gauntlets',
-        icon: "/gear_icons/shared/warpriest of tuska gauntlets.png",
+        icon: "/rs-rot/gear_icons/shared/warpriest of tuska gauntlets.png",
     },
     [ARMOUR.TUSKA_BOOTS]: {
         'necromancy strength': 0,
@@ -259,7 +259,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'boots',
         style: 'hybrid',
         title: 'Warpriest of Tuska Boots',
-        icon: "/gear_icons/shared/warpriest of tuska boots.png",
+        icon: "/rs-rot/gear_icons/shared/warpriest of tuska boots.png",
     },
     [ARMOUR.TUSKA_CAPE]: {
         'necromancy strength': 0,
@@ -270,7 +270,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'hybrid',
         title: 'Warpriest of Tuska Cape',
-        icon: "/gear_icons/shared/warpriest of tuska cape.png",
+        icon: "/rs-rot/gear_icons/shared/warpriest of tuska cape.png",
     },
     [ARMOUR.SIRENIC_MASK]: {
         'necromancy strength': 0,
@@ -282,7 +282,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: false,
         title: 'Sirenic Mask',
-        icon: "/gear_icons/ranged/sirenic mask.png",
+        icon: "/rs-rot/gear_icons/ranged/sirenic mask.png",
     },
     [ARMOUR.SIRENIC_HAUBERK]: {
         'necromancy strength': 0,
@@ -294,7 +294,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: false,
         title: 'Sirenic Hauberk',
-        icon: "/gear_icons/ranged/sirenic hauberk.png",
+        icon: "/rs-rot/gear_icons/ranged/sirenic hauberk.png",
     },
     [ARMOUR.SIRENIC_CHAPS]: {
         'necromancy strength': 0,
@@ -306,7 +306,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: false,
         title: 'Sirenic Chaps',
-        icon: "/gear_icons/ranged/sirenic chaps.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/ranged/sirenic chaps.png", // TODO: icon missing
     },
     [ARMOUR.ELITE_SIRENIC_MASK]: {
         'necromancy strength': 0,
@@ -318,7 +318,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: false,
         title: 'Elite Sirenic Mask',
-        icon: "/gear_icons/ranged/elite sirenic mask.png",
+        icon: "/rs-rot/gear_icons/ranged/elite sirenic mask.png",
     },
     [ARMOUR.ELITE_SIRENIC_HAUBERK]: {
         'necromancy strength': 0,
@@ -330,7 +330,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: false,
         title: 'Elite Sirenic Hauberk',
-        icon: "/gear_icons/ranged/elite sirenic hauberk.png",
+        icon: "/rs-rot/gear_icons/ranged/elite sirenic hauberk.png",
     },
     [ARMOUR.ELITE_SIRENIC_CHAPS]: {
         'necromancy strength': 0,
@@ -342,7 +342,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: false,
         title: 'Elite Sirenic Chaps',
-        icon: "/gear_icons/ranged/elite sirenic chaps.png",
+        icon: "/rs-rot/gear_icons/ranged/elite sirenic chaps.png",
     },
     [ARMOUR.DRACOLICH_COIF]: {
         'necromancy strength': 0,
@@ -354,7 +354,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: false,
         title: 'Dracolich Coif',
-        icon: "/gear_icons/ranged/dracolich coif.png",
+        icon: "/rs-rot/gear_icons/ranged/dracolich coif.png",
     },
     [ARMOUR.DRACOLICH_HAUBERK]: {
         'necromancy strength': 0,
@@ -366,7 +366,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: false,
         title: 'Dracolich Hauberk',
-        icon: "/gear_icons/ranged/dracolich hauberk.png",
+        icon: "/rs-rot/gear_icons/ranged/dracolich hauberk.png",
     },
     [ARMOUR.DRACOLICH_CHAPS]: {
         'necromancy strength': 0,
@@ -378,7 +378,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: false,
         title: 'Dracolich Chaps',
-        icon: "/gear_icons/ranged/dracolich chaps.png",
+        icon: "/rs-rot/gear_icons/ranged/dracolich chaps.png",
     },
     [ARMOUR.DRACOLICH_VAMBRACES]: {
         'necromancy strength': 0,
@@ -390,7 +390,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: false,
         title: 'Dracolich Vambraces',
-        icon: "/gear_icons/ranged/dracolich vambraces.png",
+        icon: "/rs-rot/gear_icons/ranged/dracolich vambraces.png",
     },
     [ARMOUR.DRACOLICH_BOOTS]: {
         'necromancy strength': 0,
@@ -402,7 +402,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: false,
         title: 'Dracolich Boots',
-        icon: "/gear_icons/ranged/dracolich boots.png",
+        icon: "/rs-rot/gear_icons/ranged/dracolich boots.png",
     },
     [ARMOUR.ELITE_DRACOLICH_COIF]: {
         'necromancy strength': 0,
@@ -414,7 +414,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Elite Dracolich Coif',
-        icon: "/gear_icons/ranged/elite dracolich coif.png",
+        icon: "/rs-rot/gear_icons/ranged/elite dracolich coif.png",
     },
     [ARMOUR.ELITE_DRACOLICH_HAUBERK]: {
         'necromancy strength': 0,
@@ -426,7 +426,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Elite Dracolich Hauberk',
-        icon: "/gear_icons/ranged/elite dracolich hauberk.png",
+        icon: "/rs-rot/gear_icons/ranged/elite dracolich hauberk.png",
     },
     [ARMOUR.ELITE_DRACOLICH_CHAPS]: {
         'necromancy strength': 0,
@@ -438,7 +438,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Elite Dracolich Chaps',
-        icon: "/gear_icons/ranged/elite dracolich chaps.png",
+        icon: "/rs-rot/gear_icons/ranged/elite dracolich chaps.png",
     },
     [ARMOUR.ELITE_DRACOLICH_VAMBRACES]: {
         'necromancy strength': 0,
@@ -450,7 +450,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Elite Dracolich Vambraces',
-        icon: "/gear_icons/ranged/elite dracolich vambraces.png",
+        icon: "/rs-rot/gear_icons/ranged/elite dracolich vambraces.png",
     },
     [ARMOUR.ELITE_DRACOLICH_BOOTS]: {
         'necromancy strength': 0,
@@ -462,7 +462,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Elite Dracolich Boots',
-        icon: "/gear_icons/ranged/elite dracolich boots.png",
+        icon: "/rs-rot/gear_icons/ranged/elite dracolich boots.png",
     },
     [ARMOUR.VIRTUS_MASK]: {
         'necromancy strength': 0,
@@ -474,7 +474,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: false,
         title: 'Virtus Mask',
-        icon: "/gear_icons/magic/virtus mask.png",
+        icon: "/rs-rot/gear_icons/magic/virtus mask.png",
     },
     [ARMOUR.VIRTUS_ROBE_TOP]: {
         'necromancy strength': 0,
@@ -486,7 +486,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: false,
         title: 'Virtus Robe Top',
-        icon: "/gear_icons/magic/virtus robe top.png",
+        icon: "/rs-rot/gear_icons/magic/virtus robe top.png",
     },
     [ARMOUR.VIRTUS_ROBE_LEGS]: {
         'necromancy strength': 0,
@@ -498,7 +498,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: false,
         title: 'Virtus Robe Legs',
-        icon: "/gear_icons/magic/virtus robe legs.png",
+        icon: "/rs-rot/gear_icons/magic/virtus robe legs.png",
     },
     [ARMOUR.TECTONIC_MASK]: {
         'necromancy strength': 0,
@@ -510,7 +510,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: false,
         title: 'Tectonic Mask',
-        icon: "/gear_icons/magic/tectonic mask.png",
+        icon: "/rs-rot/gear_icons/magic/tectonic mask.png",
     },
     [ARMOUR.TECTONIC_ROBE_TOP]: {
         'necromancy strength': 0,
@@ -522,7 +522,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: false,
         title: 'Tectonic Robe Top',
-        icon: "/gear_icons/magic/tectonic robe top.png",
+        icon: "/rs-rot/gear_icons/magic/tectonic robe top.png",
     },
     [ARMOUR.TECTONIC_ROBE_BOTTOM]: {
         'necromancy strength': 0,
@@ -534,7 +534,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: false,
         title: 'Tectonic Robe Bottom',
-        icon: "/gear_icons/magic/tectonic robe bottom.png",
+        icon: "/rs-rot/gear_icons/magic/tectonic robe bottom.png",
     },
     [ARMOUR.ELITE_TECTONIC_MASK]: {
         'necromancy strength': 0,
@@ -546,7 +546,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
         title: 'Elite Tectonic Mask',
-        icon: "/gear_icons/magic/elite tectonic mask.png",
+        icon: "/rs-rot/gear_icons/magic/elite tectonic mask.png",
     },
     [ARMOUR.ELITE_TECTONIC_ROBE_TOP]: {
         'necromancy strength': 0,
@@ -558,7 +558,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
         title: 'Elite Tectonic Robe Top',
-        icon: "/gear_icons/magic/elite tectonic robe top.png",
+        icon: "/rs-rot/gear_icons/magic/elite tectonic robe top.png",
     },
     [ARMOUR.ELITE_TECTONIC_ROBE_BOTTOM]: {
         'necromancy strength': 0,
@@ -570,7 +570,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
         title: 'Elite Tectonic Robe Bottom',
-        icon: "/gear_icons/magic/elite tectonic robe bottom.png",
+        icon: "/rs-rot/gear_icons/magic/elite tectonic robe bottom.png",
     },
     [ARMOUR.SLISKE_HELM]: {
         'necromancy strength': 0,
@@ -581,7 +581,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'helmet',
         style: 'hybrid',
         title: 'Anima Core Helm of Sliske',
-        icon: "/gear_icons/shared/anima core helm of sliske.png",
+        icon: "/rs-rot/gear_icons/shared/anima core helm of sliske.png",
     },
     [ARMOUR.SLISKE_BODY]: {
         'necromancy strength': 0,
@@ -592,7 +592,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'body',
         style: 'hybrid',
         title: 'Anima Core Body of Sliske',
-        icon: "/gear_icons/shared/anima core body of sliske.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/anima core body of sliske.png", // TODO: icon missing
     },
     [ARMOUR.SLISKE_LEGS]: {
         'necromancy strength': 0,
@@ -603,7 +603,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'legs',
         style: 'hybrid',
         title: 'Anima Core Legs of Sliske',
-        icon: "/gear_icons/shared/anima core legs of sliske.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/anima core legs of sliske.png", // TODO: icon missing
     },
     [ARMOUR.DEATHTOUCH_BRACELET]: {
         'necromancy strength': 14.5,
@@ -614,7 +614,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'gloves',
         style: 'hybrid',
         title: 'Deathtouch Bracelet',
-        icon: "/gear_icons/shared/deathtouch bracelet.png",
+        icon: "/rs-rot/gear_icons/shared/deathtouch bracelet.png",
     },
     [ARMOUR.NONE_TANK]: {
         'necromancy strength': 0,
@@ -625,7 +625,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'helmet',
         style: 'hybrid',
         title: 'None/Tank',
-        icon: "/gear_icons/shared/none/tank.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/none/tank.png", // TODO: icon missing
     },
     [ARMOUR.TFN_CROWN]: {
         'necromancy strength': 25,
@@ -637,7 +637,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'necromancy',
         popular: true,
         title: 'Crown of the First Necromancer',
-        icon: "/gear_icons/necro/crown of the first necromancer.png",
+        icon: "/rs-rot/gear_icons/necro/crown of the first necromancer.png",
     },
     [ARMOUR.TFN_CROWN_WITH_ADDON]: {
         'necromancy strength': 25,
@@ -648,7 +648,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'helmet',
         style: 'necromancy',
         title: 'Crown of the First Necromancer with Addon',
-        icon: "/gear_icons/necro/crown of the first necromancer with addon.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/necro/crown of the first necromancer with addon.png", // TODO: icon missing
     },
     [ARMOUR.TFN_ROBE_TOP]: {
         'necromancy strength': 37,
@@ -660,7 +660,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'necromancy',
         popular: true,
         title: 'Robe Top of the First Necromancer',
-        icon: "/gear_icons/necro/robe top of the first necromancer.png",
+        icon: "/rs-rot/gear_icons/necro/robe top of the first necromancer.png",
     },
     [ARMOUR.TFN_ROBE_BOTTOM]: {
         'necromancy strength': 32,
@@ -672,7 +672,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'necromancy',
         popular: true,
         title: 'Robe Bottom of the First Necromancer',
-        icon: "/gear_icons/necro/robe bottom of the first necromancer.png",
+        icon: "/rs-rot/gear_icons/necro/robe bottom of the first necromancer.png",
     },
     [ARMOUR.TFN_HAND_WRAP]: {
         'necromancy strength': 16,
@@ -684,7 +684,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'necromancy',
         popular: true,
         title: 'Hand Wrap of the First Necromancer',
-        icon: "/gear_icons/necro/hand wrap of the first necromancer.png",
+        icon: "/rs-rot/gear_icons/necro/hand wrap of the first necromancer.png",
     },
     [ARMOUR.TFN_FOOT_WRAPS]: {
         'necromancy strength': 16,
@@ -696,7 +696,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'necromancy',
         popular: true,
         title: 'Foot Wraps of the First Necromancer',
-        icon: "/gear_icons/necro/foot wraps of the first necromancer.png",
+        icon: "/rs-rot/gear_icons/necro/foot wraps of the first necromancer.png",
     },
     [ARMOUR.DEATHDEALER_HOOD_T90]: {
         'necromancy strength': 23.2,
@@ -708,7 +708,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'necromancy',
         popular: true,
         title: 'Deathdealer Hood (T90)',
-        icon: "/gear_icons/necro/deathdealer hood (tier 90).png",
+        icon: "/rs-rot/gear_icons/necro/deathdealer hood (tier 90).png",
     },
     [ARMOUR.DEATHDEALER_ROBE_TOP_T90]: {
         'necromancy strength': 34.8,
@@ -720,7 +720,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'necromancy',
         popular: true,
         title: 'Deathdealer Robe Top (T90)',
-        icon: "/gear_icons/necro/deathdealer robe top (tier 90).png",
+        icon: "/rs-rot/gear_icons/necro/deathdealer robe top (tier 90).png",
     },
     [ARMOUR.DEATHDEALER_ROBE_BOTTOM_T90]: {
         'necromancy strength': 29,
@@ -732,7 +732,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'necromancy',
         popular: true,
         title: 'Deathdealer Robe Bottom (T90)',
-        icon: "/gear_icons/necro/deathdealer robe bottom (tier 90).png",
+        icon: "/rs-rot/gear_icons/necro/deathdealer robe bottom (tier 90).png",
     },
     [ARMOUR.DEATHDEALER_GLOVES_T90]: {
         'necromancy strength': 14.5,
@@ -744,7 +744,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'necromancy',
         popular: true,
         title: 'Deathdealer Gloves (T90)',
-        icon: "/gear_icons/necro/deathdealer gloves (tier 90).png",
+        icon: "/rs-rot/gear_icons/necro/deathdealer gloves (tier 90).png",
     },
     [ARMOUR.DEATHDEALER_BOOTS_T90]: {
         'necromancy strength': 14.5,
@@ -756,7 +756,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'necromancy',
         popular: true,
         title: 'Deathdealer Boots (T90)',
-        icon: "/gear_icons/necro/deathdealer boots (tier 90).png",
+        icon: "/rs-rot/gear_icons/necro/deathdealer boots (tier 90).png",
     },
     [ARMOUR.CINDERBANE_GLOVES]: {
         'necromancy strength': 11,
@@ -768,7 +768,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: true,
         title: 'Cinderbane Gloves',
-        icon: "/gear_icons/shared/cinderbane gloves.png",
+        icon: "/rs-rot/gear_icons/shared/cinderbane gloves.png",
     },
     [ARMOUR.LACERATION_BOOTS]: {
         'necromancy strength': 0,
@@ -779,7 +779,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'boots',
         style: 'melee',
         title: 'Laceration Boots',
-        icon: "/gear_icons/melee/laceration boots.png",
+        icon: "/rs-rot/gear_icons/melee/laceration boots.png",
     },
     [ARMOUR.LACERATION_BOOTS_E]: {
         'necromancy strength': 0,
@@ -790,7 +790,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'boots',
         style: 'melee',
         title: 'Enhanced Laceration Boots',
-        icon: "/gear_icons/melee/enhanced laceration boots.png",
+        icon: "/rs-rot/gear_icons/melee/enhanced laceration boots.png",
     },
     [ARMOUR.FLEETING_BOOTS]: {
         'necromancy strength': 0,
@@ -801,7 +801,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'boots',
         style: 'ranged',
         title: 'Fleeting Boots',
-        icon: "/gear_icons/ranged/fleeting boots.png",
+        icon: "/rs-rot/gear_icons/ranged/fleeting boots.png",
     },
     [ARMOUR.FLEETING_BOOTS_E]: {
         'necromancy strength': 0,
@@ -812,7 +812,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'boots',
         style: 'ranged',
         title: 'Enhanced Fleeting Boots',
-        icon: "/gear_icons/ranged/enhanced fleeting boots.png",
+        icon: "/rs-rot/gear_icons/ranged/enhanced fleeting boots.png",
     },
     [ARMOUR.BLAST_DIFFUSION_BOOTS]: {
         'necromancy strength': 0,
@@ -823,7 +823,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'boots',
         style: 'magic',
         title: 'Blast Diffusion Boots',
-        icon: "/gear_icons/magic/blast diffusion boots.png",
+        icon: "/rs-rot/gear_icons/magic/blast diffusion boots.png",
     },
     [ARMOUR.BLAST_DIFFUSION_BOOTS_E]: {
         'necromancy strength': 0,
@@ -835,7 +835,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
         title: 'Enhanced Blast Diffusion Boots',
-        icon: "/gear_icons/magic/enhanced blast diffusion boots.png",
+        icon: "/rs-rot/gear_icons/magic/enhanced blast diffusion boots.png",
     },
     [ARMOUR.SILVERHAWK_BOOTS]: {
         'necromancy strength': 6.9,
@@ -846,7 +846,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'boots',
         style: 'hybrid',
         title: 'Silverhawk Boots',
-        icon: "/gear_icons/shared/silverhawk boots.png",
+        icon: "/rs-rot/gear_icons/shared/silverhawk boots.png",
     },
     [ARMOUR.MASTERWORK_MELEE_HELM]: {
         'necromancy strength': 0,
@@ -858,7 +858,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: false,
         title: 'Masterwork Melee Helm',
-        icon: "/gear_icons/melee/masterwork melee helm.png",
+        icon: "/rs-rot/gear_icons/melee/masterwork melee helm.png",
     },
     [ARMOUR.MASTERWORK_MELEE_PLATEBODY]: {
         'necromancy strength': 0,
@@ -870,7 +870,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: false,
         title: 'Masterwork Melee Platebody',
-        icon: "/gear_icons/melee/masterwork melee platebody.png",
+        icon: "/rs-rot/gear_icons/melee/masterwork melee platebody.png",
     },
     [ARMOUR.MASTERWORK_MELEE_PLATELEGS]: {
         'necromancy strength': 0,
@@ -882,7 +882,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: false,
         title: 'Masterwork Melee Platelegs',
-        icon: "/gear_icons/melee/masterwork melee platelegs.png",
+        icon: "/rs-rot/gear_icons/melee/masterwork melee platelegs.png",
     },
     [ARMOUR.MASTERWORK_MELEE_GLOVES]: {
         'necromancy strength': 0,
@@ -894,7 +894,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: false,
         title: 'Masterwork Melee Gloves',
-        icon: "/gear_icons/melee/masterwork melee gloves.png",
+        icon: "/rs-rot/gear_icons/melee/masterwork melee gloves.png",
     },
     [ARMOUR.MASTERWORK_MELEE_BOOTS]: {
         'necromancy strength': 0,
@@ -906,7 +906,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: false,
         title: 'Masterwork Melee Boots',
-        icon: "/gear_icons/melee/masterwork melee boots.png",
+        icon: "/rs-rot/gear_icons/melee/masterwork melee boots.png",
     },
     [ARMOUR.TMW_MELEE_HELM]: {
         'necromancy strength': 0,
@@ -918,7 +918,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: false,
         title: 'Trimmed Masterwork Melee Helm',
-        icon: "/gear_icons/melee/trimmed masterwork melee helm.png",
+        icon: "/rs-rot/gear_icons/melee/trimmed masterwork melee helm.png",
     },
     [ARMOUR.TMW_MELEE_PLATEBODY]: {
         'necromancy strength': 0,
@@ -930,7 +930,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: false,
         title: 'Trimmed Masterwork Melee Platebody',
-        icon: "/gear_icons/melee/trimmed masterwork melee platebody.png",
+        icon: "/rs-rot/gear_icons/melee/trimmed masterwork melee platebody.png",
     },
     [ARMOUR.TMW_MELEE_PLATELEGS]: {
         'necromancy strength': 0,
@@ -942,7 +942,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: false,
         title: 'Trimmed Masterwork Melee Platelegs',
-        icon: "/gear_icons/melee/trimmed masterwork melee platelegs.png",
+        icon: "/rs-rot/gear_icons/melee/trimmed masterwork melee platelegs.png",
     },
     [ARMOUR.TMW_MELEE_BOOTS]: {
         'necromancy strength': 0,
@@ -954,7 +954,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: false,
         title: 'Trimmed Masterwork Melee Boots',
-        icon: "/gear_icons/melee/trimmed masterwork melee boots.png",
+        icon: "/rs-rot/gear_icons/melee/trimmed masterwork melee boots.png",
     },
     [ARMOUR.TMW_MELEE_GLOVES]: {
         'necromancy strength': 0,
@@ -966,7 +966,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: false,
         title: 'Trimmed Masterwork Melee Gloves',
-        icon: "/gear_icons/melee/trimmed masterwork melee gloves.png",
+        icon: "/rs-rot/gear_icons/melee/trimmed masterwork melee gloves.png",
     },
     [ARMOUR.GLOVES_OF_PASSAGE]: {
         'necromancy strength': 0,
@@ -977,7 +977,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'gloves',
         style: 'melee',
         title: 'Gloves of Passage',
-        icon: "/gear_icons/melee/gloves of passage.png",
+        icon: "/rs-rot/gear_icons/melee/gloves of passage.png",
     },
     [ARMOUR.GLOVES_OF_PASSAGE_E]: {
         'necromancy strength': 0,
@@ -989,7 +989,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: true,
         title: 'Enhanced Gloves of Passage',
-        icon: "/gear_icons/melee/enhanced gloves of passage.png",
+        icon: "/rs-rot/gear_icons/melee/enhanced gloves of passage.png",
     },
     [ARMOUR.VESTMENTS_OF_HAVOC_HOOD]: {
         'necromancy strength': 0,
@@ -1001,7 +1001,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: true,
         title: 'Vestments of Havoc Hood',
-        icon: "/gear_icons/melee/vestments of havoc hood.png",
+        icon: "/rs-rot/gear_icons/melee/vestments of havoc hood.png",
     },
     [ARMOUR.VESTMENTS_OF_HAVOC_ROBE_TOP]: {
         'necromancy strength': 0,
@@ -1013,7 +1013,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: true,
         title: 'Vestments of Havoc Robe Top',
-        icon: "/gear_icons/melee/vestments of havoc robe top.png",
+        icon: "/rs-rot/gear_icons/melee/vestments of havoc robe top.png",
     },
     [ARMOUR.VESTMENTS_OF_HAVOC_ROBE_BOTTOM]: {
         'necromancy strength': 0,
@@ -1025,7 +1025,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: true,
         title: 'Vestments of Havoc Robe Bottom',
-        icon: "/gear_icons/melee/vestments of havoc robe bottom.png",
+        icon: "/rs-rot/gear_icons/melee/vestments of havoc robe bottom.png",
     },
     [ARMOUR.VESTMENTS_OF_HAVOC_BOOTS]: {
         'necromancy strength': 0,
@@ -1037,7 +1037,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: true,
         title: 'Vestments of Havoc Boots',
-        icon: "/gear_icons/melee/vestments of havoc boots.png",
+        icon: "/rs-rot/gear_icons/melee/vestments of havoc boots.png",
     },
     [ARMOUR.IGNEOUS_KAL_ZUK]: {
         'necromancy strength': 43,
@@ -1049,7 +1049,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: true,
         title: 'Igneous Kal-Zuk',
-        icon: "/gear_icons/shared/igneous kal-zuk.png",
+        icon: "/rs-rot/gear_icons/shared/igneous kal-zuk.png",
     },
     [ARMOUR.IGNEOUS_KAL_MOR]: {
         'necromancy strength': 43,
@@ -1060,7 +1060,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'necromancy',
         title: 'Igneous Kal-Mor',
-        icon: "/gear_icons/necro/igneous kal-mor.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/necro/igneous kal-mor.png", // TODO: icon missing
     },
     [ARMOUR.IGNEOUS_KAL_XIL]: {
         'necromancy strength': 0,
@@ -1071,7 +1071,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'ranged',
         title: 'Igneous Kal-Xil',
-        icon: "/gear_icons/ranged/igneous kal-xil.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/ranged/igneous kal-xil.png", // TODO: icon missing
     },
     [ARMOUR.IGNEOUS_KAL_MEJ]: {
         'necromancy strength': 0,
@@ -1082,7 +1082,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'magic',
         title: 'Igneous Kal-Mej',
-        icon: "/gear_icons/magic/igneous kal-mej.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/igneous kal-mej.png", // TODO: icon missing
     },
     [ARMOUR.IGNEOUS_KAL_KET]: {
         'necromancy strength': 0,
@@ -1093,7 +1093,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'melee',
         title: 'Igneous Kal-Ket',
-        icon: "/gear_icons/melee/igneous kal-ket.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/melee/igneous kal-ket.png", // TODO: icon missing
     },
     [ARMOUR.EOF]: {
         'necromancy strength': 56,
@@ -1105,7 +1105,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: true,
         title: 'Essence of Finality Amulet',
-        icon: "/gear_icons/shared/essence of finality amulet.png",
+        icon: "/rs-rot/gear_icons/shared/essence of finality amulet.png",
     },
     [ARMOUR.EOF_OR]: {
         'necromancy strength': 59,
@@ -1117,7 +1117,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: true,
         title: 'Essence of Finality Amulet (Or)',
-        icon: "/gear_icons/shared/essence of finality amulet.png",
+        icon: "/rs-rot/gear_icons/shared/essence of finality amulet.png",
     },
     [ARMOUR.AOS]: {
         'necromancy strength': 46.3,
@@ -1129,7 +1129,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: true,
         title: 'Amulet of Souls',
-        icon: "/gear_icons/shared/amulet of souls.png",
+        icon: "/rs-rot/gear_icons/shared/amulet of souls.png",
     },
     [ARMOUR.AOS_OR]: {
         'necromancy strength': 48,
@@ -1141,7 +1141,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: false,
         title: 'Amulet of Souls (Or)',
-        icon: "/gear_icons/shared/amulet of souls.png",
+        icon: "/rs-rot/gear_icons/shared/amulet of souls.png",
     },
     [ARMOUR.BERSERKER_NECKLACE]: {
         'necromancy strength': 0,
@@ -1152,7 +1152,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'necklace',
         style: 'melee',
         title: 'Berserker Necklace',
-        icon: "/gear_icons/melee/berserker necklace.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/melee/berserker necklace.png", // TODO: icon missing
     },
     [ARMOUR.DESERT_AMULET_4]: {
         'necromancy strength': 30.2,
@@ -1163,7 +1163,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'necklace',
         style: 'hybrid',
         title: 'Desert Amulet 4',
-        icon: "/gear_icons/shared/desert amulet 4.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/desert amulet 4.png", // TODO: icon missing
     },
     [ARMOUR.DRAGON_RIDER_AMULET]: {
         'necromancy strength': 30.2,
@@ -1174,7 +1174,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'necklace',
         style: 'hybrid',
         title: 'Dragon Rider Amulet',
-        icon: "/gear_icons/shared/dragon rider amulet.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/dragon rider amulet.png", // TODO: icon missing
     },
     [ARMOUR.BLOOD_AMULET_OF_FURY]: {
         'necromancy strength': 37.3,
@@ -1185,7 +1185,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'necklace',
         style: 'hybrid',
         title: 'Blood Amulet of Fury',
-        icon: "/gear_icons/shared/blood amulet of fury.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/blood amulet of fury.png", // TODO: icon missing
     },
     [ARMOUR.ARCANE_BLOOD_NECKLACE]: {
         'necromancy strength': 0,
@@ -1196,7 +1196,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'necklace',
         style: 'magic',
         title: 'Arcane Blood Necklace',
-        icon: "/gear_icons/magic/arcane blood necklace.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/arcane blood necklace.png", // TODO: icon missing
     },
     [ARMOUR.BRAWLERS_BLOOD_NECKLACE]: {
         'necromancy strength': 0,
@@ -1216,7 +1216,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'necklace',
         style: 'ranged',
         title: 'Farsight Blood Necklace',
-        icon: "/gear_icons/ranged/farsight blood necklace.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/ranged/farsight blood necklace.png", // TODO: icon missing
     },
     [ARMOUR.ERETHDORS_GRIMOIRE]: {
         'necromancy strength': 7,
@@ -1228,7 +1228,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: true,
         title: 'Erethdors Grimoire',
-        icon: "/gear_icons/shared/erethdors grimoire.png",
+        icon: "/rs-rot/gear_icons/shared/erethdors grimoire.png",
     },
     [ARMOUR.FUL_BOOK]: {
         'necromancy strength': 8,
@@ -1240,7 +1240,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: true,
         title: 'Scripture of Ful',
-        icon: "/gear_icons/shared/scripture of ful.png",
+        icon: "/rs-rot/gear_icons/shared/scripture of ful.png",
     },
     [ARMOUR.JAS_BOOK]: {
         'necromancy strength': 8,
@@ -1252,7 +1252,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: true,
         title: 'Scripture of Jas',
-        icon: "/gear_icons/shared/scripture of jas.png",
+        icon: "/rs-rot/gear_icons/shared/scripture of jas.png",
     },
     [ARMOUR.AMASCUT_BOOK]: {
         'necromancy strength': 8,
@@ -1263,7 +1263,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'pocket',
         style: 'hybrid',
         title: 'Scripture of Amascut',
-        icon: "/gear_icons/shared/scripture of amascut.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/scripture of amascut.png", // TODO: icon missing
     },
     [ARMOUR.GWD3_SCRIPTURE]: {
         'necromancy strength': 8,
@@ -1283,7 +1283,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'pocket',
         style: 'hybrid',
         title: 'Illuminated God Book',
-        icon: "/gear_icons/shared/illuminated book of law.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/illuminated book of law.png", // TODO: icon missing
     },
     [ARMOUR.SCRIMSHAW_OF_ELEMENTS]: {
         'necromancy strength': 0,
@@ -1294,7 +1294,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'pocket',
         style: 'magic',
         title: 'Scrimshaw of Elements',
-        icon: "/gear_icons/magic/scrimshaw of the elements.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/scrimshaw of the elements.png", // TODO: icon missing
     },
     [ARMOUR.SUPERIOR_SCRIMSHAW_OF_ELEMENTS]: {
         'necromancy strength': 0,
@@ -1305,7 +1305,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'pocket',
         style: 'magic',
         title: 'Superior Scrimshaw of Elements',
-        icon: "/gear_icons/magic/superior scrimshaw of the elements.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/superior scrimshaw of the elements.png", // TODO: icon missing
     },
     [ARMOUR.KERAPACS_WRISTWRAPS]: {
         'necromancy strength': 0,
@@ -1316,7 +1316,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'gloves',
         style: 'magic',
         title: 'Kerapacs Wristwraps',
-        icon: "/gear_icons/magic/kerapacs wristwraps.png",
+        icon: "/rs-rot/gear_icons/magic/kerapacs wristwraps.png",
     },
     [ARMOUR.KERAPACS_WRISTWRAPS_E]: {
         'necromancy strength': 0,
@@ -1327,7 +1327,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'gloves',
         style: 'magic',
         title: 'Enhanced Kerapacs Wristwraps',
-        icon: "/gear_icons/magic/enhanced kerapacs wristwraps.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/enhanced kerapacs wristwraps.png", // TODO: icon missing
     },
     [ARMOUR.NIGHTMARE_GAUNTLETS]: {
         'necromancy strength': 13.5,
@@ -1338,7 +1338,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'gloves',
         style: 'ranged',
         title: 'Nightmare Gauntlets',
-        icon: "/gear_icons/ranged/nightmare gauntlets.png",
+        icon: "/rs-rot/gear_icons/ranged/nightmare gauntlets.png",
     },
     [ARMOUR.NIGHTMARE_GAUNTLETS_E]: {
         'necromancy strength': 14.5,
@@ -1349,7 +1349,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'gloves',
         style: 'ranged',
         title: 'Enhanced Nightmare Gauntlets',
-        icon: "/gear_icons/ranged/enhanced nightmare gauntlets.png",
+        icon: "/rs-rot/gear_icons/ranged/enhanced nightmare gauntlets.png",
     },
     [ARMOUR.JAWS_OF_THE_ABYSS]: {
         'necromancy strength': 0,
@@ -1360,7 +1360,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'helmet',
         style: 'melee',
         title: 'Jaws of the Abyss',
-        icon: "/gear_icons/melee/jaws of the abyss.png",
+        icon: "/rs-rot/gear_icons/melee/jaws of the abyss.png",
     },
     [ARMOUR.SALVE_AMULET]: {
         'necromancy strength': 0,
@@ -1371,7 +1371,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'necklace',
         style: 'hybrid',
         title: 'Salve Amulet',
-        icon: "/gear_icons/shared/salve amulet.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/salve amulet.png", // TODO: icon missing
     },
     [ARMOUR.SALVE_AMULET_E]: {
         'necromancy strength': 4.2,
@@ -1382,7 +1382,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'necklace',
         style: 'hybrid',
         title: 'Salve Amulet (E)',
-        icon: "/gear_icons/shared/salve amulet.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/salve amulet.png", // TODO: icon missing
     },
     [ARMOUR.REAVERS_RING]: {
         'necromancy strength': 27.7,
@@ -1394,7 +1394,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: true,
         title: 'Reavers Ring',
-        icon: "/gear_icons/shared/reavers ring.png",
+        icon: "/rs-rot/gear_icons/shared/reavers ring.png",
     },
     [ARMOUR.CHANNELLERS_RING]: {
         'necromancy strength': 0,
@@ -1406,7 +1406,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
             title: 'Channeller\'S Ring',
-            icon: "/gear_icons/magic/channeller's ring.png",
+            icon: "/rs-rot/gear_icons/magic/channeller's ring.png",
     },
     [ARMOUR.CHANNELLERS_RING_E]: {
         'necromancy strength': 0,
@@ -1418,7 +1418,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
         title: 'Channeller\'S Ring+',
-        icon: "/gear_icons/magic/channeller's ring.png",
+        icon: "/rs-rot/gear_icons/magic/channeller's ring.png",
     },
     [ARMOUR.STALKERS_RING]: {
         'necromancy strength': 0,
@@ -1430,7 +1430,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: false,
         title: 'Stalker\'S Ring',
-        icon: "/gear_icons/ranged/stalker's ring.png",
+        icon: "/rs-rot/gear_icons/ranged/stalker's ring.png",
     },
     [ARMOUR.STALKERS_RING_E]: {
         'necromancy strength': 0,
@@ -1442,7 +1442,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Stalker\'S Ring+',
-        icon: "/gear_icons/ranged/stalker's ring.png",
+        icon: "/rs-rot/gear_icons/ranged/stalker's ring.png",
     },
     [ARMOUR.CHAMPIONS_RING]: {
         'necromancy strength': 0,
@@ -1453,7 +1453,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'ring',
         style: 'melee',
         title: 'Champion\'S Ring',
-        icon: "/gear_icons/melee/champion's ring.png",
+        icon: "/rs-rot/gear_icons/melee/champion's ring.png",
     },
     [ARMOUR.CHAMPIONS_RING_E]: {
         'necromancy strength': 0,
@@ -1465,7 +1465,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: true,
         title: 'Champion\'S Ring+',
-        icon: "/gear_icons/melee/champion's ring.png",
+        icon: "/rs-rot/gear_icons/melee/champion's ring.png",
     },
     [ARMOUR.ASYLUM_SURGEONS_RING]: {
         'necromancy strength': 21,
@@ -1476,7 +1476,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'ring',
         style: 'hybrid',
         title: 'Asylum Surgeons Ring',
-        icon: "/gear_icons/shared/asylum surgeons ring.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/asylum surgeons ring.png", // TODO: icon missing
     },
     [ARMOUR.RING_OF_DEATH]: {
         'necromancy strength': 25.2,
@@ -1487,7 +1487,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'ring',
         style: 'hybrid',
         title: 'Ring of Death',
-        icon: "/gear_icons/shared/ring of death.png",
+        icon: "/rs-rot/gear_icons/shared/ring of death.png",
     },
     [ARMOUR.RING_OF_DEATH_I]: {
         'necromancy strength': 27.7,
@@ -1498,7 +1498,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'ring',
         style: 'hybrid',
         title: 'Ring of Death (I)',
-        icon: "/gear_icons/shared/ring of death.png",
+        icon: "/rs-rot/gear_icons/shared/ring of death.png",
     },
     [ARMOUR.ASYLUM_SURGEONS_RING_I]: {
         'necromancy strength': 23.4,
@@ -1509,7 +1509,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'ring',
         style: 'hybrid',
         title: 'Asylum Surgeons Ring (I)',
-        icon: "/gear_icons/shared/asylum surgeons ring.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/asylum surgeons ring.png", // TODO: icon missing
     },
     [ARMOUR.ZORGOTHS_SOUL_RING]: {
         'necromancy strength': 30.4,
@@ -1521,7 +1521,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'necromancy',
         popular: true,
         title: 'Zorgoth\'S Soul Ring',
-        icon: "/gear_icons/necro/zorgoth's soul ring.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/necro/zorgoth's soul ring.png", // TODO: icon missing
     },
     [ARMOUR.OCCULTISTS_RING]: {
         'necromancy strength': 30.4,
@@ -1533,14 +1533,14 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'necromancy',
         popular: true,
         title: 'Occultists Ring',
-        icon: "/gear_icons/necro/occultists ring.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/necro/occultists ring.png", // TODO: icon missing
     },
     [ARMOUR.RING_OF_RETRIBUTION]: {
         offensiveTier: { melee: 79, ranged: 79, magic: 79, necro: 79 },
         slot: 'ring',
         style: 'hybrid',
         title: 'Luck of the Dwarves',
-        icon: "/gear_icons/shared/ring of retribution.png",
+        icon: "/rs-rot/gear_icons/shared/ring of retribution.png",
     },
     [ARMOUR.LUCK_OF_THE_DWARVES]: {
         'necromancy strength': 17.3,
@@ -1551,7 +1551,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'ring',
         style: 'hybrid',
         title: 'Luck of the Dwarves',
-        icon: "/gear_icons/shared/luck of the dwarves.png",
+        icon: "/rs-rot/gear_icons/shared/luck of the dwarves.png",
     },
     [ARMOUR.LUCK_OF_THE_DWARVES_I]: {
         'necromancy strength': 19.8,
@@ -1562,7 +1562,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'ring',
         style: 'hybrid',
         title: 'Luck of the Dwarves (I)',
-        icon: "/gear_icons/shared/luck of the dwarves.png",
+        icon: "/rs-rot/gear_icons/shared/luck of the dwarves.png",
     },
     [ARMOUR.HAZELMERES_SIGNET_RING]: {
         'necromancy strength': 21.0,
@@ -1573,7 +1573,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'ring',
         style: 'hybrid',
         title: 'Hazelmere\'S Signet Ring',
-        icon: "/gear_icons/shared/hazelmere's signet ring.png",
+        icon: "/rs-rot/gear_icons/shared/hazelmere's signet ring.png",
     },
     [ARMOUR.HAZELMERES_SIGNET_RING_I]: {
         'necromancy strength': 23.7,
@@ -1584,7 +1584,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'ring',
         style: 'hybrid',
         title: 'Hazelmere\'S Signet Ring (I)',
-        icon: "/gear_icons/shared/hazelmere's signet ring.png",
+        icon: "/rs-rot/gear_icons/shared/hazelmere's signet ring.png",
     },
     [ARMOUR.AMULET_OF_ZEALOTS]: {
         'necromancy strength': 0,
@@ -1596,7 +1596,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: false,
         title: 'Amulet of Zealots',
-        icon: "/gear_icons/shared/amulet of zealots.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/amulet of zealots.png", // TODO: icon missing
     },
     [ARMOUR.TOKHAAR_KAL_KET]: {
         'necromancy strength': 0,
@@ -1607,7 +1607,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'melee',
         title: 'TokHaar-Kal-Ket',
-        icon: "/gear_icons/melee/tokhaar-kal-ket.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/melee/tokhaar-kal-ket.png", // TODO: icon missing
     },
     [ARMOUR.TOKHAAR_KAL_XIL]: {
         'necromancy strength': 0,
@@ -1618,7 +1618,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'ranged',
         title: 'TokHaar-Kal-Xil',
-        icon: "/gear_icons/ranged/tokhaar-kal-xil.png",
+        icon: "/rs-rot/gear_icons/ranged/tokhaar-kal-xil.png",
     },
     [ARMOUR.TOKHAAR_KAL_MEJ]: {
         'necromancy strength': 0,
@@ -1629,7 +1629,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'magic',
         title: 'TokHaar-Kal-Mej',
-        icon: "/gear_icons/magic/tokhaar-kal-mej.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/tokhaar-kal-mej.png", // TODO: icon missing
     },
     [ARMOUR.TOKHAAR_KAL_MOR]: {
         'necromancy strength': 0,
@@ -1640,7 +1640,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'necromancy',
         title: 'Tokhaar-Kal-Mor',
-        icon: "/gear_icons/necro/tokhaar-kal-mor.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/necro/tokhaar-kal-mor.png", // TODO: icon missing
     },
     [ARMOUR.COMP_MAX_CAPE]: {
         'necromancy strength': 31.5,
@@ -1651,7 +1651,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'hybrid',
         title: 'Comp/Max Cape',
-        icon: "/gear_icons/shared/completionist cape.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/completionist cape.png", // TODO: icon missing
     },
     [ARMOUR.MAX_CAPE]: {
         'necromancy strength': 31.5,
@@ -1662,7 +1662,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'hybrid',
         title: 'Max Cape',
-        icon: "/gear_icons/shared/max cape.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/max cape.png", // TODO: icon missing
     },
     [ARMOUR.GOD_CAPE]: {
         'necromancy strength': 0,
@@ -1673,7 +1673,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'magic',
         title: 'God Cape',
-        icon: "/gear_icons/magic/god cape.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/god cape.png", // TODO: icon missing
     },
     [ARMOUR.SKILL_CAPE]: {
         'necromancy strength': 21.6,
@@ -1684,7 +1684,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'hybrid',
         title: 'Skill Cape',
-        icon: "/gear_icons/shared/skill cape.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/skill cape.png", // TODO: icon missing
     },
     [ARMOUR.UNDERWORLD_GRIMOIRE_4]: {
         'necromancy strength': 15,
@@ -1695,7 +1695,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'pocket',
         style: 'hybrid',
         title: 'Underworld Grimoire 4',
-        icon: "/gear_icons/shared/underworld grimoire 4.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/underworld grimoire 4.png", // TODO: icon missing
     },
     [ARMOUR.SCRIMSHAW_OF_CRUELTY]: {
         'necromancy strength': 0,
@@ -1706,7 +1706,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'pocket',
         style: 'ranged',
         title: 'Scrimshaw of Cruelty',
-        icon: "/gear_icons/ranged/scrimshaw of cruelty.png",
+        icon: "/rs-rot/gear_icons/ranged/scrimshaw of cruelty.png",
     },
     [ARMOUR.SUPERIOR_SCRIMSHAW_OF_CRUELTY]: {
         'necromancy strength': 0,
@@ -1717,7 +1717,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'pocket',
         style: 'ranged',
         title: 'Superior Scrimshaw of Cruelty',
-        icon: "/gear_icons/ranged/superior scrimshaw of cruelty.png",
+        icon: "/rs-rot/gear_icons/ranged/superior scrimshaw of cruelty.png",
     },
     // Ammo
     [ARMOUR.FUL_ARROWS]: {
@@ -1727,7 +1727,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Ful Arrows',
-        icon: "/gear_icons/ranged/ful arrows.png",
+        icon: "/rs-rot/gear_icons/ranged/ful arrows.png",
     },
     [ARMOUR.WEN_ARROWS]: {
         'necromancy strength': 0, 'magic strength': 0, 'melee strength': 0, 'ranged strength': 0,
@@ -1736,7 +1736,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Wen Arrows',
-        icon: "/gear_icons/ranged/wen arrows.png",
+        icon: "/rs-rot/gear_icons/ranged/wen arrows.png",
     },
     [ARMOUR.DEATHSPORE_ARROWS]: {
         'necromancy strength': 0, 'magic strength': 0, 'melee strength': 0, 'ranged strength': 0,
@@ -1745,7 +1745,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Deathspore Arrows',
-        icon: "/gear_icons/ranged/deathspore arrows.png",
+        icon: "/rs-rot/gear_icons/ranged/deathspore arrows.png",
     },
     [ARMOUR.JAS_ARROWS]: {
         'necromancy strength': 0, 'magic strength': 0, 'melee strength': 0, 'ranged strength': 0,
@@ -1754,7 +1754,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Jas Arrows',
-        icon: "/gear_icons/ranged/jas arrows.png",
+        icon: "/rs-rot/gear_icons/ranged/jas arrows.png",
     },
     [ARMOUR.BIK_ARROWS]: {
         'necromancy strength': 0, 'magic strength': 0, 'melee strength': 0, 'ranged strength': 0,
@@ -1763,7 +1763,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Bik Arrows',
-        icon: "/gear_icons/ranged/bik arrows.png",
+        icon: "/rs-rot/gear_icons/ranged/bik arrows.png",
     },
     [ARMOUR.HYDRIX_BAKRIMINEL_BOLTS_E]: {
         'necromancy strength': 0, 'magic strength': 0, 'melee strength': 0, 'ranged strength': 0,
@@ -1772,7 +1772,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Hydrix Bakriminel Bolts (E)',
-        icon: "/gear_icons/ranged/hydrix bakriminel bolts (e).png", 
+        icon: "/rs-rot/gear_icons/ranged/hydrix bakriminel bolts (e).png", 
     },
     [ARMOUR.UNDERWORLD_GRIMOIRE_3]: {
         'necromancy strength': 10,
@@ -1783,7 +1783,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'pocket',
         style: 'hybrid',
         title: 'Underworld Grimoire 3',
-        icon: "/gear_icons/shared/underworld grimoire 3.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/underworld grimoire 3.png", // TODO: icon missing
     },
     [ARMOUR.LEAGUES_POCKET]: {
         'necromancy strength': 15.0,
@@ -1794,7 +1794,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'pocket',
         style: 'hybrid',
         title: 'Leagues Pocket',
-        icon: "/gear_icons/shared/leagues pocket.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/shared/leagues pocket.png", // TODO: icon missing
     },
     [ARMOUR.REAPER_NECKLACE]: {
         'necromancy strength': 36.8,
@@ -1806,7 +1806,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: false,
         title: 'Reaper Necklace',
-        icon: "/gear_icons/shared/reaper necklace.png",
+        icon: "/rs-rot/gear_icons/shared/reaper necklace.png",
     },
     [ARMOUR.REAPER_NECKLACE_OR]: {
         'necromancy strength': 38.4,
@@ -1818,7 +1818,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'hybrid',
         popular: false,
         title: 'Reaper Necklace (Or)',
-        icon: "/gear_icons/shared/reaper necklace.png",
+        icon: "/rs-rot/gear_icons/shared/reaper necklace.png",
     },
     [ARMOUR.CONJURERS_RAISING_AMULET]: {
         'necromancy strength': 44.1,
@@ -1829,7 +1829,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'necklace',
         style: 'necromancy',
         title: 'Conjurers Raising Amulet',
-        icon: "/gear_icons/necro/conjurers raising amulet.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/necro/conjurers raising amulet.png", // TODO: icon missing
     },
     [ARMOUR.SEREN_HELM]: {
         'necromancy strength': 0,
@@ -1840,7 +1840,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'helmet',
         style: 'magic',
         title: 'Anima Core of Helm of Seren',
-        icon: "/gear_icons/magic/anima core of helm of seren.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/anima core of helm of seren.png", // TODO: icon missing
     },
     [ARMOUR.SEREN_BODY]: {
         'necromancy strength': 0,
@@ -1851,7 +1851,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'body',
         style: 'magic',
         title: 'Anima Core Body of Seren',
-        icon: "/gear_icons/magic/anima core body of seren.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/anima core body of seren.png", // TODO: icon missing
     },
     [ARMOUR.SEREN_LEGS]: {
         'necromancy strength': 0,
@@ -1862,7 +1862,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'legs',
         style: 'magic',
         title: 'Anima Core Legs of Seren',
-        icon: "/gear_icons/magic/anima core legs of seren.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/anima core legs of seren.png", // TODO: icon missing
     },
     [ARMOUR.REFINED_SEREN_HELM]: {
         'necromancy strength': 0,
@@ -1873,7 +1873,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'helmet',
         style: 'magic',
         title: 'Refined Anima Core of Helm of Seren',
-        icon: "/gear_icons/magic/refined anima core of helm of seren.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/refined anima core of helm of seren.png", // TODO: icon missing
     },
     [ARMOUR.REFINED_SEREN_BODY]: {
         'necromancy strength': 0,
@@ -1884,7 +1884,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'body',
         style: 'magic',
         title: 'Refined Anima Core Body of Seren',
-        icon: "/gear_icons/magic/refined anima core body of seren.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/refined anima core body of seren.png", // TODO: icon missing
     },
     [ARMOUR.REFINED_SEREN_LEGS]: {
         'necromancy strength': 0,
@@ -1895,7 +1895,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'legs',
         style: 'magic',
         title: 'Refined Anima Core Legs of Seren',
-        icon: "/gear_icons/magic/refined anima core legs of seren.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/refined anima core legs of seren.png", // TODO: icon missing
     },
     [ARMOUR.VIRTUS_ROBE_BOTTOM]: {
         'necromancy strength': 0,
@@ -1906,7 +1906,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'legs',
         style: 'magic',
         title: 'Virtus Robe Bottom',
-        icon: "/gear_icons/magic/virtus robe bottom.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/magic/virtus robe bottom.png", // TODO: icon missing
     },
     [ARMOUR.VIRTUS_GLOVES]: {
         'necromancy strength': 0,
@@ -1917,7 +1917,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'gloves',
         style: 'magic',
         title: 'Virtus Gloves',
-        icon: "/gear_icons/magic/virtus gloves.png",
+        icon: "/rs-rot/gear_icons/magic/virtus gloves.png",
     },
     [ARMOUR.VIRTUS_BOOTS]: {
         'necromancy strength': 0,
@@ -1928,7 +1928,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'boots',
         style: 'magic',
         title: 'Virtus Boots',
-        icon: "/gear_icons/magic/virtus boots.png",
+        icon: "/rs-rot/gear_icons/magic/virtus boots.png",
     },
     [ARMOUR.BANDOS_HELMET]: {
         'necromancy strength': 0,
@@ -1939,7 +1939,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'helmet',
         style: 'melee',
         title: 'Bandos Helmet',
-        icon: "/gear_icons/melee/bandos helmet.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/melee/bandos helmet.png", // TODO: icon missing
     },
     [ARMOUR.BANDOS_CHESTPLATE]: {
         'necromancy strength': 0,
@@ -1950,7 +1950,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'body',
         style: 'melee',
         title: 'Bandos Chestplate',
-        icon: "/gear_icons/melee/bandos chestplate.png",
+        icon: "/rs-rot/gear_icons/melee/bandos chestplate.png",
     },
     [ARMOUR.BANDOS_TASSETS]: {
         'necromancy strength': 0,
@@ -1961,7 +1961,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'legs',
         style: 'melee',
         title: 'Bandos Tassets',
-        icon: "/gear_icons/melee/bandos tassets.png",
+        icon: "/rs-rot/gear_icons/melee/bandos tassets.png",
     },
     [ARMOUR.BANDOS_GLOVES]: {
         'necromancy strength': 0,
@@ -1972,7 +1972,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'gloves',
         style: 'melee',
         title: 'Bandos Gloves',
-        icon: "/gear_icons/melee/bandos gloves.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/melee/bandos gloves.png", // TODO: icon missing
     },
     [ARMOUR.BANDOS_BOOTS]: {
         'necromancy strength': 0,
@@ -1983,7 +1983,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'boots',
         style: 'melee',
         title: 'Bandos Boots',
-        icon: "/gear_icons/melee/bandos boots.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/melee/bandos boots.png", // TODO: icon missing
     },
     [ARMOUR.TORVA_HELMET]: {
         'necromancy strength': 0,
@@ -1994,7 +1994,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'helmet',
         style: 'melee',
         title: 'Torva Helmet',
-        icon: "/gear_icons/melee/torva helmet.png", // TODO: icon missing
+        icon: "/rs-rot/gear_icons/melee/torva helmet.png", // TODO: icon missing
     },
     [ARMOUR.TORVA_PLATEBODY]: {
         'necromancy strength': 0,
@@ -2005,7 +2005,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'body',
         style: 'melee',
         title: 'Torva Platebody',
-        icon: "/gear_icons/melee/torva platebody.png",
+        icon: "/rs-rot/gear_icons/melee/torva platebody.png",
     },
     [ARMOUR.TORVA_PLATELEGS]: {
         'necromancy strength': 0,
@@ -2016,7 +2016,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'legs',
         style: 'melee',
         title: 'Torva Platelegs',
-        icon: "/gear_icons/melee/torva platelegs.png",
+        icon: "/rs-rot/gear_icons/melee/torva platelegs.png",
     },
     [ARMOUR.TORVA_GLOVES]: {
         'necromancy strength': 0,
@@ -2027,7 +2027,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'gloves',
         style: 'melee',
         title: 'Torva Gloves',
-        icon: "/gear_icons/melee/torva gloves.png",
+        icon: "/rs-rot/gear_icons/melee/torva gloves.png",
     },
     [ARMOUR.TORVA_BOOTS]: {
         'necromancy strength': 0,
@@ -2038,7 +2038,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'boots',
         style: 'melee',
         title: 'Torva Boots',
-        icon: "/gear_icons/melee/torva boots.png",
+        icon: "/rs-rot/gear_icons/melee/torva boots.png",
     },
     [ARMOUR.GHOST_HUNTER_GOGGLES]: {
         'necromancy strength': 0,
@@ -2049,7 +2049,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'helmet',
         style: 'hybrid',
         title: 'Ghost Hunter Goggles',
-        icon: "/gear_icons/shared/ghost hunter goggles.png",
+        icon: "/rs-rot/gear_icons/shared/ghost hunter goggles.png",
     },
     [ARMOUR.GHOST_HUNTER_BODY]: {
         'necromancy strength': 0,
@@ -2060,7 +2060,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'body',
         style: 'hybrid',
         title: 'Ghost Hunter Body',
-        icon: "/gear_icons/shared/ghost hunter body.png",
+        icon: "/rs-rot/gear_icons/shared/ghost hunter body.png",
     },
     [ARMOUR.GHOST_HUNTER_LEGS]: {
         'necromancy strength': 0,
@@ -2071,7 +2071,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'legs',
         style: 'hybrid',
         title: 'Ghost Hunter Legs',
-        icon: "/gear_icons/shared/ghost hunter legs.png",
+        icon: "/rs-rot/gear_icons/shared/ghost hunter legs.png",
     },
     [ARMOUR.GHOST_HUNTER_BACKPACK]: {
         'necromancy strength': 0,
@@ -2082,7 +2082,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'cape',
         style: 'hybrid',
         title: 'Ghost Hunter Backpack',
-        icon: "/gear_icons/shared/ghost hunter backpack.png",
+        icon: "/rs-rot/gear_icons/shared/ghost hunter backpack.png",
     },
     [ARMOUR.MASTERWORK_MAGIC_HAT]: {
         'necromancy strength': 0,
@@ -2093,7 +2093,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'helmet',
         style: 'magic',
         title: 'Masterwork Magic Hat',
-        icon: "/gear_icons/magic/masterwork magic hat.png",
+        icon: "/rs-rot/gear_icons/magic/masterwork magic hat.png",
     },
     [ARMOUR.MASTERWORK_MAGIC_ROBE_TOP]: {
         'necromancy strength': 0,
@@ -2104,7 +2104,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'body',
         style: 'magic',
         title: 'Masterwork Magic Robe Top',
-        icon: "/gear_icons/magic/masterwork magic robe top.png",
+        icon: "/rs-rot/gear_icons/magic/masterwork magic robe top.png",
     },
     [ARMOUR.MASTERWORK_MAGIC_ROBE_BOTTOM]: {
         'necromancy strength': 0,
@@ -2115,7 +2115,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'legs',
         style: 'magic',
         title: 'Masterwork Magic Robe Bottom',
-        icon: "/gear_icons/magic/masterwork magic robe bottom.png",
+        icon: "/rs-rot/gear_icons/magic/masterwork magic robe bottom.png",
     },
     [ARMOUR.MASTERWORK_MAGIC_GLOVES]: {
         'necromancy strength': 0,
@@ -2127,7 +2127,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
         title: 'Masterwork Magic Gloves',
-        icon: "/gear_icons/magic/masterwork magic gloves.png",
+        icon: "/rs-rot/gear_icons/magic/masterwork magic gloves.png",
     },
     [ARMOUR.MASTERWORK_MAGIC_BOOTS]: {
         'necromancy strength': 0,
@@ -2139,7 +2139,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
         title: 'Masterwork Magic Boots',
-        icon: "/gear_icons/magic/masterwork magic boots.png",
+        icon: "/rs-rot/gear_icons/magic/masterwork magic boots.png",
     },
     [ARMOUR.TUMEKENS_MASK]: {
         'necromancy strength': 0,
@@ -2151,7 +2151,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
         title: 'Mask of Tumeken\'S Resplendence',
-        icon: "/gear_icons/magic/mask of tumeken's resplendence.png",
+        icon: "/rs-rot/gear_icons/magic/mask of tumeken's resplendence.png",
     },
     [ARMOUR.TUMEKENS_ROBE_TOP]: {
         'necromancy strength': 0,
@@ -2163,7 +2163,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
         title: 'Robe Top of Tumeken\'S Resplendence',
-        icon: "/gear_icons/magic/robe top of tumeken's resplendence.png",
+        icon: "/rs-rot/gear_icons/magic/robe top of tumeken's resplendence.png",
     },
     [ARMOUR.TUMEKENS_ROBE_BOTTOM]: {
         'necromancy strength': 0,
@@ -2175,7 +2175,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
         title: 'Robe Bottom of Tumeken\'S Resplendence',
-        icon: "/gear_icons/magic/robe bottom of tumeken's resplendence.png",
+        icon: "/rs-rot/gear_icons/magic/robe bottom of tumeken's resplendence.png",
     },
     [ARMOUR.TUMEKENS_GLOVES]: {
         'necromancy strength': 0,
@@ -2187,7 +2187,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
         title: 'Gloves of Tumeken\'S Resplendence',
-        icon: "/gear_icons/magic/gloves of tumeken's resplendence.png",
+        icon: "/rs-rot/gear_icons/magic/gloves of tumeken's resplendence.png",
     },
     [ARMOUR.TUMEKENS_BOOTS]: {
         'necromancy strength': 0,
@@ -2199,7 +2199,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'magic',
         popular: true,
         title: 'Boots of Tumeken\'S Resplendence',
-        icon: "/gear_icons/magic/boots of tumeken's resplendence.png",
+        icon: "/rs-rot/gear_icons/magic/boots of tumeken's resplendence.png",
     },
     [ARMOUR.AM_ZI]: {
         'necromancy strength': 0,
@@ -2210,7 +2210,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         slot: 'necklace',
         style: 'melee',
         title: 'Am-Zi',
-        icon: "/gear_icons/melee/am-zi.png",
+        icon: "/rs-rot/gear_icons/melee/am-zi.png",
     },
     [ARMOUR.AM_HEJ]: {
         'necromancy strength': 0,
@@ -2222,7 +2222,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: true,
         title: 'Am-Hej',
-        icon: "/gear_icons/melee/am-hej.png",
+        icon: "/rs-rot/gear_icons/melee/am-hej.png",
     },
     [ARMOUR.NODON_SPIKE_HARNESS]: {
         'necromancy strength': 0,
@@ -2234,7 +2234,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: true,
         title: 'Nodon Spike Harness',
-        icon: "/gear_icons/melee/nodon spike harness.png",
+        icon: "/rs-rot/gear_icons/melee/nodon spike harness.png",
     },
     [ARMOUR.CUSTOM]: {
         'necromancy strength': 0,
@@ -2246,6 +2246,6 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'melee',
         popular: true,
         title: 'Custom',
-        icon: "/gear_icons/shared/custom.png",
+        icon: "/rs-rot/gear_icons/shared/custom.png",
     },
 };

@@ -6,7 +6,7 @@
 
 <header
     class="bg-center bg-cover relative z-0 h-64 md:h-96 mt-10 lg:mt-0"
-    style="background-image:url(/bg_main.png)"
+    style="background-image:url(/rs-rot/bg_main.png)"
 ></header>
 
 <div class="space-y-14 z-20">

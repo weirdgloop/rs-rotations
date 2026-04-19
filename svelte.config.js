@@ -15,7 +15,7 @@ const config = {
             typescript: true
         }),
         paths: {
-            base: '',
+            base: '/rs-rot',
         },
         alias: {
             $components: path.resolve('src/components'),

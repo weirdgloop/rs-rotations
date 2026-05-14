@@ -1134,6 +1134,7 @@ const settingsConfig = {
             { text: 'Elite sirenic', value: ARMOUR.ELITE_SIRENIC_MASK },
             { text: 'Dracolich', value: ARMOUR.DRACOLICH_COIF },
             { text: 'Elite dracolich', value: ARMOUR.ELITE_DRACOLICH_COIF },
+            { text: 'Masterwork', value: ARMOUR.MASTERWORK_RANGED_HAT },
             { text: 'Ghost hunter', value: ARMOUR.GHOST_HUNTER_GOGGLES },
         ]
     },
@@ -1183,6 +1184,7 @@ const settingsConfig = {
             { text: 'Elite sirenic', value: ARMOUR.ELITE_SIRENIC_HAUBERK },
             { text: 'Dracolich', value: ARMOUR.DRACOLICH_HAUBERK },
             { text: 'Elite dracolich', value: ARMOUR.ELITE_DRACOLICH_HAUBERK },
+            { text: 'Masterwork', value: ARMOUR.MASTERWORK_RANGED_ROBE_TOP },
             { text: 'Ghost hunter', value: ARMOUR.GHOST_HUNTER_BODY},
         ]
     },
@@ -1232,6 +1234,7 @@ const settingsConfig = {
             { text: 'Elite sirenic', value: ARMOUR.ELITE_SIRENIC_CHAPS },
             { text: 'Dracolich', value: ARMOUR.DRACOLICH_CHAPS },
             { text: 'Elite dracolich', value: ARMOUR.ELITE_DRACOLICH_CHAPS },
+            { text: 'Masterwork', value: ARMOUR.MASTERWORK_RANGED_ROBE_BOTTOM },
             { text: 'Ghost hunter', value: ARMOUR.GHOST_HUNTER_LEGS},
         ]
     },
@@ -1279,6 +1282,7 @@ const settingsConfig = {
             { text: 'None/Tank', value: ARMOUR.NONE_TANK },
             { text: 'Dracolich', value: ARMOUR.DRACOLICH_VAMBRACES },
             { text: 'Elite dracolich', value: ARMOUR.ELITE_DRACOLICH_VAMBRACES },
+            { text: 'Masterwork', value: ARMOUR.MASTERWORK_RANGED_GLOVES },
             { text: 'DTB', value: ARMOUR.DEATHTOUCH_BRACELET },
             { text: 'Cinderbanes', value: ARMOUR.CINDERBANE_GLOVES },
             { text: 'Nightmares', value: ARMOUR.NIGHTMARE_GAUNTLETS },
@@ -1329,6 +1333,7 @@ const settingsConfig = {
             { text: 'None/Tank', value: 'none' },
             { text: 'Dracolich', value: ARMOUR.DRACOLICH_BOOTS },
             { text: 'Elite dracolich', value: ARMOUR.ELITE_DRACOLICH_BOOTS },
+            { text: 'Masterwork', value: ARMOUR.MASTERWORK_RANGED_BOOTS },
             { text: 'Fleeting', value: ARMOUR.FLEETING_BOOTS },
             { text: 'Enhanced fleeting', value: ARMOUR.FLEETING_BOOTS_E },
             { text: 'Silverhawks', value: ARMOUR.SILVERHAWK_BOOTS }

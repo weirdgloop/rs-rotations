@@ -73,6 +73,11 @@ export function calc_crit_chance(settings: Record<string, any>, abilityKey: ABIL
         crit_chance += 0.12;
     }
 
+    // chaotic grimoire
+    if (settings[SETTINGS.POCKET] === ARMOUR.CHAOTIC_GRIMOIRE) {
+        crit_chance += 0.07;
+    }
+
     // leagues pocket
     if (settings[SETTINGS.POCKET] === ARMOUR.LEAGUES_POCKET) {
         crit_chance += 0.12;

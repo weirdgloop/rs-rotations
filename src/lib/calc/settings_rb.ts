@@ -1472,6 +1472,7 @@ const settingsConfig = {
         options: [
             { text: 'None', value: 'none' },
             { text: 'Grimoire (active)', value: ARMOUR.ERETHDORS_GRIMOIRE },
+            { text: 'Chaotic grim (active)', value: ARMOUR.CHAOTIC_GRIMOIRE },
             { text: 'Ful (active)', value: ARMOUR.FUL_BOOK },
             { text: 'Jas (active)', value: ARMOUR.JAS_BOOK },
             { text: 'Amascut (active)', value: ARMOUR.AMASCUT_BOOK },
@@ -1488,6 +1489,7 @@ const settingsConfig = {
         options: [
             { text: 'None', value: 'none' },
             { text: 'Grimoire (active)', value: ARMOUR.ERETHDORS_GRIMOIRE },
+            { text: 'Chaotic grim (active)', value: ARMOUR.CHAOTIC_GRIMOIRE },
             { text: 'Ful (active)', value: ARMOUR.FUL_BOOK },
             { text: 'Jas (active)', value: ARMOUR.JAS_BOOK },
             { text: 'Amascut (active)', value: ARMOUR.AMASCUT_BOOK },
@@ -1504,6 +1506,7 @@ const settingsConfig = {
         options: [
             { text: 'None', value: 'none' },
             { text: 'Grimoire (active)', value: ARMOUR.ERETHDORS_GRIMOIRE },
+            { text: 'Chaotic grim (active)', value: ARMOUR.CHAOTIC_GRIMOIRE },
             { text: 'Ful (active)', value: ARMOUR.FUL_BOOK },
             { text: 'Jas (active)', value: ARMOUR.JAS_BOOK },
             { text: 'Amascut (active)', value: ARMOUR.AMASCUT_BOOK },
@@ -1518,6 +1521,7 @@ const settingsConfig = {
         options: [
             { text: 'None', value: 'none' },
             { text: 'Grimoire (active)', value: ARMOUR.ERETHDORS_GRIMOIRE },
+            { text: 'Chaotic grim (active)', value: ARMOUR.CHAOTIC_GRIMOIRE },
             { text: 'Ful (active)', value: ARMOUR.FUL_BOOK },
             { text: 'Jas (active)', value: ARMOUR.JAS_BOOK },
             { text: 'Amascut (active)', value: ARMOUR.AMASCUT_BOOK },
@@ -1532,6 +1536,7 @@ const settingsConfig = {
         options: [
             { text: 'None', value: 'none' },
             { text: 'Grimoire (active)', value: ARMOUR.ERETHDORS_GRIMOIRE },
+            { text: 'Chaotic grim (active)', value: ARMOUR.CHAOTIC_GRIMOIRE },
             { text: 'Ful (active)', value: ARMOUR.FUL_BOOK },
             { text: 'Jas (active)', value: ARMOUR.JAS_BOOK },
             { text: 'Amascut (active)', value: ARMOUR.AMASCUT_BOOK },

@@ -183,6 +183,12 @@ function applyMultiplicativeEffects(
         boost = Math.floor(boost * 1.2);
     }
 
+    // Bane weapon equipment mh
+    if ((settings[SETTINGS.TH] === WEAPONS.DRAGON_BANE_2H_SWORD && settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.TH) ||
+        (settings[SETTINGS.MH] === WEAPONS.DRAGON_BANE_LONGSWORD) && settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.DW) {
+            boost = Math.floor(boost * 1.25);
+    }
+
     return boost;
 }
 

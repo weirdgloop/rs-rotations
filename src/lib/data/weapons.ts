@@ -43,6 +43,9 @@ export enum WEAPONS {
     MASTERWORK_SPEAR_OF_ANNIHILATION = 'masterwork spear of annihilation',
     EZK = 'ezk',
     EZK_IM = 'ezk [IM]',
+    DRAGON_BANE_LONGSWORD = 'dragon bane longsword',
+    DRAGON_BANE_OFF_HAND_LONGSWORD = 'dragon bane off-hand longsword',
+    DRAGON_BANE_2H_SWORD = 'dragon bane 2h sword',
 
     // Custom / Legacy
     CUSTOM_MH = 'custom main-hand weapon',
@@ -555,6 +558,39 @@ export const weapons: Record<string, Equipment> = {
         popular: true,
         title: 'Ezk [IM]',
         icon: '/gear_icons/melee/ezk.png'    
+    },
+    [WEAPONS.DRAGON_BANE_LONGSWORD]:{
+        style: 'melee',
+        'weapon type': 'main-hand',
+        slot: 'mainhand',
+        tier: 79,
+        type: 'none',
+        classification: 'none',
+        popular: true,
+        title: 'Dragonbane longsword',
+        icon: '/gear_icons/melee/dragon bane longsword.png'    
+    },
+    [WEAPONS.DRAGON_BANE_OFF_HAND_LONGSWORD]:{
+        style: 'melee',
+        'weapon type': 'off-hand',
+        slot: 'offhand',
+        tier: 79,
+        type: 'none',
+        classification: 'none',
+        popular: true,
+        title: 'Dragonbane off-hand longsword',
+        icon: '/gear_icons/melee/dragon bane off hand longsword.png'    
+    },
+    [WEAPONS.DRAGON_BANE_2H_SWORD]:{
+        style: 'melee',
+        'weapon type': 'two-hand',
+        slot: 'mainhand',
+        tier: 79,
+        type: 'none',
+        classification: 'none',
+        popular: true,
+        title: 'Dragonbane 2h sword',
+        icon: '/gear_icons/melee/dragon bane 2h sword.png'    
     },
     [WEAPONS.FRACTURED_STAFF_OF_ARMADYL]:{
         style: 'magic',

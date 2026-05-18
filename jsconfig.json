@@ -1,10 +1,9 @@
 {
     "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "$lib/*": ["src/lib/*"],
-        "$components/*": ["src/components/*"]
-      }
+        "paths": {
+            "$lib/*": ["./src/lib/*"],
+            "$components/*": ["./src/components/*"]
+        }
     },
     "exclude": [
         "node_modules",
@@ -16,5 +15,5 @@
         "tests",
         "**/*.spec.js",
         "**/*.test.js"
-      ]
-  }
+    ]
+}

@@ -1184,7 +1184,8 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         abilityClassification: 'regular', // bleed, dot, burn, channel, regular, multihit
         abilityType: 'special attack', // basic, threshold, special attack, ability (necromancy classification), ultimate
         mainStyle: 'melee',
-        damageType: 'melee'
+        damageType: 'melee',
+        title: 'Lesser Purifying Light'
     },
     [ABILITIES.PURIFYING_LIGHT]: {
         // ability name

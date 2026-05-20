@@ -1043,7 +1043,7 @@ const settingsConfig = {
     },
     [SETTINGS.SLAYER_SIGIL]: {
         label: 'Slayer sigil',
-        default: SETTINGS.SLAYER_SIGIL.NONE,
+        default: SETTINGS.SLAYER_SIGIL_VALUES.NONE,
         options: [
             { text: 'None', value: SETTINGS.SLAYER_SIGIL_VALUES.NONE },
             { text: 'Undead', value: SETTINGS.SLAYER_SIGIL_VALUES.UNDEAD},

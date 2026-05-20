@@ -585,27 +585,28 @@
 		tabindex="-1" 
 		role="button" 
 		onkeydown={handleKeypress}
-		style="--stack-font-size: {stackFontSize}px; {uiStore.stallingAbility ? `cursor: url('${allAbils[uiStore.stallingAbility].icon}') 15 15, wait;` : ''}">
+		style="--stack-font-size: {stackFontSize}px; {uiStore.stallingAbility ? `cursor: url('${allAbils[uiStore.stallingAbility].icon}') 15 15, wait;` : ''}"
+    >
 		<section class="flex flex-col gap-6">
 			<div class="flex flex-row wrapper {uiStore.settingsPanelCollapsed ? 'gap-0' : 'gap-6'} relative">
 				<div class="card card-rotation {uiStore.settingsPanelCollapsed ? 'w-full' : 'w-2/3'}">
 					{#if uiStore.settingsPanelCollapsed}
-						<button 
-							class="expand-button"
-							onclick={() => uiActions.toggleSettingsPanel()}
-						>
-							Settings ←
-						</button>
+                        <button 
+                            class="expand-button"
+                            onclick={() => uiActions.toggleSettingsPanel()}
+                        >
+                            Settings ←
+                        </button>
 					{/if}
 					<div class="rotation-title-row">
 						<h1 class="rotation-header">{bossName}{#if killTime} <em>{killTime}</em>{/if}</h1>
 						<button class="reset-btn" onclick={clearRotation} title="Reset rotation">Reset</button>
 						<div class="damage-summary">
-								<span class="dmg-total">{(rotationStore.totalDamage + rotationStore.poisonDamage + rotationStore.familiarDamage + rotationStore.dreadnipDamage + rotationStore.conjureDamage).toLocaleString()}</span>
-								{#if rotationStore.totalDamage > 0 || rotationStore.poisonDamage > 0 || rotationStore.familiarDamage > 0 || rotationStore.dreadnipDamage > 0 || rotationStore.conjureDamage > 0}
-									<span class="dmg-breakdown">(<span class="dmg-val">{rotationStore.totalDamage.toLocaleString()}</span>{#if rotationStore.poisonDamage > 0} + <span class="dmg-val poison">{rotationStore.poisonDamage.toLocaleString()}</span>{/if}{#if rotationStore.familiarDamage > 0} + <span class="dmg-val familiar">{rotationStore.familiarDamage.toLocaleString()}</span>{/if}{#if rotationStore.dreadnipDamage > 0} + <span class="dmg-val dreadnip">{rotationStore.dreadnipDamage.toLocaleString()}</span>{/if}{#if rotationStore.conjureDamage > 0} + <span class="dmg-val conjure">{rotationStore.conjureDamage.toLocaleString()}</span>{/if})</span>
-								{/if}
-							</div>
+							<span class="dmg-total">{(rotationStore.totalDamage + rotationStore.poisonDamage + rotationStore.familiarDamage + rotationStore.dreadnipDamage + rotationStore.conjureDamage).toLocaleString()}</span>
+							{#if rotationStore.totalDamage > 0 || rotationStore.poisonDamage > 0 || rotationStore.familiarDamage > 0 || rotationStore.dreadnipDamage > 0 || rotationStore.conjureDamage > 0}
+							    <span class="dmg-breakdown">(<span class="dmg-val">{rotationStore.totalDamage.toLocaleString()}</span>{#if rotationStore.poisonDamage > 0} + <span class="dmg-val poison">{rotationStore.poisonDamage.toLocaleString()}</span>{/if}{#if rotationStore.familiarDamage > 0} + <span class="dmg-val familiar">{rotationStore.familiarDamage.toLocaleString()}</span>{/if}{#if rotationStore.dreadnipDamage > 0} + <span class="dmg-val dreadnip">{rotationStore.dreadnipDamage.toLocaleString()}</span>{/if}{#if rotationStore.conjureDamage > 0} + <span class="dmg-val conjure">{rotationStore.conjureDamage.toLocaleString()}</span>{/if})</span>
+							{/if}
+						</div>
 					</div>
 
 					<GradientSeparator marginTop="0.0rem" marginBottom="1.5rem" />
@@ -632,6 +633,7 @@
 						patternStartTick={settingsStore.settings[SETTINGS.BOSS_PATTERN_START]?.value ?? -1}
 						hasBossPreset={settingsStore.settings[SETTINGS.BOSS_PRESET]?.value && settingsStore.settings[SETTINGS.BOSS_PRESET]?.value !== 'none'}
 					/>
+
                     <RotationConfigManager
                         {refreshUI}
                         onOpenKeybinds={() => showKeybindModal = true}
@@ -661,13 +663,13 @@
                             <AbilityChoice
                                 abilities={tab.abilities}
                                 handleAbilityClick={handleAbilityClick}
-									handleDragStart={handleDragStart}
+                                handleDragStart={handleDragStart}
                                 style={tab.id}
                                 filter={uiStore.abilityFilter}
-											/>
-										{/if}
-								{/each}
-	                    <div
+                            />
+                        {/if}
+					{/each}
+	                <div
 						bind:this={abilityBarElement}
 						style="grid-template-rows: {getGridTemplateRows()}; grid-template-columns: repeat({columnsPerRow}, {CELL_SIZE}px);"
 						class="ability-bar"
@@ -788,18 +790,18 @@
                                                 top: {stackTop}px;
                                                 left: {stackFontSize+stackPadding*2}px;
                                                 color: {rotationStore.stacks[key].colour};
-                                                "
+                                            "
                                             class="stacks-text"
                                         >
                                             {+rotationStore.stacks[key].stackTicks[index].toFixed(0)}
                                         </span>
                                         <img src={rotationStore.stacks[key].image}
-                                            style=
-                                                "transform:translateX({2-(30-stackFontSize)/2}px);
+                                            style="
+                                                transform:translateX({2-(30-stackFontSize)/2}px);
                                                 top: {stackTop + 3}px;
                                                 height: {stackFontSize}px;
                                                 width: {stackFontSize}px;
-                                                "
+                                            "
                                             class="stacks-icon"
                                             title={rotationStore.stacks[key].title}
                                             alt={rotationStore.stacks[key].title}
@@ -828,85 +830,82 @@
                         {/each}
                     </div>
                 </div>
-            <div class="overflow-hidden settings-content {uiStore.settingsPanelCollapsed ? 'w-0' : 'w-1/3'}">
-				<div class="xl:w-full lg:w-70 xl:min-w-100 lg:min-w-full">
-                    {#if uiStore.extraActions.show}
-                        <ExtraActionsPanel
-                            uiState={uiStore}
-                            gameState={rotationStore}
-                            {allAbils}
-                            {handleAbilityClickExtra}
-                            {handleDragStart}
-                            {handleBarRightClick}
-                            {handleDragStartBar}
-                            extraActions={uiStore.extraActions}
-                            closeExtraActions={() => uiActions.hideExtraActions()}
-                            setExtraActionsTab={(tab) => uiActions.setExtraActionsTab(tab)}
-                            onRemoveAbility={() => refreshUI()}
-                            onToggleNull={() => refreshUI()}
-                            onRefreshUI={() => refreshUI()}
-                        />
-                    {/if}
-                    <div class:hidden={uiStore.extraActions.show}>
-                        <RotationSettings updateDamages={calculateTotalDamageNew} stacks={rotationStore.stacks} uiState={uiStore} refreshUI={refreshUI} />
+                <div class="overflow-hidden settings-content {uiStore.settingsPanelCollapsed ? 'w-0' : 'w-1/3'}">
+                    <div class="xl:w-full lg:w-70 xl:min-w-100 lg:min-w-full">
+                        {#if uiStore.extraActions.show}
+                            <ExtraActionsPanel
+                                uiState={uiStore}
+                                gameState={rotationStore}
+                                {allAbils}
+                                {handleAbilityClickExtra}
+                                {handleDragStart}
+                                {handleBarRightClick}
+                                {handleDragStartBar}
+                                extraActions={uiStore.extraActions}
+                                closeExtraActions={() => uiActions.hideExtraActions()}
+                                setExtraActionsTab={(tab) => uiActions.setExtraActionsTab(tab)}
+                                onRemoveAbility={() => refreshUI()}
+                                onToggleNull={() => refreshUI()}
+                                onRefreshUI={() => refreshUI()}
+                            />
+                        {/if}
+                        <div class:hidden={uiStore.extraActions.show}>
+                            <RotationSettings updateDamages={calculateTotalDamageNew} stacks={rotationStore.stacks} uiState={uiStore} refreshUI={refreshUI} />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-				<div class="card card-rotation">
-					<h2 class="card-title pb-5">User Guide</h2>
+            <div class="card card-rotation">
+                <h2 class="card-title pb-5">User Guide</h2>
 
-					<!-- Getting Started -->
-					<div class="pb-4">
-						<h3 class="text-sm font-bold text-[#C2BA9E] uppercase tracking-wide mb-2">Getting Started</h3>
-						<p class="text-sm leading-relaxed">
-							Configure your gear, levels, and perks in the <strong>Settings</strong> panel on the right &mdash; these define your ability damage, hit chance, and weapon effects.
-							Select a combat style tab to see available abilities, then <strong>left click</strong> to add them to the bar, <strong>drag</strong> to place on specific ticks, or <strong>right click</strong> a slot to remove it.
-							<br><br>
-							As you build your rotation, the calculator tracks <strong>buffs</strong> (coloured bars below the timeline), <strong>stacks</strong> (icons with values), <strong>cooldowns</strong> (greyed-out with a green border when ready), and <strong>adrenaline</strong>.
-							The <strong>damage plot</strong> below the bar shows cumulative damage over time, broken down by source.
-						</p>
-					</div>
+                <!-- Getting Started -->
+                <div class="pb-4">
+                    <h3 class="text-sm font-bold text-[#C2BA9E] uppercase tracking-wide mb-2">Getting Started</h3>
+                    <p class="text-sm leading-relaxed">
+                        Configure your gear, levels, and perks in the <strong>Settings</strong> panel on the right &mdash; these define your ability damage, hit chance, and weapon effects.
+                        Select a combat style tab to see available abilities, then <strong>left click</strong> to add them to the bar, <strong>drag</strong> to place on specific ticks, or <strong>right click</strong> a slot to remove it.
+                        <br><br>
+                        As you build your rotation, the calculator tracks <strong>buffs</strong> (coloured bars below the timeline), <strong>stacks</strong> (icons with values), <strong>cooldowns</strong> (greyed-out with a green border when ready), and <strong>adrenaline</strong>.
+                        The <strong>damage plot</strong> below the bar shows cumulative damage over time, broken down by source.
+                    </p>
+                </div>
 
-					<!-- Advanced Features -->
-					<div class="pb-4">
-						<h3 class="text-sm font-bold text-[#C2BA9E] uppercase tracking-wide mb-2">Advanced Features</h3>
+                <!-- Advanced Features -->
+                <div class="pb-4">
+                    <h3 class="text-sm font-bold text-[#C2BA9E] uppercase tracking-wide mb-2">Advanced Features</h3>
 
-						<p class="text-sm leading-relaxed mt-2">
-							<strong>Tool Modes</strong> &mdash; switch between 4 modes via the toolbar or keyboard:
-							<strong>Regular</strong> (<strong>R</strong>) is the default for adding, removing, and dragging abilities.
-							<strong>Stall</strong> (<strong>S</strong>) lets you select an ability to stall, then click a tick to place it (click again to remove; channelled abilities cannot be stalled).
-							<strong>Null</strong> (<strong>N</strong>) marks ticks as nulled &mdash; 0 damage but buffs and stacks still apply (e.g. boss phase transitions).
-							<strong>Insert</strong> (<strong>I</strong>) left-click a tick to insert empty ticks (shifting everything right), right-click to remove ticks (shifting everything left).
-						</p>
+                    <p class="text-sm leading-relaxed mt-2">
+                        <strong>Tool Modes</strong> &mdash; switch between 4 modes via the toolbar or keyboard:
+                        <strong>Regular</strong> (<strong>R</strong>) is the default for adding, removing, and dragging abilities.
+                        <strong>Stall</strong> (<strong>S</strong>) lets you select an ability to stall, then click a tick to place it (click again to remove; channelled abilities cannot be stalled).
+                        <strong>Null</strong> (<strong>N</strong>) marks ticks as nulled &mdash; 0 damage but buffs and stacks still apply (e.g. boss phase transitions).
+                        <strong>Insert</strong> (<strong>I</strong>) left-click a tick to insert empty ticks (shifting everything right), right-click to remove ticks (shifting everything left).
+                    </p>
 
-						<p class="text-sm leading-relaxed mt-2">
-							<strong>Extra Actions</strong> &mdash; click any tick on the bar to open the extra actions panel. Add off-GCD abilities (Ingenuity, Limitless, prayers, etc.), consumables (adrenaline potions, vulnerability bombs), and gear swaps (weapons, armour, EoFs) to any tick. Each tick has up to 12 extra action slots.
-						</p>
+                    <p class="text-sm leading-relaxed mt-2">
+                        <strong>Extra Actions</strong> &mdash; click any tick on the bar to open the extra actions panel. Add off-GCD abilities (Ingenuity, Limitless, prayers, etc.), consumables (adrenaline potions, vulnerability bombs), and gear swaps (weapons, armour, EoFs) to any tick. Each tick has up to 12 extra action slots.
+                    </p>
 
-						<p class="text-sm leading-relaxed mt-2">
-							<strong>Familiars</strong> &mdash; select a combat familiar in settings (Ripper Demon, Kal'gerion Demon, Steel Titan). The familiar attacks automatically based on its attack rate. If scrolls are enabled, it uses special attacks when it has enough spec points. Spec points regenerate over time and are boosted by Summoning Renewal, Prism of Restoration, Spirit Cape, and Spirit Weed Incense. Familiars stop attacking after your last ability.
-						</p>
+                    <p class="text-sm leading-relaxed mt-2">
+                        <strong>Familiars</strong> &mdash; select a combat familiar in settings (Ripper Demon, Kal'gerion Demon, Steel Titan). The familiar attacks automatically based on its attack rate. If scrolls are enabled, it uses special attacks when it has enough spec points. Spec points regenerate over time and are boosted by Summoning Renewal, Prism of Restoration, Spirit Cape, and Spirit Weed Incense. Familiars stop attacking after your last ability.
+                    </p>
+					<p class="text-sm leading-relaxed mt-2">
+						<strong>Poison</strong> &mdash; enable weapon poison in settings. Poison damage scales with Bik arrow stacks and is tracked separately in the damage breakdown and plot.
+					</p>
+					<p class="text-sm leading-relaxed mt-2">
+						<strong>Keybinds</strong> &mdash; open the keybind config to assign keys to abilities, gear, and consumables. Use the keypress output modal to view your rotation as a key sequence or a visual keyboard layout.
+					</p>
+					<p class="text-sm leading-relaxed mt-2">
+						<strong>Save / Load</strong> &mdash; save your rotation and settings to a named slot. Rotations are stored in your browser's local storage.
+					</p>
+				</div>
 
-						<p class="text-sm leading-relaxed mt-2">
-							<strong>Poison</strong> &mdash; enable weapon poison in settings. Poison damage scales with Bik arrow stacks and is tracked separately in the damage breakdown and plot.
-						</p>
-
-						<p class="text-sm leading-relaxed mt-2">
-							<strong>Keybinds</strong> &mdash; open the keybind config to assign keys to abilities, gear, and consumables. Use the keypress output modal to view your rotation as a key sequence or a visual keyboard layout.
-						</p>
-
-						<p class="text-sm leading-relaxed mt-2">
-							<strong>Save / Load</strong> &mdash; save your rotation and settings to a named slot. Rotations are stored in your browser's local storage.
-						</p>
-					</div>
-
-					<div class="pb-3">
-						<p class="text-sm">
-							Please report any bugs or errors in the RSA discord. For a more comprehensive guide, check out our
-							<a href="/rotation_builder_guide" class="text-blue-400 hover:underline hover:text-blue-300">
-							full guide</a>.
-						</p>
+				<div class="pb-3">
+					<p class="text-sm">
+						Please report any bugs or errors in the RSA discord. For a more comprehensive guide, check out our
+						<a href="/rotation_builder_guide" class="text-blue-400 hover:underline hover:text-blue-300">
+						full guide</a>.
+					</p>
 				</div>
             </div>
 		</section>

@@ -85,13 +85,11 @@ function applyAbilitySpecificEffects(
     if (abilityKey === ABILITIES.DISMEMBER && settings[SETTINGS.LUNGING] > 0) {
         distribution['boosted AD'] = Math.floor(distribution['boosted AD'] * (1 + (0.10 + 0.03 * settings[SETTINGS.LUNGING])));
     }
-    
+
     // Punish low HP bonus
     if (abilityKey === ABILITIES.PUNISH && settings[SETTINGS.TARGET_HP_PERCENT] <= 50) {
         distribution['boosted AD'] = Math.floor(distribution['boosted AD'] * 2.5);
     }
-
-    
 }
 
 /**
@@ -222,7 +220,6 @@ function applyStackEffects(ctx: EffectContext): void {
     if (settings['_last_stack_ability_melee'] === castId) return;
     settings['_last_stack_ability_melee'] = castId;
 
-    
     const cap = isBerserk ? 8 : 4;
     let stacks = settings[SETTINGS.BLOODLUST_STACKS] || 0;
 
@@ -236,8 +233,6 @@ function applyStackEffects(ctx: EffectContext): void {
         const gain = isBerserk ? 2 : 1;
         stacks = Math.min(stacks + gain, cap);
     }
-
-    
 
     settings[SETTINGS.BLOODLUST_STACKS] = stacks;
 }

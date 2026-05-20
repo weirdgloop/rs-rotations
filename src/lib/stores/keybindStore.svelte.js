@@ -31,7 +31,7 @@ const DEFAULT_BINDINGS = {
     'reflect': '.',
     'devotion': ',',
     'natural instinct': 'm',
-    
+
     'adrenaline renewal potion': '0',
     'vulnerability bomb': '1',
     'soul split': '2',
@@ -47,14 +47,6 @@ const DEFAULT_BINDINGS = {
     'EoF (blue)' : 'f3',
     'EoF (black)': 'f4',
     'EoF (purple)' : 'f5',
-    
-    
-    
-    
-
-
-    
-    
 };
 
 export const keybindStore = $state({

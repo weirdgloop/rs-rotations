@@ -6,9 +6,8 @@
     import { ABILITIES, abils } from '$lib/data/abilities.ts';
 
     const excludedAbilities = new Set([ABILITIES.SUNSHINE, ABILITIES.GREATER_SUNSHINE, ABILITIES.TUMEKEN_ASPHYXIATE]);
-    
-    // const excludedAbilities = new Set([ABILITIES.SUNSHINE, ABILITIES.GREATER_SUNSHINE]);
 
+    // const excludedAbilities = new Set([ABILITIES.SUNSHINE, ABILITIES.GREATER_SUNSHINE]);
 
     const abilities = Object.fromEntries(
         Object.entries(abils).filter(([key, a]) =>
@@ -346,7 +345,7 @@
                                 <Select
                                     bind:setting={settings[SETTINGS.CHAIN_MODIFIER]}
                                     onchange={() => updateDamages()}
-                                /> 
+                                />
                             </div>
                             <div class="md:col-span-1 space-y-2">
                                 <h5 class="uppercase font-bold text-lg text-center">
@@ -607,8 +606,6 @@
                         <div class="pb-5">
                             To custom filter shown abilities, you can use the button in the top right of the ability panel to
                             select relevant abilities to you, then toggle the filter to "Owned" to only show abilities you have selected.
-
-                
                         </div>
                     </div>
                 </div>

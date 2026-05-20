@@ -23,13 +23,12 @@
         animation: pulse 24s infinite;
     }
 
-
     @keyframes pulse {
         0% {
             color: #b2dbee;
             opacity: 1;
         }
-        
+
         20% {
             color: var(--color-magic);
             opacity: 1;

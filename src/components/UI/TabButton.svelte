@@ -4,7 +4,7 @@
     export let label = '';
     export let id = '';
     export let badge = '';
-    
+
     // Color mapping for different tab types
     const colorMap = {
         'ranged': {
@@ -55,7 +55,7 @@
             activePress: 'active:text-[#968A5C]'
         }
     };
-    
+
     $: colors = colorMap[id] || colorMap['default'];
 </script>
 
@@ -73,4 +73,4 @@
         class:text-[#968A5C]={isActive && !['ranged', 'magic', 'melee', 'necro', 'defence', 'general', 'equipment', 'bosses'].includes(id)}
         class="text-[#C2BA9E] font-bold text-2xl text-link uppercase inline-block {colors.activePress} active:scale-95 transition-all duration-200 ease-in-out {!isActive ? colors.hover : ''}"
     >{label}{#if badge}<sup class="text-xs opacity-60 ml-0.5">{badge}</sup>{/if}</button>
-</li> 
+</li>

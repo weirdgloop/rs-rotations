@@ -6,7 +6,7 @@
     export let height = '1px';
 </script>
 
-<div 
+<div
     class="gradient-separator"
     style="
         margin-top: {marginTop};
@@ -20,4 +20,4 @@
     .gradient-separator {
         position: relative;
     }
-</style> 
+</style>

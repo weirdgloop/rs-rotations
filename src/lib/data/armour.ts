@@ -9,7 +9,7 @@ export enum ARMOUR {
     TUMEKENS_ROBE_BOTTOM = 'robe bottom of tumeken\'s resplendence',
     TUMEKENS_BOOTS = 'boots of tumeken\'s resplendence',
     TUMEKENS_GLOVES = 'gloves of tumeken\'s resplendence',
-    
+
     VIRTUS_MASK = 'virtus mask',
     VIRTUS_ROBE_TOP = 'virtus robe top',
     VIRTUS_ROBE_LEGS = 'virtus robe legs',
@@ -17,7 +17,7 @@ export enum ARMOUR {
     TECTONIC_MASK = 'tectonic mask',
     TECTONIC_ROBE_TOP = 'tectonic robe top',
     TECTONIC_ROBE_BOTTOM = 'tectonic robe bottom',
-    
+
     ELITE_TECTONIC_MASK = 'elite tectonic mask',
     ELITE_TECTONIC_ROBE_TOP = 'elite tectonic robe top',
     ELITE_TECTONIC_ROBE_BOTTOM = 'elite tectonic robe bottom',
@@ -45,14 +45,13 @@ export enum ARMOUR {
     CHANNELLERS_RING = 'channeller\'s ring',
     CHANNELLERS_RING_E = 'channeller\'s ring+',
 
-
     //Ranged
     ELITE_DRACOLICH_COIF = 'elite dracolich coif',
     ELITE_DRACOLICH_HAUBERK = 'elite dracolich hauberk',
     ELITE_DRACOLICH_CHAPS = 'elite dracolich chaps',
     ELITE_DRACOLICH_BOOTS = 'elite dracolich boots',
     ELITE_DRACOLICH_VAMBRACES = 'elite dracolich vambraces',
-    
+
     DRACOLICH_COIF = 'dracolich coif',
     DRACOLICH_HAUBERK = 'dracolich hauberk',
     DRACOLICH_CHAPS = 'dracolich chaps',
@@ -64,11 +63,11 @@ export enum ARMOUR {
     MASTERWORK_RANGED_CHAPS = 'masterwork ranged chaps',
     MASTERWORK_RANGED_BOOTS = 'masterwork ranged boots',
     MASTERWORK_RANGED_VAMBRACES = 'masterwork ranged vambraces',
-    
+
     ELITE_SIRENIC_MASK = 'elite sirenic mask',
     ELITE_SIRENIC_HAUBERK = 'elite sirenic hauberk',
     ELITE_SIRENIC_CHAPS = 'elite sirenic chaps',
-    
+
     SIRENIC_MASK = 'sirenic mask',
     SIRENIC_HAUBERK = 'sirenic hauberk',
     SIRENIC_CHAPS = 'sirenic chaps',
@@ -90,7 +89,6 @@ export enum ARMOUR {
     BIK_ARROWS = 'bik arrows',
     HYDRIX_BAKRIMINEL_BOLTS_E = 'hydrix bakriminel bolts (e)',
 
-    
     //Melee
     VESTMENTS_OF_HAVOC_ROBE_TOP = 'vestments of havoc robe top',
     VESTMENTS_OF_HAVOC_HOOD = 'vestments of havoc hood',
@@ -117,27 +115,23 @@ export enum ARMOUR {
     TMW_MELEE_GLOVES = 'trimmed masterwork melee gloves',
     GLOVES_OF_PASSAGE = 'gloves of passage',
     GLOVES_OF_PASSAGE_E = 'enhanced gloves of passage',
-    
+
     //Necromancy
     TFN_CROWN = 'crown of the first necromancer',
     TFN_CROWN_WITH_ADDON = 'crown of the first necromancer with addon',
     TFN_ROBE_TOP = 'robe top of the first necromancer',
     TFN_ROBE_BOTTOM = 'robe bottom of the first necromancer',
     TFN_FOOT_WRAPS = 'foot wraps of the first necromancer',
-    
+
     DEATHDEALER_HOOD_T90 = 'deathdealer hood (tier 90)',
     DEATHDEALER_BOOTS_T90 = 'deathdealer boots (tier 90)',
     DEATHDEALER_ROBE_TOP_T90 = 'deathdealer robe top (tier 90)',
     DEATHDEALER_ROBE_BOTTOM_T90 = 'deathdealer robe bottom (tier 90)',
 
-
-
-   
-
     // Hybrid
     DEATHTOUCH_BRACELET = 'deathtouch bracelet',
     CINDERBANE_GLOVES = 'cinderbane gloves',
-    
+
     TFN_HAND_WRAP = 'hand wrap of the first necromancer',
     DEATHDEALER_GLOVES_T90 = 'deathdealer gloves (tier 90)',
     EOF_OR = 'essence of finality amulet (or)',
@@ -179,7 +173,7 @@ export enum ARMOUR {
     RING_OF_DEATH = 'ring of death',
     ASYLUM_SURGEONS_RING_I = 'asylum surgeons ring (i)',
     ASYLUM_SURGEONS_RING = 'asylum surgeons ring',
-    
+
     STALKERS_RING = 'stalker\'s ring',
     STALKERS_RING_E = 'stalker\'s ring+',
     CHAMPIONS_RING = 'champion\'s ring',
@@ -209,11 +203,6 @@ export enum ARMOUR {
     // Additional
     NONE_TANK = 'none/tank',
 
-
-
-
-
-
     UNDERWORLD_GRIMOIRE_3 = 'underworld grimoire 3',
     LEAGUES_POCKET = 'leagues pocket',
     SEREN_HELM = 'anima core of helm of seren',
@@ -232,7 +221,6 @@ export enum ARMOUR {
     TORVA_GLOVES = 'torva gloves',
     TORVA_BOOTS = 'torva boots',
 }
-
 
 export const armour: Record<ARMOUR, Equipment> = {
     [ARMOUR.TOKKUL_ZO]: {
@@ -1791,7 +1779,7 @@ export const armour: Record<ARMOUR, Equipment> = {
         style: 'ranged',
         popular: true,
         title: 'Hydrix Bakriminel Bolts (E)',
-        icon: "/gear_icons/ranged/hydrix bakriminel bolts (e).png", 
+        icon: "/gear_icons/ranged/hydrix bakriminel bolts (e).png",
     },
     [ARMOUR.UNDERWORLD_GRIMOIRE_3]: {
         'necromancy strength': 10,

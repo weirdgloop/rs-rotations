@@ -128,8 +128,6 @@ import { WEAPONS } from '$lib/data/weapons';
         [SETTINGS.PRIMORDIAL_ICE]: 10,
         [SETTINGS.ADRENALINE]: maxAdrenaline,
         [SETTINGS.FAMILIAR_SPEC_POINTS]: 60,
-
-
         [SETTINGS.NECROSIS_STACKS]: 12,
         [SETTINGS.DEATH_SPARK_STACKS]: 5,
         [SETTINGS.SOUL_REAVE_STACKS]: 4,
@@ -275,14 +273,12 @@ import { WEAPONS } from '$lib/data/weapons';
         // settings[SETTINGS.KERAPACS_WRIST_WRAPS]['value'] = false;
 
     });
-        
+
     updateDamages();
-
-
 </script>
 
 <div class="xl:col-span-6 xl:row-start-1 xl:row-span-1 card card-rotation">
-    <button 
+    <button
         class="collapse-button-settings"
         onclick={() => { if (uiState) uiState.settingsPanelCollapsed = true; }}
     >
@@ -291,25 +287,25 @@ import { WEAPONS } from '$lib/data/weapons';
     <h1 class="rotation-header">Settings</h1>
     <GradientSeparator marginTop="0.0rem" marginBottom="1.0rem" />
     <ul class="flex flex-wrap flex-col md:flex-row text-sm font-medium text-center">
-        <TabButton 
+        <TabButton
             id="ranged"
             label="Ranged"
             isActive={styleTab === SettingsCombatStyles.RANGED}
             onClick={() => (styleTab = SettingsCombatStyles.RANGED)}
         />
-        <TabButton 
+        <TabButton
             id="magic"
             label="Magic"
             isActive={styleTab === SettingsCombatStyles.MAGIC}
             onClick={() => (styleTab = SettingsCombatStyles.MAGIC)}
         />
-        <TabButton 
+        <TabButton
             id="melee"
             label="Melee"
             isActive={styleTab === SettingsCombatStyles.MELEE}
             onClick={() => (styleTab = SettingsCombatStyles.MELEE)}
         />
-        <TabButton 
+        <TabButton
             id="necro"
             label="Necro"
             isActive={styleTab === SettingsCombatStyles.NECROMANCY}
@@ -318,13 +314,13 @@ import { WEAPONS } from '$lib/data/weapons';
     </ul>
     <GradientSeparator marginTop="0.0rem" marginBottom="0.25rem" />
     <ul class="flex flex-wrap flex-col md:flex-row text-sm font-medium text-center">
-        <TabButton 
+        <TabButton
             id="general"
             label="General"
             isActive={tab === 'general'}
             onClick={() => (tab = 'general')}
         />
-        <TabButton 
+        <TabButton
             id="equipment"
             label="Equipment"
             isActive={tab === 'equipment'}
@@ -402,7 +398,7 @@ import { WEAPONS } from '$lib/data/weapons';
                             min="1"
                         />
                     {/if}
-                    
+
                     <Number
                         bind:setting={settings[SETTINGS.HIT_CHANCE]}
                         onchange={() => updateDamages()}
@@ -586,7 +582,7 @@ import { WEAPONS } from '$lib/data/weapons';
                 </div>
                 <div class="md:col-span-1" space-y-2>
                     <h5 class="uppercase font-bold text-lg text-center mb-4">
-                        <InfoTip 
+                        <InfoTip
                             text="If expected adrenaline is enabled, the rotation will show the expected adrenaline value. This accounts for the Impatient perk and
                             [bma:Tsunami Crit Buff].">
                             Adrenaline
@@ -670,7 +666,7 @@ import { WEAPONS } from '$lib/data/weapons';
                 <div class="md:col-span-1">
                     <FamiliarSelection bind:settings {updateDamages} bind:openDropdown onFamiliarChange={recalcFamiliarAccuracy} />
                 </div>
-                
+
             {:else if tab === 'bosses'}
                 <div class="md:col-span-1 space-y-4">
                     <BuffSelection settings={settings} updateDamages={updateDamages} styleFilter={styleTab} />

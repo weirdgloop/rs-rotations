@@ -5,8 +5,7 @@
           <clipPath id="5e53fc2057">
           <path d="M 104.882812 245 L 130 245 L 130 269.882812 L 104.882812 269.882812 Z M 104.882812 245 " clip-rule="nonzero"/></clipPath>
      </defs>
-     
-     
+
      <path stroke-linecap="butt" transform="matrix(0.75, 0, 0, 0.75, 0.0000045, 0)" fill="none" stroke-linejoin="miter" d="M -0.000006 0 L 500.000059 0 L 500.000059 500.000065 L -0.000006 500.000065 Z M -0.000006 0 " stroke="#ff5757" stroke-width="70" stroke-opacity="1" stroke-miterlimit="4"/>
      <path fill="#ff5757" d="M 129.667969 194.492188 L 159.539062 215.460938 L 180.507812 245.332031 L 172.246094 253.59375 L 121.40625 202.753906 Z M 129.667969 194.492188 " fill-opacity="1" fill-rule="nonzero"/>
      <g clip-path="url(#1c5fef8010)">

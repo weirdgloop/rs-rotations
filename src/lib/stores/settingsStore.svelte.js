@@ -16,8 +16,7 @@ export function initializeSettings() {
         storedSettings = JSON.parse(localStorage.getItem('rotation_settings')) || {};
     }
 
-    
-    settingsStore.settings = 
+    settingsStore.settings =
         Object.fromEntries(
             Object.entries(settingsConfig).map(([key, value]) => [
                 key,
@@ -37,7 +36,7 @@ export function initializeSettings() {
     settingsStore.settings[SETTINGS.SMOKE_CLOUD].value = false;
     settingsStore.settings[SETTINGS.CHAIN_MODIFIER].value = SETTINGS.CHAIN_MODIFIER_VALUES.NONE;
     settingsStore.settings[SETTINGS.KERAPACS_WRIST_WRAPS].value = false;
-    
+
     settingsStore.initialized = true;
 }
 

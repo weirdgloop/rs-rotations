@@ -7,7 +7,7 @@ export const notificationStore = $state({
         message: '',
         type: 'info'
     },
-    
+
     // Confirmation dialog
     confirmationDialog: {
         show: false,
@@ -16,7 +16,7 @@ export const notificationStore = $state({
         onConfirm: null,
         onCancel: null
     },
-    
+
     // Input prompt
     inputPrompt: {
         show: false,
@@ -27,7 +27,7 @@ export const notificationStore = $state({
         onSubmit: null,
         onCancel: null
     },
-    
+
     // Legacy modal states (for backward compatibility)
     showSaveDialog: false,
     showLoadDialog: false,
@@ -126,4 +126,4 @@ export const notifActions = {
     showInfo(title, message) {
         this.showNotification(title, message, 'info');
     }
-}; 
+};

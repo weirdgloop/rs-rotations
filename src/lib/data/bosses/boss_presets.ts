@@ -966,11 +966,10 @@ const nexAoD: BossPreset = {
     affinities: { weakness: 0.55, melee: 0.55, ranged: 0.55, magic: 0.55 },
     taggable: false,
     curseImmune: false,
-    
+
     health: 3000000,
     phases: [{ hp: 900000 }, { hp: 300000 }, { hp: 1200000 }]
 };
-
 
 const nexAoDMinion: BossPreset = {
     name: 'Nex: AoD - Minion',

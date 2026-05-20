@@ -251,7 +251,6 @@ function calc_boosted_ad(settings, dmgObject) {
         base_ad_boost += 0.1;
     }
 
-
     boosted_AD = Math.floor(boosted_AD * base_ad_boost);
 
     // chaos roar (flat +755, applied after multiplier)
@@ -272,7 +271,7 @@ function ability_specific_effects(settings, dmgObject) {
 
         // song of destruction 2 item set effect
         if (
-            ['bleed', 'burn', 'dot'].includes(abils[settings['ability']].abilityClassification) && 
+            ['bleed', 'burn', 'dot'].includes(abils[settings['ability']].abilityClassification) &&
                 (settings[SETTINGS.MH] === WEAPONS.ROAR_OF_AWAKENING || settings[SETTINGS.MH] === WEAPONS.ROAR_OF_AWAKENING_IM) &&
                 (settings[SETTINGS.OH] === WEAPONS.ODE_TO_DECEIT || settings[SETTINGS.OH] === WEAPONS.ODE_TO_DECEIT_IM) &&
                 settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.DW
@@ -425,7 +424,6 @@ function set_min_var(settings, dmgObject) {
         }
     }
 
-    
     dmgObject.minHit = Math.max(Math.floor(min_percent * dmgObject['boosted AD']), 0);
     dmgObject.varHit = Math.max(Math.floor(var_percent * dmgObject['boosted AD']), 0);
     return dmgObject;
@@ -804,7 +802,6 @@ function calc_multiplicative_pve_buffs(settings, dmgObject) {
     if (settings[SETTINGS.FAMILIAR] === SETTINGS.FAMILIAR_VALUES.RIPPER_DEMON) {
         boost += Math.floor(boost * 0.05 * (1 - settings[SETTINGS.TARGET_HP_PERCENT] / 100));
     }
-    
 
     dmgObject.minHit = Math.floor((dmgObject.minHit * boost) / 10000);
     dmgObject.varHit = Math.floor((dmgObject.varHit * boost) / 10000);
@@ -846,13 +843,13 @@ function calc_core(settings, dmgObject, key) {
 
         // store damage into bolg
         if (
-            (settings[SETTINGS.TH] === WEAPONS.BOW_OF_THE_LAST_GUARDIAN || 
-            settings[SETTINGS.TH] === WEAPONS.BOW_OF_THE_LAST_GUARDIAN_IM) 
+            (settings[SETTINGS.TH] === WEAPONS.BOW_OF_THE_LAST_GUARDIAN ||
+            settings[SETTINGS.TH] === WEAPONS.BOW_OF_THE_LAST_GUARDIAN_IM)
             &&
-            settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.TH 
+            settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.TH
             &&
             (settings[SETTINGS.PERFECT_EQUILIBRIUM_STACKS] === 7 ||
-                (settings[SETTINGS.PERFECT_EQUILIBRIUM_STACKS] >= 3 
+                (settings[SETTINGS.PERFECT_EQUILIBRIUM_STACKS] >= 3
                 &&
                 settings[SETTINGS.BALANCE_BY_FORCE] === true))
         ) {
@@ -877,9 +874,9 @@ function calc_core(settings, dmgObject, key) {
         }
 
         // store fsoa damage
-        if (abils[settings['ability']].critEffects === true 
-            && settings['instability'] === true 
-            && abils[settings['ability']].damageType === 'magic' 
+        if (abils[settings['ability']].critEffects === true
+            && settings['instability'] === true
+            && abils[settings['ability']].damageType === 'magic'
             && settings['ability'] != 'time strike') {
                 if (!('fsoa damage' in settings)) {
                     settings['fsoa damage'] = create_object(settings);
@@ -1065,7 +1062,6 @@ function calc_on_npc(settings, dmgObject) {
             );
         }
 
-
         // scrimshaw of elements
         if (
             settings[SETTINGS.POCKET] === ARMOUR.SCRIMSHAW_OF_ELEMENTS &&
@@ -1173,7 +1169,7 @@ function calc_on_hit(settings, dmgObject) {
     dmgObject = calc_precise(settings, dmgObject);
     dmgObject = calc_additive_boosts(settings, dmgObject);
     // dmgObject = calc_multiplicative_shared_buffs(settings, dmgObject);
-    
+
     // dmgObject = calc_multiplicative_pve_buffs(settings, dmgObject);
     // dmgObject = calc_bonus_damage(settings, dmgObject);
     return dmgObject;
@@ -1199,7 +1195,7 @@ function calc_damage_object(settings) {
         if (abils[settings['ability']].onHitEffects) {
             dmgObject[key] = calc_on_hit(settings, dmgObject[key]);
         }
-        // roll damage 
+        // roll damage
         dmgObject[key]['damage list'] = roll_damage(settings, dmgObject, key);
         // calc core
         if (abils[settings['ability']].onHitEffects) {
@@ -1228,7 +1224,6 @@ function calc_bolg(settings) {
     let bolg_base = calc_damage_object(settings);
     return bolg_base;
 }
-
 
 function calc_bloat(settings) {
     let bloat_dot = create_object(settings);
@@ -1459,8 +1454,8 @@ function get_max_crit(settings, dmgObject) {
 
 /**
  * Ensures the correct prayer and set of gear is used for calculating the damage of an ability
- * @param {*} settings 
- * @returns 
+ * @param {*} settings
+ * @returns
  */
 function style_specific_unification(settings, style = null) {
     const effectiveStyle = style || (abils[settings['ability']] && abils[settings['ability']].mainStyle);

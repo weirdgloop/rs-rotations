@@ -41,7 +41,6 @@ export interface Equipment {
     icon?: string;
 }
 
-
 /**
  * Input for rotation damage calculation - decoupled from stores
  */
@@ -81,7 +80,7 @@ export interface SingleAbilityInput {
 }
 /**
  * Represents a uniform distribution of possible damage rolls (either critical or non-critical)
- 
+
  */
 interface DamageDistribution {
     minHit: number;
@@ -101,4 +100,4 @@ interface DamageObject {
     likelihood: number; // The probability of this event occuring - for probabilistic hits (fsoa, sgb <5x5, etc.)
 }
 
-export type { DamageDistribution, DamageObject, DamageKind }; 
+export type { DamageDistribution, DamageObject, DamageKind };

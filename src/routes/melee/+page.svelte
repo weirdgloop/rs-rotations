@@ -40,7 +40,7 @@
     let openDropdown = $state(null);
 
     let tab = $state('general');
-    
+
     let damages = $state(Object.entries(abilities).map(([key, value]) => ({
         key,
         ...value,

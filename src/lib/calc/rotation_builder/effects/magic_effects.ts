@@ -159,7 +159,6 @@ function applyMinVarEffects(
 ): void {
     const { settings, abilityKey } = ctx;
 
-
     // Channeler's ring
     if (
         settings[SETTINGS.RING] === ARMOUR.CHANNELLERS_RING &&

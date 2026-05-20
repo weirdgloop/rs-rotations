@@ -79,7 +79,6 @@ export function get_hit_sequence(settings: Record<string, any>): Record<number, 
     const abilityKey = settings['ability'];
     let rotation = JSON.parse(JSON.stringify(abils[abilityKey]['hits'])); // Deep copy
 
-
     // Igneous Showdown with EZK and Flamebound Rival
     if (
         abilityKey === ABILITIES.IGNEOUS_SHOWDOWN &&
@@ -145,7 +144,6 @@ export function get_hit_sequence(settings: Record<string, any>): Record<number, 
             }
         }
     }
-
 
     // Bloodlust Hurricane: consuming 4 stacks adds a bonus hit
     if (abilityKey === ABILITIES.HURRICANE && settings['_bloodlust_consumed'] === ABILITIES.HURRICANE) {

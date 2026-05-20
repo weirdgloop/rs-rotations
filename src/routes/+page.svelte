@@ -379,21 +379,21 @@
         from { transform: rotate(0deg); }
         to { transform: rotate(-3600deg); }
     }
-    
+
     .icon-position {
         position: relative;
         width: 50px;
         height: 50px;
         margin-right: 10px;
     }
-    
+
     .base-icon {
         width: 100%;
         height: auto;
         opacity: 1;
         transition: opacity 0.7s ease-in-out;
     }
-    
+
     .spin-icon {
         position: absolute;
         top: 0;
@@ -406,11 +406,11 @@
         animation: spin 18s cubic-bezier(0.1, 0.25, 0.7, 1) infinite;
         animation-play-state: paused;
     }
-    
+
     .group:hover .base-icon {
         opacity: 0;
     }
-    
+
     .group:hover .spin-icon {
         opacity: 1;
         animation-play-state: running;

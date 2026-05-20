@@ -24,7 +24,7 @@ export enum PRAYERS {
     LEECH_MAGIC_STRENGTH_8 = 'leech magic strength 8',
     TORMENT = 'torment',
     AFFLICTION = 'affliction',
-    
+
     BURST_OF_STRENGTH = 'burst of strength',
     SUPERHUMAN_STRENGTH = 'superhuman strength',
     ULTIMATE_STRENGTH = 'ultimate strength',
@@ -36,7 +36,7 @@ export enum PRAYERS {
     LEECH_MELEE_STRENGTH_8 = 'leech melee strength 8',
     TURMOIL = 'turmoil',
     MALEVOLENCE = 'malevolence',
-    
+
     UNSTOPPABLE_FORCE = 'unstoppable force',
     UNRELENTING_FORCE = 'unrelenting force',
     OVERPOWERING_FORCE = 'overpowering force',
@@ -47,7 +47,7 @@ export enum PRAYERS {
     LEECH_RANGED_STRENGTH_8 = 'leech ranged strength 8',
     ANGUISH = 'anguish',
     DESOLATION = 'desolation',
-    
+
     DECAY = 'decay',
     HASTENED_DECAY = 'hastened decay',
     ACCELERATED_DECAY = 'accelerated decay',
@@ -58,7 +58,7 @@ export enum PRAYERS {
     LEECH_NECROMANCY_STRENGTH_8 = 'leech necromancy strength 8',
     SORROW = 'sorrow',
     RUINATION = 'ruination',
-    
+
     NONE_NECRO = 'none necro',
     NONE_MAGIC = 'none magic',
     NONE_RANGED = 'none ranged',

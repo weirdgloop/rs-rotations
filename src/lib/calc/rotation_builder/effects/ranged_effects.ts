@@ -312,13 +312,13 @@ function applyBonusDamageEffects(
     ];
     if (settings[SETTINGS.CAROMING] > 0 && ricochetAbilities.includes(abilityKey)) {
         const caromingBoost = 0.04 * settings[SETTINGS.CAROMING];
-        distribution.minHit += Math.floor(settings[SETTINGS.ABILITY_DAMAGE] * caromingBoost); 
+        distribution.minHit += Math.floor(settings[SETTINGS.ABILITY_DAMAGE] * caromingBoost);
     }
 
     // Searing Winds (Galeshot buff) - adds 20% of ability damage as flat bonus to each hit
     if (settings[SETTINGS.SEARING_WINDS] === true && abilityKey != ABILITIES.GALESHOT) {
         const bonus = Math.floor(settings[SETTINGS.ABILITY_DAMAGE] * 0.2);
-        distribution.minHit += bonus; 
+        distribution.minHit += bonus;
     }
 }
 

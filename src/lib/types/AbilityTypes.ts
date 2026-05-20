@@ -5,9 +5,9 @@
 import { ABILITIES, abils } from "$lib/data/abilities";
 
 // Ability classification types
-export type AbilityClassification = 
+export type AbilityClassification =
     'bleed' | 'dot' | 'burn' | 'channel' | 'self cast' |
-    'regular' | 'multihit' | 'auto' | 'grounded' | 
+    'regular' | 'multihit' | 'auto' | 'grounded' |
     'conjure' | 'proc' | 'perk';
 
 // Ability type categories - 'ability' is used for necro abils
@@ -32,13 +32,13 @@ export interface AbilityInfo {
     onHitEffects: boolean; // whether ability gets on-hit effects
     critEffects: boolean; // whether ability can crit
     damagePotentialEffects: boolean; // whether ability is affected by damage potential
-    
+
     // Classification properties
     abilityClassification: AbilityClassification; // type of ability (bleed, channel, etc.)
     abilityType: AbilityType; // category of ability (basic, threshold, etc.)
     mainStyle: CombatStyle; // primary combat style
     damageType: DamageType; // type of damage dealt
-    
+
     // Optional properties
     hits?: AbilityHits; // for channeled abilities, defines hits per tick
     hitTimings?: number[]; // for multihit/bleeds/dots/etc, defines hit timings
@@ -46,13 +46,13 @@ export interface AbilityInfo {
     cooldown?: number; // ability cooldown in seconds
     adrenaline?: number; // adrenaline cost/gain - +25 means the ability costs 25 adrenaline
     parent?: ABILITIES; // parent ability for multihit, channel or bleed ability hit entries
-    
+
     // UI properties (if applicable)
     title?: string; // display name
     icon?: string; // icon path
     description?: string; // ability description
     common?: boolean // For UI filtering of irrelevant abilities
-    
+
     // Special properties
     isUltimate?: boolean; // whether this is an ultimate ability
     requiresTarget?: boolean; // whether ability requires a target
@@ -147,7 +147,7 @@ export function getAbilityType(ability: AbilityInfo): AbilityType {
 
 export function getAbilityClassification(ability: AbilityInfo): AbilityClassification {
     return ability.abilityClassification;
-} 
+}
 
 export function isChannelledHit(ability: AbilityInfo): boolean {
     const parent = ability.parent;

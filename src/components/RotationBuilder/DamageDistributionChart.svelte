@@ -3,12 +3,12 @@
     import { Chart, registerables } from 'chart.js';
     import '../../css/colors.css';
     import { Logger, LogCategory } from '../../lib/utils/Logger';
-    
+
     const logger = Logger.getInstance();
-    
+
     // Register all Chart.js components
     Chart.register(...registerables);
-    
+
     import { abils } from '$lib/data/abilities.ts';
     import { familiars } from '$lib/data/familiars';
     import { STYLE_COLORS, ABILITY_COLORS, DAMAGE_SOURCE_COLORS, getDamageColour } from '../../lib/utils/colors';
@@ -68,7 +68,7 @@
         lower: Math.round(gaussianParams.mean - 3 * gaussianParams.stdDev),
         upper: Math.round(gaussianParams.mean + 3 * gaussianParams.stdDev)
     } : null;
-    
+
     let chartCanvas;
     let chart;
     let timeSeriesCanvas;
@@ -291,7 +291,7 @@
             }, 0);
         }
     }
-    
+
     // Calculate Gaussian parameters for TOTAL damage (sum of all hits)
     function calculateGaussianParameters(stats) {
         logger.log(LogCategory.ROTATION, 'calculateGaussianParameters called with stats', stats);
@@ -309,17 +309,17 @@
                 // For combined distributions, calculate the proper mixture mean and variance
                 // Mixture mean = p1*mu1 + p2*mu2
                 // Mixture variance = p1*sigma1^2 + p2*sigma2^2 + p1*p2*(mu1-mu2)^2
-                
+
                 const p1 = stat.critProbability;
                 const mu1 = stat.critMean;
                 const sigma1Squared = stat.critVariance;
                 const p2 = stat.nonCritProbability;
                 const mu2 = stat.nonCritMean;
                 const sigma2Squared = stat.nonCritVariance;
-                
+
                 const mixtureMean = p1 * mu1 + p2 * mu2;
                 const mixtureVariance = p1 * sigma1Squared + p2 * sigma2Squared + p1 * p2 * Math.pow(mu1 - mu2, 2);
-                
+
                 // Add to total (each ability contributes to the sum)
                 totalMean += mixtureMean * stat.likelihood;
                 totalVariance += mixtureVariance * stat.likelihood;
@@ -327,7 +327,7 @@
                 // For individual crit/non-crit distributions, treat as independent
                 const meanDamage = (stat.minDamage + stat.maxDamage) / 2;
                 const variance = Math.pow((stat.maxDamage - stat.minDamage) / 2, 2) / 3;
-                
+
                 // Add to total (each hit contributes to the sum)
                 totalMean += meanDamage * stat.likelihood;
                 totalVariance += variance * stat.likelihood;
@@ -341,7 +341,7 @@
 
         return { mean: totalMean, stdDev };
     }
-    
+
     // Create histogram data for TOTAL damage distribution
     function createHistogramData(stats, gaussianParams) {
         logger.log(LogCategory.ROTATION, 'createHistogramData called', { stats, gaussianParams });
@@ -349,50 +349,50 @@
             logger.log(LogCategory.ROTATION, 'No stats provided to createHistogramData');
             return { labels: [], data: [], cumulativeData: [] };
         }
-        
+
         if (gaussianParams.stdDev === 0) {
             logger.log(LogCategory.ROTATION, 'Standard deviation is 0, returning empty data');
             return { labels: [], data: [], cumulativeData: [] };
         }
-        
+
         // Create range around the total damage mean (±4 standard deviations)
         const rangeStart = Math.max(0, gaussianParams.mean - 4 * gaussianParams.stdDev);
         const rangeEnd = gaussianParams.mean + 4 * gaussianParams.stdDev;
-        
+
         // Calculate nice round tick spacing for labels
         const range = rangeEnd - rangeStart;
         let tickSpacing = range / 10; // Aim for ~10 ticks
-        
+
         // Round tick spacing to nice numbers
         const magnitude = Math.pow(10, Math.floor(Math.log10(tickSpacing)));
         const normalized = tickSpacing / magnitude;
-        
+
         if (normalized < 2) tickSpacing = magnitude;
         else if (normalized < 5) tickSpacing = 2 * magnitude;
         else if (normalized < 10) tickSpacing = 5 * magnitude;
         else tickSpacing = 10 * magnitude;
-        
+
         // Adjust range to use nice round numbers
         const adjustedRangeStart = Math.floor(rangeStart / tickSpacing) * tickSpacing;
         const adjustedRangeEnd = Math.ceil(rangeEnd / tickSpacing) * tickSpacing;
         const numTicks = Math.ceil((adjustedRangeEnd - adjustedRangeStart) / tickSpacing) + 1;
-        
+
         // Create many more data points for smooth curves (200 points instead of ~10)
         const numDataPoints = 200;
         const dataPointSpacing = (adjustedRangeEnd - adjustedRangeStart) / (numDataPoints - 1);
-        
+
         // Create data points for the Gaussian curve
         const dataPoints = [];
         const cumulativeData = [];
         const labels = [];
-        
+
         // Create smooth curve data points
         for (let i = 0; i < numDataPoints; i++) {
             const x = adjustedRangeStart + i * dataPointSpacing;
-            const gaussianValue = (1 / (gaussianParams.stdDev * Math.sqrt(2 * Math.PI))) * 
+            const gaussianValue = (1 / (gaussianParams.stdDev * Math.sqrt(2 * Math.PI))) *
                                  Math.exp(-0.5 * Math.pow((x - gaussianParams.mean) / gaussianParams.stdDev, 2));
             dataPoints.push(gaussianValue);
-            
+
             // Create labels for each data point (Chart.js needs labels array to match data array length)
             const formatNumber = (num) => {
                 if (num >= 1000000) {
@@ -403,51 +403,51 @@
                     return num.toLocaleString();
                 }
             };
-            
+
             // Show labels at consistent intervals (every 20th point for ~10 labels across 200 points)
             const labelInterval = Math.floor(numDataPoints / numTicks);
             const isTickPoint = i % labelInterval === 0;
             labels.push(isTickPoint ? formatNumber(x) : '');
         }
-        
+
         // Calculate cumulative probability (probability of achieving at least this damage)
         let cumulativeSum = 0;
         for (let i = dataPoints.length - 1; i >= 0; i--) {
             cumulativeSum += dataPoints[i] * dataPointSpacing; // Multiply by spacing to get area
             cumulativeData.unshift(cumulativeSum);
         }
-        
+
         // Scale probability density to a reasonable range (0-50 instead of 0-100)
         const maxValue = Math.max(...dataPoints);
         const scaledData = dataPoints.map(point => (point / maxValue) * 50);
-        
+
         // Normalize cumulative data to 0-100
         const maxCumulative = Math.max(...cumulativeData);
         const scaledCumulative = cumulativeData.map(point => (point / maxCumulative) * 100);
-        
-        return { 
-            labels, 
+
+        return {
+            labels,
             data: scaledData,
             cumulativeData: scaledCumulative
         };
     }
-    
+
     function updateChart() {
         if (!chartCanvas) return;
-        
+
         // Destroy existing chart
         if (chart) {
             chart.destroy();
         }
-        
+
         const ctx = chartCanvas.getContext('2d');
-        
+
         // Calculate Gaussian parameters
         const gaussianParams = calculateGaussianParameters(distributionStats);
-        
+
         // Create histogram data
         const histogramData = createHistogramData(distributionStats, gaussianParams);
-        
+
         // Create vertical lines for mean and standard deviations
         const rangeStart = Math.max(0, gaussianParams.mean - 4 * gaussianParams.stdDev);
         const rangeEnd = gaussianParams.mean + 4 * gaussianParams.stdDev;
@@ -459,11 +459,11 @@
         else if (normalized < 5) tickSpacing = 2 * magnitude;
         else if (normalized < 10) tickSpacing = 5 * magnitude;
         else tickSpacing = 10 * magnitude;
-        
+
         const adjustedRangeStart = Math.floor(rangeStart / tickSpacing) * tickSpacing;
         const adjustedRangeEnd = Math.ceil(rangeEnd / tickSpacing) * tickSpacing;
         const dataPointSpacing = (adjustedRangeEnd - adjustedRangeStart) / (Math.max(histogramData.data.length - 1, 1));
-        
+
         // Create vertical confidence bounds using scatter plot approach
         const createVerticalLineData = (xValue, yMax = 100) => {
             const points = [];
@@ -472,13 +472,13 @@
             }
             return points;
         };
-        
+
         const meanLineData = createVerticalLineData(gaussianParams.mean);
         const stdDev1LowerData = createVerticalLineData(gaussianParams.mean - gaussianParams.stdDev);
         const stdDev1UpperData = createVerticalLineData(gaussianParams.mean + gaussianParams.stdDev);
         const stdDev2LowerData = createVerticalLineData(gaussianParams.mean - 2 * gaussianParams.stdDev);
         const stdDev2UpperData = createVerticalLineData(gaussianParams.mean + 2 * gaussianParams.stdDev);
-        
+
         chart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -632,7 +632,7 @@
                                         return num.toLocaleString();
                                     }
                                 };
-                                
+
                                 if (context.dataset.type === 'scatter') {
                                     // For scatter plots (vertical lines), use the x value directly
                                     return `${context.dataset.label}: ${formatNumber(context.parsed.x)}`;
@@ -718,7 +718,7 @@
             }
         });
     }
-    
+
     /**
      * Build cumulative mean/variance time series from per-hit distribution stats.
      * Returns one data point per tick where damage lands.
@@ -796,8 +796,6 @@
 
         const ctx = timeSeriesCanvas.getContext('2d');
         const labels = series.map(s => s.tick);
-
-
 
         // Build cumulative data aligned to the ticks in the series
         const hasPoisonData = poisonDamage > 0 && poisonPerTick.length > 0;
@@ -1390,4 +1388,4 @@
             font-size: 0.7rem;
         }
     }
-</style> 
+</style>

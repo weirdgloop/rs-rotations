@@ -4,4 +4,4 @@ export enum SettingsCombatStyles {
     RANGED = 'ranged',
     MELEE = 'melee',
     ALL = 'all'
-} 
+}

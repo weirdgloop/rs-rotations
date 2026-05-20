@@ -26,13 +26,13 @@ const csvLines = csvData.split('\n');
 
 csvLines.forEach(line => {
   if (line.trim() === '') return;
-  
+
   // Split by comma, but handle the case where ability name might contain commas
   const lastCommaIndex = line.lastIndexOf(',');
   if (lastCommaIndex !== -1) {
     const abilityName = line.substring(0, lastCommaIndex).trim();
     const cooldown = parseFloat(line.substring(lastCommaIndex + 1).trim());
-    
+
     if (!isNaN(cooldown)) {
       cooldownMap.set(abilityName.toLowerCase(), cooldown);
       // Also add a version without apostrophes for matching
@@ -60,36 +60,36 @@ constFileContent = constFileContent.replace(abilityRegex, (match, beforeClosing,
   if (beforeClosing.includes('cooldown:')) {
     return match;
   }
-  
+
   // Extract the ability name from the match
   const abilityNameMatch = match.match(/\[ABILITIES\.([^\]]+)\]/);
   if (!abilityNameMatch) {
     return match;
   }
-  
+
   const abilityKey = abilityNameMatch[1];
-  
+
   // Format the ability name for lookup
   const formattedAbilityName = abilityKey
     .replace(/_/g, ' ')
     .replace(/1|2|3|4|5|HIT|INITIAL|BLEED|DOT|AOE|BONUS/g, '')
     .trim();
-  
+
   // Look up the cooldown value
   let cooldown = 0; // Default value
-  
+
   // Try to find a match in the cooldown map
   for (const [name, value] of cooldownMap.entries()) {
-    if (name.toLowerCase().includes(formattedAbilityName.toLowerCase()) || 
+    if (name.toLowerCase().includes(formattedAbilityName.toLowerCase()) ||
         formattedAbilityName.toLowerCase().includes(name.toLowerCase())) {
       cooldown = value;
       break;
     }
   }
-  
+
   // Check if the last character before the closing brace is a comma
   const needsComma = !beforeClosing.trim().endsWith(',');
-  
+
   // Add the cooldown property
   return `${beforeClosing}${needsComma ? ',' : ''}\n        cooldown: ${cooldown}${closing}`;
 });

@@ -24,7 +24,6 @@
     import { getBossPresetWithEnrage, type BossAttack, type BossAttackPattern } from '$lib/data/bosses/boss_presets';
     import { suggestNextAbility, resolveTumekensAsphyxiate, type AbilitySuggestion } from '$lib/calc/rotation_builder/rotation-damage-calculator';
 
-
     const filterByStyle = (style) => Object.fromEntries(
         Object.entries(abils).filter(([, a]) => a.title && a.mainStyle === style)
     );
@@ -324,7 +323,6 @@
 		return { ...entry, isStart: entry.tickInAttack % entry.attack.ticks === 0 };
 	}
 
-
 	// Generate CSS for grid-template-rows based on calculated row heights
 	function getGridTemplateRows(): string {
 		if (rowLayoutData.length === 0) return '';
@@ -450,8 +448,6 @@
     function handleBarRightClick(event, index, innerIdx = null) {
         eventHandlers.handleBarRightClick(event, index, innerIdx, stores, refreshUI, calculateTotalDamageNew);
     }
-
-
 
     function handleKeypress(event: KeyboardEvent) {
         eventHandlers.handleKeypress(event, stores);
@@ -581,9 +577,9 @@
 <Header img="/range_background.png" text="Rotation Calculator Beta" icon="/style_icons/rota_icon.svg" />
 
 <div class="space-y-14 mt-10 z-20">
-	<div class="responsive-container {uiStore.activeTool.toLowerCase()}-cursor {uiStore.stallingAbility ? 'stalling' : ''}" 
-		tabindex="-1" 
-		role="button" 
+	<div class="responsive-container {uiStore.activeTool.toLowerCase()}-cursor {uiStore.stallingAbility ? 'stalling' : ''}"
+		tabindex="-1"
+		role="button"
 		onkeydown={handleKeypress}
 		style="--stack-font-size: {stackFontSize}px; {uiStore.stallingAbility ? `cursor: url('${allAbils[uiStore.stallingAbility].icon}') 15 15, wait;` : ''}"
     >
@@ -591,7 +587,7 @@
 			<div class="flex flex-row wrapper {uiStore.settingsPanelCollapsed ? 'gap-0' : 'gap-6'} relative">
 				<div class="card card-rotation {uiStore.settingsPanelCollapsed ? 'w-full' : 'w-2/3'}">
 					{#if uiStore.settingsPanelCollapsed}
-                        <button 
+                        <button
                             class="expand-button"
                             onclick={() => uiActions.toggleSettingsPanel()}
                         >
@@ -639,7 +635,7 @@
                         onOpenKeybinds={() => showKeybindModal = true}
                         onShowKeypresses={() => showKeypressModal = true}
                     />
-					
+
                     <ul class="flex flex-wrap flex-col md:flex-row text-sm font-medium text-center items-center">
                         {#each tabs as tab}
                             <TabButton
@@ -928,7 +924,7 @@
 <!-- Save and Load dialogs are now handled by Popup components -->
 
 <!-- Notification Popup -->
-<Popup 
+<Popup
     bind:show={notificationStore.notification.show}
     title={notificationStore.notification.title}
     message={notificationStore.notification.message}
@@ -936,7 +932,7 @@
 />
 
 <!-- Confirmation Dialog -->
-<Popup 
+<Popup
     bind:show={notificationStore.confirmationDialog.show}
     title={notificationStore.confirmationDialog.title}
     message={notificationStore.confirmationDialog.message}
@@ -954,7 +950,7 @@
 />
 
 <!-- Input Prompt Dialog -->
-<Popup 
+<Popup
     bind:show={notificationStore.inputPrompt.show}
     title={notificationStore.inputPrompt.title}
     message={notificationStore.inputPrompt.message}

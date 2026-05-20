@@ -46,7 +46,6 @@ export function calculateAdditiveBoost(ctx: EffectContext): number {
         boost += 0.12;
     }
 
-
     // Enduring ruin (melee only)
     if (abils[abilityKey]?.mainStyle === 'melee') {
         boost += settings[SETTINGS.ENDURING_RUIN_HIT] === SETTINGS.ENDURING_RUIN_HIT_VALUES.REGULAR ? 0.1 : 0;

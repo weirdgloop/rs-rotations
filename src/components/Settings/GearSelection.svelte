@@ -149,8 +149,6 @@
         return getGearBadge(val);
     }
 
-
-
     const armourSlotsByStyle = {
         [SettingsCombatStyles.RANGED]: [
             { key: SETTINGS.RANGED_HELMET, fallback: '/armour_icons/Head_slot.webp', gearSlot: GearSlots.HELMET },
@@ -567,9 +565,9 @@
             >
                 <img
                     src={
-                        settings[SETTINGS.AUTO_CAST]?.value === 'exsanguinate' ? '/effect_icons/Exsanguinate_icon.webp' : 
+                        settings[SETTINGS.AUTO_CAST]?.value === 'exsanguinate' ? '/effect_icons/Exsanguinate_icon.webp' :
                         settings[SETTINGS.AUTO_CAST]?.value === 'incite fear' ? '/ability_icons/magic/Incite_Fear_icon.webp' :
-                        settings[SETTINGS.AUTO_CAST]?.value === 'crumble undead' ? '/ability_icons/magic/Crumble_Undead_icon.png' 
+                        settings[SETTINGS.AUTO_CAST]?.value === 'crumble undead' ? '/ability_icons/magic/Crumble_Undead_icon.png'
                         : '/ability_icons/magic/Vanilla_fudge_log.png'}
                     alt="Auto Cast"
                     class="w-7 h-7 object-contain"

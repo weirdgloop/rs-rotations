@@ -453,7 +453,7 @@ const SETTINGS = {
     KERAPACS_WRIST_WRAPS: 'kerapacs wrist wraps', // buff flag, set by casting Dragon Breath with KWW/KWW_E
     ENCHANTMENT_OF_FLAMES: 'enchantment of flames', // toggle: KWW_E with enchantment unlocks 1.4x instead of 1.25x
     ENCHANTMENT_OF_DREAD: 'enchantment of dread', // toggle: NG_E with enchantment adds second snipe hit
-    
+
     TARGET_DISABILITY: 'target disability',
     TARGET_DISABILITY_VALUES: {
         NONE: 'none',
@@ -542,7 +542,7 @@ const SETTINGS = {
     ECLIPSED_SOUL: 'eclipsed soul',
 
     // Dungeoneering
-    DESPERADO: 'desperado',    
+    DESPERADO: 'desperado',
 
     SHOW_BLOODLUST_STACKS: 'show bloodlust stacks',
     SHOW_PRIMORDIAL_ICE_STACKS: 'show primordial ice stacks',
@@ -591,8 +591,6 @@ const SETTINGS = {
     },
     MAX_CHANNEL_DURATION: 'max channel duration',
     FLAMEBOUND_RIVAL: 'flamebound rival',
-
-
     AUTO_SPEED: 'auto speed',
     AUTO_SPEED_VALUES: {
         FASTEST: 'fastest',
@@ -634,7 +632,7 @@ const settingsConfig = {
         label: 'Mode',
         default: SETTINGS.CALC_TYPE_VALUES.ABILITY,
     },
-    [SETTINGS.HIT_COUNTER_START]: { 
+    [SETTINGS.HIT_COUNTER_START]: {
         label: 'Start hit',
         default: 0
     },

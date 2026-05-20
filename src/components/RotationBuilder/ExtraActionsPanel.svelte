@@ -512,8 +512,6 @@
             {/each}
         </div>
 
-       
-
         <!-- Info section -->
             <div class="info-tab">
                 <!-- Per-tick damage -->

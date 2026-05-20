@@ -105,9 +105,9 @@ function calc_channelled_hit(settings: Record<string, any>, hit_index: number, r
 /**
  * Handles the toggling and timer initialisation of most buffs, exlcuding (e)dracolich
  * The buffs handled are those which are activated upon casting the ability
- * @param settings 
+ * @param settings
  * @param timers - map of (buff_name -> buff_duration)
- * @param abilityKey 
+ * @param abilityKey
  */
 export function handleBuffs(settings: Record<string, any>, timers: Record<string, number>, abilityKey: string) {
     //TODO handle swiftness' weird damage calc + cleanup format
@@ -184,7 +184,7 @@ export function handleBuffs(settings: Record<string, any>, timers: Record<string
             timers['death swiftness'] = 63;
             break;
         case ABILITIES.BALANCE_BY_FORCE:
-            settings[ABILITIES.BALANCE_BY_FORCE] = true; 
+            settings[ABILITIES.BALANCE_BY_FORCE] = true;
             timers[ABILITIES.BALANCE_BY_FORCE] = 50;
             break;
         case ABILITIES.SPLIT_SOUL_ECB: //TODO remove split soul on changing weapon
@@ -193,10 +193,10 @@ export function handleBuffs(settings: Record<string, any>, timers: Record<string
             break;
         // Melee Buff Abilities
         case ABILITIES.FURY:
-            settings[SETTINGS.FURY_BUFF] = SETTINGS.FURY_BUFF_VALUES.REGULAR; 
+            settings[SETTINGS.FURY_BUFF] = SETTINGS.FURY_BUFF_VALUES.REGULAR;
             break;
         case ABILITIES.GREATER_FURY:
-            settings[SETTINGS.FURY_BUFF] = SETTINGS.FURY_BUFF_VALUES.GREATER; 
+            settings[SETTINGS.FURY_BUFF] = SETTINGS.FURY_BUFF_VALUES.GREATER;
             break;
         case ABILITIES.CHAOS_ROAR:
             settings[SETTINGS.CHAOS_ROAR] = true;
@@ -246,8 +246,8 @@ export function handleBuffs(settings: Record<string, any>, timers: Record<string
         case ABILITIES.SPLIT_SOUL_NECRO:
             settings[SETTINGS.SPLIT_SOUL_NECRO] = true;
             timers[SETTINGS.SPLIT_SOUL_NECRO] = 34; // 20.4s = 34 ticks
-            break;        
-    
+            break;
+
         case ABILITIES.CONJURE_UNDEAD_ARMY: // Conjure abilities — tracked via timers, processed by processConjureTick
             timers['conjure_skeleton_warrior'] = getConjureDuration(settings);
             timers['conjure_vengeful_ghost'] = getConjureDuration(settings);
@@ -266,7 +266,7 @@ export function handleBuffs(settings: Record<string, any>, timers: Record<string
         case ABILITIES.CONJURE_PHANTOM_GUARDIAN:
             timers['conjure_phantom_guardian'] = getConjureDuration(settings);
             break;
-        
+
         case ABILITIES.COMMAND_SKELETON_WARRIOR: // Command abilities — trigger effect from conjures
             timers['command_skeleton_warrior'] = 10; // 6s = 10 ticks, 10 hits
             break;
@@ -305,7 +305,7 @@ export function handleBuffs(settings: Record<string, any>, timers: Record<string
             delete timers[COOLDOWN_PREFIX + ABILITIES.DEATHSKULLS_4];
             break;
         case ABILITIES.NATURAL_INSTINCT:
-            settings[SETTINGS.NATURAL_INSTINCT] = true; 
+            settings[SETTINGS.NATURAL_INSTINCT] = true;
             timers[ABILITIES.NATURAL_INSTINCT] = 34;
             break;
     }
@@ -392,7 +392,7 @@ export function handleChannellers(settings: Record<string, any>, timers: Record<
  * Handle SGB special attack by creating additional damage objects based on target size
  * Each target size corresponds to a hit multiplier where the integer part represents
  * guaranteed hits and the fractional part represents probability of an additional hit
- * 
+ *
  * @param settings - game settings object
  * @param dmgObject - base damage object to multiply
  * @param damageTracker - damage tracking object (unused currently)
@@ -403,23 +403,23 @@ export function handle_sgb(settings: Record<string, any>, dmgObject: DamageObjec
     const hitMultipliers = [0, 1.16, 1.64, 2.44, 3.56, 5.0];
     const size = Math.min(settings[SETTINGS.TARGET_SIZE], 5);
     const hitMultiplier = hitMultipliers[size] - 1; // don't include guaranteed hit
-    
+
     if (hitMultiplier <= 0) {
         return [dmgObject]; // Single hit, no multiplication needed
     }
-    
+
     const guaranteedHits = Math.floor(hitMultiplier);
     const fractionalPart = hitMultiplier - guaranteedHits;
-    
+
     const results: DamageObject[] = [];
-    
+
     // Add guaranteed hits (each with likelihood 1.0)
     for (let i = 0; i < guaranteedHits; i++) {
         const hitCopy = structuredClone(dmgObject);
         hitCopy.likelihood = 1.0;
         results.push(hitCopy);
     }
-    
+
     // Add fractional hit if there is one (with likelihood = fractional part)
     if (fractionalPart > 0) {
         const fractionalHit = structuredClone(dmgObject);
@@ -437,7 +437,6 @@ export function get_user_value(settings: Record<string, any>, dmgObject: DamageO
     }
     divider = Math.max(divider, settings[SETTINGS.DAMAGE_PER_UNIT_DIVIDER])
 
-    
     switch (settings[SETTINGS.MODE]) {
         case SETTINGS.MODE_VALUES.MEAN:
             return Math.floor(get_mean_damage(settings, dmgObject)/divider);
@@ -561,4 +560,3 @@ function get_max_crit(settings: Record<string, any>, dmgObject: DamageObject) {
     }
     return max_hit;
 }
- 

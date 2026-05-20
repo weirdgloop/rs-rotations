@@ -610,8 +610,8 @@ function calc_additive_boosts(settings, dmgObject) {
 
     // gorajan trailblazer
     /*if (settings['gorajan trailblazer effect'] === true) {
-		boost += 0.07;
-	}*/
+        boost += 0.07;
+    }*/
 
     // gravitate (annihilation spec)
     if (abils[settings['ability']].mainStyle === 'melee') {
@@ -626,9 +626,9 @@ function calc_additive_boosts(settings, dmgObject) {
 
     // desperado (ring of kinship ranged boost)
     /*if (settings['desperado'] > 0 && abils[settings['ability']].mainStyle === 'ranged') {
-		boost += 0.1;
-		boost = boost + 0.01 * settings['desperado'];
-	}*/
+        boost += 0.1;
+        boost = boost + 0.01 * settings['desperado'];
+    }*/
     dmgObject.minHit = Math.floor(dmgObject.minHit * (1 + boost));
     dmgObject.varHit = Math.floor(dmgObject.varHit * (1 + boost));
 
@@ -753,7 +753,7 @@ function calc_multiplicative_pve_buffs(settings, dmgObject) {
         // spellcaster gloves (proc based, so added later)
         //bane gear
         // if (weapons[settings['main-hand']]['category'] === 'bane') {
-        // 	boost = Math.floor(boost * 1.25);
+        //     boost = Math.floor(boost * 1.25);
         // }
     }
 

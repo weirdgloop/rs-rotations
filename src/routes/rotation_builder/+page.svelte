@@ -586,9 +586,9 @@
 		role="button" 
 		onkeydown={handleKeypress}
 		style="--stack-font-size: {stackFontSize}px; {uiStore.stallingAbility ? `cursor: url('${allAbils[uiStore.stallingAbility].icon}') 15 15, wait;` : ''}">
-		<section class="grid grid-cols-12 gap-6 auto-rows-min">
-			<div class="col-span-{uiStore.settingsPanelCollapsed ? '12' : '8'} relative">
-				<div class="card card-rotation">
+		<section class="flex flex-col gap-6">
+			<div class="flex flex-row wrapper {uiStore.settingsPanelCollapsed ? 'gap-0' : 'gap-6'} relative">
+				<div class="card card-rotation {uiStore.settingsPanelCollapsed ? 'w-full' : 'w-2/3'}">
 					{#if uiStore.settingsPanelCollapsed}
 						<button 
 							class="expand-button"
@@ -828,10 +828,8 @@
                         {/each}
                     </div>
                 </div>
-            </div>
-            <div class="settings-panel col-span-{uiStore.settingsPanelCollapsed ? '0' : '4'} {uiStore.settingsPanelCollapsed ? 'collapsed' : ''}"
-				style={uiStore.settingsPanelCollapsed ? 'visibility: hidden; height: 0; margin: 0;' : ''}>
-                <div class="settings-content">
+            <div class="overflow-hidden settings-content {uiStore.settingsPanelCollapsed ? 'w-0' : 'w-1/3'}">
+				<div class="xl:w-full lg:w-70 xl:min-w-100 lg:min-w-full">
                     {#if uiStore.extraActions.show}
                         <ExtraActionsPanel
                             uiState={uiStore}
@@ -854,9 +852,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-12 mt-8">
-                <div class="grid grid-cols-2 gap-6">
-					<div class="card card-rotation col-span-2">
+        </div>
+				<div class="card card-rotation">
 					<h2 class="card-title pb-5">User Guide</h2>
 
 					<!-- Getting Started -->
@@ -910,8 +907,6 @@
 							<a href="/rotation_builder_guide" class="text-blue-400 hover:underline hover:text-blue-300">
 							full guide</a>.
 						</p>
-					</div>
-					</div>
 				</div>
             </div>
 		</section>
@@ -1022,6 +1017,7 @@
 		{/if}
 	</div>
 {/if}
+
 <style>
     .rotation-title-row {
         display: flex;

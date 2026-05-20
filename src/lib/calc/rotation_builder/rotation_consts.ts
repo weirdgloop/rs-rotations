@@ -449,7 +449,7 @@ export function createBuffTimings(barSize: number) {
                 buffTicks: Array(barSize).fill(0),
                 activeRows: [],
                 colour: BUFF_COLORS.gconc_crit_ac,
-                icon: '/ability_icons/magic/GConc_AC.png',
+                icon: '/effect_icons/magic/GConc_AC.png',
                 combatStyle: SettingsCombatStyles.MAGIC
             },
         }

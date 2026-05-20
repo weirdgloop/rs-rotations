@@ -179,17 +179,6 @@ body {
     position: relative;
 }
 
-.settings-panel {
-    position: relative;
-    margin-top: 0;
-    padding-top: 0;
-}
-
-.settings-content {
-    margin-top: 0;
-    padding-top: 0;
-}
-
 .card-rotation {
     position: relative;
     margin-top: 0;

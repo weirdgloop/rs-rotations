@@ -20,9 +20,10 @@ FILE_NAME = f'{FILE_DIR}/equipment.json'
 FILE_NAME_m = f'{FILE_DIR}/equipment_names_mainslots.txt'
 FILE_NAME_w = f'{FILE_DIR}/equipment_names_weapons.txt'
 FILE_NAME_o = f'{FILE_DIR}/equipment_names_other.txt'
+MANUAL_EQUIP = f'{FILE_DIR}/scripts/manual_equipment.json'
+IMG_PATH = f'{FILE_DIR}/images/equipment/'
 WIKI_BASE = 'https://runescape.wiki'
 API_BASE = WIKI_BASE + '/api.php'
-IMG_PATH = './images/equipment/'
 
 BUCKET_API_FIELDS = [
     'page_name',
@@ -266,7 +267,7 @@ def main(get_images=False):
 
     # add manual equipment that isn't pulled from the wiki
     # this should ONLY be used for upcoming items that are not yet released
-    with open('manual_equipment.json', 'r') as f:
+    with open(MANUAL_EQUIP, 'r') as f:
         manual_data = json.load(f)
         new_data = new_data + manual_data
 

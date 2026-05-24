@@ -1,5 +1,6 @@
 import { settingsConfig } from '$lib/calc/settings_rb';
 import { SETTINGS } from '$lib/calc/settings_rb';
+import { coerceEquipmentValue, migrateEquipmentSettings } from '$lib/data/equipment';
 
 // Settings store
 export const settingsStore = $state({
@@ -23,10 +24,11 @@ export function initializeSettings() {
                 {
                     ...value,
                     key,
-                    value: storedSettings[key]?.value ?? value.default?.rotation ?? value.default
+                    value: coerceEquipmentValue(storedSettings[key]?.value ?? value.default?.rotation ?? value.default, key)
                 }
             ])
         );
+    migrateEquipmentSettings(settingsStore.settings);
     settingsStore.settings[SETTINGS.INSTABILITY].value = false;
     settingsStore.settings[SETTINGS.BALANCE_BY_FORCE].value = false;
     settingsStore.settings[SETTINGS.DRACOLICH_INFUSION].value = false;
@@ -82,8 +84,9 @@ export const settingsActions = {
         settingsStore.settings = Object.fromEntries(
             Object.entries(settingsConfig).map(([key, value]) => [
                 key,
-                { ...value, key: key, value: value.default }
+                { ...value, key: key, value: coerceEquipmentValue(value.default, key) }
             ])
         );
+        migrateEquipmentSettings(settingsStore.settings);
     }
 };

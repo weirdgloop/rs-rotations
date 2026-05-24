@@ -1,3 +1,5 @@
+import { isCustomEquipment } from '$lib/data/equipment';
+
 /**
  * Perk definitions for RuneScape 3
  *
@@ -198,7 +200,7 @@ export function collectActivePerks(equippedPerks: PerkInstance[][]): PerkInstanc
  * To use a specific instance, pass selectedInstances: { itemKey: instanceIndex }.
  */
 export function buildGearPerksMap(
-    ownedGear: Map<string, { itemKey: string, perks: PerkInstance[] }[]>,
+    ownedGear: Map<string | number, { itemKey: string | number, perks: PerkInstance[] }[]>,
 ): Record<string, PerkInstance[]> {
     const map: Record<string, PerkInstance[]> = {};
     // Deep-copy perks to strip Svelte 5 proxies (structuredClone can't handle them)
@@ -233,7 +235,7 @@ export function buildGearPerksMap(
  */
 export function attachGearPerks(
     settings: Record<string, any>,
-    ownedGear: Map<string, { itemKey: string, perks: PerkInstance[] }[]>,
+    ownedGear: Map<string | number, { itemKey: string | number, perks: PerkInstance[] }[]>,
 ): void {
     settings['_gearPerks'] = buildGearPerksMap(ownedGear);
     // Deep-copy _gearInstances to strip Svelte proxies
@@ -291,12 +293,12 @@ export function formatPerkAbbrev(perkInstances: PerkInstance[]): string {
  * Get display text for an item, appending perks from a specific owned instance.
  */
 export function itemDisplayText(
-    itemValue: string,
+    itemValue: string | number,
     baseText: string,
-    ownedGear: Map<string, { itemKey: string, perks: PerkInstance[] }[]>,
+    ownedGear: Map<string | number, { itemKey: string | number, perks: PerkInstance[] }[]>,
     instanceIndex: number = 0
 ): string {
-    if (!itemValue || itemValue === 'none' || itemValue.startsWith('custom')) return baseText;
+    if (!itemValue || itemValue === 'none' || isCustomEquipment(itemValue)) return baseText;
     const instances = ownedGear.get(itemValue);
     if (!instances || instances.length === 0) return baseText;
     const instance = instances[instanceIndex] ?? instances[0];
@@ -309,9 +311,9 @@ export function itemDisplayText(
  * multiple owned copies with different perks.
  * Each expanded option carries `instanceIndex` and `perks` for downstream use.
  */
-export function expandOptionsWithInstances<T extends { value: string; text: string }>(
+export function expandOptionsWithInstances<T extends { value: string | number; text: string }>(
     options: T[],
-    ownedGear: Map<string, { itemKey: string, perks: PerkInstance[], label?: string }[]>,
+    ownedGear: Map<string | number, { itemKey: string | number, perks: PerkInstance[], label?: string }[]>,
 ): (T & { instanceIndex: number; perks: PerkInstance[] })[] {
     const expanded: (T & { instanceIndex: number; perks: PerkInstance[] })[] = [];
     for (const option of options) {

@@ -3,6 +3,7 @@
  */
 
 import { ABILITIES, abils } from '$lib/data/abilities';
+import { ARMOUR } from '$lib/data/armour';
 import { prayers } from '../../../data/prayers';
 import { SETTINGS } from '../../settings_rb';
 
@@ -26,7 +27,7 @@ export function calculatePrayerBoost(
 
     // Amulet of zealots bonus for single-stat boosting or leech curses
     if (
-        settings[SETTINGS.NECKLACE] === 'amulet of zealots' &&
+        settings[SETTINGS.NECKLACE] === ARMOUR.AMULET_OF_ZEALOTS &&
         ['single-stat boosting', 'leech curse'].includes(
             prayers[settings[SETTINGS.PRAYER]]?.['category']
         )

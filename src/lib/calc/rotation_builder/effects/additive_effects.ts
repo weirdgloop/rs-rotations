@@ -163,9 +163,9 @@ export function calculatePvEBoost(ctx: EffectContext): number {
     boost = Math.floor(boost * (1 + settings[SETTINGS.GENOCIDAL] / 100));
 
     // Salve amulet
-    if (settings[SETTINGS.NECKLACE] === 'salve amulet') {
+    if (settings[SETTINGS.NECKLACE] === ARMOUR.SALVE_AMULET) {
         boost = Math.floor(boost * 1.15);
-    } else if (settings[SETTINGS.NECKLACE] === 'salve amulet (e)') {
+    } else if (settings[SETTINGS.NECKLACE] === ARMOUR.SALVE_AMULET_E) {
         boost = Math.floor(boost * 1.2);
     }
 

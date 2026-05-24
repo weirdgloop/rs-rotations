@@ -6,7 +6,7 @@
     import { getItemsForSlot, getItemForValue } from '$lib/calc/rotation_builder/gear-registry';
     import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.js';
     import { formatPerkAbbrev, itemDisplayText as _itemDisplayText, expandOptionsWithInstances as _expandOptions } from '$lib/data/perks';
-    import { stripVariantSuffix } from '$lib/utils/gearVariants';
+    import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
     import ActionIcon from '$components/UI/ActionIcon.svelte';
     import PillToggle from '$components/UI/PillToggle.svelte';
     import InfoTip from '$components/UI/InfoTip.svelte';
@@ -112,13 +112,13 @@
     }
 
     function isWeaponTwoHand(value) {
-        if (!value || value === 'custom' || value === 'none') return false;
+        if (!value || value === 'none') return false;
         const weapon = weapons[value];
         return weapon?.['weapon type'] === 'two-hand';
     }
 
     function isCustomWeapon(value) {
-        return value?.startsWith('custom');
+        return isCustomEquipment(value);
     }
 
     function onWeaponSelected(ws, value) {
@@ -134,19 +134,6 @@
         if (item.style === 'hybrid') return 'shared';
         const styleFolderMap = { melee: 'melee', ranged: 'ranged', magic: 'magic', necromancy: 'necro' };
         return styleFolderMap[item.style] ?? fallbackFolder;
-    }
-
-    function gearIcon(settingKey, fallback, folder = 'shared') {
-        const val = settings[settingKey]?.value;
-        if (!val || val === 'none') return fallback;
-        const base = stripVariantSuffix(val);
-        if (base !== val) return `/gear_icons/${folder}/${base}.png`;
-        return `/gear_icons/${folder}/${val}.png`;
-    }
-
-    function gearBadge(settingKey) {
-        const val = settings[settingKey]?.value;
-        return getGearBadge(val);
     }
 
     const armourSlotsByStyle = {
@@ -549,7 +536,7 @@
             title="Pernix Quiver (+4% damage when target ≤25% HP)"
             onclick={() => { settings[SETTINGS.QUIVER].value = !settings[SETTINGS.QUIVER].value; updateDamages(); }}
         >
-            <img src="/gear_icons/ranged/pernix quiver.png" alt="Pernix Quiver" class="w-7 h-7 object-contain"
+            <img src={getEquipmentIcon(ARMOUR.PERNIX_QUIVER, '/armour_icons/Ammo_slot.png')} alt="Pernix Quiver" class="w-7 h-7 object-contain"
                 onerror={(e) => { e.target.onerror = null; e.target.src = '/armour_icons/Ammo_slot.png'; }}
             />
         </button>

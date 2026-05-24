@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
 import { ARMOUR } from '$lib/data/armour';
 import { WEAPONS } from '$lib/data/weapons';
+import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
     import Checkbox from '../../components/Settings/Checkbox.svelte';
     import Number from '../../components/Settings/Number.svelte';
     import Select from '../../components/Settings/Select.svelte';
@@ -71,7 +72,7 @@ import { WEAPONS } from '$lib/data/weapons';
     // Get perks for an equipped item
     function getEquippedPerks(settingsKey) {
         const itemKey = settings[settingsKey]?.value;
-        if (!itemKey || itemKey === 'none' || itemKey.startsWith('custom')) return [];
+        if (!itemKey || itemKey === 'none' || isCustomEquipment(itemKey)) return [];
         const instances = ownedItemsStore.ownedGear.get(itemKey);
         if (!instances || instances.length === 0) return [];
         // Use first instance (or selected instance if tracked)
@@ -590,7 +591,7 @@ import { WEAPONS } from '$lib/data/weapons';
                     </h5>
                     <div class="flex flex-wrap gap-2 justify-center">
                         {#each [
-                            { key: SETTINGS.VIGOUR, img: '/gear_icons/shared/ring of vigour.png', title: 'Ring of Vigour' },
+                            { key: SETTINGS.VIGOUR, img: getEquipmentIcon(ARMOUR.RING_OF_VIGOUR), title: 'Ring of Vigour' },
                             { key: SETTINGS.FURY_OF_THE_SMALL, img: '/effect_icons/Fury of the Small.png', title: 'Fury of the Small' },
                             { key: SETTINGS.CONSERVATION_OF_ENERGY, img: '/effect_icons/Conservation of Energy.png', title: 'Conservation of Energy' },
                             { key: SETTINGS.HEIGHTENED_SENSES, img: '/effect_icons/Heightened Senses.png', title: 'Heightened Senses' },

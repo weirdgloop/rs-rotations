@@ -4,6 +4,7 @@
     "private": true,
     "scripts": {
         "start": "vite dev --open --port 3000",
+        "equipment:generate": "node scripts/generate-equipment-db.mjs",
         "build": "vite build",
         "preview": "vite preview",
         "test": "vitest",

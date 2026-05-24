@@ -1,5 +1,6 @@
 <script>
-    import { getGearBadge, stripVariantSuffix } from '$lib/utils/gearVariants';
+    import { getGearBadge } from '$lib/utils/gearVariants';
+    import { getEquipmentIcon } from '$lib/data/equipment';
 
     let {
         /** The item/ability key or icon path */
@@ -43,18 +44,14 @@
         if (src) return src;
         if (!value || value === 'none') return fallback;
         if (type === 'gear') {
-            // Use stripped name directly for variants — the variant files don't exist
-            const base = stripVariantSuffix(value);
-            return `/gear_icons/${folder}/${base !== value ? base : value}.png`;
+            return getEquipmentIcon(value, fallback);
         }
         return fallback;
     });
 
     let fallbackSrc = $derived.by(() => {
         if (!value || value === 'none' || type !== 'gear') return fallback;
-        const base = stripVariantSuffix(value);
-        if (base !== value) return `/gear_icons/${folder}/${base}.png`;
-        return fallback;
+        return getEquipmentIcon(value, fallback);
     });
 
     // Badge: custom badgeText takes priority, then gear variant auto-detection

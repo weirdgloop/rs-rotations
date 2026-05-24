@@ -3,42 +3,43 @@
  */
 
 import { ABILITIES, abils } from '$lib/data/abilities';
+import { ARMOUR } from '$lib/data/armour';
 import { SETTINGS } from '../../settings_rb';
 
 type CombatStyle = 'magic' | 'melee' | 'ranged' | 'necromancy';
 
 // Void armour piece definitions
 const VOID_CHEST_PIECES = [
-    'void knight top',
-    'superior void knight top',
-    'elite void knight top',
-    'superior elite void knight top'
+    ARMOUR.VOID_KNIGHT_TOP,
+    ARMOUR.SUPERIOR_VOID_KNIGHT_TOP,
+    ARMOUR.ELITE_VOID_KNIGHT_TOP,
+    ARMOUR.SUPERIOR_ELITE_VOID_KNIGHT_TOP
 ];
 
 const VOID_LEGS_PIECES = [
-    'void knight robe',
-    'superior void knight robe',
-    'elite void knight robe',
-    'superior elite void knight robe'
+    ARMOUR.VOID_KNIGHT_ROBE,
+    ARMOUR.SUPERIOR_VOID_KNIGHT_ROBE,
+    ARMOUR.ELITE_VOID_KNIGHT_ROBE,
+    ARMOUR.SUPERIOR_ELITE_VOID_KNIGHT_ROBE
 ];
 
-const VOID_HANDS_PIECES = ['void knight gloves', 'superior void knight gloves'];
+const VOID_HANDS_PIECES = [ARMOUR.VOID_KNIGHT_GLOVES, ARMOUR.SUPERIOR_VOID_KNIGHT_GLOVES];
 
-const VOID_SHIELD_PIECES = ['void knight deflector', 'superior void knight deflector'];
+const VOID_SHIELD_PIECES = [ARMOUR.VOID_KNIGHT_DEFLECTOR, ARMOUR.SUPERIOR_VOID_KNIGHT_DEFLECTOR];
 
 // Void helm definitions by style
-const VOID_HELMS: Record<CombatStyle, { regular: string; superior: string }> = {
+const VOID_HELMS: Record<CombatStyle, { regular: number | ''; superior: number | '' }> = {
     magic: {
-        regular: 'void knight magic helm',
-        superior: 'superior void knight magic helm'
+        regular: ARMOUR.VOID_KNIGHT_MAGIC_HELM,
+        superior: ARMOUR.SUPERIOR_VOID_KNIGHT_MAGIC_HELM
     },
     melee: {
-        regular: 'void knight melee helm',
-        superior: 'superior void knight melee helm'
+        regular: ARMOUR.VOID_KNIGHT_MELEE_HELM,
+        superior: ARMOUR.SUPERIOR_VOID_KNIGHT_MELEE_HELM
     },
     ranged: {
-        regular: 'void knight ranged helm',
-        superior: 'superior void knight ranged helm'
+        regular: ARMOUR.VOID_KNIGHT_RANGED_HELM,
+        superior: ARMOUR.SUPERIOR_VOID_KNIGHT_RANGED_HELM
     },
     necromancy: {
         regular: '', // Necromancy doesn't have void helm

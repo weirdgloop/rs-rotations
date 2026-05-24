@@ -1,0 +1,418 @@
+{
+  "1000000": {
+    "name": "Custom main-hand weapon",
+    "id": 1000000,
+    "image": ["Custom main-hand weapon.png"],
+    "bonuses": { "class": "hybrid", "slot": "main hand weapon", "type": "custom", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 1 },
+    "app": { "weaponType": "main-hand", "type": "none", "classification": "none", "popular": true }
+  },
+  "1000001": {
+    "name": "Custom off-hand weapon",
+    "id": 1000001,
+    "image": ["Custom off-hand weapon.png"],
+    "bonuses": { "class": "hybrid", "slot": "off-hand weapon", "type": "custom", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 1 },
+    "app": { "weaponType": "off-hand", "type": "none", "classification": "none", "popular": true }
+  },
+  "1000002": {
+    "name": "Custom two-hand weapon",
+    "id": 1000002,
+    "image": ["Custom two-hand weapon.png"],
+    "bonuses": { "class": "hybrid", "slot": "2h weapon", "type": "custom", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 1 },
+    "app": { "weaponType": "two-hand", "type": "none", "classification": "none", "popular": true }
+  },
+  "1000003": {
+    "name": "Custom shield",
+    "id": 1000003,
+    "image": ["Custom shield.png"],
+    "bonuses": { "class": "hybrid", "slot": "off-hand", "type": "shield", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 1 },
+    "app": { "weaponType": "shield", "type": "shield", "classification": "none", "popular": true }
+  },
+  "1000100": {
+    "name": "Roar of Awakening [IM]",
+    "id": 1000100,
+    "image": ["Roar of Awakening.png"],
+    "bonuses": { "class": "magic", "slot": "main hand weapon", "type": "wand", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 100 },
+    "app": { "weaponType": "main-hand", "type": "wand", "classification": "none", "popular": true }
+  },
+  "1000101": {
+    "name": "Dark Shard of Leng [IM]",
+    "id": 1000101,
+    "image": ["Dark Shard of Leng.png"],
+    "bonuses": { "class": "melee", "slot": "main hand weapon", "type": "Sword", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 100 },
+    "app": { "weaponType": "main-hand", "type": "none", "classification": "none", "popular": true }
+  },
+  "1000102": {
+    "name": "Omni guard [IM]",
+    "id": 1000102,
+    "image": ["Omni guard.png"],
+    "bonuses": { "class": "necromancy", "slot": "main hand weapon", "type": "guard", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 100 },
+    "app": { "weaponType": "main-hand", "type": "guard", "classification": "none", "popular": true }
+  },
+  "1000103": {
+    "name": "Devourer's Guard [IM]",
+    "id": 1000103,
+    "image": ["Devourer's Guard.png"],
+    "bonuses": { "class": "necromancy", "slot": "main hand weapon", "type": "guard", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 100 },
+    "app": { "weaponType": "main-hand", "type": "guard", "classification": "none", "popular": true }
+  },
+  "1000104": {
+    "name": "Ode to Deceit [IM]",
+    "id": 1000104,
+    "image": ["Ode to Deceit.png"],
+    "bonuses": { "class": "magic", "slot": "off-hand weapon", "type": "orb", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 100 },
+    "app": { "weaponType": "off-hand", "type": "orb", "classification": "none", "popular": true }
+  },
+  "1000105": {
+    "name": "Dark Sliver of Leng [IM]",
+    "id": 1000105,
+    "image": ["Dark Sliver of Leng.png"],
+    "bonuses": { "class": "melee", "slot": "off-hand weapon", "type": "Sword", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 100 },
+    "app": { "weaponType": "off-hand", "type": "none", "classification": "none", "popular": true }
+  },
+  "1000106": {
+    "name": "Soulbound lantern [IM]",
+    "id": 1000106,
+    "image": ["Soulbound lantern.png"],
+    "bonuses": { "class": "necromancy", "slot": "off-hand weapon", "type": "conduit", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 100 },
+    "app": { "weaponType": "off-hand", "type": "conduit", "classification": "none", "popular": true }
+  },
+  "1000107": {
+    "name": "Fractured Staff of Armadyl [IM]",
+    "id": 1000107,
+    "image": ["Fractured Staff of Armadyl.png"],
+    "bonuses": { "class": "magic", "slot": "2h weapon", "type": "staff", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 100 },
+    "app": { "weaponType": "two-hand", "type": "staff", "classification": "none", "popular": true }
+  },
+  "1000108": {
+    "name": "Bow of the Last Guardian [IM]",
+    "id": 1000108,
+    "image": ["Bow of the Last Guardian.png"],
+    "bonuses": { "class": "ranged", "slot": "2h weapon", "type": "bow", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 100 },
+    "app": { "weaponType": "two-hand", "type": "bow", "classification": "none", "popular": true }
+  },
+  "1000109": {
+    "name": "Ek-ZekKil [IM]",
+    "id": 1000109,
+    "image": ["Ek-ZekKil.png"],
+    "bonuses": { "class": "melee", "slot": "2h weapon", "type": "sword", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 100 },
+    "app": { "weaponType": "two-hand", "type": "none", "classification": "obsidian", "popular": true }
+  },
+  "1000110": {
+    "name": "Inquisitor staff+",
+    "id": 1000110,
+    "image": ["Inquisitor staff.png"],
+    "bonuses": { "class": "magic", "slot": "2h weapon", "type": "staff", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 80 },
+    "app": { "weaponType": "two-hand", "type": "staff", "classification": "none", "popular": true }
+  },
+  "1000111": {
+    "name": "Hexhunter bow+",
+    "id": 1000111,
+    "image": ["Hexhunter bow.png"],
+    "bonuses": { "class": "ranged", "slot": "2h weapon", "type": "bow", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 80 },
+    "app": { "weaponType": "two-hand", "type": "bow", "classification": "none" }
+  },
+  "1000112": {
+    "name": "Terrasaur maul+",
+    "id": 1000112,
+    "image": ["Terrasaur maul.png"],
+    "bonuses": { "class": "melee", "slot": "2h weapon", "type": "maul", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 80 },
+    "app": { "weaponType": "two-hand", "type": "none", "classification": "none" }
+  },
+  "1000200": {
+    "name": "Keris no proc",
+    "id": 1000200,
+    "image": ["Keris.png"],
+    "bonuses": { "class": "melee", "slot": "main hand weapon", "type": "dagger", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 50 },
+    "app": { "weaponType": "main-hand", "type": "none", "classification": "none" }
+  },
+  "1000201": {
+    "name": "Keris proc",
+    "id": 1000201,
+    "image": ["Keris.png"],
+    "bonuses": { "class": "melee", "slot": "main hand weapon", "type": "dagger", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 50 },
+    "app": { "weaponType": "main-hand", "type": "none", "classification": "none" }
+  },
+  "1000202": {
+    "name": "Keris avg",
+    "id": 1000202,
+    "image": ["Keris.png"],
+    "bonuses": { "class": "melee", "slot": "main hand weapon", "type": "dagger", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 50 },
+    "app": { "weaponType": "main-hand", "type": "none", "classification": "none" }
+  },
+  "1000204": {
+    "name": "Primed Keris proc",
+    "id": 1000204,
+    "image": ["Primed keris.png"],
+    "bonuses": { "class": "melee", "slot": "main hand weapon", "type": "dagger", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 70 },
+    "app": { "weaponType": "main-hand", "type": "none", "classification": "none" }
+  },
+  "1000205": {
+    "name": "Primed Keris avg",
+    "id": 1000205,
+    "image": ["Primed keris.png"],
+    "bonuses": { "class": "melee", "slot": "main hand weapon", "type": "dagger", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 70 },
+    "app": { "weaponType": "main-hand", "type": "none", "classification": "none" }
+  },
+  "1000207": {
+    "name": "Consecrated Keris proc",
+    "id": 1000207,
+    "image": ["Consecrated keris.png"],
+    "bonuses": { "class": "melee", "slot": "main hand weapon", "type": "dagger", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 80 },
+    "app": { "weaponType": "main-hand", "type": "none", "classification": "none" }
+  },
+  "1000208": {
+    "name": "Consecrated Keris avg",
+    "id": 1000208,
+    "image": ["Consecrated keris.png"],
+    "bonuses": { "class": "melee", "slot": "main hand weapon", "type": "dagger", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 80 },
+    "app": { "weaponType": "main-hand", "type": "none", "classification": "none" }
+  },
+  "1000300": {
+    "name": "Silverhawk boots",
+    "id": 1000300,
+    "image": ["Silverhawk boots.png"],
+    "bonuses": { "class": "hybrid", "slot": "feet", "type": "Power armour", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 6.9, "ranged": 6.9, "magic": 6.9, "necromancy": 6.9, "tier": 70 }
+  },
+  "1000301": {
+    "name": "Channeller's ring+",
+    "id": 1000301,
+    "image": ["Channeller's ring.png"],
+    "bonuses": { "class": "magic", "slot": "ring", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 34.5, "necromancy": 0, "tier": 92 },
+    "app": { "popular": true }
+  },
+  "1000302": {
+    "name": "Scrimshaw of Cruelty",
+    "id": 1000302,
+    "image": ["Scrimshaw of Cruelty.png"],
+    "bonuses": { "class": "ranged", "slot": "pocket", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000303": {
+    "name": "Superior scrimshaw of cruelty",
+    "id": 1000303,
+    "image": ["Superior scrimshaw of Cruelty.png"],
+    "bonuses": { "class": "ranged", "slot": "pocket", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000304": {
+    "name": "Jas arrows",
+    "id": 1000304,
+    "image": ["Jas arrow 1.png"],
+    "bonuses": { "class": "ranged", "slot": "ammo", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 100 },
+    "app": { "popular": true }
+  },
+  "1000305": {
+    "name": "Crown of the First Necromancer with addon",
+    "id": 1000305,
+    "image": ["Crown of the First Necromancer.png"],
+    "bonuses": { "class": "necromancy", "slot": "head", "type": "Power armour", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 25, "tier": 110 }
+  },
+  "1000306": {
+    "name": "Deathtouch bracelet",
+    "id": 1000306,
+    "image": ["Deathtouch bracelet.png"],
+    "bonuses": { "class": "hybrid", "slot": "hands", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 14.5, "ranged": 14.5, "magic": 14.5, "necromancy": 14.5, "tier": 90 }
+  },
+  "1000307": {
+    "name": "Comp/max cape",
+    "id": 1000307,
+    "image": ["Completionist cape.png"],
+    "bonuses": { "class": "hybrid", "slot": "back", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 31.5, "ranged": 31.5, "magic": 31.5, "necromancy": 31.5, "tier": 80 }
+  },
+  "1000308": {
+    "name": "God cape",
+    "id": 1000308,
+    "image": ["God cape.png"],
+    "bonuses": { "class": "magic", "slot": "back", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 31.5, "necromancy": 0, "tier": 80 }
+  },
+  "1000309": {
+    "name": "Skill cape",
+    "id": 1000309,
+    "image": ["Skill cape.png"],
+    "bonuses": { "class": "hybrid", "slot": "back", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 21.6, "ranged": 21.6, "magic": 21.6, "necromancy": 21.6, "tier": 60 }
+  },
+  "1000310": {
+    "name": "Stalker's ring+",
+    "id": 1000310,
+    "image": ["Stalker's ring.png"],
+    "bonuses": { "class": "ranged", "slot": "ring", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 34.5, "magic": 0, "necromancy": 0, "tier": 92 },
+    "app": { "popular": true }
+  },
+  "1000311": {
+    "name": "Champion's ring+",
+    "id": 1000311,
+    "image": ["Champion's ring.png"],
+    "bonuses": { "class": "melee", "slot": "ring", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 34.5, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 92 },
+    "app": { "popular": true }
+  },
+  "1000312": {
+    "name": "GWD3 scripture",
+    "id": 1000312,
+    "image": ["Elder God Book.png"],
+    "bonuses": { "class": "hybrid", "slot": "pocket", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 8, "ranged": 8, "magic": 8, "necromancy": 8, "tier": 70 }
+  },
+  "1000313": {
+    "name": "Illuminated god book",
+    "id": 1000313,
+    "image": ["Illuminated book of law.png"],
+    "bonuses": { "class": "hybrid", "slot": "pocket", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 7, "ranged": 7, "magic": 7, "necromancy": 7, "tier": 70 }
+  },
+  "1000314": {
+    "name": "Scrimshaw of elements",
+    "id": 1000314,
+    "image": ["Scrimshaw of the elements.png"],
+    "bonuses": { "class": "magic", "slot": "pocket", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000315": {
+    "name": "Superior scrimshaw of the elements",
+    "id": 1000315,
+    "image": ["Superior scrimshaw of the elements.png"],
+    "bonuses": { "class": "magic", "slot": "pocket", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000316": {
+    "name": "Custom",
+    "id": 1000316,
+    "image": ["Custom.png"],
+    "bonuses": { "class": "melee", "slot": "ammo", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 24, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 90 },
+    "app": { "popular": true }
+  },
+  "1000317": {
+    "name": "Nodon spike harness",
+    "id": 1000317,
+    "image": ["Nodon spike harness.png"],
+    "bonuses": { "class": "melee", "slot": "ammo", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 24, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 90 },
+    "app": { "popular": true }
+  },
+  "1000318": {
+    "name": "None/tank",
+    "id": 1000318,
+    "image": ["None tank.png"],
+    "bonuses": { "class": "hybrid", "slot": "head", "type": "Tank armour", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000319": {
+    "name": "Leagues pocket",
+    "id": 1000319,
+    "image": ["Leagues pocket.png"],
+    "bonuses": { "class": "hybrid", "slot": "pocket", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 15, "ranged": 15, "magic": 15, "necromancy": 15, "tier": 0 }
+  },
+  "1000320": {
+    "name": "Pernix quiver",
+    "id": 1000320,
+    "image": ["Pernix quiver.png"],
+    "bonuses": { "class": "ranged", "slot": "ammo", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000321": {
+    "name": "Necklace of Salamancy",
+    "id": 1000321,
+    "image": ["Necklace of Salamancy.png"],
+    "bonuses": { "class": "hybrid", "slot": "neck", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000400": {
+    "name": "Void knight magic helm",
+    "id": 1000400,
+    "image": ["Void knight magic helm.png"],
+    "bonuses": { "class": "magic", "slot": "head", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000401": {
+    "name": "Superior void knight magic helm",
+    "id": 1000401,
+    "image": ["Superior void knight magic helm.png"],
+    "bonuses": { "class": "magic", "slot": "head", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000402": {
+    "name": "Void knight melee helm",
+    "id": 1000402,
+    "image": ["Void knight melee helm.png"],
+    "bonuses": { "class": "melee", "slot": "head", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000403": {
+    "name": "Superior void knight melee helm",
+    "id": 1000403,
+    "image": ["Superior void knight melee helm.png"],
+    "bonuses": { "class": "melee", "slot": "head", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000404": {
+    "name": "Void knight ranged helm",
+    "id": 1000404,
+    "image": ["Void knight ranged helm.png"],
+    "bonuses": { "class": "ranged", "slot": "head", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000405": {
+    "name": "Superior void knight ranged helm",
+    "id": 1000405,
+    "image": ["Superior void knight ranged helm.png"],
+    "bonuses": { "class": "ranged", "slot": "head", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000410": {
+    "name": "Void knight top",
+    "id": 1000410,
+    "image": ["Void knight top.png"],
+    "bonuses": { "class": "hybrid", "slot": "torso", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000411": {
+    "name": "Superior void knight top",
+    "id": 1000411,
+    "image": ["Superior void knight top.png"],
+    "bonuses": { "class": "hybrid", "slot": "torso", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000412": {
+    "name": "Elite void knight top",
+    "id": 1000412,
+    "image": ["Elite void knight top.png"],
+    "bonuses": { "class": "hybrid", "slot": "torso", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000413": {
+    "name": "Superior elite void knight top",
+    "id": 1000413,
+    "image": ["Superior elite void knight top.png"],
+    "bonuses": { "class": "hybrid", "slot": "torso", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000414": {
+    "name": "Void knight robe",
+    "id": 1000414,
+    "image": ["Void knight robe.png"],
+    "bonuses": { "class": "hybrid", "slot": "legs", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000415": {
+    "name": "Superior void knight robe",
+    "id": 1000415,
+    "image": ["Superior void knight robe.png"],
+    "bonuses": { "class": "hybrid", "slot": "legs", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000416": {
+    "name": "Elite void knight robe",
+    "id": 1000416,
+    "image": ["Elite void knight robe.png"],
+    "bonuses": { "class": "hybrid", "slot": "legs", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000417": {
+    "name": "Superior elite void knight robe",
+    "id": 1000417,
+    "image": ["Superior elite void knight robe.png"],
+    "bonuses": { "class": "hybrid", "slot": "legs", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000418": {
+    "name": "Void knight gloves",
+    "id": 1000418,
+    "image": ["Void knight gloves.png"],
+    "bonuses": { "class": "hybrid", "slot": "hands", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000419": {
+    "name": "Superior void knight gloves",
+    "id": 1000419,
+    "image": ["Superior void knight gloves.png"],
+    "bonuses": { "class": "hybrid", "slot": "hands", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
+  },
+  "1000420": {
+    "name": "Void knight deflector",
+    "id": 1000420,
+    "image": ["Void knight deflector.png"],
+    "bonuses": { "class": "hybrid", "slot": "off-hand weapon", "type": "shield", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 },
+    "app": { "slot": "offhand", "weaponType": "shield", "type": "shield" }
+  },
+  "1000421": {
+    "name": "Superior void knight deflector",
+    "id": 1000421,
+    "image": ["Superior void knight deflector.png"],
+    "bonuses": { "class": "hybrid", "slot": "off-hand weapon", "type": "shield", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 },
+    "app": { "slot": "offhand", "weaponType": "shield", "type": "shield" }
+  }
+}

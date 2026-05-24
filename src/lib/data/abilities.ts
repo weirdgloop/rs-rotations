@@ -1,4 +1,5 @@
 import { AbilityInfo } from "$lib/types/AbilityTypes";
+import { equipmentImageUrl } from '$lib/data/equipment';
 
 export enum ABILITIES {
     NECRO_AUTO = 'necromancy auto',
@@ -1090,7 +1091,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         }
     ,
         title: 'The Final Flurry',
-        icon: '/gear_icons/melee/varanus\'s mercy.png',
+        icon: equipmentImageUrl("Varanus's mercy.png"),
     },
     [ABILITIES.QUICK_SMASH]: {
         // ability name
@@ -1171,7 +1172,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 40,
         cooldown: 60.0,
         title: 'Sunfall Slam',
-        icon: '/gear_icons/melee/tumeken\'s light.png',
+        icon: equipmentImageUrl("Tumeken's Light.png"),
     },
     [ABILITIES.LESSER_PURIFYING_LIGHT]: {
         // ability name
@@ -1484,7 +1485,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 19.8,
         hitTimings: [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30],
         title: 'Vine Call',
-        icon: '/gear_icons/melee/Abyssal_vine_whip.png',
+        icon: equipmentImageUrl('Abyssal vine whip.png'),
         common: false
     },
     [ABILITIES.WARSTRIKE]: {
@@ -1784,7 +1785,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 100,
         cooldown: 0,
         title: 'Rampage',
-        icon: '/gear_icons/melee/dragon battleaxe.png',
+        icon: equipmentImageUrl('Dragon battleaxe.png'),
     },
     [ABILITIES.BERSERK]: {
         minHit: 0.0, // min % of abil expressed as a decimal
@@ -3678,7 +3679,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 60,
         title: 'Soul Crush',
-        icon: '/gear_icons/necro/devourer\'s guard.png',
+        icon: equipmentImageUrl("Devourer's Guard.png"),
     },
     //Necro Incantations
     [ABILITIES.LIFE_TRANSFER]: {
@@ -4331,7 +4332,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [1, 1, 2] // TODO check
     ,
         title: 'Shadowfall',
-        icon: '/gear_icons/ranged/gloomfire bow.png',
+        icon: equipmentImageUrl('Gloomfire bow.png'),
     },
     [ABILITIES.BALANCE_BY_FORCE]: {
         // ability name

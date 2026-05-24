@@ -241,7 +241,7 @@ export function applySalamancyEffect(
 ): number {
     const { settings } = ctx;
 
-    if (settings[SETTINGS.NECKLACE] === 'necklace of salamancy') {
+    if (settings[SETTINGS.NECKLACE] === ARMOUR.NECKLACE_OF_SALAMANCY) {
         return Math.floor(damage * 1.1);
     }
 

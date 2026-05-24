@@ -34,6 +34,8 @@ jobs:
       - name: Build project
         run: npm run build
       - run: mv build out/
+      - run: cp scripts/generateEquipment.py out/scripts/generateEquipment.py
+      - run: cp scripts/manual_equipment.json out/scripts/manual_equipment.json
       - uses: actions/upload-artifact@v4
         with:
           name: output

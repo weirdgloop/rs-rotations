@@ -77,9 +77,7 @@ def getEquipmentData():
         }
 
         time.sleep(0.2)
-        r = s.get(API_BASE, params=query, headers={
-            'User-Agent': 'rs-rotations (https://github.com/weirdgloop/rs-rotations)'
-        })
+        r = s.get(API_BASE, params=query)
         #print(r.url)
 
         data = r.json()
@@ -116,9 +114,7 @@ def getEquipmentData():
         }
 
         time.sleep(0.2)
-        r = s.get(API_BASE, params=query, headers={
-            'User-Agent': 'rs-rotations (https://github.com/weirdgloop/rs-rotations)'
-        })
+        r = s.get(API_BASE, params=query)
         #print(r.url)
 
         data = r.json()
@@ -247,6 +243,9 @@ def main(get_images=False):
                 #'pvp_reduction': bonuses.get('infobox_bonuses.pvp_damage_reduction', ''),
             }
         }
+        for tv in ['tier_damage', 'tier_accuracy', 'tier_armour', 'tier_armour_damage']:
+            if bonuses.get(tv) is not None:
+                equipment['bonuses'][tv] = bonuses.get(tv)
         is_cosmetic = True
         for bon in BONUS_PARAMS:
             is_cosmetic &= equipment['bonuses'].get(bon) == 0
@@ -312,9 +311,7 @@ def main(get_images=False):
             continue
 
         print(f'({idx}/{len(required_imgs)}) Fetching image: {img}')
-        r = requests.get(WIKI_BASE + '/w/Special:Filepath/' + img, headers={
-            'User-Agent': 'rs-rotations (https://github.com/weirdgloop/rs-rotations)'
-        })
+        r = requests.get(WIKI_BASE + '/images/' + img)
         if r.ok:
             with open(IMG_PATH + img, 'wb') as f:
                 f.write(r.content)

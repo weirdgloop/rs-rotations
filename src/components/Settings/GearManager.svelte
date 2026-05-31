@@ -5,6 +5,7 @@
     import { perks, getPerksForSlot } from '$lib/data/perks';
     import { STYLE_COLORS } from '$lib/utils/colors';
     import ActionIcon from '$components/UI/ActionIcon.svelte';
+    import { isCustomEquipment } from '$lib/data/equipment';
 
     let { show = $bindable(false), initialStyle = 'ranged' } = $props();
 
@@ -55,7 +56,7 @@
     function getOwnedItems(slot, style) {
         return getItemsForSlot(slot, style).filter(i =>
             i.value !== 'none' &&
-            !i.value.startsWith('custom') &&
+            !isCustomEquipment(i.value) &&
             ownedItemsStore.ownedGear.has(i.value)
         );
     }
@@ -64,7 +65,7 @@
     function getUnownedItems(slot, style) {
         return getItemsForSlot(slot, style).filter(i =>
             i.value !== 'none' &&
-            !i.value.startsWith('custom') &&
+            !isCustomEquipment(i.value) &&
             !ownedItemsStore.ownedGear.has(i.value)
         );
     }

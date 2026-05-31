@@ -1,9 +1,9 @@
 <script>
     import { createEventDispatcher } from 'svelte';
     import Button from './Button.svelte';
-    
+
     const dispatch = createEventDispatcher();
-    
+
     // Props
     export let show = false;
     export let title = '';
@@ -11,7 +11,7 @@
     export let type = 'info'; // 'info', 'warning', 'error', 'success'
     export let confirmText = 'Confirm';
     export let cancelText = 'Cancel';
-    
+
     // Auto-determined props based on type
     $: showCancel = type !== 'success' && type !== 'error';
     $: showConfirm = type !== 'success' && type !== 'error';
@@ -37,24 +37,24 @@
             icon: '✅'
         }
     };
-    
+
     let currentType = typeStyles[type];
     let isClosing = false;
-    
+
     // Auto-close functionality
     let autoCloseTimer;
-    
+
     $: if (show && autoClose && !showCancel) {
         if (autoCloseTimer) clearTimeout(autoCloseTimer);
         autoCloseTimer = setTimeout(() => {
             close();
         }, autoCloseDelay);
     }
-    
+
     $: if (type && typeStyles[type]) {
         currentType = typeStyles[type];
     }
-    
+
     function close() {
         if (type === 'success') {
             // For success notifications, start fade-out animation
@@ -69,29 +69,29 @@
             show = false;
             dispatch('close');
         }
-        
+
         if (autoCloseTimer) {
             clearTimeout(autoCloseTimer);
             autoCloseTimer = null;
         }
     }
-    
+
     function confirm() {
         dispatch('confirm');
         close();
     }
-    
+
     function cancel() {
         dispatch('cancel');
         close();
     }
-    
+
     function handleOverlayClick(event) {
         if (event.target === event.currentTarget) {
             close();
         }
     }
-    
+
     function handleKeydown(event) {
         if (event.key === 'Escape') {
             close();
@@ -102,7 +102,7 @@
 </script>
 
 {#if show}
-    <div 
+    <div
         class="popup-overlay {type === 'success' ? 'popup-overlay-bottom-right' : ''}"
         on:click={handleOverlayClick}
         on:keydown={handleKeydown}
@@ -112,7 +112,7 @@
         aria-labelledby="popup-title"
         aria-describedby="popup-message"
     >
-        <div 
+        <div
             class="popup-content {type === 'success' ? 'popup-content-bottom-right' : ''} {isClosing ? 'popup-content-closing' : ''}"
             style="border-left-color: {currentType.borderColor}"
         >
@@ -122,7 +122,7 @@
                     <h2 id="popup-title" class="popup-title">{title}</h2>
                 </div>
                 {#if type !== 'success'}
-                    <button 
+                    <button
                         class="popup-close-btn"
                         on:click={close}
                         aria-label="Close dialog"
@@ -131,21 +131,21 @@
                     </button>
                 {/if}
             </div>
-            
+
             {#if message}
                 <div id="popup-message" class="popup-message">
                     {message}
                 </div>
             {/if}
-            
+
             <div class="popup-content-slot">
                 <slot />
             </div>
-            
+
             {#if showConfirm || showCancel}
                 <div class="popup-actions">
                     {#if showCancel}
-                        <Button 
+                        <Button
                             onClick={cancel}
                             variant="secondary"
                             size="medium"
@@ -154,7 +154,7 @@
                         </Button>
                     {/if}
                     {#if showConfirm}
-                        <Button 
+                        <Button
                             onClick={confirm}
                             variant="primary"
                             size="medium"
@@ -182,7 +182,7 @@
         z-index: 1100;
         backdrop-filter: blur(2px);
     }
-    
+
     .popup-overlay-bottom-right {
         background: transparent;
         backdrop-filter: none;
@@ -190,7 +190,7 @@
         align-items: flex-end;
         pointer-events: none;
     }
-    
+
     .popup-content {
         background: #171d21;
         border-left: 8px solid;
@@ -203,7 +203,7 @@
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         animation: popupSlideIn 0.2s ease-out;
     }
-    
+
     .popup-content-bottom-right {
         min-width: 300px;
         max-width: 400px;
@@ -211,30 +211,30 @@
         pointer-events: auto;
         animation: popupSlideInBottomRight 0.4s ease-out;
     }
-    
+
     .popup-content-closing {
         animation: popupFadeOut 0.4s ease-in forwards;
     }
-    
+
     .popup-header {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         margin-bottom: 1rem;
     }
-    
+
     .popup-title-section {
         display: flex;
         align-items: center;
         gap: 0.5rem;
         flex: 1;
     }
-    
+
     .popup-icon {
         font-size: 1.25rem;
         line-height: 1;
     }
-    
+
     .popup-title {
         font-family: Kumbh Sans, sans-serif;
         font-size: 1.125rem;
@@ -245,7 +245,7 @@
         color: #b2dbee;
         margin: 0;
     }
-    
+
     .popup-close-btn {
         background: none;
         border: none;
@@ -258,30 +258,30 @@
         transition: all 0.2s ease;
         margin-left: 0.5rem;
     }
-    
+
     .popup-close-btn:hover {
         background: rgba(194, 186, 158, 0.1);
         color: #fff;
     }
-    
+
     .popup-message {
         color: #b2dbee;
         font-size: 0.95rem;
         line-height: 1.5;
         margin-bottom: 1rem;
     }
-    
+
     .popup-content-slot {
         margin-bottom: 1rem;
     }
-    
+
     .popup-actions {
         display: flex;
         gap: 0.5rem;
         justify-content: flex-end;
         margin-top: 1rem;
     }
-    
+
     @keyframes popupSlideIn {
         from {
             opacity: 0;
@@ -292,7 +292,7 @@
             transform: translateY(0) scale(1);
         }
     }
-    
+
     @keyframes popupSlideInBottomRight {
         from {
             opacity: 0;
@@ -303,7 +303,7 @@
             transform: translateX(0) translateY(0) scale(1);
         }
     }
-    
+
     @keyframes popupFadeOut {
         from {
             opacity: 1;
@@ -314,25 +314,25 @@
             transform: translateX(100%) translateY(20px) scale(0.95);
         }
     }
-    
+
     @media (max-width: 640px) {
         .popup-content {
             min-width: 90vw;
             margin: 1rem;
         }
-        
+
         .popup-content-bottom-right {
             min-width: calc(100vw - 2rem);
             max-width: calc(100vw - 2rem);
             margin: 1rem;
         }
-        
+
         .popup-actions {
             flex-direction: column;
         }
-        
+
         .popup-actions > :global(*) {
             width: 100%;
         }
     }
-</style> 
+</style>

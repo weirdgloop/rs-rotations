@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
 import { ARMOUR } from '$lib/data/armour';
 import { WEAPONS } from '$lib/data/weapons';
+import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
     import Checkbox from '../../components/Settings/Checkbox.svelte';
     import Number from '../../components/Settings/Number.svelte';
     import Select from '../../components/Settings/Select.svelte';
@@ -71,7 +72,7 @@ import { WEAPONS } from '$lib/data/weapons';
     // Get perks for an equipped item
     function getEquippedPerks(settingsKey) {
         const itemKey = settings[settingsKey]?.value;
-        if (!itemKey || itemKey === 'none' || itemKey.startsWith('custom')) return [];
+        if (!itemKey || itemKey === 'none' || isCustomEquipment(itemKey)) return [];
         const instances = ownedItemsStore.ownedGear.get(itemKey);
         if (!instances || instances.length === 0) return [];
         // Use first instance (or selected instance if tracked)
@@ -128,8 +129,6 @@ import { WEAPONS } from '$lib/data/weapons';
         [SETTINGS.PRIMORDIAL_ICE]: 10,
         [SETTINGS.ADRENALINE]: maxAdrenaline,
         [SETTINGS.FAMILIAR_SPEC_POINTS]: 60,
-
-
         [SETTINGS.NECROSIS_STACKS]: 12,
         [SETTINGS.DEATH_SPARK_STACKS]: 5,
         [SETTINGS.SOUL_REAVE_STACKS]: 4,
@@ -275,14 +274,12 @@ import { WEAPONS } from '$lib/data/weapons';
         // settings[SETTINGS.KERAPACS_WRIST_WRAPS]['value'] = false;
 
     });
-        
+
     updateDamages();
-
-
 </script>
 
 <div class="xl:col-span-6 xl:row-start-1 xl:row-span-1 card card-rotation">
-    <button 
+    <button
         class="collapse-button-settings"
         onclick={() => { if (uiState) uiState.settingsPanelCollapsed = true; }}
     >
@@ -291,25 +288,25 @@ import { WEAPONS } from '$lib/data/weapons';
     <h1 class="rotation-header">Settings</h1>
     <GradientSeparator marginTop="0.0rem" marginBottom="1.0rem" />
     <ul class="flex flex-wrap flex-col md:flex-row text-sm font-medium text-center">
-        <TabButton 
+        <TabButton
             id="ranged"
             label="Ranged"
             isActive={styleTab === SettingsCombatStyles.RANGED}
             onClick={() => (styleTab = SettingsCombatStyles.RANGED)}
         />
-        <TabButton 
+        <TabButton
             id="magic"
             label="Magic"
             isActive={styleTab === SettingsCombatStyles.MAGIC}
             onClick={() => (styleTab = SettingsCombatStyles.MAGIC)}
         />
-        <TabButton 
+        <TabButton
             id="melee"
             label="Melee"
             isActive={styleTab === SettingsCombatStyles.MELEE}
             onClick={() => (styleTab = SettingsCombatStyles.MELEE)}
         />
-        <TabButton 
+        <TabButton
             id="necro"
             label="Necro"
             isActive={styleTab === SettingsCombatStyles.NECROMANCY}
@@ -318,13 +315,13 @@ import { WEAPONS } from '$lib/data/weapons';
     </ul>
     <GradientSeparator marginTop="0.0rem" marginBottom="0.25rem" />
     <ul class="flex flex-wrap flex-col md:flex-row text-sm font-medium text-center">
-        <TabButton 
+        <TabButton
             id="general"
             label="General"
             isActive={tab === 'general'}
             onClick={() => (tab = 'general')}
         />
-        <TabButton 
+        <TabButton
             id="equipment"
             label="Equipment"
             isActive={tab === 'equipment'}
@@ -402,7 +399,7 @@ import { WEAPONS } from '$lib/data/weapons';
                             min="1"
                         />
                     {/if}
-                    
+
                     <Number
                         bind:setting={settings[SETTINGS.HIT_CHANCE]}
                         onchange={() => updateDamages()}
@@ -586,7 +583,7 @@ import { WEAPONS } from '$lib/data/weapons';
                 </div>
                 <div class="md:col-span-1" space-y-2>
                     <h5 class="uppercase font-bold text-lg text-center mb-4">
-                        <InfoTip 
+                        <InfoTip
                             text="If expected adrenaline is enabled, the rotation will show the expected adrenaline value. This accounts for the Impatient perk and
                             [bma:Tsunami Crit Buff].">
                             Adrenaline
@@ -594,7 +591,7 @@ import { WEAPONS } from '$lib/data/weapons';
                     </h5>
                     <div class="flex flex-wrap gap-2 justify-center">
                         {#each [
-                            { key: SETTINGS.VIGOUR, img: '/rs-rot/gear_icons/shared/ring of vigour.png', title: 'Ring of Vigour' },
+                            { key: SETTINGS.VIGOUR, img: getEquipmentIcon(ARMOUR.RING_OF_VIGOUR, '/rs-rot/armour_icons/Ring_slot.png'), title: 'Ring of Vigour' },
                             { key: SETTINGS.FURY_OF_THE_SMALL, img: '/rs-rot/effect_icons/Fury of the Small.png', title: 'Fury of the Small' },
                             { key: SETTINGS.CONSERVATION_OF_ENERGY, img: '/rs-rot/effect_icons/Conservation of Energy.png', title: 'Conservation of Energy' },
                             { key: SETTINGS.HEIGHTENED_SENSES, img: '/rs-rot/effect_icons/Heightened Senses.png', title: 'Heightened Senses' },
@@ -670,7 +667,7 @@ import { WEAPONS } from '$lib/data/weapons';
                 <div class="md:col-span-1">
                     <FamiliarSelection bind:settings {updateDamages} bind:openDropdown onFamiliarChange={recalcFamiliarAccuracy} />
                 </div>
-                
+
             {:else if tab === 'bosses'}
                 <div class="md:col-span-1 space-y-4">
                     <BuffSelection settings={settings} updateDamages={updateDamages} styleFilter={styleTab} />

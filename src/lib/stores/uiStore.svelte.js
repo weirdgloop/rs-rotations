@@ -15,17 +15,17 @@ const buffLineHeight = 6;
 export const uiStore = $state({
     // Tab management
     activeTab: 'ranged',
-    
+
     // Tool management
     activeTool: ToolMode.Regular,
     stallingAbility: null,
-    
+
     // Panel states
     settingsPanelCollapsed: false,
     configSectionCollapsed: true,
     abilityFilter: 'popular', // 'popular' | 'owned' | 'all'
     showSuggestions: { value: false },
-    
+
     // Extra actions panel
     extraActions: {
         show: false,
@@ -34,7 +34,7 @@ export const uiStore = $state({
         infoAbility: null,
         barIndex: 0
     },
-    
+
     // Ability bar state
     bar: {
         size: BAR_SIZE,
@@ -43,7 +43,7 @@ export const uiStore = $state({
         rowGap: BASE_BAR_ROW_GAP,
         lineGap: 0
     },
-    
+
     // Drag and drop state
     dragDrop: {
         hoveredSlot: null,
@@ -197,4 +197,4 @@ export const uiActions = {
                 break;
         }
     }
-}; 
+};

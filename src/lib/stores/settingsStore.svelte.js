@@ -1,5 +1,6 @@
 import { settingsConfig } from '$lib/calc/settings_rb';
 import { SETTINGS } from '$lib/calc/settings_rb';
+import { coerceEquipmentValue, migrateEquipmentSettings } from '$lib/data/equipment';
 
 // Settings store
 export const settingsStore = $state({
@@ -16,18 +17,18 @@ export function initializeSettings() {
         storedSettings = JSON.parse(localStorage.getItem('rotation_settings')) || {};
     }
 
-    
-    settingsStore.settings = 
+    settingsStore.settings =
         Object.fromEntries(
             Object.entries(settingsConfig).map(([key, value]) => [
                 key,
                 {
                     ...value,
                     key,
-                    value: storedSettings[key]?.value ?? value.default?.rotation ?? value.default
+                    value: coerceEquipmentValue(storedSettings[key]?.value ?? value.default?.rotation ?? value.default, key)
                 }
             ])
         );
+    migrateEquipmentSettings(settingsStore.settings);
     settingsStore.settings[SETTINGS.INSTABILITY].value = false;
     settingsStore.settings[SETTINGS.BALANCE_BY_FORCE].value = false;
     settingsStore.settings[SETTINGS.DRACOLICH_INFUSION].value = false;
@@ -37,7 +38,7 @@ export function initializeSettings() {
     settingsStore.settings[SETTINGS.SMOKE_CLOUD].value = false;
     settingsStore.settings[SETTINGS.CHAIN_MODIFIER].value = SETTINGS.CHAIN_MODIFIER_VALUES.NONE;
     settingsStore.settings[SETTINGS.KERAPACS_WRIST_WRAPS].value = false;
-    
+
     settingsStore.initialized = true;
 }
 
@@ -83,8 +84,9 @@ export const settingsActions = {
         settingsStore.settings = Object.fromEntries(
             Object.entries(settingsConfig).map(([key, value]) => [
                 key,
-                { ...value, key: key, value: value.default }
+                { ...value, key: key, value: coerceEquipmentValue(value.default, key) }
             ])
         );
+        migrateEquipmentSettings(settingsStore.settings);
     }
 };

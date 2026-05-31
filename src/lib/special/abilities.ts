@@ -1,4 +1,5 @@
 import { ABILITIES } from '$lib/data/abilities';
+import { equipmentImageUrl } from '$lib/data/equipment';
 
 export enum CONSUMABLES {
     ADRENALINE_RENEWAL = 'Adrenaline renewal potion',
@@ -144,14 +145,14 @@ export const spells: Record<string, { title: string; icon: string }> = {
 
 // Flat lookup of all EoF items by key (for extra action bar rendering)
 const eofItems: Record<string, { title: string; icon: string }> = {
-    'EoF': { title: 'EoF', icon: '/rs-rot/gear_icons/essence of finality amulet.png' },
-    'EoF (black)': { title: 'EoF (black)', icon: '/rs-rot/gear_icons/essence of finality amulet (black).png' },
-    'EoF (blue)': { title: 'EoF (blue)', icon: '/rs-rot/gear_icons/essence of finality amulet (blue).png' },
-    'EoF (green)': { title: 'EoF (green)', icon: '/rs-rot/gear_icons/essence of finality amulet (green).png' },
-    'EoF (pink)': { title: 'EoF (pink)', icon: '/rs-rot/gear_icons/essence of finality amulet (pink).png' },
-    'EoF (purple)': { title: 'EoF (purple)', icon: '/rs-rot/gear_icons/essence of finality amulet (purple).png' },
-    'EoF (red)': { title: 'EoF (red)', icon: '/rs-rot/gear_icons/essence of finality amulet (red).png' },
-    'EoF (yellow)': { title: 'EoF (yellow)', icon: '/rs-rot/gear_icons/essence of finality amulet (yellow).png' },
+    'EoF': { title: 'EoF', icon: equipmentImageUrl('Essence of Finality amulet.png') },
+    'EoF (black)': { title: 'EoF (black)', icon: equipmentImageUrl('Essence of Finality amulet (black).png') },
+    'EoF (blue)': { title: 'EoF (blue)', icon: equipmentImageUrl('Essence of Finality amulet (blue).png') },
+    'EoF (green)': { title: 'EoF (green)', icon: equipmentImageUrl('Essence of Finality amulet (green).png') },
+    'EoF (pink)': { title: 'EoF (pink)', icon: equipmentImageUrl('Essence of Finality amulet (pink).png') },
+    'EoF (purple)': { title: 'EoF (purple)', icon: equipmentImageUrl('Essence of Finality amulet (purple).png') },
+    'EoF (red)': { title: 'EoF (red)', icon: equipmentImageUrl('Essence of Finality amulet (red).png') },
+    'EoF (yellow)': { title: 'EoF (yellow)', icon: equipmentImageUrl('Essence of Finality amulet (yellow).png') },
 };
 
 // Combined lookup for extra action bar rendering (needs to find both abilities, consumables, and gear)

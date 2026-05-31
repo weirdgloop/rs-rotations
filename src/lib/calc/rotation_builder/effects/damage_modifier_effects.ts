@@ -113,7 +113,7 @@ export function applyDemonSlayerEffect(
     if (settings[SETTINGS.SLAYER_SIGIL] === SETTINGS.SLAYER_SIGIL_VALUES.DEMON) {
         damage = Math.floor(damage * 1.15);
     }
-    
+
     return damage;
 }
 
@@ -241,7 +241,7 @@ export function applySalamancyEffect(
 ): number {
     const { settings } = ctx;
 
-    if (settings[SETTINGS.NECKLACE] === 'necklace of salamancy') {
+    if (settings[SETTINGS.NECKLACE] === ARMOUR.NECKLACE_OF_SALAMANCY) {
         return Math.floor(damage * 1.1);
     }
 
@@ -450,7 +450,7 @@ export function applyAllDamageModifiers(
     if (ctx.settings[SETTINGS.TELOS_BLACK_BEAM] === true) {
         damage = Math.floor(damage * 0.7);
     }
-    
+
     // Hit cap (must be last)
     damage = applyHitCap(damage);
 

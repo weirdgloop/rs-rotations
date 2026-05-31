@@ -10,7 +10,7 @@ export interface Familiar {
     spec_cost: number;
     combat_style: 'melee' | 'ranged' | 'magic';
     accuracy: number;
-    // Per-style accuracy values from game data 
+    // Per-style accuracy values from game data
     melee_accuracy: number;
     ranged_accuracy: number;
     magic_accuracy: number;

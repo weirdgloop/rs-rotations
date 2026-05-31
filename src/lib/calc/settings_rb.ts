@@ -1,4 +1,5 @@
 import { ARMOUR } from '$lib/data/armour';
+import { WEAPONS } from '$lib/data/weapons';
 import { PERKS } from '$lib/data/perks';
 
 const SETTINGS = {
@@ -280,70 +281,70 @@ const SETTINGS = {
     MH_TIER_CUSTOM: 'main-hand weapon custom tier',
     MAGIC_MH: 'magic main-hand weapon',
     MAGIC_MH_VALUES: {
-        CUSTOM: 'custom',
-        ROAR_OF_AWAKENING: 'roar of awakening',
-        ROAR_OF_AWAKENING_IM: 'roar of awakening [IM]',
+        CUSTOM: WEAPONS.CUSTOM_MH,
+        ROAR_OF_AWAKENING: WEAPONS.ROAR_OF_AWAKENING,
+        ROAR_OF_AWAKENING_IM: WEAPONS.ROAR_OF_AWAKENING_IM,
     },
     RANGED_MH: 'ranged main-hand weapon',
     RANGED_MH_VALUES: {
-        CUSTOM: 'custom',
-        BLIGHTBOUND: 'blightbound crossbow',
+        CUSTOM: WEAPONS.CUSTOM_MH,
+        BLIGHTBOUND: WEAPONS.BLIGHTBOUND_CROSSBOW,
     },
     MELEE_MH: 'melee main-hand weapon',
     MELEE_MH_VALUES: {
-        CUSTOM: 'custom',
-        DARK_ICE_SHARD: 'dark ice shard',
-        LENG: 'dark shard of leng',
-        LENG_IM: 'dark shard of leng [IM]',
-        KERIS: 'keris',
-        KERIS_PROC: 'keris proc',
-        KERIS_AVG: 'keris avg',
-        PRIMED_KERIS: 'primed keris',
-        PRIMED_KERIS_PROC: 'primed keris proc',
-        PRIMED_KERIS_AVG: 'primed keris avg',
-        CONSECRATED_KERIS: 'consecrated keris',
-        CONSECRATED_KERIS_PROC: 'consecrated keris proc',
-        CONSECRATED_KERIS_AVG: 'consecrated keris avg',
+        CUSTOM: WEAPONS.CUSTOM_MH,
+        DARK_ICE_SHARD: WEAPONS.DARK_ICE_SHARD,
+        LENG: WEAPONS.DARK_SHARD_OF_LENG,
+        LENG_IM: WEAPONS.DARK_SHARD_OF_LENG_IM,
+        KERIS: WEAPONS.KERIS,
+        KERIS_PROC: WEAPONS.KERIS_PROC,
+        KERIS_AVG: WEAPONS.KERIS_AVG,
+        PRIMED_KERIS: WEAPONS.PRIMED_KERIS,
+        PRIMED_KERIS_PROC: WEAPONS.PRIMED_KERIS_PROC,
+        PRIMED_KERIS_AVG: WEAPONS.PRIMED_KERIS_AVG,
+        CONSECRATED_KERIS: WEAPONS.CONSECRATED_KERIS,
+        CONSECRATED_KERIS_PROC: WEAPONS.CONSECRATED_KERIS_PROC,
+        CONSECRATED_KERIS_AVG: WEAPONS.CONSECRATED_KERIS_AVG,
     },
     NECRO_MH: 'necro main-hand weapon',
     NECRO_MH_VALUES: {
-        CUSTOM: 'custom',
-        OMNI_GUARD: 'omni guard',
-        OMNI_GUARD_IM: 'omni guard [IM]',
-        DEVOURERS_GUARD: 'devourer\'s guard',
-        DEVOURERS_GUARD_IM: 'devourer\'s guard [IM]'
+        CUSTOM: WEAPONS.CUSTOM_MH,
+        OMNI_GUARD: WEAPONS.OMNI_GUARD,
+        OMNI_GUARD_IM: WEAPONS.OMNI_GUARD_IM,
+        DEVOURERS_GUARD: WEAPONS.DEVOURERS_GUARD,
+        DEVOURERS_GUARD_IM: WEAPONS.DEVOURERS_GUARD_IM
     },
     OH: 'off-hand weapon',
     OH_TIER_CUSTOM: 'off-hand weapon custom tier',
     MAGIC_OH: 'magic off-hand weapon',
     MAGIC_OH_VALUES: {
-        CUSTOM: 'custom oh',
-        IMPERIUM_CORE: 'imperium core',
-        ODE_TO_DECEIT: 'ode to deceit',
-        ODE_TO_DECEIT_IM: 'ode to deceit [IM]',
-        CUSTOM_SHIELD: 'custom shield'
+        CUSTOM: WEAPONS.CUSTOM_OH,
+        IMPERIUM_CORE: WEAPONS.IMPERIUM_CORE,
+        ODE_TO_DECEIT: WEAPONS.ODE_TO_DECEIT,
+        ODE_TO_DECEIT_IM: WEAPONS.ODE_TO_DECEIT_IM,
+        CUSTOM_SHIELD: WEAPONS.CUSTOM_SHIELD
     },
     RANGED_OH: 'ranged off-hand weapon',
     RANGED_OH_VALUES: {
-        CUSTOM: 'custom oh',
-        CUSTOM_SHIELD: 'custom shield',
-        BLIGHTBOUND: 'off-hand blightbound crossbow',
+        CUSTOM: WEAPONS.CUSTOM_OH,
+        CUSTOM_SHIELD: WEAPONS.CUSTOM_SHIELD,
+        BLIGHTBOUND: WEAPONS.OFF_HAND_BLIGHTBOUND_CROSSBOW,
     },
     MELEE_OH: 'melee off-hand weapon',
     MELEE_OH_VALUES: {
-        CUSTOM: 'custom oh',
-        CUSTOM_SHIELD: 'custom shield',
-        DARK_ICE_SLIVER: 'dark ice sliver',
-        LENG: 'dark sliver of leng',
-        LENG_IM: 'dark sliver of leng [IM]'
+        CUSTOM: WEAPONS.CUSTOM_OH,
+        CUSTOM_SHIELD: WEAPONS.CUSTOM_SHIELD,
+        DARK_ICE_SLIVER: WEAPONS.DARK_ICE_SLIVER,
+        LENG: WEAPONS.DARK_SLIVER_OF_LENG,
+        LENG_IM: WEAPONS.DARK_SLIVER_OF_LENG_IM
     },
     NECRO_OH: 'necro off-hand weapon',
     NECRO_OH_VALUES: {
-        CUSTOM: 'custom oh',
-        CUSTOM_SHIELD: 'custom shield',
-        SOULBOUND_LANTERN: 'soulbound lantern',
-        SOULBOUND_LANTERN_IM: 'soulbound lantern [IM]',
-        SPECTRAL: 'spectral shield'
+        CUSTOM: WEAPONS.CUSTOM_OH,
+        CUSTOM_SHIELD: WEAPONS.CUSTOM_SHIELD,
+        SOULBOUND_LANTERN: WEAPONS.SOULBOUND_LANTERN,
+        SOULBOUND_LANTERN_IM: WEAPONS.SOULBOUND_LANTERN_IM,
+        SPECTRAL: WEAPONS.SPECTRAL_SHIELD
     },
     TH: 'two-hand weapon',
     TH_TIER_CUSTOM: 'two-hand weapon custom tier',
@@ -354,32 +355,33 @@ const SETTINGS = {
     },
     MAGIC_TH: 'magic two-hand weapon',
     MAGIC_TH_VALUES: {
-        CUSTOM: 'custom th',
-        INQ_STAFF: 'inquisitor staff',
-        INQ_STAFF_E: 'inquisitor staff+',
-        FSOA: 'fractured staff of armadyl',
-        FSOA_IM: 'fractured staff of armadyl [IM]',
+        CUSTOM: WEAPONS.CUSTOM_TH,
+        INQ_STAFF: WEAPONS.INQUISITOR_STAFF,
+        INQ_STAFF_E: WEAPONS.INQUISITOR_STAFF_PLUS,
+        FSOA: WEAPONS.FRACTURED_STAFF_OF_ARMADYL,
+        FSOA_IM: WEAPONS.FRACTURED_STAFF_OF_ARMADYL_IM,
     },
     RANGED_TH: 'ranged two-hand weapon',
     RANGED_TH_VALUES: {
-        CUSTOM: 'custom th',
-        BOLG: 'bow of the last guardian',
-        BOLG_IM: 'bow of the last guardian [IM]',
-        HEX_E: 'hexhunter bow+',
-        HEX: 'hexhunter bow',
+        CUSTOM: WEAPONS.CUSTOM_TH,
+        BOLG: WEAPONS.BOW_OF_THE_LAST_GUARDIAN,
+        BOLG_IM: WEAPONS.BOW_OF_THE_LAST_GUARDIAN_IM,
+        HEX_E: WEAPONS.HEXHUNTER_BOW_PLUS,
+        HEX: WEAPONS.HEXHUNTER_BOW,
     },
     MELEE_TH: 'melee two-hand weapon',
     MELEE_TH_VALUES: {
-        CUSTOM: 'custom th',
-        T_MAUL: 'terrasaur maul',
-        T_MAUL_E: 'terrasaur maul+',
-        MW_SPEAR: 'masterwork spear of annihilation',
-        EZK: 'ezk',
-        EZK_IM: 'ezk [IM]',
+        CUSTOM: WEAPONS.CUSTOM_TH,
+        T_MAUL: WEAPONS.TERRASAUR_MAUL,
+        T_MAUL_E: WEAPONS.TERRASAUR_MAUL_PLUS,
+        MW_SPEAR: WEAPONS.MASTERWORK_SPEAR_OF_ANNIHILATION,
+        EZK: WEAPONS.EZK,
+        EZK_IM: WEAPONS.EZK_IM,
     },
     NECRO_TH: 'necro two-hand weapon',
     NECRO_TH_VALUES: {
-        CUSTOM: 'custom th'
+        NONE: 'none',
+        CUSTOM: WEAPONS.CUSTOM_TH
     },
     AMMO: 'ammo',
     AMMO_TIER: 'ammo tier',
@@ -453,7 +455,7 @@ const SETTINGS = {
     KERAPACS_WRIST_WRAPS: 'kerapacs wrist wraps', // buff flag, set by casting Dragon Breath with KWW/KWW_E
     ENCHANTMENT_OF_FLAMES: 'enchantment of flames', // toggle: KWW_E with enchantment unlocks 1.4x instead of 1.25x
     ENCHANTMENT_OF_DREAD: 'enchantment of dread', // toggle: NG_E with enchantment adds second snipe hit
-    
+
     TARGET_DISABILITY: 'target disability',
     TARGET_DISABILITY_VALUES: {
         NONE: 'none',
@@ -542,7 +544,7 @@ const SETTINGS = {
     ECLIPSED_SOUL: 'eclipsed soul',
 
     // Dungeoneering
-    DESPERADO: 'desperado',    
+    DESPERADO: 'desperado',
 
     SHOW_BLOODLUST_STACKS: 'show bloodlust stacks',
     SHOW_PRIMORDIAL_ICE_STACKS: 'show primordial ice stacks',
@@ -591,8 +593,6 @@ const SETTINGS = {
     },
     MAX_CHANNEL_DURATION: 'max channel duration',
     FLAMEBOUND_RIVAL: 'flamebound rival',
-
-
     AUTO_SPEED: 'auto speed',
     AUTO_SPEED_VALUES: {
         FASTEST: 'fastest',
@@ -634,7 +634,7 @@ const settingsConfig = {
         label: 'Mode',
         default: SETTINGS.CALC_TYPE_VALUES.ABILITY,
     },
-    [SETTINGS.HIT_COUNTER_START]: { 
+    [SETTINGS.HIT_COUNTER_START]: {
         label: 'Start hit',
         default: 0
     },
@@ -666,7 +666,7 @@ const settingsConfig = {
     },
     [SETTINGS.RANGED_LEVEL]: {
         label: 'Ranged Level',
-        default: 136
+        default: 145
     },
     [SETTINGS.POTION]: {
         label: 'Potion',
@@ -1045,7 +1045,7 @@ const settingsConfig = {
     },
     [SETTINGS.SLAYER_SIGIL]: {
         label: 'Slayer sigil',
-        default: SETTINGS.SLAYER_SIGIL.NONE,
+        default: SETTINGS.SLAYER_SIGIL_VALUES.NONE,
         options: [
             { text: 'None', value: SETTINGS.SLAYER_SIGIL_VALUES.NONE },
             { text: 'Undead', value: SETTINGS.SLAYER_SIGIL_VALUES.UNDEAD},
@@ -1134,6 +1134,7 @@ const settingsConfig = {
             { text: 'Elite sirenic', value: ARMOUR.ELITE_SIRENIC_MASK },
             { text: 'Dracolich', value: ARMOUR.DRACOLICH_COIF },
             { text: 'Elite dracolich', value: ARMOUR.ELITE_DRACOLICH_COIF },
+            { text: 'Masterwork', value: ARMOUR.MASTERWORK_RANGED_HAT },
             { text: 'Ghost hunter', value: ARMOUR.GHOST_HUNTER_GOGGLES },
         ]
     },
@@ -1183,6 +1184,7 @@ const settingsConfig = {
             { text: 'Elite sirenic', value: ARMOUR.ELITE_SIRENIC_HAUBERK },
             { text: 'Dracolich', value: ARMOUR.DRACOLICH_HAUBERK },
             { text: 'Elite dracolich', value: ARMOUR.ELITE_DRACOLICH_HAUBERK },
+            { text: 'Masterwork', value: ARMOUR.MASTERWORK_RANGED_ROBE_TOP },
             { text: 'Ghost hunter', value: ARMOUR.GHOST_HUNTER_BODY},
         ]
     },
@@ -1232,6 +1234,7 @@ const settingsConfig = {
             { text: 'Elite sirenic', value: ARMOUR.ELITE_SIRENIC_CHAPS },
             { text: 'Dracolich', value: ARMOUR.DRACOLICH_CHAPS },
             { text: 'Elite dracolich', value: ARMOUR.ELITE_DRACOLICH_CHAPS },
+            { text: 'Masterwork', value: ARMOUR.MASTERWORK_RANGED_ROBE_BOTTOM },
             { text: 'Ghost hunter', value: ARMOUR.GHOST_HUNTER_LEGS},
         ]
     },
@@ -1279,6 +1282,7 @@ const settingsConfig = {
             { text: 'None/Tank', value: ARMOUR.NONE_TANK },
             { text: 'Dracolich', value: ARMOUR.DRACOLICH_VAMBRACES },
             { text: 'Elite dracolich', value: ARMOUR.ELITE_DRACOLICH_VAMBRACES },
+            { text: 'Masterwork', value: ARMOUR.MASTERWORK_RANGED_GLOVES },
             { text: 'DTB', value: ARMOUR.DEATHTOUCH_BRACELET },
             { text: 'Cinderbanes', value: ARMOUR.CINDERBANE_GLOVES },
             { text: 'Nightmares', value: ARMOUR.NIGHTMARE_GAUNTLETS },
@@ -1329,6 +1333,7 @@ const settingsConfig = {
             { text: 'None/Tank', value: 'none' },
             { text: 'Dracolich', value: ARMOUR.DRACOLICH_BOOTS },
             { text: 'Elite dracolich', value: ARMOUR.ELITE_DRACOLICH_BOOTS },
+            { text: 'Masterwork', value: ARMOUR.MASTERWORK_RANGED_BOOTS },
             { text: 'Fleeting', value: ARMOUR.FLEETING_BOOTS },
             { text: 'Enhanced fleeting', value: ARMOUR.FLEETING_BOOTS_E },
             { text: 'Silverhawks', value: ARMOUR.SILVERHAWK_BOOTS }
@@ -1472,6 +1477,7 @@ const settingsConfig = {
         options: [
             { text: 'None', value: 'none' },
             { text: 'Grimoire (active)', value: ARMOUR.ERETHDORS_GRIMOIRE },
+            { text: 'Chaotic grim (active)', value: ARMOUR.CHAOTIC_GRIMOIRE },
             { text: 'Ful (active)', value: ARMOUR.FUL_BOOK },
             { text: 'Jas (active)', value: ARMOUR.JAS_BOOK },
             { text: 'Amascut (active)', value: ARMOUR.AMASCUT_BOOK },
@@ -1488,6 +1494,7 @@ const settingsConfig = {
         options: [
             { text: 'None', value: 'none' },
             { text: 'Grimoire (active)', value: ARMOUR.ERETHDORS_GRIMOIRE },
+            { text: 'Chaotic grim (active)', value: ARMOUR.CHAOTIC_GRIMOIRE },
             { text: 'Ful (active)', value: ARMOUR.FUL_BOOK },
             { text: 'Jas (active)', value: ARMOUR.JAS_BOOK },
             { text: 'Amascut (active)', value: ARMOUR.AMASCUT_BOOK },
@@ -1504,6 +1511,7 @@ const settingsConfig = {
         options: [
             { text: 'None', value: 'none' },
             { text: 'Grimoire (active)', value: ARMOUR.ERETHDORS_GRIMOIRE },
+            { text: 'Chaotic grim (active)', value: ARMOUR.CHAOTIC_GRIMOIRE },
             { text: 'Ful (active)', value: ARMOUR.FUL_BOOK },
             { text: 'Jas (active)', value: ARMOUR.JAS_BOOK },
             { text: 'Amascut (active)', value: ARMOUR.AMASCUT_BOOK },
@@ -1518,6 +1526,7 @@ const settingsConfig = {
         options: [
             { text: 'None', value: 'none' },
             { text: 'Grimoire (active)', value: ARMOUR.ERETHDORS_GRIMOIRE },
+            { text: 'Chaotic grim (active)', value: ARMOUR.CHAOTIC_GRIMOIRE },
             { text: 'Ful (active)', value: ARMOUR.FUL_BOOK },
             { text: 'Jas (active)', value: ARMOUR.JAS_BOOK },
             { text: 'Amascut (active)', value: ARMOUR.AMASCUT_BOOK },
@@ -1532,6 +1541,7 @@ const settingsConfig = {
         options: [
             { text: 'None', value: 'none' },
             { text: 'Grimoire (active)', value: ARMOUR.ERETHDORS_GRIMOIRE },
+            { text: 'Chaotic grim (active)', value: ARMOUR.CHAOTIC_GRIMOIRE },
             { text: 'Ful (active)', value: ARMOUR.FUL_BOOK },
             { text: 'Jas (active)', value: ARMOUR.JAS_BOOK },
             { text: 'Amascut (active)', value: ARMOUR.AMASCUT_BOOK },
@@ -1614,11 +1624,11 @@ const settingsConfig = {
             { text: 'Leng', value: SETTINGS.MELEE_MH_VALUES.LENG },
             { text: 'Leng [IM]', value: SETTINGS.MELEE_MH_VALUES.LENG_IM },
             { text: 'Leng t85', value: SETTINGS.MELEE_MH_VALUES.DARK_ICE_SHARD },
-            { text: 'Consecrated Keris', value: SETTINGS.MELEE_MH_VALUES.CONSECRATED_KERIS },
+            { text: 'Consecrated Keris no proc', value: SETTINGS.MELEE_MH_VALUES.CONSECRATED_KERIS },
             { text: 'Consecrated Keris proc', value: SETTINGS.MELEE_MH_VALUES.CONSECRATED_KERIS_PROC },
-            { text: 'Primed Keris', value: SETTINGS.MELEE_MH_VALUES.PRIMED_KERIS },
+            { text: 'Primed Keris no proc', value: SETTINGS.MELEE_MH_VALUES.PRIMED_KERIS },
             { text: 'Primed Keris proc', value: SETTINGS.MELEE_MH_VALUES.PRIMED_KERIS_PROC },
-            { text: 'Keris', value: SETTINGS.MELEE_MH_VALUES.KERIS },
+            { text: 'Keris no proc', value: SETTINGS.MELEE_MH_VALUES.KERIS },
             { text: 'Keris proc', value: SETTINGS.MELEE_MH_VALUES.KERIS_PROC },
         ]
     },
@@ -1711,7 +1721,10 @@ const settingsConfig = {
     [SETTINGS.NECRO_TH]: {
         label: '2h',
         default: SETTINGS.NECRO_TH_VALUES.NONE,
-        options: [{ text: 'Custom', value: SETTINGS.NECRO_TH_VALUES.CUSTOM }]
+        options: [
+            { text: 'None', value: SETTINGS.NECRO_TH_VALUES.NONE },
+            { text: 'Custom', value: SETTINGS.NECRO_TH_VALUES.CUSTOM }
+        ]
     },
     [SETTINGS.AMMO]: {
         label: 'Ammo',

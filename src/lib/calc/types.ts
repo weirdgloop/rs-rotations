@@ -25,6 +25,8 @@ export interface Equipment {
     offensiveTier?: OffensiveTier;
     /** Flat weapon tier (weapons only) */
     tier?: number;
+    /** Damage tier from wiki tier_damage/tier_armour_damage fields */
+    damageTier?: number;
     slot: EquipmentSlot;
     style: EquipmentStyle;
     /** Weapon type — only present on weapons */
@@ -40,7 +42,6 @@ export interface Equipment {
     /** Icon path */
     icon?: string;
 }
-
 
 /**
  * Input for rotation damage calculation - decoupled from stores
@@ -81,7 +82,7 @@ export interface SingleAbilityInput {
 }
 /**
  * Represents a uniform distribution of possible damage rolls (either critical or non-critical)
- 
+
  */
 interface DamageDistribution {
     minHit: number;
@@ -101,4 +102,4 @@ interface DamageObject {
     likelihood: number; // The probability of this event occuring - for probabilistic hits (fsoa, sgb <5x5, etc.)
 }
 
-export type { DamageDistribution, DamageObject, DamageKind }; 
+export type { DamageDistribution, DamageObject, DamageKind };

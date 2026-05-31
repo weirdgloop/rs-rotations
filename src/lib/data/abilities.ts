@@ -1,4 +1,5 @@
 import { AbilityInfo } from "$lib/types/AbilityTypes";
+import { equipmentImageUrl } from '$lib/data/equipment';
 
 export enum ABILITIES {
     NECRO_AUTO = 'necromancy auto',
@@ -58,7 +59,7 @@ export enum ABILITIES {
     PIERCING_SHOT = 'piercing shot',
     BINDING_SHOT = 'binding shot',
     RICOCHET = 'ricochet',
-    
+
     // Range Enhanced
     SNAP_SHOT_HIT = 'snap shot 1',
     SNAP_SHOT = 'snap shot',
@@ -77,7 +78,7 @@ export enum ABILITIES {
     CORRUPTION_SHOT_HIT_5 = 'corruption shot hit 5',
     BOMBARDMENT = 'bombardment',
     IMBUE_SHADOWS = 'imbue shadows',
-    
+
     // Range Ults
     DEADSHOT_HIT = 'deadshot initial',
     DEADSHOT = 'deadshot',
@@ -85,7 +86,7 @@ export enum ABILITIES {
     IGNEOUS_DEADSHOT = 'igneous_deadshot',
     DEATHS_SWIFTNESS = 'death\'s swiftness',
     GREATER_DEATHS_SWIFTNESS = 'greater death\'s swiftness',
-    
+
     // Range Specs
     SHADOWFALL_1 = 'shadowfall 1',
     SHADOWFALL_2 = 'shadowfall 2',
@@ -137,7 +138,7 @@ export enum ABILITIES {
     CONCENTRATED_BLAST_2 = 'concentrated blast 2',
     CONCENTRATED_BLAST_3 = 'concentrated blast 3',
     CONCENTRATED_BLAST = 'concentrated blast',
-    
+
     // Mage Enhanced
     ASPHYXIATE_HIT = 'asphyxiate hit',
     ASPHYXIATE_LAST_HIT = 'asphyxiate last hit',
@@ -161,7 +162,7 @@ export enum ABILITIES {
     CORRUPTION_BLAST_HIT_3 = 'corruption blast hit 3',
     CORRUPTION_BLAST_HIT_4 = 'corruption blast hit 4',
     CORRUPTION_BLAST_HIT_5 = 'corruption blast hit 5',
-    
+
     // Mage Ults
     OMNIPOWER_REGULAR = 'omnipower regular',
     OMNIPOWER_IGNEOUS_HIT = 'omnipower igneous',
@@ -170,7 +171,7 @@ export enum ABILITIES {
     SUNSHINE_DOT = 'sunshine dot',
     SUNSHINE = 'sunshine',
     GREATER_SUNSHINE = 'greater sunshine',
-    
+
     // Mage Specs
     INSTABILITY = 'instability',
     TIME_STRIKE = 'time strike',
@@ -212,7 +213,7 @@ export enum ABILITIES {
     BLADED_DIVE = 'bladed dive',
     DISMEMBER_HIT = 'dismember hit',
     DISMEMBER = 'dismember',
-    
+
     // Melee Enhanced
     ASSAULT_HIT = 'assault hit',
     ASSAULT = 'assault',
@@ -232,7 +233,7 @@ export enum ABILITIES {
     FLURRY_HIT = 'flurry hit',
     FLURRY = 'flurry',
     FLURRY_BARGE = 'flurry barge',
-    
+
     // Melee Ults
     OVERPOWER_HIT = 'overpower hit',
     OVERPOWER = 'overpower',
@@ -315,7 +316,6 @@ export enum ABILITIES {
     IMMORTALITY = 'immortality',
     BARRICADE = 'barricade',
     NATURAL_INSTINCT = 'natural instinct',
-    
 
     //no gcd abilities
     INGENUITY_OF_THE_HUMANS = 'ingenuity of the humans',
@@ -545,7 +545,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         title: 'Barge',
         icon: '/rs-rot/ability_icons/melee/30x30/barge.png',
     },
-    
+
     // Melee Enhanced Abilities
     [ABILITIES.GREATER_FLURRY_HIT]: {
         // ability name
@@ -1091,7 +1091,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         }
     ,
         title: 'The Final Flurry',
-        icon: '/rs-rot/gear_icons/melee/varanus\'s mercy.png',
+        icon: equipmentImageUrl("Varanus's mercy.png"),
     },
     [ABILITIES.QUICK_SMASH]: {
         // ability name
@@ -1153,7 +1153,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
             1: [ABILITIES.ICY_TEMPEST_1, 'next hit', ABILITIES.ICY_TEMPEST_2]
         },
         adrenaline: 30,
-        hitTimings: [0, 0], 
+        hitTimings: [0, 0],
         cooldown: 15,
         title: 'Icy tempest',
         icon: '/rs-rot/ability_icons/melee/leng.png',
@@ -1172,7 +1172,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 40,
         cooldown: 60.0,
         title: 'Sunfall Slam',
-        icon: '/rs-rot/gear_icons/melee/tumeken\'s light.png',
+        icon: equipmentImageUrl("Tumeken's Light.png"),
     },
     [ABILITIES.LESSER_PURIFYING_LIGHT]: {
         // ability name
@@ -1184,7 +1184,8 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         abilityClassification: 'regular', // bleed, dot, burn, channel, regular, multihit
         abilityType: 'special attack', // basic, threshold, special attack, ability (necromancy classification), ultimate
         mainStyle: 'melee',
-        damageType: 'melee'
+        damageType: 'melee',
+        title: 'Lesser Purifying Light'
     },
     [ABILITIES.PURIFYING_LIGHT]: {
         // ability name
@@ -1484,7 +1485,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 19.8,
         hitTimings: [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30],
         title: 'Vine Call',
-        icon: '/rs-rot/gear_icons/melee/Abyssal_vine_whip.png',
+        icon: equipmentImageUrl('Abyssal vine whip.png'),
         common: false
     },
     [ABILITIES.WARSTRIKE]: {
@@ -1784,7 +1785,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 100,
         cooldown: 0,
         title: 'Rampage',
-        icon: '/rs-rot/gear_icons/melee/dragon battleaxe.png',
+        icon: equipmentImageUrl('Dragon battleaxe.png'),
     },
     [ABILITIES.BERSERK]: {
         minHit: 0.0, // min % of abil expressed as a decimal
@@ -2406,7 +2407,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         },
         cooldown: 15,
         hitTimings: [1, 3, 5, 7, 9],
-    
+
         title: 'Corruption blast',
         icon: '/rs-rot/ability_icons/magic/30x30/corruption_blast.png',
     },
@@ -2659,7 +2660,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
     [ABILITIES.SOULFIRE]: {
         // ability name
         minHit: 0.45, // min % of abil expressed as a decimal
-        varHit: 0.1, 
+        varHit: 0.1,
         onHitEffects: true, // does the ability get on-hit effects
         critEffects: true, // can the ability crit
         damagePotentialEffects: true, // is the ability affected by damage potential
@@ -2696,7 +2697,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'magic',
         cooldown: 0,
         adrenaline: 35,
-        title: 'The Last Command', 
+        title: 'The Last Command',
         icon: '/rs-rot/ability_icons/magic/30x30/Legatus\'s_Emberstaff.png',
     },
     [ABILITIES.TEMPEST_OF_ARMADYL_HIT_1]: {
@@ -3515,8 +3516,6 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 0,
         cooldown: 45,
         hitTimings: [1, 3, 5, 7, 8],
-
-
         title: 'Blood siphon',
         icon: '/rs-rot/ability_icons/necro/30x30/blood-siphon.png',
     },
@@ -3535,7 +3534,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         title: 'Invoke Death',
         icon: '/rs-rot/ability_icons/necro/incantations/Invoke_Death_icon.png',
     },
-    
+
     [ABILITIES.COMMAND_VENGEFUL_GHOST]: {
         // Command Vengeful Ghost: applies Haunted debuff (10% bonus damage, capped at 20% necro AD)
         minHit: 0.0,
@@ -3680,7 +3679,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 25,
         cooldown: 60,
         title: 'Soul Crush',
-        icon: '/rs-rot/gear_icons/necro/devourer\'s guard.png',
+        icon: equipmentImageUrl("Devourer's Guard.png"),
     },
     //Necro Incantations
     [ABILITIES.LIFE_TRANSFER]: {
@@ -3923,7 +3922,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         abilityType: 'threshold', // basic, threshold, special attack, ability (necromancy classification), ultimate
         mainStyle: 'ranged',
         damageType: 'ranged',
-        hitTimings: [1, 1], 
+        hitTimings: [1, 1],
         hits: {
             1: [ABILITIES.SNAP_SHOT_HIT, 'next hit', ABILITIES.SNAP_SHOT_HIT]
         },
@@ -3933,7 +3932,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         icon: '/rs-rot/ability_icons/ranged/30x30/snapshot.png',
     },
     [ABILITIES.RAPID_FIRE_HIT]: {
-        minHit: 0.75, 
+        minHit: 0.75,
         varHit: 0.10,
         onHitEffects: true,
         critEffects: true,
@@ -4024,7 +4023,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hits: {
             1: [],
             2: [],
-            3: [ABILITIES.SNIPE_HIT]   
+            3: [ABILITIES.SNIPE_HIT]
         },
         adrenaline: 0,
         hitTimings: [3],
@@ -4086,7 +4085,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 20,
         cooldown: 15,
         hitTimings: [1, 3, 5, 7, 9],
-    
+
         title: 'Corruption shot',
         icon: '/rs-rot/ability_icons/ranged/30x30/corrupt-shot.png',
     },
@@ -4205,7 +4204,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 30,
         hitTimings: [1, 1, 1, 1, 1, 1, 1, 1],
         adrenaline: 60,
-    
+
         title: 'Deadshot',
         icon: '/rs-rot/ability_icons/ranged/30x30/deadshot.png',
     },
@@ -4333,7 +4332,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         hitTimings: [1, 1, 2] // TODO check
     ,
         title: 'Shadowfall',
-        icon: '/rs-rot/gear_icons/ranged/gloomfire bow.png',
+        icon: equipmentImageUrl('Gloomfire bow.png'),
     },
     [ABILITIES.BALANCE_BY_FORCE]: {
         // ability name
@@ -4376,7 +4375,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         abilityType: 'special attack', // basic, threshold, special attack, ability (necromancy classification), ultimate
         mainStyle: 'ranged',
         damageType: 'ranged',
-        hitTimings: [0, 0], 
+        hitTimings: [0, 0],
         hits: {
             1: [ABILITIES.DESCENT_OF_DARKNESS_HIT, 'next hit', ABILITIES.DESCENT_OF_DARKNESS_HIT]
         },
@@ -4413,7 +4412,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
             1: [ABILITIES.DESTRUCTIVE_SHOT_HIT, 'next hit', ABILITIES.DESTRUCTIVE_SHOT_HIT]
         },
         cooldown: 0,
-        hitTimings: [1,1], //todo actual hit timings 
+        hitTimings: [1,1], //todo actual hit timings
         adrenaline: 40
     ,
         title: 'Destructive shot',
@@ -4488,7 +4487,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
             2: [],
             3: [],
             4: [],
-            5: [ABILITIES.AIMED_SHOT_HIT]   
+            5: [ABILITIES.AIMED_SHOT_HIT]
         },
         // hitTimings: [5],
         cooldown: 0,
@@ -4510,7 +4509,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'ranged',
         adrenaline: 35,
         cooldown: 0,
-    
+
         title: 'Power shot',
         icon: '/rs-rot/ability_icons/ranged/30x30/magic_shieldbow.png',
         common: false
@@ -4587,7 +4586,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         abilityType: 'special attack', // basic, threshold, special attack, ability (necromancy classification), ultimate
         mainStyle: 'ranged',
         damageType: 'ranged',
-        hitTimings: [1, 4, 7, 10, 13, 16, 19], //todo actual hit timings 
+        hitTimings: [1, 4, 7, 10, 13, 16, 19], //todo actual hit timings
         hits: {
             1: [
                 ABILITIES.PHANTOM_STRIKE_INITIAL,
@@ -4923,7 +4922,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         adrenaline: 15,
         cooldown: 45,
         title: 'Revenge',
-        icon: '/rs-rot/ability_icons/defence/30px-Revenge.png'        
+        icon: '/rs-rot/ability_icons/defence/30px-Revenge.png'
     },
     [ABILITIES.IMMORTALITY]: {
         // ability name

@@ -34,7 +34,6 @@ export function calculateSingleAbilityDamage(
     const abilityData = abils[ability];
     const duration = typeof abilityData?.duration === 'number' ? abilityData.duration : 3;
 
-
     // Create a synthetic rotation long enough for the ability + extra ticks for hit delays
     const barSize = Math.max(duration + 10, 15);
 

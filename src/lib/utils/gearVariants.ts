@@ -1,10 +1,12 @@
 /**
  * Shared utilities for gear variant handling.
  *
- * Items like "bow of the last guardian [IM]" have variant suffixes that need
- * to be stripped for icon resolution, and displayed as badges on the UI.
+ * Items like Genesis-upgraded gear and enchantment variants display small
+ * badges on the UI. Icon resolution is handled by the equipment database.
  * This module centralises that logic.
  */
+
+import { getEquipment, getEquipmentIcon, getEquipmentTitle } from '$lib/data/equipment';
 
 export interface GearBadge {
     img?: string;
@@ -24,8 +26,8 @@ const VARIANT_SUFFIXES: { pattern: RegExp; endsWith: string; badge: GearBadge }[
  * Strip variant suffixes from an item name to get the base name.
  * Used for icon path resolution (variants share the base item's icon).
  */
-export function stripVariantSuffix(value: string): string {
-    let result = value;
+export function stripVariantSuffix(value: string | number): string {
+    let result = getEquipmentTitle(value, String(value));
     for (const { pattern } of VARIANT_SUFFIXES) {
         result = result.replace(pattern, '');
     }
@@ -36,10 +38,11 @@ export function stripVariantSuffix(value: string): string {
  * Get the badge for a gear item's variant suffix, if any.
  * Returns null for base items with no variant.
  */
-export function getGearBadge(value: string): GearBadge | null {
+export function getGearBadge(value: string | number): GearBadge | null {
     if (!value) return null;
+    const title = getEquipment(value)?.title ?? String(value);
     for (const { endsWith, badge } of VARIANT_SUFFIXES) {
-        if (value.endsWith(endsWith)) return badge;
+        if (title.endsWith(endsWith)) return badge;
     }
     return null;
 }
@@ -48,14 +51,13 @@ export function getGearBadge(value: string): GearBadge | null {
  * Resolve the icon path for a gear item, falling back to the base name
  * if the item has a variant suffix.
  */
-export function resolveGearIcon(value: string, folder: string): string {
-    return `/gear_icons/${folder}/${value}.png`;
+export function resolveGearIcon(value: string | number, _folder = 'shared'): string {
+    return getEquipmentIcon(value);
 }
 
 /**
  * Resolve the fallback icon path by stripping variant suffixes.
  */
-export function resolveGearIconFallback(value: string, folder: string): string {
-    const base = stripVariantSuffix(value);
-    return `/gear_icons/${folder}/${base}.png`;
+export function resolveGearIconFallback(value: string | number, _folder = 'shared'): string {
+    return getEquipmentIcon(value);
 }

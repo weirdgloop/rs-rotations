@@ -1,3 +1,7 @@
+import { ARMOUR } from '$lib/data/armour';
+import { WEAPONS } from '$lib/data/weapons';
+import { coerceEquipmentValue } from '$lib/data/equipment';
+
 const STORAGE_KEY = 'keybind_config';
 
 const DEFAULT_BINDINGS = {
@@ -17,9 +21,9 @@ const DEFAULT_BINDINGS = {
     'split soul ecb': 'f3 a',
     'crystal rain': 'f4 a',
     'shadowfall': 'f5 a',
-    'wen arrows': 'q',
-    'ful arrows': 'w',
-    'deathspore arrows': 'w',
+    [ARMOUR.WEN_ARROWS]: 'q',
+    [ARMOUR.FUL_ARROWS]: 'w',
+    [ARMOUR.DEATHSPORE_ARROWS]: 'w',
     'spellbook swap': 'x',
     'vengeance': 'v',
     'disruption shield': 'c',
@@ -31,7 +35,7 @@ const DEFAULT_BINDINGS = {
     'reflect': '.',
     'devotion': ',',
     'natural instinct': 'm',
-    
+
     'adrenaline renewal potion': '0',
     'vulnerability bomb': '1',
     'soul split': '2',
@@ -40,22 +44,23 @@ const DEFAULT_BINDINGS = {
     'deflect melee': '5',
     'spiritual prayer potion': '6',
     'ingenuity of the humans': '7',
-    'roar of awakening': '8',
-    'ode to deceit': '9',
+    [WEAPONS.ROAR_OF_AWAKENING]: '8',
+    [WEAPONS.ODE_TO_DECEIT]: '9',
     'soulfire': '0',
 
     'EoF (blue)' : 'f3',
     'EoF (black)': 'f4',
     'EoF (purple)' : 'f5',
-    
-    
-    
-    
-
-
-    
-    
 };
+
+function normalizeBindings(bindings) {
+    const normalized = {};
+    for (const [key, value] of Object.entries(bindings ?? {})) {
+        const equipmentKey = coerceEquipmentValue(key);
+        normalized[String(equipmentKey)] = value;
+    }
+    return normalized;
+}
 
 export const keybindStore = $state({
     bindings: { ...DEFAULT_BINDINGS }
@@ -63,11 +68,15 @@ export const keybindStore = $state({
 
 export const keybindActions = {
     loadBindings() {
+        if (typeof localStorage === 'undefined') {
+            keybindStore.bindings = { ...DEFAULT_BINDINGS };
+            return;
+        }
         try {
             const stored = localStorage.getItem(STORAGE_KEY);
             if (stored) {
                 // Use stored bindings as-is (don't merge defaults, so clearing stays cleared)
-                keybindStore.bindings = JSON.parse(stored);
+                keybindStore.bindings = normalizeBindings(JSON.parse(stored));
             }
         } catch (e) {
             console.error('Failed to load keybinds:', e);
@@ -76,6 +85,9 @@ export const keybindActions = {
     },
 
     saveBindings() {
+        if (typeof localStorage === 'undefined') {
+            return;
+        }
         try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(keybindStore.bindings));
         } catch (e) {
@@ -84,6 +96,7 @@ export const keybindActions = {
     },
 
     setBinding(abilityKey, keyString) {
+        abilityKey = String(coerceEquipmentValue(abilityKey));
         if (keyString && keyString.trim()) {
             keybindStore.bindings[abilityKey] = keyString.trim();
         } else {
@@ -125,9 +138,13 @@ export const keybindActions = {
                 for (const extra of extras) {
                     if (!extra) continue;
                     // Gear items are objects with .title, abilities are strings
-                    const extraKey = typeof extra === 'object' ? extra.title : extra;
-                    const bind = keybindStore.bindings[extraKey] || keybindStore.bindings[extraKey.toLowerCase()];
-                    tickKeys.push(bind || extraActionLookup[extraKey]?.title || extraKey);
+                    const extraKey = typeof extra === 'object' ? (extra.value ?? extra.title) : extra;
+                    const extraTitle = typeof extra === 'object' ? extra.title : extraKey;
+                    const bind =
+                        keybindStore.bindings[String(extraKey)] ||
+                        keybindStore.bindings[extraTitle] ||
+                        keybindStore.bindings[String(extraTitle).toLowerCase()];
+                    tickKeys.push(bind || extraActionLookup[extraKey]?.title || extraTitle || extraKey);
                 }
             }
 

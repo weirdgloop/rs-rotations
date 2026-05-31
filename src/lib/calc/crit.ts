@@ -73,6 +73,11 @@ export function calc_crit_chance(settings: Record<string, any>, abilityKey: ABIL
         crit_chance += 0.12;
     }
 
+    // chaotic grimoire
+    if (settings[SETTINGS.POCKET] === ARMOUR.CHAOTIC_GRIMOIRE) {
+        crit_chance += 0.07;
+    }
+
     // leagues pocket
     if (settings[SETTINGS.POCKET] === ARMOUR.LEAGUES_POCKET) {
         crit_chance += 0.12;
@@ -208,7 +213,6 @@ export function calc_crit_chance(settings: Record<string, any>, abilityKey: ABIL
             }
         }
 
-
         // no fear (pof meteor strike)
         if (abilityKey === 'meteor strike') {
             if (settings[SETTINGS.POF_DINOS] === SETTINGS.POF_DINOS_VALUES.CORBICULA_1) {
@@ -300,7 +304,7 @@ export function calc_crit_damage(settings: Record<string, any>, dmgObj: DamageOb
             crit_buff += 0.06;
         }
     }
-    
+
     if (
         settings[SETTINGS.RING] === ARMOUR.CHANNELLERS_RING_E &&
         isChannelledHit(abils[abilityKey]) &&
@@ -341,7 +345,6 @@ export function calc_crit_damage(settings: Record<string, any>, dmgObj: DamageOb
         }
     }
 
-    
     // Channelled Might: +15% crit damage after fully channelling asphyxiate
     if (abils[settings['ability']].mainStyle === 'magic' && settings[SETTINGS.CHANNELLED_MIGHT] === true) {
         crit_buff += 0.15;
@@ -351,7 +354,6 @@ export function calc_crit_damage(settings: Record<string, any>, dmgObj: DamageOb
     if (abils[settings['ability']].mainStyle === 'magic' && settings[SETTINGS.GREATER_CHANNELLED_MIGHT] === true) {
         crit_buff += 0.35;
     }
-
 
     if (dmgObj.ability === ABILITIES.THE_FINAL_FLURRY_1) {
         crit_buff += 0.25;

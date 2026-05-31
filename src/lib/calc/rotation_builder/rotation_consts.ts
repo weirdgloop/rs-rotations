@@ -1,20 +1,21 @@
 import { settingsConfig, SETTINGS } from '../settings_rb';
 import { SettingsCombatStyles } from './types/SettingsCombatStyles';
 import { BUFF_COLORS, STACK_COLORS } from '../../utils/colors';
+import { ARMOUR } from '$lib/data/armour';
+import { getEquipmentIcon } from '$lib/data/equipment';
 
 /*
  * All the buffs displayed as bars under the rotation in the UI.
  */
 export const buffs = [
-    SETTINGS.CRIT_BUFF, 
-    SETTINGS.NATURAL_INSTINCT, 
-    SETTINGS.DEATH_SWIFTNESS, 
-	SETTINGS.SUNSHINE, 
+    SETTINGS.CRIT_BUFF,
+    SETTINGS.NATURAL_INSTINCT,
+    SETTINGS.DEATH_SWIFTNESS,
+    SETTINGS.SUNSHINE,
     SETTINGS.BERSERK,
-    
-    SETTINGS.SPLIT_SOUL, 
+    SETTINGS.SPLIT_SOUL,
     SETTINGS.GREATER_DRACOLICH_INFUSION,
-	SETTINGS.ICY_PRECISION, 
+    SETTINGS.ICY_PRECISION,
     SETTINGS.BALANCE_BY_FORCE,
     SETTINGS.INSTABILITY,
     SETTINGS.CHAOS_ROAR,
@@ -188,7 +189,7 @@ export function createBuffTimings(barSize: number) {
                 buffTicks: Array(barSize).fill(0),
                 activeRows: [],
                 colour: BUFF_COLORS.deathspore_buff,
-                icon: '/rs-rot/gear_icons/ranged/deathspore arrows.png',
+                icon: getEquipmentIcon(ARMOUR.DEATHSPORE_ARROWS),
                 combatStyle: SettingsCombatStyles.RANGED
             },
             [SETTINGS.ESS_CORRUPTION_ADREN]: {
@@ -449,7 +450,7 @@ export function createBuffTimings(barSize: number) {
                 buffTicks: Array(barSize).fill(0),
                 activeRows: [],
                 colour: BUFF_COLORS.gconc_crit_ac,
-                icon: '/rs-rot/ability_icons/magic/GConc_AC.png',
+                icon: '/rs-rot/effect_icons/magic/GConc_AC.png',
                 combatStyle: SettingsCombatStyles.MAGIC
             },
         }
@@ -518,7 +519,7 @@ export function createStackTimings(barSize: number) {
                 title: 'Feasting Spores stacks',
                 displaySetting: SETTINGS.SHOW_DEATHSPORE_STACKS,
                 idx: -1,
-                image: '/rs-rot/gear_icons/ranged/deathspore arrows.png',
+                image: getEquipmentIcon(ARMOUR.DEATHSPORE_ARROWS),
                 stackTicks: Array(barSize).fill(0),
                 colour: STACK_COLORS.deathspore,
                 combatStyle: SettingsCombatStyles.RANGED

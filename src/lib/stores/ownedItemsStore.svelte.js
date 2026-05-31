@@ -1,6 +1,7 @@
 import { weapons } from '$lib/data/weapons';
 import { armour } from '$lib/data/armour';
 import { abils } from '$lib/data/abilities';
+import { coerceEquipmentValue, migrateOwnedGearEntries } from '$lib/data/equipment';
 
 const ABILITIES_STORAGE_KEY = 'owned_abilities';
 const LEGACY_STORAGE_KEY = 'owned_items';
@@ -14,7 +15,7 @@ const GEAR_STORAGE_KEY = 'owned_gear';
 
 /**
  * @typedef {Object} OwnedGearItem
- * @property {string} itemKey - Item key (e.g. 'bow of the last guardian [IM]')
+ * @property {number|string} itemKey - Equipment id, or legacy item key during migration
  * @property {PerkInstance[]} perks - Perks applied to this gear instance
  * @property {string} [label] - Optional user label to distinguish copies
  */
@@ -30,16 +31,18 @@ function buildAbilityDefaults() {
 
 /** Build default owned gear from popular weapons and armour (no perks) */
 function buildGearDefaults() {
-    /** @type {Map<string, OwnedGearItem[]>} */
+    /** @type {Map<number|string, OwnedGearItem[]>} */
     const defaults = new Map();
     for (const [key, item] of Object.entries(weapons)) {
         if (item.popular) {
-            defaults.set(key, [{ itemKey: key, perks: [] }]);
+            const id = Number(key);
+            defaults.set(id, [{ itemKey: id, perks: [] }]);
         }
     }
     for (const [key, item] of Object.entries(armour)) {
         if (item.popular) {
-            defaults.set(key, [{ itemKey: key, perks: [] }]);
+            const id = Number(key);
+            defaults.set(id, [{ itemKey: id, perks: [] }]);
         }
     }
     return defaults;
@@ -65,11 +68,7 @@ function serializeGear(gearMap) {
  */
 function deserializeGear(json) {
     const obj = JSON.parse(json);
-    const map = new Map();
-    for (const [key, instances] of Object.entries(obj)) {
-        map.set(key, instances);
-    }
-    return map;
+    return migrateOwnedGearEntries(obj);
 }
 
 export const ownedItemsStore = $state({
@@ -81,6 +80,11 @@ export const ownedItemsStore = $state({
 
 export const ownedItemsActions = {
     loadOwned() {
+        if (typeof localStorage === 'undefined') {
+            ownedItemsStore.ownedAbilities = buildAbilityDefaults();
+            ownedItemsStore.ownedGear = buildGearDefaults();
+            return;
+        }
         try {
             // Load abilities
             const stored = localStorage.getItem(ABILITIES_STORAGE_KEY);
@@ -119,6 +123,9 @@ export const ownedItemsActions = {
     },
 
     saveOwned() {
+        if (typeof localStorage === 'undefined') {
+            return;
+        }
         try {
             localStorage.setItem(ABILITIES_STORAGE_KEY, JSON.stringify([...ownedItemsStore.ownedAbilities]));
             localStorage.setItem(GEAR_STORAGE_KEY, serializeGear(ownedItemsStore.ownedGear));
@@ -144,6 +151,7 @@ export const ownedItemsActions = {
      * Toggle ownership of a gear item.
      */
     toggleGear(itemKey) {
+        itemKey = coerceEquipmentValue(itemKey);
         if (ownedItemsStore.ownedGear.has(itemKey)) {
             ownedItemsStore.ownedGear.delete(itemKey);
         } else {
@@ -159,6 +167,7 @@ export const ownedItemsActions = {
      * @returns {OwnedGearItem[]}
      */
     getGearInstances(itemKey) {
+        itemKey = coerceEquipmentValue(itemKey);
         return ownedItemsStore.ownedGear.get(itemKey) || [];
     },
 
@@ -169,6 +178,7 @@ export const ownedItemsActions = {
      * @param {string} [label]
      */
     addGearInstance(itemKey, perks = [], label = undefined) {
+        itemKey = coerceEquipmentValue(itemKey);
         const existing = ownedItemsStore.ownedGear.get(itemKey) || [];
         const updated = [...existing, { itemKey, perks: [...perks], label }];
         const newMap = new Map(ownedItemsStore.ownedGear);
@@ -185,6 +195,7 @@ export const ownedItemsActions = {
      * @param {string} [label]
      */
     updateGearInstance(itemKey, instanceIndex, perks, label = undefined) {
+        itemKey = coerceEquipmentValue(itemKey);
         const instances = ownedItemsStore.ownedGear.get(itemKey);
         if (!instances || !instances[instanceIndex]) return;
         const updated = instances.map((inst, i) => {
@@ -207,6 +218,7 @@ export const ownedItemsActions = {
      * @param {number} instanceIndex
      */
     removeGearInstance(itemKey, instanceIndex) {
+        itemKey = coerceEquipmentValue(itemKey);
         const instances = ownedItemsStore.ownedGear.get(itemKey);
         if (!instances) return;
         const updated = instances.filter((_, i) => i !== instanceIndex);

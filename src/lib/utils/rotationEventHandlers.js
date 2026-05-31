@@ -66,7 +66,7 @@ function toExtraAction(input) {
  */
 export function handleAbilityClick(event, abilityKey, mainBar = true, stores, calculateTotalDamageNew, refreshUI) {
     const { uiStore, rotationStore, notifActions } = stores;
-    
+
     if (uiStore.activeTool === ToolMode.Stall) {
         // Check if ability is channeled
         if (abils[abilityKey].abilityClassification === 'channel') {
@@ -139,7 +139,7 @@ export function handleDragStartBar(event, ability, startIndex) {
 export function handleDrop(event, index, stores, refreshUI, calculateTotalDamageNew, allAbils) {
     event.preventDefault();
     const { rotationStore, uiActions } = stores;
-    
+
     const abilityKey = event.dataTransfer.getData('text/plain');
     if (allAbils[abilityKey]) {
         rotationStore.abilityBar[index] = abilityKey;
@@ -175,10 +175,10 @@ export function allowDrop(event) {
  */
 export function handleDragEnter(event, index, stores, allAbils) {
     const { rotationStore, uiActions } = stores;
-    
+
     uiActions.setDragDropHoveredSlot(index);
     uiActions.setDragDropValidSlot(true);
-    
+
     let data = event.dataTransfer.getData('text/plain');
     if (!allAbils[data]) {
         try {
@@ -191,7 +191,7 @@ export function handleDragEnter(event, index, stores, allAbils) {
             console.error('Error parsing drag data:', e);
         }
     }
-    
+
     for (let i = index-1; i >= (index - 2); i--) {
         if (i < 0) return;
         if (rotationStore.abilityBar[i] != null) {
@@ -208,7 +208,7 @@ export function handleDragEnter(event, index, stores, allAbils) {
  */
 export function handleDragLeave(event, index, stores) {
     const { uiStore, uiActions } = stores;
-    
+
     if (uiStore.dragDrop.hoveredSlot === index) {
         uiActions.setDragDropHoveredSlot(null);
     }
@@ -224,7 +224,7 @@ export function handleDragLeave(event, index, stores) {
  */
 export function handleBarLeftClick(event, ability, index, stores, refreshUI, calculateTotalDamageNew) {
     const { uiStore, rotationStore, uiActions } = stores;
-    
+
     event.currentTarget.focus();
 
     if (uiStore.activeTool === ToolMode.Insert) {
@@ -302,7 +302,7 @@ export function handleBarLeftClick(event, ability, index, stores, refreshUI, cal
  */
 export function handleBarRightClick(event, index, innerIdx = null, stores, refreshUI, calculateTotalDamageNew) {
     const { rotationStore, uiStore } = stores;
-    
+
     event.preventDefault();
 
     if (uiStore.activeTool === ToolMode.Insert) {
@@ -350,13 +350,13 @@ export function handleKeypress(event, stores) {
  */
 export function clearRotation(stores, refreshUI, calculateTotalDamageNew) {
     const { rotationStore } = stores;
-    
+
     rotationStore.abilityBar = Array(BAR_SIZE).fill(null);
     rotationStore.extraActionBar = Array(BAR_SIZE).fill(null);
     rotationStore.nulledTicks = Array(BAR_SIZE).fill(false);
     rotationStore.stalledAbilities = Array(BAR_SIZE).fill(null);
     rotationStore.totalDamage = 0;
-    
+
     // Reset stacks
     for (let i = 0; i < BAR_SIZE; i++) {
         rotationStore.stacks['icy chill stacks'].stackTicks[i] = 0;
@@ -382,13 +382,13 @@ export function clearRotation(stores, refreshUI, calculateTotalDamageNew) {
  */
 export function refreshUI(calcDmg = true, stores, calculateTotalDamageNew) {
     const { uiStore, rotationStore, uiActions } = stores;
-    
+
     // UI Constants
     const BASE_BAR_ROW_GAP = 30;
     const stackFontSize = 10;
     const stackPadding = 2;
     const buffLineHeight = 6;
-    
+
     //Update ability bar pointer
     uiActions.updateBarLastIndex(0);
     for (let i = 0; i < BAR_SIZE; i++) {
@@ -465,16 +465,16 @@ export function refreshUI(calcDmg = true, stores, calculateTotalDamageNew) {
  * @param {Object} stores - Object containing rotationStore, settingsStore
  */
 export function calculateTotalDamageNew() {
-    
+
     logger.log(LogCategory.ROTATION, 'Starting damage calculation...');
     logger.log(LogCategory.ROTATION, 'Settings store initialized:', settingsStore.initialized);
     logger.log(LogCategory.ROTATION, 'Settings store settings:', settingsStore.settings);
     logger.log(LogCategory.ROTATION, 'Rotation store ability bar:', rotationStore.abilityBar);
-    
+
     const dmgResult = calculateTotalDamage(BAR_SIZE);
-    
+
     logger.log(LogCategory.ROTATION, 'Damage calculation result:', dmgResult);
-    
+
     rotationStore.totalDamage = dmgResult.regularDamage;
     rotationStore.poisonDamage = dmgResult.poisonDamage;
     rotationStore.familiarDamage = dmgResult.familiarDamage;
@@ -492,10 +492,10 @@ export function calculateTotalDamageNew() {
 
     // Calculate Gaussian parameters for more accurate damage modeling
     const gaussianParams = calculateGaussianParameters(rotationStore.distributionStats);
-    logger.log(LogCategory.ROTATION, 'Total Damage = ' + rotationStore.totalDamage + 
-        ' (Poison Damage = ' + rotationStore.poisonDamage + '; ' + 
+    logger.log(LogCategory.ROTATION, 'Total Damage = ' + rotationStore.totalDamage +
+        ' (Poison Damage = ' + rotationStore.poisonDamage + '; ' +
         'Familiar Damage = ' + rotationStore.familiarDamage + ')' +
-        ' | Gaussian Model: Mean = ' + Math.round(gaussianParams.mean) + 
+        ' | Gaussian Model: Mean = ' + Math.round(gaussianParams.mean) +
         ', StdDev = ' + Math.round(gaussianParams.stdDev)
     );
-} 
+}

@@ -4,20 +4,20 @@
     export let size = 'medium'; // 'small', 'medium', 'large'
     export let disabled = false;
     export let title = '';
-    
+
     // Variant styles
     const variants = {
         primary: 'bg-[#171d21] text-[#c2ba9e] border border-[#c2ba9e] hover:bg-[#1f282d] ',
         reset: 'bg-[#171d21] text-[#c2ba9e] border border-[#c2ba9e] hover:bg-red-700/40'
     };
-    
+
     // Size styles
     const sizes = {
         small: 'px-3 py-1.5 text-sm',
         medium: 'px-4 py-2 text-base',
         large: 'px-6 py-3 text-lg'
     };
-    
+
     $: buttonClasses = `
         ${variants[variant]}
         ${sizes[size]}
@@ -45,11 +45,11 @@
     `.trim().replace(/\s+/g, ' ');
 </script>
 
-<button 
+<button
     class={buttonClasses}
     on:click={onClick}
     {disabled}
     {title}
 >
     <slot />
-</button> 
+</button>

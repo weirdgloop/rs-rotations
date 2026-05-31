@@ -24,7 +24,6 @@
     import { getBossPresetWithEnrage, type BossAttack, type BossAttackPattern } from '$lib/data/bosses/boss_presets';
     import { suggestNextAbility, resolveTumekensAsphyxiate, type AbilitySuggestion } from '$lib/calc/rotation_builder/rotation-damage-calculator';
 
-
     const filterByStyle = (style) => Object.fromEntries(
         Object.entries(abils).filter(([, a]) => a.title && a.mainStyle === style)
     );
@@ -324,7 +323,6 @@
 		return { ...entry, isStart: entry.tickInAttack % entry.attack.ticks === 0 };
 	}
 
-
 	// Generate CSS for grid-template-rows based on calculated row heights
 	function getGridTemplateRows(): string {
 		if (rowLayoutData.length === 0) return '';
@@ -451,8 +449,6 @@
         eventHandlers.handleBarRightClick(event, index, innerIdx, stores, refreshUI, calculateTotalDamageNew);
     }
 
-
-
     function handleKeypress(event: KeyboardEvent) {
         eventHandlers.handleKeypress(event, stores);
     }
@@ -577,610 +573,36 @@
     });
 </script>
 
-<style>
-	.rotation-title-row {
-		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-	}
-
-	.rotation-header {
-		margin: 0;
-	}
-
-	.reset-btn {
-		padding: 2px 10px;
-		font-size: 0.7rem;
-		font-weight: 500;
-		color: #999;
-		background: none;
-		border: 1px solid #555;
-		border-radius: 4px;
-		cursor: pointer;
-		transition: all 0.15s;
-	}
-
-	.reset-btn:hover {
-		color: #ff6b6b;
-		border-color: #ff6b6b;
-		background: rgba(255, 0, 0, 0.08);
-	}
-
-	.suggestions-floating {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		width: 58.333%;
-		z-index: 50;
-		pointer-events: auto;
-		display: flex;
-		justify-content: center;
-	}
-	.suggestions-bar {
-		display: flex;
-		align-items: center;
-		gap: 6px;
-		padding: 8px 16px;
-		background: rgba(23, 29, 33, 0.97);
-		border: 2px solid rgba(255, 255, 255, 0.2);
-		border-bottom: none;
-		border-radius: 12px 12px 0 0;
-		backdrop-filter: blur(10px);
-		box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.5);
-	}
-	.suggestions-label {
-		font-size: 0.85rem;
-		color: #888;
-		margin-right: 4px;
-		white-space: nowrap;
-	}
-	.suggestions-tab {
-		padding: 5px 18px;
-		font-size: 0.8rem;
-		color: #888;
-		background: rgba(23, 29, 33, 0.97);
-		border: 2px solid rgba(255, 255, 255, 0.2);
-		border-bottom: none;
-		border-radius: 10px 10px 0 0;
-		cursor: pointer;
-		backdrop-filter: blur(10px);
-	}
-	.suggestions-tab:hover {
-		color: #ccc;
-	}
-	.suggestions-collapse {
-		padding: 3px 8px;
-		font-size: 0.7rem;
-		color: #666;
-		background: none;
-		border: none;
-		cursor: pointer;
-		margin-left: 6px;
-	}
-	.suggestions-collapse:hover {
-		color: #ccc;
-	}
-	.suggestion-btn {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2px;
-		padding: 4px;
-		border-radius: 5px;
-		cursor: pointer;
-		background: none;
-		border: 1px solid transparent;
-		transition: all 0.15s;
-	}
-	.suggestion-btn:hover {
-		background: rgba(255, 255, 255, 0.12);
-		border-color: rgba(255, 255, 255, 0.25);
-	}
-	.suggestion-icon {
-		width: 34px;
-		height: 34px;
-		border-radius: 4px;
-	}
-	.suggestion-dmg {
-		font-size: 0.65rem;
-		color: #4CAF50;
-		font-weight: bold;
-		line-height: 1;
-	}
-
-
-	.damage-summary {
-		display: flex;
-		gap: 0.5rem;
-		align-items: baseline;
-	}
-
-	.dmg-total {
-		font-size: 0.95rem;
-		font-weight: 700;
-		color: #fff;
-	}
-
-	.dmg-breakdown {
-		font-size: 0.75rem;
-		color: #888;
-	}
-
-	.dmg-val {
-		font-weight: 600;
-		color: #ccc;
-	}
-
-	.dmg-val.poison {
-		color: var(--color-poison);
-	}
-
-	.dmg-val.familiar {
-		color: var(--color-familiar);
-	}
-
-	.dmg-val.dreadnip {
-		color: var(--color-dreadnip);
-	}
-
-	.dmg-val.conjure {
-		color: var(--color-conjure);
-	}
-
-	.responsive-container {
-		margin-left: 0% !important;
-		margin-right: 0% !important;
-		padding-left: 1.5% !important;
-		padding-right: 1.5% !important;
-		max-width: 100% !important;
-	}
-
-	.extra-action-section {
-		border: 2px solid #ffff00df;
-		margin-top: 5%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.regular-cursor {
-		cursor: default; /* Cursor for regular tool */
-	}
-
-	.regular-cursor .ability-slot {
-		cursor: pointer !important; /* Only show pointer in regular mode */
-	}
-
-	.regular-cursor .ability-slot:hover {
-		cursor: pointer !important;
-	}
-
-	.stall-cursor {
-		cursor: wait; /* Default stall cursor */
-	}
-
-	.stall-cursor.stalling {
-		cursor: wait; /* Will be overridden if there's an ability being stalled */
-	}
-
-	.null-cursor {
-		cursor: url('/rs-rot/cursor_icons/abort-icon.svg') 16 16, not-allowed;
-	}
-
-	.insert-cursor {
-		cursor: cell;
-	}
-
-	.ability-bar {
-		display: grid;
-		/* grid-template-columns and grid-template-rows set dynamically via inline style */
-		column-gap: 0;
-		row-gap: 0;
-		position: relative;
-		padding-top: 25px;
-	}
-
-	.ability-slot {
-		position: relative;
-		width: 40px;
-		height: 40px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: relative;
-		border: 1px solid #878787;
-		box-sizing: border-box;
-		cursor: inherit !important;
-		transition: all 0.1s ease;
-	}
-
-	.ability-slot:hover {
-		cursor: inherit !important;
-		border: 1px solid #c5c5c5;
-		box-shadow: 0 0 3px rgba(255, 255, 255, 0.572);
-		z-index: 3;
-	}
-
-	.ability-slot.invalid-placement {
-		border: 1px solid #ef4444;
-		box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.4);
-	}
-
-	.ability-slot.invalid-placement > img:first-of-type {
-		opacity: 0.5;
-	}
-
-	.ability-slot .channel-ghost {
-		width: 100%;
-		height: 100%;
-		opacity: 0.3;
-		filter: grayscale(50%);
-		pointer-events: none;
-	}
-
-	.ability-slot.nulled::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: repeating-linear-gradient(
-			45deg,
-			rgba(255, 0, 0, 0.55),
-			rgba(255, 0, 0, 0.55) 2px,
-			transparent 3px,
-			transparent 6px
-		);
-		pointer-events: none;
-		z-index: 1;
-	}
-
-	.ability-slot.selected-tick {
-		border: 2px solid #ffd700;
-		box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
-		z-index: 3;
-	}
-
-	.ability-slot.has-extra-actions::after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 2px;
-		right: 2px;
-		height: 2px;
-		background-color: #b8a04a;
-		z-index: 2;
-	}
-
-	.ability-slot.has-damage {
-		border-top: 2px solid #a65a5a;
-	}
-
-	.cell-number {
-		position: absolute;
-		top: -18px;
-		left: 50%;
-		transform: translateX(-50%);
-		font-size: 12px; 
-		color: #bababa;
-	}
-
-	.stacks-text {
-		position: absolute;
-		top: +38px;
-		left: auto;
-		transform: translateX(+50%);
-		font-size: var(--stack-font-size);
-	}
-
-	.stacks-icon {
-		position: absolute;
-		width: 12px;
-		height: 12px;
-		transform: translateX(-70%) translateY(32px);
-	}
-
-	.boss-attack-cell {
-		position: absolute;
-		left: 0;
-		width: 100%;
-		height: 18px;
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-		pointer-events: auto;
-		z-index: 2;
-		box-sizing: border-box;
-	}
-
-	.boss-attack-label {
-		font-size: 0.55rem;
-		color: white;
-		font-weight: bold;
-		padding-left: 2px;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: clip;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-	}
-
-	.phase-marker {
-		position: absolute;
-		top: -2px;
-		right: -2px;
-		bottom: -2px;
-		width: 3px;
-		background: #ef4444;
-		z-index: 4;
-		pointer-events: none;
-	}
-
-	.phase-label {
-		position: absolute;
-		top: -14px;
-		right: -2px;
-		font-size: 0.5rem;
-		color: #ef4444;
-		font-weight: bold;
-		white-space: nowrap;
-		pointer-events: none;
-	}
-
-	.pattern-start-marker {
-		position: absolute;
-		top: -2px;
-		left: -2px;
-		bottom: -2px;
-		width: 3px;
-		background: #3b82f6;
-		z-index: 4;
-		pointer-events: none;
-	}
-
-	.pattern-start-label {
-		position: absolute;
-		top: -14px;
-		left: -2px;
-		font-size: 0.5rem;
-		color: #3b82f6;
-		font-weight: bold;
-		white-space: nowrap;
-		pointer-events: none;
-	}
-
-	.phase-pause {
-		background: repeating-linear-gradient(
-			45deg,
-			transparent,
-			transparent 3px,
-			rgba(239, 68, 68, 0.15) 3px,
-			rgba(239, 68, 68, 0.15) 6px
-		) !important;
-	}
-
-	.highlight-red {
-		border: 1px solid rgba(255, 51, 0, 0.789);
-	}
-
-	.highlight-green {
-		border: 1px solid rgba(0, 231, 54, 0.789);
-	}
-
-	.stalled-ability {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 55%;
-		height: 55%;
-		opacity: 0.8;
-		border: 1px solid #ffff72;
-		box-sizing: border-box;
-		z-index: 2;
-	}
-
-	.cooldown-ready-container {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: 2;
-		pointer-events: none;
-	}
-
-	.cooldown-ready-container.has-overflow {
-		pointer-events: auto;
-		cursor: pointer;
-	}
-
-	.cooldown-ready-icon {
-		position: absolute;
-		bottom: 0px;
-		left: 0px;
-		width: 55%;
-		height: 55%;
-		border: 1px solid #00e736;
-		opacity: 0.8;
-		z-index: 2;
-		pointer-events: none;
-		transform-origin: bottom left;
-		transition: opacity 0.2s ease, transform 0.2s ease;
-	}
-
-	/* Hide extra icons by default, collapsed to first icon position */
-	.cooldown-ready-container .cooldown-ready-icon:not(:first-of-type) {
-		opacity: 0;
-		transform: translateY(100%) scale(0.6);
-	}
-
-	/* On hover, reveal all icons at full size */
-	.cooldown-ready-container:hover .cooldown-ready-icon {
-		transform: scale(1.15);
-	}
-
-	.cooldown-ready-container:hover .cooldown-ready-icon:not(:first-of-type) {
-		opacity: 0.9;
-	}
-
-	.cooldown-overflow {
-		position: absolute;
-		left: 0;
-		font-size: 0.5rem;
-		color: #00e736;
-		background: rgba(0, 0, 0, 0.6);
-		padding: 0 2px;
-		border-radius: 2px;
-		z-index: 3;
-		pointer-events: none;
-		line-height: 1;
-		transition: opacity 0.15s ease;
-	}
-
-	/* Hide the +N label on hover since all icons are shown */
-	.cooldown-ready-container:hover .cooldown-overflow {
-		opacity: 0;
-	}
-
-	/* Extra action preview icons (above slot, shown on hover) */
-	.extra-action-preview {
-		position: absolute;
-		bottom: 100%;
-		left: 50%;
-		transform: translateX(-50%);
-		display: flex;
-		gap: 1px;
-		z-index: 4;
-		pointer-events: none;
-		opacity: 0;
-		transition: opacity 0.15s ease;
-		padding-bottom: 2px;
-	}
-
-	.ability-slot:hover .extra-action-preview {
-		opacity: 1;
-	}
-
-	.extra-action-icon-box {
-		width: 27px;
-		height: 27px;
-		min-width: 27px;
-		min-height: 27px;
-		border: 1px solid #b8a04a;
-		background: rgba(23, 29, 33, 0.95);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		pointer-events: none;
-	}
-
-	.extra-action-icon-box img {
-		max-width: 100%;
-		max-height: 100%;
-		object-fit: contain;
-		filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.708));
-	}
-
-	.stall-cursor.stalling {
-		cursor: wait; /* Will be overridden if there's an ability being stalled */
-	}
-
-	.null-cursor {
-		cursor: url('/rs-rot/cursor_icons/abort-icon.svg') 16 16, not-allowed; 
-	}
-
-	.settings-panel {
-		transition: all 0.3s ease;
-		min-width: 0;
-	}
-
-	.settings-panel.collapsed {
-		flex-basis: 0;
-		width: 0;
-		padding: 0;
-		margin: 0;
-		visibility: hidden;
-		opacity: 0;
-	}
-
-	.settings-content {
-		position: sticky;
-		top: 1rem;
-		max-height: calc(100vh - 2rem);
-		overflow-y: auto;
-	}
-
-	.card-rotation {
-		height: fit-content;
-	}
-
-	:global(.credits) {
-		margin-top: 3rem;
-		padding: 1.5rem 2rem;
-		border-top: 1px solid #333;
-		color: var(--color-text-secondary);
-		font-size: 0.8rem;
-	}
-
-	:global(.credits h4) {
-		margin: 0 0 0.5rem 0;
-		color: var(--color-text-secondary);
-		font-size: 0.85rem;
-		font-weight: 600;
-	}
-
-	:global(.credits ul) {
-		margin: 0;
-		padding-left: 1.2rem;
-		list-style: disc;
-	}
-
-	:global(.credits li) {
-		margin-bottom: 0.25rem;
-	}
-
-	:global(.credits a) {
-		color: var(--color-info);
-		text-decoration: none;
-	}
-
-	:global(.credits a:hover) {
-		text-decoration: underline;
-	}
-</style>
-
 <Navbar />
 <Header img="/rs-rot/range_background.png" text="Rotation Calculator Beta" icon="/rs-rot/style_icons/rota_icon.svg" />
 
 <div class="space-y-14 mt-10 z-20">
-	<div class="responsive-container {uiStore.activeTool.toLowerCase()}-cursor {uiStore.stallingAbility ? 'stalling' : ''}" 
-		tabindex="-1" 
-		role="button" 
+	<div class="responsive-container {uiStore.activeTool.toLowerCase()}-cursor {uiStore.stallingAbility ? 'stalling' : ''}"
+		tabindex="-1"
+		role="button"
 		onkeydown={handleKeypress}
-		style="--stack-font-size: {stackFontSize}px; {uiStore.stallingAbility ? `cursor: url('${allAbils[uiStore.stallingAbility].icon}') 15 15, wait;` : ''}">
-		<section class="grid grid-cols-12 gap-6 auto-rows-min">
-			<div class="col-span-{uiStore.settingsPanelCollapsed ? '12' : '8'} relative">
-				<div class="card card-rotation">
+		style="--stack-font-size: {stackFontSize}px; {uiStore.stallingAbility ? `cursor: url('${allAbils[uiStore.stallingAbility].icon}') 15 15, wait;` : ''}"
+    >
+		<section class="flex flex-col gap-6">
+			<div class="flex flex-row wrapper {uiStore.settingsPanelCollapsed ? 'gap-0' : 'gap-6'} relative">
+				<div class="card card-rotation {uiStore.settingsPanelCollapsed ? 'w-full' : 'w-2/3'}">
 					{#if uiStore.settingsPanelCollapsed}
-						<button 
-							class="expand-button"
-							onclick={() => uiActions.toggleSettingsPanel()}
-						>
-							Settings ←
-						</button>
+                        <button
+                            class="expand-button"
+                            onclick={() => uiActions.toggleSettingsPanel()}
+                        >
+                            Settings ←
+                        </button>
 					{/if}
 					<div class="rotation-title-row">
 						<h1 class="rotation-header">{bossName}{#if killTime} <em>{killTime}</em>{/if}</h1>
 						<button class="reset-btn" onclick={clearRotation} title="Reset rotation">Reset</button>
 						<div class="damage-summary">
-								<span class="dmg-total">{(rotationStore.totalDamage + rotationStore.poisonDamage + rotationStore.familiarDamage + rotationStore.dreadnipDamage + rotationStore.conjureDamage).toLocaleString()}</span>
-								{#if rotationStore.totalDamage > 0 || rotationStore.poisonDamage > 0 || rotationStore.familiarDamage > 0 || rotationStore.dreadnipDamage > 0 || rotationStore.conjureDamage > 0}
-									<span class="dmg-breakdown">(<span class="dmg-val">{rotationStore.totalDamage.toLocaleString()}</span>{#if rotationStore.poisonDamage > 0} + <span class="dmg-val poison">{rotationStore.poisonDamage.toLocaleString()}</span>{/if}{#if rotationStore.familiarDamage > 0} + <span class="dmg-val familiar">{rotationStore.familiarDamage.toLocaleString()}</span>{/if}{#if rotationStore.dreadnipDamage > 0} + <span class="dmg-val dreadnip">{rotationStore.dreadnipDamage.toLocaleString()}</span>{/if}{#if rotationStore.conjureDamage > 0} + <span class="dmg-val conjure">{rotationStore.conjureDamage.toLocaleString()}</span>{/if})</span>
-								{/if}
-							</div>
+							<span class="dmg-total">{(rotationStore.totalDamage + rotationStore.poisonDamage + rotationStore.familiarDamage + rotationStore.dreadnipDamage + rotationStore.conjureDamage).toLocaleString()}</span>
+							{#if rotationStore.totalDamage > 0 || rotationStore.poisonDamage > 0 || rotationStore.familiarDamage > 0 || rotationStore.dreadnipDamage > 0 || rotationStore.conjureDamage > 0}
+							    <span class="dmg-breakdown">(<span class="dmg-val">{rotationStore.totalDamage.toLocaleString()}</span>{#if rotationStore.poisonDamage > 0} + <span class="dmg-val poison">{rotationStore.poisonDamage.toLocaleString()}</span>{/if}{#if rotationStore.familiarDamage > 0} + <span class="dmg-val familiar">{rotationStore.familiarDamage.toLocaleString()}</span>{/if}{#if rotationStore.dreadnipDamage > 0} + <span class="dmg-val dreadnip">{rotationStore.dreadnipDamage.toLocaleString()}</span>{/if}{#if rotationStore.conjureDamage > 0} + <span class="dmg-val conjure">{rotationStore.conjureDamage.toLocaleString()}</span>{/if})</span>
+							{/if}
+						</div>
 					</div>
 
 					<GradientSeparator marginTop="0.0rem" marginBottom="1.5rem" />
@@ -1207,12 +629,13 @@
 						patternStartTick={settingsStore.settings[SETTINGS.BOSS_PATTERN_START]?.value ?? -1}
 						hasBossPreset={settingsStore.settings[SETTINGS.BOSS_PRESET]?.value && settingsStore.settings[SETTINGS.BOSS_PRESET]?.value !== 'none'}
 					/>
+
                     <RotationConfigManager
                         {refreshUI}
                         onOpenKeybinds={() => showKeybindModal = true}
                         onShowKeypresses={() => showKeypressModal = true}
                     />
-					
+
                     <ul class="flex flex-wrap flex-col md:flex-row text-sm font-medium text-center items-center">
                         {#each tabs as tab}
                             <TabButton
@@ -1236,13 +659,13 @@
                             <AbilityChoice
                                 abilities={tab.abilities}
                                 handleAbilityClick={handleAbilityClick}
-									handleDragStart={handleDragStart}
+                                handleDragStart={handleDragStart}
                                 style={tab.id}
                                 filter={uiStore.abilityFilter}
-											/>
-										{/if}
-								{/each}
-	                    <div
+                            />
+                        {/if}
+					{/each}
+	                <div
 						bind:this={abilityBarElement}
 						style="grid-template-rows: {getGridTemplateRows()}; grid-template-columns: repeat({columnsPerRow}, {CELL_SIZE}px);"
 						class="ability-bar"
@@ -1363,18 +786,18 @@
                                                 top: {stackTop}px;
                                                 left: {stackFontSize+stackPadding*2}px;
                                                 color: {rotationStore.stacks[key].colour};
-                                                "
+                                            "
                                             class="stacks-text"
                                         >
                                             {+rotationStore.stacks[key].stackTicks[index].toFixed(0)}
                                         </span>
                                         <img src={rotationStore.stacks[key].image}
-                                            style=
-                                                "transform:translateX({2-(30-stackFontSize)/2}px);
+                                            style="
+                                                transform:translateX({2-(30-stackFontSize)/2}px);
                                                 top: {stackTop + 3}px;
                                                 height: {stackFontSize}px;
                                                 width: {stackFontSize}px;
-                                                "
+                                            "
                                             class="stacks-icon"
                                             title={rotationStore.stacks[key].title}
                                             alt={rotationStore.stacks[key].title}
@@ -1403,90 +826,82 @@
                         {/each}
                     </div>
                 </div>
-            </div>
-            <div class="settings-panel col-span-{uiStore.settingsPanelCollapsed ? '0' : '4'} {uiStore.settingsPanelCollapsed ? 'collapsed' : ''}"
-				style={uiStore.settingsPanelCollapsed ? 'visibility: hidden; height: 0; margin: 0;' : ''}>
-                <div class="settings-content">
-                    {#if uiStore.extraActions.show}
-                        <ExtraActionsPanel
-                            uiState={uiStore}
-                            gameState={rotationStore}
-                            {allAbils}
-                            {handleAbilityClickExtra}
-                            {handleDragStart}
-                            {handleBarRightClick}
-                            {handleDragStartBar}
-                            extraActions={uiStore.extraActions}
-                            closeExtraActions={() => uiActions.hideExtraActions()}
-                            setExtraActionsTab={(tab) => uiActions.setExtraActionsTab(tab)}
-                            onRemoveAbility={() => refreshUI()}
-                            onToggleNull={() => refreshUI()}
-                            onRefreshUI={() => refreshUI()}
-                        />
-                    {/if}
-                    <div class:hidden={uiStore.extraActions.show}>
-                        <RotationSettings updateDamages={calculateTotalDamageNew} stacks={rotationStore.stacks} uiState={uiStore} refreshUI={refreshUI} />
+                <div class="overflow-hidden settings-content {uiStore.settingsPanelCollapsed ? 'w-0' : 'w-1/3'}">
+                    <div class="xl:w-full lg:w-70 xl:min-w-100 lg:min-w-full">
+                        {#if uiStore.extraActions.show}
+                            <ExtraActionsPanel
+                                uiState={uiStore}
+                                gameState={rotationStore}
+                                {allAbils}
+                                {handleAbilityClickExtra}
+                                {handleDragStart}
+                                {handleBarRightClick}
+                                {handleDragStartBar}
+                                extraActions={uiStore.extraActions}
+                                closeExtraActions={() => uiActions.hideExtraActions()}
+                                setExtraActionsTab={(tab) => uiActions.setExtraActionsTab(tab)}
+                                onRemoveAbility={() => refreshUI()}
+                                onToggleNull={() => refreshUI()}
+                                onRefreshUI={() => refreshUI()}
+                            />
+                        {/if}
+                        <div class:hidden={uiStore.extraActions.show}>
+                            <RotationSettings updateDamages={calculateTotalDamageNew} stacks={rotationStore.stacks} uiState={uiStore} refreshUI={refreshUI} />
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-span-12 mt-8">
-                <div class="grid grid-cols-2 gap-6">
-					<div class="card card-rotation col-span-2">
-					<h2 class="card-title pb-5">User Guide</h2>
+            <div class="card card-rotation">
+                <h2 class="card-title pb-5">User Guide</h2>
 
-					<!-- Getting Started -->
-					<div class="pb-4">
-						<h3 class="text-sm font-bold text-[#C2BA9E] uppercase tracking-wide mb-2">Getting Started</h3>
-						<p class="text-sm leading-relaxed">
-							Configure your gear, levels, and perks in the <strong>Settings</strong> panel on the right &mdash; these define your ability damage, hit chance, and weapon effects.
-							Select a combat style tab to see available abilities, then <strong>left click</strong> to add them to the bar, <strong>drag</strong> to place on specific ticks, or <strong>right click</strong> a slot to remove it.
-							<br><br>
-							As you build your rotation, the calculator tracks <strong>buffs</strong> (coloured bars below the timeline), <strong>stacks</strong> (icons with values), <strong>cooldowns</strong> (greyed-out with a green border when ready), and <strong>adrenaline</strong>.
-							The <strong>damage plot</strong> below the bar shows cumulative damage over time, broken down by source.
-						</p>
-					</div>
+                <!-- Getting Started -->
+                <div class="pb-4">
+                    <h3 class="text-sm font-bold text-[#C2BA9E] uppercase tracking-wide mb-2">Getting Started</h3>
+                    <p class="text-sm leading-relaxed">
+                        Configure your gear, levels, and perks in the <strong>Settings</strong> panel on the right &mdash; these define your ability damage, hit chance, and weapon effects.
+                        Select a combat style tab to see available abilities, then <strong>left click</strong> to add them to the bar, <strong>drag</strong> to place on specific ticks, or <strong>right click</strong> a slot to remove it.
+                        <br><br>
+                        As you build your rotation, the calculator tracks <strong>buffs</strong> (coloured bars below the timeline), <strong>stacks</strong> (icons with values), <strong>cooldowns</strong> (greyed-out with a green border when ready), and <strong>adrenaline</strong>.
+                        The <strong>damage plot</strong> below the bar shows cumulative damage over time, broken down by source.
+                    </p>
+                </div>
 
-					<!-- Advanced Features -->
-					<div class="pb-4">
-						<h3 class="text-sm font-bold text-[#C2BA9E] uppercase tracking-wide mb-2">Advanced Features</h3>
+                <!-- Advanced Features -->
+                <div class="pb-4">
+                    <h3 class="text-sm font-bold text-[#C2BA9E] uppercase tracking-wide mb-2">Advanced Features</h3>
 
-						<p class="text-sm leading-relaxed mt-2">
-							<strong>Tool Modes</strong> &mdash; switch between 4 modes via the toolbar or keyboard:
-							<strong>Regular</strong> (<strong>R</strong>) is the default for adding, removing, and dragging abilities.
-							<strong>Stall</strong> (<strong>S</strong>) lets you select an ability to stall, then click a tick to place it (click again to remove; channelled abilities cannot be stalled).
-							<strong>Null</strong> (<strong>N</strong>) marks ticks as nulled &mdash; 0 damage but buffs and stacks still apply (e.g. boss phase transitions).
-							<strong>Insert</strong> (<strong>I</strong>) left-click a tick to insert empty ticks (shifting everything right), right-click to remove ticks (shifting everything left).
-						</p>
+                    <p class="text-sm leading-relaxed mt-2">
+                        <strong>Tool Modes</strong> &mdash; switch between 4 modes via the toolbar or keyboard:
+                        <strong>Regular</strong> (<strong>R</strong>) is the default for adding, removing, and dragging abilities.
+                        <strong>Stall</strong> (<strong>S</strong>) lets you select an ability to stall, then click a tick to place it (click again to remove; channelled abilities cannot be stalled).
+                        <strong>Null</strong> (<strong>N</strong>) marks ticks as nulled &mdash; 0 damage but buffs and stacks still apply (e.g. boss phase transitions).
+                        <strong>Insert</strong> (<strong>I</strong>) left-click a tick to insert empty ticks (shifting everything right), right-click to remove ticks (shifting everything left).
+                    </p>
 
-						<p class="text-sm leading-relaxed mt-2">
-							<strong>Extra Actions</strong> &mdash; click any tick on the bar to open the extra actions panel. Add off-GCD abilities (Ingenuity, Limitless, prayers, etc.), consumables (adrenaline potions, vulnerability bombs), and gear swaps (weapons, armour, EoFs) to any tick. Each tick has up to 12 extra action slots.
-						</p>
+                    <p class="text-sm leading-relaxed mt-2">
+                        <strong>Extra Actions</strong> &mdash; click any tick on the bar to open the extra actions panel. Add off-GCD abilities (Ingenuity, Limitless, prayers, etc.), consumables (adrenaline potions, vulnerability bombs), and gear swaps (weapons, armour, EoFs) to any tick. Each tick has up to 12 extra action slots.
+                    </p>
 
-						<p class="text-sm leading-relaxed mt-2">
-							<strong>Familiars</strong> &mdash; select a combat familiar in settings (Ripper Demon, Kal'gerion Demon, Steel Titan). The familiar attacks automatically based on its attack rate. If scrolls are enabled, it uses special attacks when it has enough spec points. Spec points regenerate over time and are boosted by Summoning Renewal, Prism of Restoration, Spirit Cape, and Spirit Weed Incense. Familiars stop attacking after your last ability.
-						</p>
+                    <p class="text-sm leading-relaxed mt-2">
+                        <strong>Familiars</strong> &mdash; select a combat familiar in settings (Ripper Demon, Kal'gerion Demon, Steel Titan). The familiar attacks automatically based on its attack rate. If scrolls are enabled, it uses special attacks when it has enough spec points. Spec points regenerate over time and are boosted by Summoning Renewal, Prism of Restoration, Spirit Cape, and Spirit Weed Incense. Familiars stop attacking after your last ability.
+                    </p>
+					<p class="text-sm leading-relaxed mt-2">
+						<strong>Poison</strong> &mdash; enable weapon poison in settings. Poison damage scales with Bik arrow stacks and is tracked separately in the damage breakdown and plot.
+					</p>
+					<p class="text-sm leading-relaxed mt-2">
+						<strong>Keybinds</strong> &mdash; open the keybind config to assign keys to abilities, gear, and consumables. Use the keypress output modal to view your rotation as a key sequence or a visual keyboard layout.
+					</p>
+					<p class="text-sm leading-relaxed mt-2">
+						<strong>Save / Load</strong> &mdash; save your rotation and settings to a named slot. Rotations are stored in your browser's local storage.
+					</p>
+				</div>
 
-						<p class="text-sm leading-relaxed mt-2">
-							<strong>Poison</strong> &mdash; enable weapon poison in settings. Poison damage scales with Bik arrow stacks and is tracked separately in the damage breakdown and plot.
-						</p>
-
-						<p class="text-sm leading-relaxed mt-2">
-							<strong>Keybinds</strong> &mdash; open the keybind config to assign keys to abilities, gear, and consumables. Use the keypress output modal to view your rotation as a key sequence or a visual keyboard layout.
-						</p>
-
-						<p class="text-sm leading-relaxed mt-2">
-							<strong>Save / Load</strong> &mdash; save your rotation and settings to a named slot. Rotations are stored in your browser's local storage.
-						</p>
-					</div>
-
-					<div class="pb-3">
-						<p class="text-sm">
-							Please report any bugs or errors in the RSA discord. For a more comprehensive guide, check out our
-							<a href="/rs-rot/rotation_builder_guide" class="text-blue-400 hover:underline hover:text-blue-300">
-							full guide</a>.
-						</p>
-					</div>
-					</div>
+				<div class="pb-3">
+					<p class="text-sm">
+						Please report any bugs or errors in the RSA discord. For a more comprehensive guide, check out our
+						<a href="/rs-rot/rotation_builder_guide" class="text-blue-400 hover:underline hover:text-blue-300">
+						full guide</a>.
+					</p>
 				</div>
             </div>
 		</section>
@@ -1509,7 +924,7 @@
 <!-- Save and Load dialogs are now handled by Popup components -->
 
 <!-- Notification Popup -->
-<Popup 
+<Popup
     bind:show={notificationStore.notification.show}
     title={notificationStore.notification.title}
     message={notificationStore.notification.message}
@@ -1517,7 +932,7 @@
 />
 
 <!-- Confirmation Dialog -->
-<Popup 
+<Popup
     bind:show={notificationStore.confirmationDialog.show}
     title={notificationStore.confirmationDialog.title}
     message={notificationStore.confirmationDialog.message}
@@ -1535,7 +950,7 @@
 />
 
 <!-- Input Prompt Dialog -->
-<Popup 
+<Popup
     bind:show={notificationStore.inputPrompt.show}
     title={notificationStore.inputPrompt.title}
     message={notificationStore.inputPrompt.message}
@@ -1597,3 +1012,561 @@
 		{/if}
 	</div>
 {/if}
+
+<style>
+    .rotation-title-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .rotation-header {
+        margin: 0;
+    }
+
+    .reset-btn {
+        padding: 2px 10px;
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: #999;
+        background: none;
+        border: 1px solid #555;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.15s;
+    }
+
+    .reset-btn:hover {
+        color: #ff6b6b;
+        border-color: #ff6b6b;
+        background: rgba(255, 0, 0, 0.08);
+    }
+
+    .suggestions-floating {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 58.333%;
+        z-index: 50;
+        pointer-events: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .suggestions-bar {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        background: rgba(23, 29, 33, 0.97);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-bottom: none;
+        border-radius: 12px 12px 0 0;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.5);
+    }
+    .suggestions-label {
+        font-size: 0.85rem;
+        color: #888;
+        margin-right: 4px;
+        white-space: nowrap;
+    }
+    .suggestions-tab {
+        padding: 5px 18px;
+        font-size: 0.8rem;
+        color: #888;
+        background: rgba(23, 29, 33, 0.97);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+    }
+    .suggestions-tab:hover {
+        color: #ccc;
+    }
+    .suggestions-collapse {
+        padding: 3px 8px;
+        font-size: 0.7rem;
+        color: #666;
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 6px;
+    }
+    .suggestions-collapse:hover {
+        color: #ccc;
+    }
+    .suggestion-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        padding: 4px;
+        border-radius: 5px;
+        cursor: pointer;
+        background: none;
+        border: 1px solid transparent;
+        transition: all 0.15s;
+    }
+    .suggestion-btn:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.25);
+    }
+    .suggestion-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 4px;
+    }
+    .suggestion-dmg {
+        font-size: 0.65rem;
+        color: #4caf50;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    .damage-summary {
+        display: flex;
+        gap: 0.5rem;
+        align-items: baseline;
+    }
+
+    .dmg-total {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .dmg-breakdown {
+        font-size: 0.75rem;
+        color: #888;
+    }
+
+    .dmg-val {
+        font-weight: 600;
+        color: #ccc;
+    }
+
+    .dmg-val.poison {
+        color: var(--color-poison);
+    }
+
+    .dmg-val.familiar {
+        color: var(--color-familiar);
+    }
+
+    .dmg-val.dreadnip {
+        color: var(--color-dreadnip);
+    }
+
+    .dmg-val.conjure {
+        color: var(--color-conjure);
+    }
+
+    .extra-action-section {
+        border: 2px solid #ffff00df;
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .regular-cursor {
+        cursor: default; /* Cursor for regular tool */
+    }
+
+    .regular-cursor .ability-slot {
+        cursor: pointer !important; /* Only show pointer in regular mode */
+    }
+
+    .regular-cursor .ability-slot:hover {
+        cursor: pointer !important;
+    }
+
+    .stall-cursor {
+        cursor: wait; /* Default stall cursor */
+    }
+
+    .stall-cursor.stalling {
+        cursor: wait; /* Will be overridden if there's an ability being stalled */
+    }
+
+    .null-cursor {
+        cursor:
+            url('/rs-rot/cursor_icons/abort-icon.svg') 16 16,
+            not-allowed;
+    }
+
+    .insert-cursor {
+        cursor: cell;
+    }
+
+    .ability-bar {
+        display: grid;
+        /* grid-template-columns and grid-template-rows set dynamically via inline style */
+        column-gap: 0;
+        row-gap: 0;
+        position: relative;
+        padding-top: 25px;
+    }
+
+    .ability-slot {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border: 1px solid #878787;
+        box-sizing: border-box;
+        cursor: inherit !important;
+        transition: all 0.1s ease;
+    }
+
+    .ability-slot:hover {
+        cursor: inherit !important;
+        border: 1px solid #c5c5c5;
+        box-shadow: 0 0 3px rgba(255, 255, 255, 0.572);
+        z-index: 3;
+    }
+
+    .ability-slot.invalid-placement {
+        border: 1px solid #ef4444;
+        box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.4);
+    }
+
+    .ability-slot.invalid-placement > img:first-of-type {
+        opacity: 0.5;
+    }
+
+    .ability-slot .channel-ghost {
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        filter: grayscale(50%);
+        pointer-events: none;
+    }
+
+    .ability-slot.nulled::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: repeating-linear-gradient(
+            45deg,
+            rgba(255, 0, 0, 0.55),
+            rgba(255, 0, 0, 0.55) 2px,
+            transparent 3px,
+            transparent 6px
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .ability-slot.selected-tick {
+        border: 2px solid #ffd700;
+        box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+        z-index: 3;
+    }
+
+    .ability-slot.has-extra-actions::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 2px;
+        right: 2px;
+        height: 2px;
+        background-color: #b8a04a;
+        z-index: 2;
+    }
+
+    .ability-slot.has-damage {
+        border-top: 2px solid #a65a5a;
+    }
+
+    .cell-number {
+        position: absolute;
+        top: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        color: #bababa;
+    }
+
+    .stacks-text {
+        position: absolute;
+        top: +38px;
+        left: auto;
+        transform: translateX(+50%);
+        font-size: var(--stack-font-size);
+    }
+
+    .stacks-icon {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        transform: translateX(-70%) translateY(32px);
+    }
+
+    .boss-attack-cell {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        pointer-events: auto;
+        z-index: 2;
+        box-sizing: border-box;
+    }
+
+    .boss-attack-label {
+        font-size: 0.55rem;
+        color: white;
+        font-weight: bold;
+        padding-left: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    .phase-marker {
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        bottom: -2px;
+        width: 3px;
+        background: #ef4444;
+        z-index: 4;
+        pointer-events: none;
+    }
+
+    .phase-label {
+        position: absolute;
+        top: -14px;
+        right: -2px;
+        font-size: 0.5rem;
+        color: #ef4444;
+        font-weight: bold;
+        white-space: nowrap;
+        pointer-events: none;
+    }
+
+    .pattern-start-marker {
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        bottom: -2px;
+        width: 3px;
+        background: #3b82f6;
+        z-index: 4;
+        pointer-events: none;
+    }
+
+    .pattern-start-label {
+        position: absolute;
+        top: -14px;
+        left: -2px;
+        font-size: 0.5rem;
+        color: #3b82f6;
+        font-weight: bold;
+        white-space: nowrap;
+        pointer-events: none;
+    }
+
+    .phase-pause {
+        background: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 3px,
+            rgba(239, 68, 68, 0.15) 3px,
+            rgba(239, 68, 68, 0.15) 6px
+        ) !important;
+    }
+
+    .highlight-red {
+        border: 1px solid rgba(255, 51, 0, 0.789);
+    }
+
+    .highlight-green {
+        border: 1px solid rgba(0, 231, 54, 0.789);
+    }
+
+    .stalled-ability {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 55%;
+        height: 55%;
+        opacity: 0.8;
+        border: 1px solid #ffff72;
+        box-sizing: border-box;
+        z-index: 2;
+    }
+
+    .cooldown-ready-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .cooldown-ready-container.has-overflow {
+        pointer-events: auto;
+        cursor: pointer;
+    }
+
+    .cooldown-ready-icon {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 55%;
+        height: 55%;
+        border: 1px solid #00e736;
+        opacity: 0.8;
+        z-index: 2;
+        pointer-events: none;
+        transform-origin: bottom left;
+        transition:
+            opacity 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    /* Hide extra icons by default, collapsed to first icon position */
+    .cooldown-ready-container .cooldown-ready-icon:not(:first-of-type) {
+        opacity: 0;
+        transform: translateY(100%) scale(0.6);
+    }
+
+    /* On hover, reveal all icons at full size */
+    .cooldown-ready-container:hover .cooldown-ready-icon {
+        transform: scale(1.15);
+    }
+
+    .cooldown-ready-container:hover .cooldown-ready-icon:not(:first-of-type) {
+        opacity: 0.9;
+    }
+
+    .cooldown-overflow {
+        position: absolute;
+        left: 0;
+        font-size: 0.5rem;
+        color: #00e736;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 0 2px;
+        border-radius: 2px;
+        z-index: 3;
+        pointer-events: none;
+        line-height: 1;
+        transition: opacity 0.15s ease;
+    }
+
+    /* Hide the +N label on hover since all icons are shown */
+    .cooldown-ready-container:hover .cooldown-overflow {
+        opacity: 0;
+    }
+
+    /* Extra action preview icons (above slot, shown on hover) */
+    .extra-action-preview {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 1px;
+        z-index: 4;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.15s ease;
+        padding-bottom: 2px;
+    }
+
+    .ability-slot:hover .extra-action-preview {
+        opacity: 1;
+    }
+
+    .extra-action-icon-box {
+        width: 27px;
+        height: 27px;
+        min-width: 27px;
+        min-height: 27px;
+        border: 1px solid #b8a04a;
+        background: rgba(23, 29, 33, 0.95);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .extra-action-icon-box img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.708));
+    }
+
+    .stall-cursor.stalling {
+        cursor: wait; /* Will be overridden if there's an ability being stalled */
+    }
+
+    .null-cursor {
+        cursor:
+            url('/rs-rot/cursor_icons/abort-icon.svg') 16 16,
+            not-allowed;
+    }
+
+    .settings-content {
+        position: sticky;
+        top: 1rem;
+        max-height: calc(100vh - 2rem);
+        overflow-y: auto;
+    }
+
+    .card-rotation {
+        height: fit-content;
+    }
+
+    :global(.credits) {
+        margin-top: 3rem;
+        padding: 1.5rem 2rem;
+        border-top: 1px solid #333;
+        color: var(--color-text-secondary);
+        font-size: 0.8rem;
+    }
+
+    :global(.credits h4) {
+        margin: 0 0 0.5rem 0;
+        color: var(--color-text-secondary);
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    :global(.credits ul) {
+        margin: 0;
+        padding-left: 1.2rem;
+        list-style: disc;
+    }
+
+    :global(.credits li) {
+        margin-bottom: 0.25rem;
+    }
+
+    :global(.credits a) {
+        color: var(--color-info);
+        text-decoration: none;
+    }
+
+    :global(.credits a:hover) {
+        text-decoration: underline;
+    }
+</style>

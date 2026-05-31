@@ -15,7 +15,7 @@ function create_damage_object(settings: Record<string, any>, ability: ABILITIES)
     } else {
         logger.trace('Crit Chance', 'N/A', `${ability} cannot crit`);
     }
-    
+
     const nonCritDistribution: DamageDistribution = {
         minHit: 0,
         varHit: 0,
@@ -23,7 +23,7 @@ function create_damage_object(settings: Record<string, any>, ability: ABILITIES)
         'probability': 1 - crit_chance,
         'damage list': []
     };
-    
+
     const critDistribution: DamageDistribution = {
         minHit: 0,
         varHit: 0,
@@ -31,20 +31,20 @@ function create_damage_object(settings: Record<string, any>, ability: ABILITIES)
         'probability': crit_chance,
         'damage list': []
     };
-    
+
     const distributions: Record<DamageKind, DamageDistribution | undefined> = {
         'non_crit': nonCritDistribution,
         'crit': critDistribution
     };
-    
+
     const result = {
         distributions,
         ability: ability,
         likelihood: 1.0
     };
-    
+
     logger.log(LogCategory.ABILITY_DAMAGE, `create_damage_object result for ${ability}`, result);
-    return result;   
+    return result;
 }
 
 /**

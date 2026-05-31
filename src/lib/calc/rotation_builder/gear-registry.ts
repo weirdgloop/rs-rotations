@@ -6,14 +6,15 @@
 
 import { armour } from '$lib/data/armour'
 import { weapons } from '$lib/data/weapons'
+import { coerceEquipmentValue } from '$lib/data/equipment';
 import { GearSlots } from './gear';
 import type { EquipmentStyle } from '../types';
 
 export type GearCombatStyle = 'melee' | 'ranged' | 'magic' | 'necromancy';
 
 export interface GearItem {
-    /** The string key used in settings (e.g. 'elite dracolich coif') */
-    value: string;
+    /** The id used in settings, or 'none' for empty slots */
+    value: number | 'none';
     /** Display label for the dropdown */
     text: string;
     /** Which slot this item belongs to */
@@ -32,7 +33,7 @@ export interface GearItem {
 const slotStyleIndex: Map<string, Map<string, GearItem[]>> = new Map();
 
 // Value -> GearItem lookup
-const itemByValue: Map<string, GearItem> = new Map();
+const itemByValue: Map<number | 'none', GearItem> = new Map();
 
 /** Convert a gear value string to a display label (title case) */
 function toDisplayName(value: string): string {
@@ -53,8 +54,9 @@ function indexCollection(collection: Record<string, any>) {
 
         const weaponType = (piece as any)['weapon type'];
         const icon = (piece as any).icon as string | undefined;
+        const value = Number(key);
         const item: GearItem = {
-            value: key,
+            value,
             text: (piece as any).title || toDisplayName(key),
             slot,
             style,
@@ -74,7 +76,7 @@ function indexCollection(collection: Record<string, any>) {
         styleMap.get(style)!.push(item);
 
         // Value lookup
-        itemByValue.set(key, item);
+        itemByValue.set(value, item);
     }
 }
 
@@ -95,7 +97,7 @@ export function getItemsForSlot(slot: GearSlots | string, combatStyle: GearComba
     const hybridItems = styleMap.get('hybrid') ?? [];
 
     // Deduplicate by value, style-specific first. Popular items sorted before non-popular.
-    const seen = new Set<string>();
+    const seen = new Set<number | 'none'>();
     const popular: GearItem[] = [];
     const rest: GearItem[] = [];
 
@@ -116,8 +118,9 @@ export function getItemsForSlot(slot: GearSlots | string, combatStyle: GearComba
 /**
  * Look up a GearItem by its value string.
  */
-export function getItemForValue(value: string): GearItem | undefined {
-    return itemByValue.get(value);
+export function getItemForValue(value: string | number): GearItem | undefined {
+    const id = coerceEquipmentValue(value);
+    return itemByValue.get(id as number | 'none');
 }
 
 // ---- Settings key resolution ----
@@ -180,13 +183,13 @@ for (const key of Object.values(SHARED_SLOT_KEYS)) {
  */
 export function countSetPieces(
     settings: Record<string, any>,
-    setPieces: string[]
+    setPieces: Array<string | number>
 ): number {
-    const pieceSet = new Set(setPieces);
+    const pieceSet = new Set(setPieces.map((piece) => coerceEquipmentValue(piece)));
     let count = 0;
     for (const key of GEAR_SETTINGS_KEYS) {
-        const value = settings[key];
-        if (typeof value === 'string' && pieceSet.has(value)) count++;
+        const value = coerceEquipmentValue(settings[key], key);
+        if (pieceSet.has(value)) count++;
     }
     return count;
 }
@@ -196,7 +199,7 @@ export function countSetPieces(
  */
 export function hasFullSet(
     settings: Record<string, any>,
-    setPieces: string[]
+    setPieces: Array<string | number>
 ): boolean {
     return countSetPieces(settings, setPieces) === setPieces.length;
 }
@@ -207,8 +210,9 @@ export function hasFullSet(
  * @param value - The item key
  * @param combatStyle - Optional combat style for hybrid items (e.g. 'ranged', 'melee')
  */
-export function getSettingsKeyForItem(value: string, combatStyle?: string): string | undefined {
-    const item = itemByValue.get(value);
+export function getSettingsKeyForItem(value: string | number, combatStyle?: string): string | undefined {
+    const id = coerceEquipmentValue(value);
+    const item = itemByValue.get(id as number | 'none');
     if (!item) return undefined;
 
     // Hybrid items: use style-specific key if combat style is provided

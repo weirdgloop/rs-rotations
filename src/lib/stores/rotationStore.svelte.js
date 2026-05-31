@@ -2,6 +2,7 @@ import { createBuffTimings, createStackTimings } from '$lib/calc/rotation_builde
 import { settingsStore } from '$lib/stores/settingsStore.svelte.js';
 import { normalizeLegacy } from '$lib/calc/rotation_builder/extra-action';
 import { gearSwaps, allExtraActions } from '$lib/special/abilities';
+import { migrateEquipmentSettings } from '$lib/data/equipment';
 
 // Configuration constants
 const STORAGE_KEY = 'rotation_configs';
@@ -57,6 +58,7 @@ function getSettingsSnapshot() {
 // Helper: restore settings values from a snapshot
 function restoreSettings(snapshot) {
     if (!snapshot || !settingsStore.initialized) return;
+    migrateEquipmentSettings(snapshot);
     for (const [key, value] of Object.entries(snapshot)) {
         if (settingsStore.settings[key]) {
             settingsStore.settings[key].value = value;
@@ -68,6 +70,10 @@ function restoreSettings(snapshot) {
 export const rotationActions = {
     // Load saved rotations from localStorage
     loadSavedRotations() {
+        if (typeof localStorage === 'undefined') {
+            rotationStore.savedRotations = [];
+            return;
+        }
         try {
             const stored = localStorage.getItem(STORAGE_KEY);
             if (stored) {
@@ -81,6 +87,9 @@ export const rotationActions = {
 
     // Save rotations to localStorage
     saveRotationsToStorage() {
+        if (typeof localStorage === 'undefined') {
+            return { success: true };
+        }
         try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(rotationStore.savedRotations));
             return { success: true };
@@ -276,7 +285,7 @@ export const rotationActions = {
             const rotationData = data.data || data;
 
             rotationStore.abilityBar = rotationData.a.map(a => a || null);
-            rotationStore.extraActionBar = rotationData.e.map(row => row.map(a => a || null));
+            rotationStore.extraActionBar = rotationData.e.map(row => row.map(a => a ? (normalizeLegacy(a, gearSwaps, allExtraActions) || a) : null));
             rotationStore.nulledTicks = rotationData.n;
             rotationStore.stalledAbilities = rotationData.t.map(a => a || null);
 

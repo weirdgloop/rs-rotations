@@ -138,7 +138,6 @@ interface DamageResult {
     _finalSettings?: any;
 }
 
-
 /**
  * Forward-fill a cumulative per-tick array so that ticks without new damage
  * carry forward the last non-zero cumulative value.
@@ -702,7 +701,6 @@ function processTickOperations(
     processSecondaryDamageWithBudget(state, settingsCopy);
     updateBossHpPercent(state, settingsCopy);
 
-    
     state.tick += 1;
 }
 
@@ -1224,9 +1222,9 @@ function processChannelledTickCore(
  * @param settingsCopy - A copy of the game settings that can be modified during processing
  */
 function processStalledAbility(
-    state: RotationState, 
-    settingsCopy: any, 
-    abilityKey: string, 
+    state: RotationState,
+    settingsCopy: any,
+    abilityKey: string,
     hit_tick: number
 ) {
     const classification = abils[abilityKey]?.abilityClassification;
@@ -1256,9 +1254,9 @@ function zeroDamageObject(dmgObject: DamageObject) {
 }
 
 function processSingleHitAbility(
-    state: RotationState, 
-    settingsCopy: any, 
-    abilityKey: string, 
+    state: RotationState,
+    settingsCopy: any,
+    abilityKey: string,
     hit_tick: number
 ) {
     let dmgObject = create_damage_object(settingsCopy, abilityKey);
@@ -1307,9 +1305,9 @@ function processMultiHitAbility(
 }
 
 function processBleedAbility(
-    state: RotationState, 
-    settingsCopy: any, 
-    abilityKey: string, 
+    state: RotationState,
+    settingsCopy: any,
+    abilityKey: string,
     hit_tick: number
 ) {
     let dmgObject = create_damage_object(settingsCopy, abilityKey);
@@ -1757,11 +1755,11 @@ function processExtraActionByValue(value: string, settings: any, timers: Record<
     }
     else if (value === ABILITIES.UNDEAD_SLAYER_ABILITY) {
             settings[SETTINGS.UNDEAD_SLAYER_ABILITY] = true;
-            timers[SETTINGS.UNDEAD_SLAYER_ABILITY] = 17; 
+            timers[SETTINGS.UNDEAD_SLAYER_ABILITY] = 17;
     }
     else if (value === ABILITIES.DRAGON_SLAYER_ABILITY) {
         settings[SETTINGS.DRAGON_SLAYER_ABILITY] = true;
-        timers[SETTINGS.DRAGON_SLAYER_ABILITY] = 17; 
+        timers[SETTINGS.DRAGON_SLAYER_ABILITY] = 17;
     }
     else if (value === ABILITIES.DEMON_SLAYER_ABILITY) {
         settings[SETTINGS.DEMON_SLAYER_ABILITY] = true;
@@ -1827,7 +1825,7 @@ function isChannelled(settingsCopy: any, key: string): boolean {
 }
 
 /**
- * 
+ *
  */
 function getAftershockVariant(combatStyle: string): ABILITIES {
     switch (combatStyle) {
@@ -1895,7 +1893,7 @@ function findLastValueIndex(arr) {
 /**
  * Calculates Gaussian parameters (mean and standard deviation) from the collected damage distribution statistics.
  * This models the total damage as a Gaussian distribution for more accurate damage prediction.
- * 
+ *
  * @param distributionStats - Array of damage distribution statistics collected during calculation
  * @returns Object containing mean and standard deviation of the total damage distribution
  */
@@ -1928,10 +1926,10 @@ export function calculateGaussianParameters(distributionStats: DamageDistributio
 
 /**
  * Returns the collected distribution statistics for external analysis.
- * 
+ *
  * @param state - The rotation state containing the distribution statistics
  * @returns Array of damage distribution statistics
  */
 export function getDistributionStats(state: RotationState): DamageDistributionStat[] {
     return state.distributionStats;
-} 
+}

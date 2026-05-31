@@ -67,7 +67,7 @@ function on_stall(settings: Record<string, any>, abilityKey: string, timers?: Re
     // Bloodlust consumption: Assault, Hurricane, Flurry/Greater Flurry consume 4 stacks
     if (
         (settings[SETTINGS.BLOODLUST_STACKS] || 0) >= 4 &&
-        (abilityKey === ABILITIES.ASSAULT || abilityKey === ABILITIES.ASSAULT_BARGE || 
+        (abilityKey === ABILITIES.ASSAULT || abilityKey === ABILITIES.ASSAULT_BARGE ||
         abilityKey === ABILITIES.HURRICANE || abilityKey === ABILITIES.FLURRY || abilityKey === ABILITIES.GREATER_FLURRY ||
         abilityKey === ABILITIES.FLURRY_BARGE || abilityKey === ABILITIES.GREATER_FLURRY_BARGE)
     ) {
@@ -105,8 +105,6 @@ function on_cast(settings: Record<string, any>, dmgObject: DamageObject, timers:
 
     // Consume Anima Charged buff for empowered magic abilities
     consumeAnimaCharged(settings, timers, abilityKey);
-    
-
 
     // scale to hit chance / damage potential
     logger.log(LogCategory.ABILITY_DAMAGE, `on_cast called for ${abilityKey}`, {
@@ -148,7 +146,6 @@ function on_cast(settings: Record<string, any>, dmgObject: DamageObject, timers:
         applyStyleAbilitySpecificEffects(effectCtx, distribution);
     });
 
-
     // Split single cast up into the different effects
     splitAbilityIntoHits(settings, abilityKey, dmgObject, dmgObjects, preability_AD);
     dmgObjects.forEach(dmgObject => {
@@ -178,7 +175,7 @@ function on_cast(settings: Record<string, any>, dmgObject: DamageObject, timers:
  *
  * Also tracks Perfect Equilibrium stacks for BoLG, applies style-specific
  * stack effects (wen, bik, residual souls, necrosis), and handles procs/
- * non-standard abilities (BoLG perfect equilibrium, FSOA time strike, 
+ * non-standard abilities (BoLG perfect equilibrium, FSOA time strike,
  * Crystal Rain from SGB).
  */
 function on_hit(settings: Record<string, any>, dmgObject: DamageObject, timers: Record<string, number>, abilityKey: ABILITIES): DamageObject[] {
@@ -212,7 +209,7 @@ function on_hit(settings: Record<string, any>, dmgObject: DamageObject, timers: 
         if ((settings[SETTINGS.TH] === WEAPONS.BOW_OF_THE_LAST_GUARDIAN ||
             settings[SETTINGS.TH] === WEAPONS.BOW_OF_THE_LAST_GUARDIAN_IM)
             &&
-            settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.TH) 
+            settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.TH)
         {
             settings[SETTINGS.PERFECT_EQUILIBRIUM_STACKS] += 1;
         }
@@ -271,7 +268,7 @@ function on_hit(settings: Record<string, any>, dmgObject: DamageObject, timers: 
         handleFsoa(abilityKey, settings, dmgObject, timers, dmgObjects);
 
         // Add bloat bleed hits - TODO time them properly
-        if (abilityKey === ABILITIES.BLOAT) { 
+        if (abilityKey === ABILITIES.BLOAT) {
             const bloatBleedHit = structuredClone(dmgObject);
             iterateDistributions(bloatBleedHit, (distribution) => {
                 for (let i = 0; i < distribution['damage list'].length; i++) {
@@ -328,7 +325,6 @@ function on_damage(settings: Record<string, any>, dmgObject: DamageObject): { re
 function getDamageDistribution(dmgObject: DamageObject, kind: DamageKind): DamageDistribution | undefined {
     return dmgObject.distributions[kind];
 }
-
 
 function iterateDistributions(dmgObject: DamageObject, callback: (distribution: DamageDistribution, kind: DamageKind) => void): void {
     for (const kind of ['non_crit', 'crit'] as DamageKind[]) {

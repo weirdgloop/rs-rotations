@@ -4,7 +4,7 @@
     import TabButton from '$components/UI/TabButton.svelte';
     import GradientSeparator from '$components/UI/GradientSeparator.svelte';
     import Button from '$components/UI/Button.svelte';
-    
+
     // Define sections for the guide with subheadings
     const sections = [
         {
@@ -42,16 +42,16 @@
             subheadings: []
         }
     ];
-    
+
     // Track the active section and subheading
     let activeSection = sections[0].id;
     let activeSubheading = '';
-    
+
     // Function to handle section change
     function setActiveSection(sectionId, subheadingId = '') {
         activeSection = sectionId;
         activeSubheading = subheadingId;
-        
+
         // Scroll to the section or subheading
         const elementId = subheadingId ? subheadingId : sectionId;
         document.getElementById(elementId).scrollIntoView({ behavior: 'smooth' });
@@ -61,7 +61,6 @@
 <Navbar />
 <Header img="/rs-rot/rota_background.png" text="Rotation Builder Guide" textColour="#b2dbee" shadow={true} />
 
-
 <div class="space-y-14 z-20">
     <div class="responsive-container">
         <section class="grid grid-cols-5 gap-6">
@@ -69,10 +68,9 @@
             <div class="col-span-4 md:pt-6">
                 <div class="flex flex-col">
                     <h2 class="main-header mb-6 ml-3 main_heading">User Guide</h2>
-                    
-                    
+
                     <GradientSeparator />
-                    
+
                     <!-- Getting Started Section -->
                     <div id="getting-started" class="card card-home mt-6">
                         <div class="card-title pb-5 section-heading">Getting Started</div>
@@ -80,7 +78,7 @@
                         <h3 id="settings" class="subsection-heading">Settings</h3>
                         <p class="mb-4">
                             The <strong>Settings</strong> panel on the right defines your starting state. Select your gear,
-                             perks, prayers, stats, buffs, familiars, etc. 
+                             perks, prayers, stats, buffs, familiars, etc.
                         </p>
                         <h3 id="adding-abilities" class="subsection-heading">Adding Abilities</h3>
                         <p class="mb-4">
@@ -129,7 +127,6 @@
 
                         <img src="/rs-rot/guide_images/buffs_stacks_cds.svg" alt="Buffs, stacks and cooldowns on the rotation timeline" class="my-4 rounded-lg border border-gray-700" style="max-width: 100%;" />
 
-                        
                         <p class="mb-4">
                             The total damage is displayed at the top of the page, broken down by source:
                             ability damage,
@@ -170,7 +167,7 @@
                         </p>
                         <p class="mb-4">
                             <span class="tool-name">Insert</span> (<span class="keybind">i</span>)<br>
-                            Left click to insert ticks into a rotation, moving everything afterwards to the right. 
+                            Left click to insert ticks into a rotation, moving everything afterwards to the right.
                             Right click to delete ticks in a rotation, moving everything afterwards to the left.
                         </p>
 
@@ -306,7 +303,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Sidebar for navigation - takes up 1/5 of the width -->
             <div class="col-span-1">
                 <div class="sticky top-8 pt-8">
@@ -315,19 +312,19 @@
                         <ul class="space-y-4">
                             {#each sections as section}
                                 <li>
-                                    <button 
+                                    <button
                                         class="text-left w-full px-3 py-2 rounded hover:bg-gray-700 {activeSection === section.id ? 'bg-gray-700 font-semibold' : ''}"
                                         on:click={() => setActiveSection(section.id)}
                                     >
                                         {section.title}
                                     </button>
-                                    
+
                                     <!-- Subheadings -->
                                     {#if section.subheadings && section.subheadings.length > 0}
                                         <ul class="ml-4 mt-1 space-y-1">
                                             {#each section.subheadings as subheading}
                                                 <li>
-                                                    <button 
+                                                    <button
                                                         class="text-left w-full px-3 py-1 text-sm rounded hover:bg-gray-700 {activeSubheading === subheading.id ? 'bg-gray-700 font-semibold' : ''}"
                                                         on:click={() => setActiveSection(section.id, subheading.id)}
                                                     >
@@ -364,7 +361,7 @@
         font-weight: 700;
         padding-top: 1rem;
     }
-    
+
     .section-heading {
         font-size: 3rem;
         font-weight: 600;
@@ -381,13 +378,13 @@
         padding-top: 1rem;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
+
     .card-home {
         transition: all 0.3s ease;
-        padding: 1.0rem; 
+        padding: 1.0rem;
         /* override inherited padding from .card{} */
     }
- 
+
     /* TODO make header user this  */
     /* Add text shadow to the header for better readability */
     .banner-text {
@@ -396,13 +393,12 @@
         animation: pulse 24s infinite;
     }
 
-    
     @keyframes pulse {
         0% {
             color: #b2dbee;
             opacity: 1;
         }
-        
+
         20% {
             color: var(--color-magic);
             opacity: 1;
@@ -425,7 +421,6 @@
         }
     }
 
-    
     .responsive-container{
         margin-left: 0% !important;
         margin-right: 0% !important;
@@ -434,8 +429,6 @@
         max-width: 100% !important;
     }
 
-
-    
     /* Tool name styling */
     .tool-name {
         display: inline-block;
@@ -449,13 +442,13 @@
         letter-spacing: 0.05em;
         transition: all 0.2s ease;
     }
-    
+
     .tool-name:hover {
         background-color: rgba(45, 55, 72, 0.8);
         transform: translateY(-1px);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
-    
+
     /* Keybind styling - more subtle than tool-name */
     .keybind {
         display: inline-block;
@@ -473,7 +466,7 @@
         min-width: 60px;
         text-align: center;
     }
-    
+
     /* Fancy but lighter style classes for text */
     .text-style {
         display: inline-block;
@@ -483,7 +476,7 @@
         transition: all 0.2s ease;
         letter-spacing: 0.03em;
     }
-    
+
     .text-style::after {
         content: '';
         position: absolute;
@@ -495,52 +488,52 @@
         transition: all 0.2s ease;
         opacity: 0.5;
     }
-    
+
     .text-style:hover {
         transform: translateY(-1px);
     }
-    
+
     .text-style:hover::after {
         transform: scaleX(1);
         opacity: 1;
     }
-    
+
     .text-ranged {
         color: var(--color-ranged);
     }
-    
+
     .text-ranged::after {
         background-color: var(--color-ranged);
     }
-    
+
     .text-magic {
         color: var(--card-border-magic);
     }
-    
+
     .text-magic::after {
         background-color: var(--card-border-magic);
     }
-    
+
     .text-melee {
         color: var(--card-border-melee);
     }
-    
+
     .text-melee::after {
         background-color: var(--card-border-melee);
     }
-    
+
     .text-necro {
         color: var(--card-border-necro);
     }
-    
+
     .text-necro::after {
         background-color: var(--card-border-necro);
     }
-    
+
     .text-defence {
         color: #a0a0a0;
     }
-    
+
     .text-defence::after {
         background-color: #a0a0a0;
     }

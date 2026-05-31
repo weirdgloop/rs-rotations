@@ -5,6 +5,7 @@ import { gear } from '$lib/data/slayer-helmets';
 import { ABILITIES, abils } from '$lib/data/abilities';
 import { armour } from '$lib/data/armour'
 import { weapons } from '$lib/data/weapons'
+import { getEquipmentTier, getStyleStrength, isCustomEquipment, migrateEquipmentSettings } from '$lib/data/equipment';
 import { prayers } from '../data/prayers';
 import { create_object } from './rotation_builder/rota_object_helper';
 import { SETTINGS } from './settings_rb';
@@ -74,19 +75,18 @@ function calc_weapon_tier(settings, hand) {
             ammo_tier = settings[SETTINGS.AMMO_TIER];
         }
         else {
-            const ammoItem = armour[settings[SETTINGS.AMMO]];
-            ammo_tier = ammoItem?.offensiveTier?.ranged ?? ammoItem?.tier ?? 999;
+            ammo_tier = getEquipmentTier(settings[SETTINGS.AMMO], 'ranged') || 999;
         }
     }
 
     let weapon_tier = 0;
     // custom weapon tier
-    if (settings[hand]?.startsWith('custom')) {
+    if (isCustomEquipment(settings[hand])) {
         weapon_tier = settings[hand + ' custom tier'];
     }
     // standard weapon
     else {
-        weapon_tier = weapons[settings[hand]]? weapons[settings[hand]]['tier'] : 0;
+        weapon_tier = getEquipmentTier(settings[hand]);
     }
     let tier = Math.min(weapon_tier, ammo_tier);
     logger.trace(`Weapon Tier (${hand})`, tier, `weapon: ${settings[hand]} (t${weapon_tier})${ammo_tier < 999 ? `, ammo capped to t${ammo_tier}` : ''}`);
@@ -131,15 +131,11 @@ function calc_bonus(settings) {
     ];
 
     for (const slotSetting of slots) {
-        const piece = armour[settings[slotSetting]];
-        if (piece?.offensiveTier) {
-            bonus += calcSlotBonus(piece.offensiveTier[tierKey], piece.slot);
-        }
+        bonus += getStyleStrength(settings[slotSetting], style);
     }
 
     if (style === 'melee' && settings[SETTINGS.AMMO] !== 'none') {
-        const piece = armour[settings[SETTINGS.AMMO]];
-        bonus += calcSlotBonus(piece.offensiveTier[tierKey], 'melee ammo');
+        bonus += getStyleStrength(settings[SETTINGS.AMMO], style);
     }
 
     logger.trace('Strength Bonus', bonus, `Gear slots${settings[SETTINGS.REAPER_CREW] ? ' + Reaper Crew (+12)' : ''}`);
@@ -164,7 +160,7 @@ function calc_boosted_ad(settings, dmgObject) {
         // inq staff
         if (
             settings[SETTINGS.WEAPON] === 'two-hand' &&
-            settings['two-hand weapon'] === 'inquisitor staff'
+            settings['two-hand weapon'] === WEAPONS.INQUISITOR_STAFF
         ) {
             //boosted_AD = Math.floor(boosted_AD * 1.125);
             base_ad_boost += 0.125;
@@ -173,7 +169,7 @@ function calc_boosted_ad(settings, dmgObject) {
         // inq staff upgraded
         else if (
             settings[SETTINGS.WEAPON] === 'two-hand' &&
-            settings['two-hand weapon'] === 'inquisitor staff+'
+            settings['two-hand weapon'] === WEAPONS.INQUISITOR_STAFF_PLUS
         ) {
             //boosted_AD = Math.floor(boosted_AD * 1.175);
             base_ad_boost += 0.175;
@@ -191,7 +187,7 @@ function calc_boosted_ad(settings, dmgObject) {
         // terrasaur maul
         if (
             settings[SETTINGS.WEAPON] === 'two-hand' &&
-            settings['two-hand weapon'] === 'terrasaur maul'
+            settings['two-hand weapon'] === WEAPONS.TERRASAUR_MAUL
         ) {
             base_ad_boost += 0.125;
         }
@@ -199,7 +195,7 @@ function calc_boosted_ad(settings, dmgObject) {
         // terrasaur maul upgraded
         else if (
             settings[SETTINGS.WEAPON] === 'two-hand' &&
-            settings['two-hand weapon'] === 'terrasaur maul+'
+            settings['two-hand weapon'] === WEAPONS.TERRASAUR_MAUL_PLUS
         ) {
             base_ad_boost += 0.175;
         }
@@ -220,7 +216,7 @@ function calc_boosted_ad(settings, dmgObject) {
         // hex bow
         if (
             settings[SETTINGS.WEAPON] === 'two-hand' &&
-            settings['two-hand weapon'] === 'hexhunter bow'
+            settings['two-hand weapon'] === WEAPONS.HEXHUNTER_BOW
         ) {
             base_ad_boost += 0.125;
         }
@@ -228,7 +224,7 @@ function calc_boosted_ad(settings, dmgObject) {
         // hex bow upgraded
         else if (
             settings[SETTINGS.WEAPON] === 'two-hand' &&
-            settings['two-hand weapon'] === 'hexhunter bow+'
+            settings['two-hand weapon'] === WEAPONS.HEXHUNTER_BOW_PLUS
         ) {
             base_ad_boost += 0.175;
         }
@@ -247,10 +243,9 @@ function calc_boosted_ad(settings, dmgObject) {
     // necromancy has no (known) buffs of this type
 
     // Scripture of Amascut
-    if (settings[SETTINGS.POCKET] === 'scripture of amascut') {
+    if (settings[SETTINGS.POCKET] === ARMOUR.AMASCUT_BOOK) {
         base_ad_boost += 0.1;
     }
-
 
     boosted_AD = Math.floor(boosted_AD * base_ad_boost);
 
@@ -272,7 +267,7 @@ function ability_specific_effects(settings, dmgObject) {
 
         // song of destruction 2 item set effect
         if (
-            ['bleed', 'burn', 'dot'].includes(abils[settings['ability']].abilityClassification) && 
+            ['bleed', 'burn', 'dot'].includes(abils[settings['ability']].abilityClassification) &&
                 (settings[SETTINGS.MH] === WEAPONS.ROAR_OF_AWAKENING || settings[SETTINGS.MH] === WEAPONS.ROAR_OF_AWAKENING_IM) &&
                 (settings[SETTINGS.OH] === WEAPONS.ODE_TO_DECEIT || settings[SETTINGS.OH] === WEAPONS.ODE_TO_DECEIT_IM) &&
                 settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.DW
@@ -425,7 +420,6 @@ function set_min_var(settings, dmgObject) {
         }
     }
 
-    
     dmgObject.minHit = Math.max(Math.floor(min_percent * dmgObject['boosted AD']), 0);
     dmgObject.varHit = Math.max(Math.floor(var_percent * dmgObject['boosted AD']), 0);
     return dmgObject;
@@ -518,53 +512,52 @@ function calc_additive_boosts(settings, dmgObject) {
     // count the number of non-helmet void pieces
     let void_pieces = 0;
     const void_chest_pieces = [
-        'void knight top',
-        'superior void knight top',
-        'elite void knight top',
-        'superior elite void knight top'
+        ARMOUR.VOID_KNIGHT_TOP,
+        ARMOUR.SUPERIOR_VOID_KNIGHT_TOP,
+        ARMOUR.ELITE_VOID_KNIGHT_TOP,
+        ARMOUR.SUPERIOR_ELITE_VOID_KNIGHT_TOP
     ];
     if (void_chest_pieces.includes(settings[SETTINGS.BODY])) {
         void_pieces += 1;
     }
     const void_legs_pieces = [
-        'void knight robe',
-        'superior void knight robe',
-        'elite void knight robe',
-        'superior elite void knight robe'
+        ARMOUR.VOID_KNIGHT_ROBE,
+        ARMOUR.SUPERIOR_VOID_KNIGHT_ROBE,
+        ARMOUR.ELITE_VOID_KNIGHT_ROBE,
+        ARMOUR.SUPERIOR_ELITE_VOID_KNIGHT_ROBE
     ];
     if (void_legs_pieces.includes(settings[SETTINGS.LEGS])) {
         void_pieces += 1;
     }
-    const void_hands_pieces = ['void knight gloves', 'superior void knight gloves'];
+    const void_hands_pieces = [ARMOUR.VOID_KNIGHT_GLOVES, ARMOUR.SUPERIOR_VOID_KNIGHT_GLOVES];
     if (void_hands_pieces.includes(settings[SETTINGS.GLOVES])) {
         void_pieces += 1;
     }
-    const void_shield_pieces = ['void knight deflector', 'superior void knight deflector'];
+    const void_shield_pieces = [ARMOUR.VOID_KNIGHT_DEFLECTOR, ARMOUR.SUPERIOR_VOID_KNIGHT_DEFLECTOR];
     if (
-        void_shield_pieces.includes(
-            settings[SETTINGS.OH] && settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.DW
-        )
+        void_shield_pieces.includes(settings[SETTINGS.OH]) &&
+        settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.DW
     ) {
         void_pieces += 1; // TODO: use number of void pieces somewhere
     }
 
     // add damage bonus
     if (abils[settings['ability']].mainStyle === 'magic') {
-        if (settings[SETTINGS.HELMET] === 'void knight magic helm') {
+        if (settings[SETTINGS.HELMET] === ARMOUR.VOID_KNIGHT_MAGIC_HELM) {
             boost += 0.05;
-        } else if (settings[SETTINGS.HELMET] === 'superior void knight magic helm') {
+        } else if (settings[SETTINGS.HELMET] === ARMOUR.SUPERIOR_VOID_KNIGHT_MAGIC_HELM) {
             boost += 0.07;
         }
     } else if (abils[settings['ability']].mainStyle === 'melee') {
-        if (settings[SETTINGS.HELMET] === 'void knight melee helm') {
+        if (settings[SETTINGS.HELMET] === ARMOUR.VOID_KNIGHT_MELEE_HELM) {
             boost += 0.05;
-        } else if (settings[SETTINGS.HELMET] === 'superior void knight melee helm') {
+        } else if (settings[SETTINGS.HELMET] === ARMOUR.SUPERIOR_VOID_KNIGHT_MELEE_HELM) {
             boost += 0.07;
         }
     } else if (abils[settings['ability']].mainStyle === 'ranged') {
-        if (settings[SETTINGS.HELMET] === 'void knight ranged helm') {
+        if (settings[SETTINGS.HELMET] === ARMOUR.VOID_KNIGHT_RANGED_HELM) {
             boost += 0.05;
-        } else if (settings[SETTINGS.HELMET] === 'superior void knight ranged helm') {
+        } else if (settings[SETTINGS.HELMET] === ARMOUR.SUPERIOR_VOID_KNIGHT_RANGED_HELM) {
             boost += 0.07;
         }
     }
@@ -610,8 +603,8 @@ function calc_additive_boosts(settings, dmgObject) {
 
     // gorajan trailblazer
     /*if (settings['gorajan trailblazer effect'] === true) {
-		boost += 0.07;
-	}*/
+        boost += 0.07;
+    }*/
 
     // gravitate (annihilation spec)
     if (abils[settings['ability']].mainStyle === 'melee') {
@@ -626,9 +619,9 @@ function calc_additive_boosts(settings, dmgObject) {
 
     // desperado (ring of kinship ranged boost)
     /*if (settings['desperado'] > 0 && abils[settings['ability']].mainStyle === 'ranged') {
-		boost += 0.1;
-		boost = boost + 0.01 * settings['desperado'];
-	}*/
+        boost += 0.1;
+        boost = boost + 0.01 * settings['desperado'];
+    }*/
     dmgObject.minHit = Math.floor(dmgObject.minHit * (1 + boost));
     dmgObject.varHit = Math.floor(dmgObject.varHit * (1 + boost));
 
@@ -713,12 +706,12 @@ function calc_multiplicative_shared_buffs(settings, dmgObject) {
     // apply revenge
     if (
         settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.DW &&
-        ['shield', 'defender'].includes(weapons[settings[SETTINGS.OH]]['weapon type'])
+        ['shield', 'defender'].includes(weapons[settings[SETTINGS.OH]]?.['weapon type'])
     ) {
         let revenge = 0.025 * settings[SETTINGS.REVENGE];
 
         // boost is twice as big if done with a shield
-        if (weapons[settings[SETTINGS.OH]]['weapon type'] === 'shield') {
+        if (weapons[settings[SETTINGS.OH]]?.['weapon type'] === 'shield') {
             revenge = revenge * 2;
         }
 
@@ -753,7 +746,7 @@ function calc_multiplicative_pve_buffs(settings, dmgObject) {
         // spellcaster gloves (proc based, so added later)
         //bane gear
         // if (weapons[settings['main-hand']]['category'] === 'bane') {
-        // 	boost = Math.floor(boost * 1.25);
+        //     boost = Math.floor(boost * 1.25);
         // }
     }
 
@@ -782,9 +775,9 @@ function calc_multiplicative_pve_buffs(settings, dmgObject) {
     boost = Math.floor(boost * (1 + settings[SETTINGS.GENOCIDAL] / 100));
 
     // salve amulet
-    if (settings[SETTINGS.NECKLACE] === 'salve amulet') {
+    if (settings[SETTINGS.NECKLACE] === ARMOUR.SALVE_AMULET) {
         boost = Math.floor(boost * 1.15);
-    } else if (settings[SETTINGS.NECKLACE] === 'salve amulet (e)') {
+    } else if (settings[SETTINGS.NECKLACE] === ARMOUR.SALVE_AMULET_E) {
         boost = Math.floor(boost * 1.2);
     }
 
@@ -804,7 +797,6 @@ function calc_multiplicative_pve_buffs(settings, dmgObject) {
     if (settings[SETTINGS.FAMILIAR] === SETTINGS.FAMILIAR_VALUES.RIPPER_DEMON) {
         boost += Math.floor(boost * 0.05 * (1 - settings[SETTINGS.TARGET_HP_PERCENT] / 100));
     }
-    
 
     dmgObject.minHit = Math.floor((dmgObject.minHit * boost) / 10000);
     dmgObject.varHit = Math.floor((dmgObject.varHit * boost) / 10000);
@@ -846,13 +838,13 @@ function calc_core(settings, dmgObject, key) {
 
         // store damage into bolg
         if (
-            (settings[SETTINGS.TH] === WEAPONS.BOW_OF_THE_LAST_GUARDIAN || 
-            settings[SETTINGS.TH] === WEAPONS.BOW_OF_THE_LAST_GUARDIAN_IM) 
+            (settings[SETTINGS.TH] === WEAPONS.BOW_OF_THE_LAST_GUARDIAN ||
+            settings[SETTINGS.TH] === WEAPONS.BOW_OF_THE_LAST_GUARDIAN_IM)
             &&
-            settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.TH 
+            settings[SETTINGS.WEAPON] === SETTINGS.WEAPON_VALUES.TH
             &&
             (settings[SETTINGS.PERFECT_EQUILIBRIUM_STACKS] === 7 ||
-                (settings[SETTINGS.PERFECT_EQUILIBRIUM_STACKS] >= 3 
+                (settings[SETTINGS.PERFECT_EQUILIBRIUM_STACKS] >= 3
                 &&
                 settings[SETTINGS.BALANCE_BY_FORCE] === true))
         ) {
@@ -877,9 +869,9 @@ function calc_core(settings, dmgObject, key) {
         }
 
         // store fsoa damage
-        if (abils[settings['ability']].critEffects === true 
-            && settings['instability'] === true 
-            && abils[settings['ability']].damageType === 'magic' 
+        if (abils[settings['ability']].critEffects === true
+            && settings['instability'] === true
+            && abils[settings['ability']].damageType === 'magic'
             && settings['ability'] != 'time strike') {
                 if (!('fsoa damage' in settings)) {
                     settings['fsoa damage'] = create_object(settings);
@@ -1036,16 +1028,16 @@ function calc_on_npc(settings, dmgObject) {
         // ghost hunter outfit
         // count number of pieces
         let ghost_hunter_pieces = 0;
-        if (settings[SETTINGS.HELMET] === 'ghost hunter goggles') {
+        if (settings[SETTINGS.HELMET] === ARMOUR.GHOST_HUNTER_GOGGLES) {
             ghost_hunter_pieces += 1;
         }
-        if (settings[SETTINGS.CAPE] === 'ghost hunter backpack') {
+        if (settings[SETTINGS.CAPE] === ARMOUR.GHOST_HUNTER_BACKPACK) {
             ghost_hunter_pieces += 1;
         }
-        if (settings[SETTINGS.BODY] === 'ghost hunter body') {
+        if (settings[SETTINGS.BODY] === ARMOUR.GHOST_HUNTER_BODY) {
             ghost_hunter_pieces += 1;
         }
-        if (settings[SETTINGS.LEGS] === 'ghost hunter legs') {
+        if (settings[SETTINGS.LEGS] === ARMOUR.GHOST_HUNTER_LEGS) {
             ghost_hunter_pieces += 1;
         }
 
@@ -1064,7 +1056,6 @@ function calc_on_npc(settings, dmgObject) {
                 dmgObject['damage list'][i] * (1 + 0.05 * settings['quest deaths'])
             );
         }
-
 
         // scrimshaw of elements
         if (
@@ -1117,7 +1108,7 @@ function calc_on_npc(settings, dmgObject) {
         }
 
         // necklace of salamancy
-        if (settings[SETTINGS.NECKLACE] === 'necklace of salamancy') {
+        if (settings[SETTINGS.NECKLACE] === ARMOUR.NECKLACE_OF_SALAMANCY) {
             dmgObject['damage list'][i] = Math.floor(dmgObject['damage list'][i] * 1.15);
         }
 
@@ -1173,7 +1164,7 @@ function calc_on_hit(settings, dmgObject) {
     dmgObject = calc_precise(settings, dmgObject);
     dmgObject = calc_additive_boosts(settings, dmgObject);
     // dmgObject = calc_multiplicative_shared_buffs(settings, dmgObject);
-    
+
     // dmgObject = calc_multiplicative_pve_buffs(settings, dmgObject);
     // dmgObject = calc_bonus_damage(settings, dmgObject);
     return dmgObject;
@@ -1199,7 +1190,7 @@ function calc_damage_object(settings) {
         if (abils[settings['ability']].onHitEffects) {
             dmgObject[key] = calc_on_hit(settings, dmgObject[key]);
         }
-        // roll damage 
+        // roll damage
         dmgObject[key]['damage list'] = roll_damage(settings, dmgObject, key);
         // calc core
         if (abils[settings['ability']].onHitEffects) {
@@ -1228,7 +1219,6 @@ function calc_bolg(settings) {
     let bolg_base = calc_damage_object(settings);
     return bolg_base;
 }
-
 
 function calc_bloat(settings) {
     let bloat_dot = create_object(settings);
@@ -1459,10 +1449,11 @@ function get_max_crit(settings, dmgObject) {
 
 /**
  * Ensures the correct prayer and set of gear is used for calculating the damage of an ability
- * @param {*} settings 
- * @returns 
+ * @param {*} settings
+ * @returns
  */
 function style_specific_unification(settings, style = null) {
+    migrateEquipmentSettings(settings);
     const effectiveStyle = style || (abils[settings['ability']] && abils[settings['ability']].mainStyle);
     if (effectiveStyle == 'magic') {
         settings[SETTINGS.MH] = settings[SETTINGS.MAGIC_MH];
@@ -1524,6 +1515,32 @@ function style_specific_unification(settings, style = null) {
         settings[SETTINGS.RING] = settings[SETTINGS.NECRO_RING];
         settings[SETTINGS.POCKET] = settings[SETTINGS.NECRO_POCKET];
         settings[SETTINGS.AMMO] = settings[SETTINGS.NECRO_AMMO_SLOT];
+    }
+
+    const weaponModeByStyle = {
+        magic: SETTINGS.WEAPON_TYPE_MAGE,
+        ranged: SETTINGS.WEAPON_TYPE_RANGED,
+        melee: SETTINGS.WEAPON_TYPE_MELEE,
+        necromancy: SETTINGS.WEAPON_TYPE_NECRO,
+    };
+    const weaponKeysByStyle = {
+        magic: { mh: SETTINGS.MAGIC_MH, th: SETTINGS.MAGIC_TH },
+        ranged: { mh: SETTINGS.RANGED_MH, th: SETTINGS.RANGED_TH },
+        melee: { mh: SETTINGS.MELEE_MH, th: SETTINGS.MELEE_TH },
+        necromancy: { mh: SETTINGS.NECRO_MH, th: SETTINGS.NECRO_TH },
+    };
+    const styleWeaponKeys = weaponKeysByStyle[effectiveStyle];
+    const isEquipped = (value) => value != null && value !== 'none';
+    const isTwoHand = (value) => weapons[value]?.['weapon type'] === 'two-hand';
+
+    if (settings[weaponModeByStyle[effectiveStyle]] === SETTINGS.WEAPON_VALUES.TH && styleWeaponKeys) {
+        const styleMh = settings[styleWeaponKeys.mh];
+        const styleTh = settings[styleWeaponKeys.th];
+        const preferredTh = (isTwoHand(styleMh) && !isCustomEquipment(styleMh)) || !isEquipped(styleTh) ? styleMh : styleTh;
+        if (isEquipped(preferredTh)) {
+            settings[SETTINGS.TH] = preferredTh;
+            settings[SETTINGS.MH] = preferredTh;
+        }
     }
 
     // Derive weapon type from the equipped MH weapon

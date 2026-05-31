@@ -4,13 +4,15 @@
  * use this common format.
  */
 
+import { coerceEquipmentValue, getEquipmentIcon, getEquipmentTitle } from '$lib/data/equipment';
+
 export type ExtraActionType = 'gear' | 'ability' | 'prayer' | 'consumable' | 'spell';
 
 export interface ExtraAction {
     /** What kind of extra action this is */
     type: ExtraActionType;
-    /** The lookup key (gear: item name string, ability: ABILITIES key, etc.) */
-    value: string;
+    /** The lookup key (gear: equipment id, ability: ABILITIES key, etc.) */
+    value: string | number;
     /** Display name */
     title: string;
     /** Icon path */
@@ -28,8 +30,9 @@ export interface ExtraAction {
  * @param icon - Icon path
  * @param slot - The settings key this gear writes to (e.g. 'ranged helmet')
  */
-export function gearAction(value: string, title: string, icon: string, slot: string, perks?: { perkKey: string; rank: number }[]): ExtraAction {
-    return { type: 'gear', value, title, icon, slot, ...(perks?.length ? { perks } : {}) };
+export function gearAction(value: string | number, title: string, icon: string, slot: string, perks?: { perkKey: string; rank: number }[]): ExtraAction {
+    const id = coerceEquipmentValue(value);
+    return { type: 'gear', value: id as string | number, title: getEquipmentTitle(id, title), icon: getEquipmentIcon(id, icon), slot, ...(perks?.length ? { perks } : {}) };
 }
 
 /**
@@ -78,16 +81,26 @@ export function isExtraAction(obj: any): obj is ExtraAction {
  */
 export function normalizeLegacy(entry: any, gearSwapsLookup?: Record<string, string>, iconLookup?: Record<string, { title?: string; icon?: string }>): ExtraAction | null {
     if (!entry) return null;
-    if (isExtraAction(entry)) return entry;
+    if (isExtraAction(entry)) {
+        if (entry.type !== 'gear') return entry;
+        const id = coerceEquipmentValue(entry.value, entry.slot);
+        return {
+            ...entry,
+            value: id as string | number,
+            title: getEquipmentTitle(id, entry.title),
+            icon: getEquipmentIcon(id, entry.icon)
+        };
+    }
 
     // Legacy gear object: { title: 'item name', icon: '/path' }
     if (typeof entry === 'object' && entry.title) {
+        const id = coerceEquipmentValue(entry.title);
         const slot = gearSwapsLookup?.[entry.title];
         return {
             type: 'gear',
-            value: entry.title,
-            title: entry.title,
-            icon: entry.icon || '',
+            value: id as string | number,
+            title: getEquipmentTitle(id, entry.title),
+            icon: getEquipmentIcon(id, entry.icon || ''),
             ...(slot ? { slot } : {}),
         };
     }

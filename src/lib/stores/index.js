@@ -35,4 +35,4 @@ export const {
     clearRotation,
     importRotation,
     updateDamageCalculations
-} = rotationActions; 
+} = rotationActions;

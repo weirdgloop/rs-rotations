@@ -1,27 +1,20 @@
 """
-    Script to generate an equipment.json of all the equipment on the RS Wiki, and downloads images for each item.
+    Script to generate src/equipment.json of all the equipment on the RS Wiki.
     Based on the script of the same name in the OSRS DPS calc https://github.com/weirdgloop/osrs-dps-calc/blob/main/scripts/generateEquipment.py
-    The JSON file is placed in ../src/lib/equipment.json.
 
-    The images are placed in ../cdn/equipment/. This directory is NOT included in the Next.js app bundle, and should
-    be deployed separately to our file storage solution.
+    The output is keyed by the first item id for direct import by src/lib/data/equipment.ts.
 
     Written for Python 3.9.
 """
-import os
-import requests
 import json
-import sys
 import time
+from pathlib import Path
 
-#FILE_DIR = '../cdn/json'
-FILE_DIR = '.'
-FILE_NAME = f'{FILE_DIR}/equipment.json'
-FILE_NAME_m = f'{FILE_DIR}/equipment_names_mainslots.txt'
-FILE_NAME_w = f'{FILE_DIR}/equipment_names_weapons.txt'
-FILE_NAME_o = f'{FILE_DIR}/equipment_names_other.txt'
-MANUAL_EQUIP = f'{FILE_DIR}/scripts/manual_equipment.json'
-IMG_PATH = f'{FILE_DIR}/images/equipment/'
+import requests
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+OUT_PATH = REPO_ROOT / 'src' / 'equipment.json'
+MANUAL_EQUIP = REPO_ROOT / 'scripts' / 'manual_equipment.json'
 WIKI_BASE = 'https://runescape.wiki'
 API_BASE = WIKI_BASE + '/api.php'
 
@@ -149,14 +142,39 @@ def tryint(x):
     except ValueError:
         return None
 
-def main(get_images=False):
+def first_id(item):
+    ids = item.get('id')
+    if not isinstance(ids, list) or len(ids) == 0:
+        raise ValueError(f"Equipment item \"{item.get('name', '<unnamed>')}\" has no id array")
+
+    item_id = int(ids[0])
+    if item_id <= 0:
+        raise ValueError(f"Equipment item \"{item.get('name', '<unnamed>')}\" has invalid first id")
+    return item_id
+
+def format_equipment_output(records):
+    by_id = {}
+    for item in records:
+        item_id = first_id(item)
+        if item_id in by_id:
+            continue
+        by_id[item_id] = {
+            **item,
+            'id': item_id,
+            'ids': item['id'],
+        }
+
+    return {
+        str(item_id): by_id[item_id]
+        for item_id in sorted(by_id)
+    }
+
+def main():
     # Grab the equipment info using Bucket
     wiki_data, item_data = getEquipmentData()
 
     # Use an object rather than an array, so that we can't have duplicate items with the same page_name_sub
     data = {}
-    required_imgs = []
-    dedupe = {}
 
     # Loop over the equipment data from the wiki
     for v in wiki_data:
@@ -259,9 +277,6 @@ def main(get_images=False):
         # Set the current equipment item to the calc's equipment list
         data[itemname_sub] = equipment
 
-        if not equipment['image'] == '':
-            required_imgs.append(equipment['image'])
-
     new_data = list(data.values())
 
     # add manual equipment that isn't pulled from the wiki
@@ -271,61 +286,13 @@ def main(get_images=False):
         new_data = new_data + manual_data
 
     print('Total equipment: ' + str(len(new_data)))
-    new_data.sort(key=lambda d: d.get('name'))
+    equipment_output = format_equipment_output(new_data)
 
-    if not os.path.exists(FILE_DIR):
-        os.makedirs(FILE_DIR, exist_ok=True)
-    with open(FILE_NAME, 'w') as f:
-        print('Saving to JSON at file: ' + FILE_NAME)
-        json.dump(new_data, f, ensure_ascii=False, indent=2)
-    
-    def getname(x):
-        if 'version' in x:
-            if not (x['version'] == 'DEFAULT' or x['version'] == ''):
-                return f"{x['name']}#{x['version']}"
-        return x['name']
-                
-    with open(FILE_NAME_m, 'w') as f:
-        print('Saving to names at file: ' + FILE_NAME_m)
-        f.write('\n'.join(list(sorted(map(getname, filter(lambda x: x['bonuses']['slot'] in ['head', 'torso', 'legs', 'hands', 'feet'], new_data))))))
-    with open(FILE_NAME_o, 'w') as f:
-        print('Saving to names at file: ' + FILE_NAME_o)
-        f.write('\n'.join(list(sorted(map(getname, filter(lambda x: x['bonuses']['slot'] not in ['head', 'torso', 'legs', 'hands', 'feet', 'main hand weapon', 'off-hand weapon', '2h weapon', 'off-hand'], new_data))))))
-    with open(FILE_NAME_w, 'w') as f:
-        print('Saving to names at file: ' + FILE_NAME_w)
-        f.write('\n'.join(list(sorted(map(getname, filter(lambda x: x['bonuses']['slot'] in ['main hand weapon', 'off-hand weapon', '2h weapon', 'off-hand'], new_data))))))
+    OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(OUT_PATH, 'w') as f:
+        print('Saving to JSON at file: ' + str(OUT_PATH))
+        json.dump(equipment_output, f, ensure_ascii=False, indent=2)
+        f.write('\n')
 
-    if not get_images:
-        return
-    success_img_dls = 0
-    failed_img_dls = 0
-    skipped_img_dls = 0
-    required_imgs = set(required_imgs)
-    
-    # Fetch all the images from the wiki and store them for local serving
-    if not os.path.exists(IMG_PATH):
-        os.makedirs(IMG_PATH, exist_ok=True)
-    for idx, img in enumerate(required_imgs):
-        if os.path.isfile(IMG_PATH + img):
-            skipped_img_dls += 1
-            continue
-
-        print(f'({idx}/{len(required_imgs)}) Fetching image: {img}')
-        r = requests.get(WIKI_BASE + '/images/' + img)
-        if r.ok:
-            with open(IMG_PATH + img, 'wb') as f:
-                f.write(r.content)
-                print('Saved image: ' + img)
-                success_img_dls += 1
-        else:
-            print('Unable to save image: ' + img)
-            failed_img_dls += 1
-
-    print('Total images saved: ' + str(success_img_dls))
-    print('Total images skipped (already exists): ' + str(skipped_img_dls))
-    print('Total images failed to save: ' + str(failed_img_dls))
-
-get_images = False
-if len(sys.argv) > 1:
-    get_images = sys.argv[1] == 'y'
-main(get_images)
+if __name__ == '__main__':
+    main()

@@ -31,6 +31,7 @@
     import { STYLE_COLORS } from '$lib/utils/colors';
     import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.js';
     import { weapons } from '$lib/data/weapons';
+    import { coerceEquipmentValue, isCustomEquipment, migrateEquipmentSettings } from '$lib/data/equipment';
 
     let showGearManager = $state(false);
     let openDropdown = $state(null);
@@ -60,18 +61,19 @@
                 {
                     ...value,
                     key,
-                    value: storedSettings[key]?.value ?? value.default?.necromancy ?? value.default
+                    value: coerceEquipmentValue(storedSettings[key]?.value ?? value.default?.necromancy ?? value.default, key)
                 }
             ])
         )
     );
+    migrateEquipmentSettings(settings);
 
     let gearFilter = $derived(settings[SETTINGS.GEAR_FILTER]?.value ?? 'popular');
     let useOwnedGearPerks = $derived(gearFilter === 'owned');
 
     function getEquippedPerks(settingsKey) {
         const itemKey = settings[settingsKey]?.value;
-        if (!itemKey || itemKey === 'none' || itemKey.startsWith('custom')) return [];
+        if (!itemKey || itemKey === 'none' || isCustomEquipment(itemKey)) return [];
         const instances = ownedItemsStore.ownedGear.get(itemKey);
         if (!instances || instances.length === 0) return [];
         const gearInstances = settings['_gearInstances']?.value;

@@ -4,7 +4,7 @@
 </script>
 
 <Navbar />
-<Header img="/main_background.png" />
+<Header img="/rs-rot/main_background.png" />
 
 <div class="space-y-14 z-20">
     <div class="responsive-container">

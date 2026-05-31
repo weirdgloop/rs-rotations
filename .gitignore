@@ -6,6 +6,7 @@ bun.lock
 .vercel
 /.svelte-kit
 /build
+/cdn
 
 # OS
 .DS_Store

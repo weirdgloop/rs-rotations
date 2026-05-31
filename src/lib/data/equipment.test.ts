@@ -24,7 +24,7 @@ describe('equipment database', () => {
 
     it('uses RuneScape Wiki image urls from image filenames', () => {
         expect(getEquipmentIcon(WEAPONS.BOW_OF_THE_LAST_GUARDIAN)).toBe(
-            'https://runescape.wiki/images/Bow%20of%20the%20Last%20Guardian.png'
+            'https://runescape.wiki/images/Bow_of_the_Last_Guardian.png'
         );
     });
 

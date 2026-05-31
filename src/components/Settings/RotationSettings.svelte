@@ -146,16 +146,16 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
         [SettingsCombatStyles.NECROMANCY]: SETTINGS.NECRO_PRAYER,
     };
     const prayerIconByStyle = {
-        [SettingsCombatStyles.RANGED]: '/effect_icons/ranged_prayer.webp',
-        [SettingsCombatStyles.MAGIC]: '/effect_icons/magic_prayer.webp',
-        [SettingsCombatStyles.MELEE]: '/effect_icons/melee_prayer.webp',
-        [SettingsCombatStyles.NECROMANCY]: '/effect_icons/necro_prayer.webp',
+        [SettingsCombatStyles.RANGED]: '/rs-rot/effect_icons/ranged_prayer.webp',
+        [SettingsCombatStyles.MAGIC]: '/rs-rot/effect_icons/magic_prayer.webp',
+        [SettingsCombatStyles.MELEE]: '/rs-rot/effect_icons/melee_prayer.webp',
+        [SettingsCombatStyles.NECROMANCY]: '/rs-rot/effect_icons/necro_prayer.webp',
     };
 
     const familiarIcons = {
-        [SETTINGS.FAMILIAR_VALUES.RIPPER_DEMON]: '/familiars/Ripper_Demon_chathead.png',
-        [SETTINGS.FAMILIAR_VALUES.KALGERION_DEMON]: '/familiars/Kal\'gerion_demon_(familiar)_chathead.png',
-        [SETTINGS.FAMILIAR_VALUES.STEEL_TITAN]: '/familiars/Steel_titan_chathead.png',
+        [SETTINGS.FAMILIAR_VALUES.RIPPER_DEMON]: '/rs-rot/familiars/Ripper_Demon_chathead.png',
+        [SETTINGS.FAMILIAR_VALUES.KALGERION_DEMON]: '/rs-rot/familiars/Kal\'gerion_demon_(familiar)_chathead.png',
+        [SETTINGS.FAMILIAR_VALUES.STEEL_TITAN]: '/rs-rot/familiars/Steel_titan_chathead.png',
     };
 
     const BOLT_AMMO = [ARMOUR.HYDRIX_BAKRIMINEL_BOLTS_E];
@@ -347,14 +347,14 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                     <h5 class="uppercase font-bold text-lg text-center mb-4">General</h5>
                     <Select
                         bind:setting={settings[SETTINGS.MODE]}
-                        img="/settings_icons/Skills_icon.png"
+                        img="/rs-rot/settings_icons/Skills_icon.png"
                         onchange={() => updateDamages()}
                     />
                     {#if styleTab == SettingsCombatStyles.RANGED}
                         <Number
                             bind:setting={settings[SETTINGS.RANGED_LEVEL]}
                             onchange={() => updateDamages()}
-                            img="/effect_icons/ranged_level.png"step="1"
+                            img="/rs-rot/effect_icons/ranged_level.png"step="1"
                             max="150"
                             min="1"
                         />
@@ -362,7 +362,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                         <Number
                             bind:setting={settings[SETTINGS.MAGIC_LEVEL]}
                             onchange={() => updateDamages()}
-                            img="/effect_icons/magic.png"
+                            img="/rs-rot/effect_icons/magic.png"
                             step="1"
                             max="150"
                             min="1"
@@ -371,7 +371,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                         <Number
                             bind:setting={settings[SETTINGS.STRENGTH_LEVEL]}
                             onchange={() => updateDamages()}
-                            img="/effect_icons/strength.png"
+                            img="/rs-rot/effect_icons/strength.png"
                             step="1"
                             max="150"
                             min="1"
@@ -379,12 +379,12 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                         <Checkbox
                             bind:setting={settings[SETTINGS.STRENGTH_CAPE]}
                             onchange={() => updateDamages()}
-                            img="/effect_icons/strength_cape.png"
+                            img="/rs-rot/effect_icons/strength_cape.png"
                         />
                         <Number
                         bind:setting={settings[SETTINGS.TIME_SINCE_ATTACK]}
                         onchange={() => updateDamages()}
-                        img="/effect_icons/cease.png"
+                        img="/rs-rot/effect_icons/cease.png"
                         step="1"
                         max="10"
                         min="0"
@@ -393,7 +393,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                         <Number
                             bind:setting={settings[SETTINGS.NECROMANCY_LEVEL]}
                             onchange={() => updateDamages()}
-                            img="/effect_icons/necromancy.png"
+                            img="/rs-rot/effect_icons/necromancy.png"
                             step="1"
                             max="150"
                             min="1"
@@ -404,7 +404,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                         bind:setting={settings[SETTINGS.HIT_CHANCE]}
                         onchange={() => updateDamages()}
 
-                        img="/settings_icons/Zero_weakness_icon.png"
+                        img="/rs-rot/settings_icons/Zero_weakness_icon.png"
                         step="1"
                         max="100"
                         min="0"
@@ -412,7 +412,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                     <Number
                         bind:setting={settings[SETTINGS.TARGET_SIZE]}
                         onchange={() => updateDamages()}
-                        img="/settings_icons/target_size.webp"
+                        img="/rs-rot/settings_icons/target_size.webp"
                         step="1"
                         max="5"
                         min="0"
@@ -420,7 +420,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                     <Number
                         bind:setting={settings[SETTINGS.TARGET_HP_PERCENT]}
                         onchange={() => updateDamages()}
-                        img="/effect_icons/target_hp.png"
+                        img="/rs-rot/effect_icons/target_hp.png"
                         step="1"
                         max="100"
                         min="0"
@@ -465,7 +465,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                             title="Slayer Helmet (click to change)"
                             onclick={() => { openDropdown = openDropdown === SETTINGS.SLAYER_HELM ? null : SETTINGS.SLAYER_HELM; }}
                         >
-                            <img src="/effect_icons/slayer_helmet.png" alt="Slayer Helmet" class="w-7 h-7" />
+                            <img src="/rs-rot/effect_icons/slayer_helmet.png" alt="Slayer Helmet" class="w-7 h-7" />
                             <span class="text-sm truncate">{settings[SETTINGS.SLAYER_HELM]?.options?.find(o => o.value === settings[SETTINGS.SLAYER_HELM]?.value)?.text ?? 'None'}</span>
                         </button>
                         {#if openDropdown === SETTINGS.SLAYER_HELM}
@@ -485,16 +485,16 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                     </div>
                     <div class="flex flex-wrap gap-2 justify-center my-2">
                         {#each [
-                            { key: SETTINGS.REAPER_CREW, img: '/effect_icons/death.png', title: 'Reaper Crew', toggle: true },
-                            { key: SETTINGS.BERSERKERS_FURY, img: '/effect_icons/berserkers_fury.png', title: "Berserker's Fury", step: 0.5, max: 5.5 },
-                            { key: SETTINGS.SMOKE_CLOUD, img: '/effect_icons/smoke_cloud.png', title: 'Smoke Cloud', toggle: true },
-                            { key: SETTINGS.SWIFTNESS_OF_THE_AVIANSIE, img: '/effect_icons/swiftness_of_the_avianse.png', title: 'Swiftness of the Aviansie', toggle: true },
-                            { key: SETTINGS.STONE_OF_JAS, img: '/effect_icons/stone_of_jas.png', title: 'Stone of Jas', step: 1, max: 6 },
-                            { key: SETTINGS.INFERNAL_PUZZLE_BOX, img: '/effect_icons/infernal_puzzlebox.png', title: 'Infernal Puzzle Box', step: 1, max: 6 },
-                            { key: SETTINGS.DIVINE_RAGE, img: '/ability_icons/special/Divine_Rage.png', title: 'Divine Rage', toggle: true },
-                            { key: SETTINGS.ECLIPSED_SOUL, img: '/ability_icons/special/Eclipsed_Soul.png', title: 'Eclipsed Soul', toggle: true },
-                            { key: SETTINGS.ENCHANTMENT_OF_FLAMES, img: '/effect_icons/magic/Enchantment_of_flames_detail.png', title: 'Enchantment of Flames', toggle: true },
-                            { key: SETTINGS.ENCHANTMENT_OF_DREAD, img: '/effect_icons/ranged/Enchantment_of_dread.png', title: 'Enchantment of Dread', toggle: true }
+                            { key: SETTINGS.REAPER_CREW, img: '/rs-rot/effect_icons/death.png', title: 'Reaper Crew', toggle: true },
+                            { key: SETTINGS.BERSERKERS_FURY, img: '/rs-rot/effect_icons/berserkers_fury.png', title: "Berserker's Fury", step: 0.5, max: 5.5 },
+                            { key: SETTINGS.SMOKE_CLOUD, img: '/rs-rot/effect_icons/smoke_cloud.png', title: 'Smoke Cloud', toggle: true },
+                            { key: SETTINGS.SWIFTNESS_OF_THE_AVIANSIE, img: '/rs-rot/effect_icons/swiftness_of_the_avianse.png', title: 'Swiftness of the Aviansie', toggle: true },
+                            { key: SETTINGS.STONE_OF_JAS, img: '/rs-rot/effect_icons/stone_of_jas.png', title: 'Stone of Jas', step: 1, max: 6 },
+                            { key: SETTINGS.INFERNAL_PUZZLE_BOX, img: '/rs-rot/effect_icons/infernal_puzzlebox.png', title: 'Infernal Puzzle Box', step: 1, max: 6 },
+                            { key: SETTINGS.DIVINE_RAGE, img: '/rs-rot/ability_icons/special/Divine_Rage.png', title: 'Divine Rage', toggle: true },
+                            { key: SETTINGS.ECLIPSED_SOUL, img: '/rs-rot/ability_icons/special/Eclipsed_Soul.png', title: 'Eclipsed Soul', toggle: true },
+                            { key: SETTINGS.ENCHANTMENT_OF_FLAMES, img: '/rs-rot/effect_icons/magic/Enchantment_of_flames_detail.png', title: 'Enchantment of Flames', toggle: true },
+                            { key: SETTINGS.ENCHANTMENT_OF_DREAD, img: '/rs-rot/effect_icons/ranged/Enchantment_of_dread.png', title: 'Enchantment of Dread', toggle: true }
                         ] as buff}
                             <ToggleButton
                                 bind:setting={settings[buff.key]}
@@ -511,7 +511,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                     <div class="flex flex-wrap gap-2 justify-center my-2">
                         <ToggleButton
                             bind:setting={settings[SETTINGS.VULN]}
-                            img={(v) => v === SETTINGS.VULN_VALUES.CURSE ? '/effect_icons/magic/Curse_icon.png' : '/effect_icons/magic/Vulnerability_icon.webp'}
+                            img={(v) => v === SETTINGS.VULN_VALUES.CURSE ? '/rs-rot/effect_icons/magic/Curse_icon.png' : '/rs-rot/effect_icons/magic/Vulnerability_icon.webp'}
                             title="Vulnerability (click to cycle)"
                             cycle={[SETTINGS.VULN_VALUES.NONE, SETTINGS.VULN_VALUES.CURSE, SETTINGS.VULN_VALUES.VULNERABILITY]}
                             badgeFn={(v) => v === SETTINGS.VULN_VALUES.CURSE ? 'C' : v === SETTINGS.VULN_VALUES.VULNERABILITY ? 'V' : null}
@@ -520,7 +520,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                         />
                         <ToggleButton
                             bind:setting={settings[SETTINGS.POISON]}
-                            img="/effect_icons/poison.png"
+                            img="/rs-rot/effect_icons/poison.png"
                             title="Poison (click to cycle)"
                             cycle={[SETTINGS.POISON_VALUES.NONE, SETTINGS.POISON_VALUES.WEAPON_POISON0, SETTINGS.POISON_VALUES.WEAPON_POISON1, SETTINGS.POISON_VALUES.WEAPON_POISON2, SETTINGS.POISON_VALUES.WEAPON_POISON3]}
                             badgeFn={(v) => {
@@ -534,7 +534,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                         />
                         <ToggleButton
                             bind:setting={settings[SETTINGS.NOPE]}
-                            img="/effect_icons/nopenopenope.png"
+                            img="/rs-rot/effect_icons/nopenopenope.png"
                             title="Nope nope nope"
                             max={2}
                             borderColor={activeStyleColor}
@@ -591,10 +591,10 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                     </h5>
                     <div class="flex flex-wrap gap-2 justify-center">
                         {#each [
-                            { key: SETTINGS.VIGOUR, img: getEquipmentIcon(ARMOUR.RING_OF_VIGOUR), title: 'Ring of Vigour' },
-                            { key: SETTINGS.FURY_OF_THE_SMALL, img: '/effect_icons/Fury of the Small.png', title: 'Fury of the Small' },
-                            { key: SETTINGS.CONSERVATION_OF_ENERGY, img: '/effect_icons/Conservation of Energy.png', title: 'Conservation of Energy' },
-                            { key: SETTINGS.HEIGHTENED_SENSES, img: '/effect_icons/Heightened Senses.png', title: 'Heightened Senses' },
+                            { key: SETTINGS.VIGOUR, img: getEquipmentIcon(ARMOUR.RING_OF_VIGOUR, '/rs-rot/armour_icons/Ring_slot.png'), title: 'Ring of Vigour' },
+                            { key: SETTINGS.FURY_OF_THE_SMALL, img: '/rs-rot/effect_icons/Fury of the Small.png', title: 'Fury of the Small' },
+                            { key: SETTINGS.CONSERVATION_OF_ENERGY, img: '/rs-rot/effect_icons/Conservation of Energy.png', title: 'Conservation of Energy' },
+                            { key: SETTINGS.HEIGHTENED_SENSES, img: '/rs-rot/effect_icons/Heightened Senses.png', title: 'Heightened Senses' },
                             { key: SETTINGS.EXPECTED_ADRENALINE, img: 'settings_icons/Animal_trait_re-roller.png', title: 'Expected Adrenaline' },
                         ] as toggle}
                             <ToggleButton
@@ -609,7 +609,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                         {#if uiState?.showSuggestions}
                         <ToggleButton
                             bind:setting={uiState.showSuggestions}
-                            img="/ability_icons/special/Surge.png"
+                            img="/rs-rot/ability_icons/special/Surge.png"
                             title="Show ability suggestions"
                             toggle={true}
                             borderColor={activeStyleColor}
@@ -658,7 +658,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                                 class="flex items-center justify-center gap-2 w-full text-xs text-sky-300 hover:text-white border border-sky-300/30 hover:border-sky-300 rounded px-2 py-1.5 mt-2 transition-colors"
                                 onclick={() => showGearManager = true}
                             >
-                                <img src="/settings_icons/Options_icon.png" alt="" class="w-4 h-4" />
+                                <img src="/rs-rot/settings_icons/Options_icon.png" alt="" class="w-4 h-4" />
                                 Manage Gear
                             </button>
                         </div>
@@ -734,14 +734,14 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                         <Number
                             bind:setting={settings[SETTINGS.BOSS_PATTERN_START]}
                             onchange={() => updateDamages()}
-                            img="/settings_icons/Time.png"
+                            img="/rs-rot/settings_icons/Time.png"
                             step="1"
                             min="-1"
                         />
                         <Number
                             bind:setting={settings[SETTINGS.BOSS_HP]}
                             onchange={() => updateDamages()}
-                            img="/effect_icons/target_hp.png"
+                            img="/rs-rot/effect_icons/target_hp.png"
                             step="1000"
                             min="0"
                             width="90px"
@@ -750,7 +750,7 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                         <Number
                             bind:setting={settings[SETTINGS.GUARDIANS_TRIUMPH]}
                             onchange={() => updateDamages()}
-                            img="/effect_icons/Guardian's_Triumph_Edict_(self_status).png"
+                            img="/rs-rot/effect_icons/Guardian's_Triumph_Edict_(self_status).png"
                             step="1"
                             min="0"
                         />

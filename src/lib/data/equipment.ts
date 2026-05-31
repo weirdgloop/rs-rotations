@@ -17,6 +17,8 @@ type RawBonuses = {
     magic?: number;
     necromancy?: number;
     tier?: number;
+    tier_damage?: number;
+    tier_armour_damage?: number;
 };
 
 type RawEquipmentRecord = {
@@ -129,6 +131,22 @@ function normalizeWeaponSubtype(record: RawEquipmentRecord, weaponType?: WeaponT
     return 'none';
 }
 
+function getDamageTier(record: RawEquipmentRecord, bonuses: RawBonuses, fallbackTier: number): number {
+    const hasTierDamage = Object.prototype.hasOwnProperty.call(bonuses, 'tier_damage');
+    const hasTierArmourDamage = Object.prototype.hasOwnProperty.call(bonuses, 'tier_armour_damage');
+    const tierDamage = Number(bonuses.tier_damage ?? 0);
+    const tierArmourDamage = Number(bonuses.tier_armour_damage ?? 0);
+
+    if (tierDamage !== 0 && tierArmourDamage !== 0) {
+        console.warn(
+            `Equipment ${record.name} has both tier_damage (${tierDamage}) and tier_armour_damage (${tierArmourDamage}); using the greater value.`
+        );
+    }
+
+    if (!hasTierDamage && !hasTierArmourDamage) return fallbackTier;
+    return Math.max(tierDamage, tierArmourDamage);
+}
+
 function normalizeRecord(record: RawEquipmentRecord): EquipmentRecord {
     const id = firstId(record);
     const bonuses = record.bonuses ?? {};
@@ -139,6 +157,7 @@ function normalizeRecord(record: RawEquipmentRecord): EquipmentRecord {
     const title = record.app?.title ?? record.name;
     const image = record.image ?? [];
     const tier = Number(bonuses.tier ?? 0);
+    const damageTier = getDamageTier(record, bonuses, tier);
     const piece: EquipmentRecord = {
         id,
         name: record.name,
@@ -147,11 +166,12 @@ function normalizeRecord(record: RawEquipmentRecord): EquipmentRecord {
         slot,
         style,
         tier,
+        damageTier,
         offensiveTier: {
-            melee: Number(bonuses.strength ? tier : 0),
-            ranged: Number(bonuses.ranged ? tier : 0),
-            magic: Number(bonuses.magic ? tier : 0),
-            necro: Number(bonuses.necromancy ? tier : 0)
+            melee: Number(bonuses.strength ? damageTier : 0),
+            ranged: Number(bonuses.ranged ? damageTier : 0),
+            magic: Number(bonuses.magic ? damageTier : 0),
+            necro: Number(bonuses.necromancy ? damageTier : 0)
         },
         'melee strength': Number(bonuses.strength ?? 0),
         'ranged strength': Number(bonuses.ranged ?? 0),
@@ -237,10 +257,10 @@ export function getStyleStrength(value: unknown, style: string): number {
 export function getEquipmentTier(value: unknown, style?: string): number {
     const item = getEquipment(value);
     if (!item) return 0;
-    if (!style) return Number(item.tier ?? 0);
+    if (!style) return Number(item.damageTier ?? item.tier ?? 0);
     const key = style === 'necromancy' ? 'necro' : style;
     const offensiveTier = Number(item.offensiveTier?.[key as keyof typeof item.offensiveTier] ?? 0);
-    return offensiveTier || Number(item.tier ?? 0);
+    return offensiveTier || Number(item.damageTier ?? item.tier ?? 0);
 }
 
 export function isCustomEquipment(value: unknown): boolean {

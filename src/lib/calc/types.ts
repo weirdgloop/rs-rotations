@@ -25,6 +25,8 @@ export interface Equipment {
     offensiveTier?: OffensiveTier;
     /** Flat weapon tier (weapons only) */
     tier?: number;
+    /** Damage tier from wiki tier_damage/tier_armour_damage fields */
+    damageTier?: number;
     slot: EquipmentSlot;
     style: EquipmentStyle;
     /** Weapon type — only present on weapons */

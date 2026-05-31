@@ -348,24 +348,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="effect-container">
-                                <div class="card-icon rounded-full bg-black overflow-hidden mb-3">
-                                    <a href="https://discord.gg/BGjvs8Y28n">
-                                        <img src="/rs-rot/contributors/rsmath.png" alt="" />
-                                    </a>
-                                </div>
-                                <ul>
-                                    <li class="block transition-all duration-75 relative">
-                                        <a
-                                            href="https://discord.gg/BGjvs8Y28n"
-                                            class="py-2 font-normal text-xl hover:text-link"
-                                            title=""
-                                        >
-                                            RS Math Discord
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>

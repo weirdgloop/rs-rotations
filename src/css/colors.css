@@ -25,6 +25,10 @@
     --color-abilities: #FF4DB8;
     --color-abilities-bg: rgba(255, 77, 184, 0.2);
 
+    /* Background panel behind ability icons, so transparent-background
+       icons stay legible on dark surfaces. */
+    --icon-bg: rgba(255, 255, 255, 0.12);
+
     --color-gear: #949494;
     --color-gear-bg: #94949433;
 

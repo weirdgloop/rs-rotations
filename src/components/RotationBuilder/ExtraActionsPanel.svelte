@@ -4,11 +4,11 @@
     import { allExtraActions, gearSwaps } from '$lib/special/abilities';
     import { getSettingsKeyForItem, getItemForValue } from '$lib/calc/rotation_builder/gear-registry';
     import { SETTINGS } from '$lib/calc/settings_rb';
-    import { settingsStore, initializeSettings } from '$lib/stores/settingsStore.svelte.js';
-    import { rotationStore } from '$lib/stores/rotationStore.svelte.js';
+    import { settingsStore, initializeSettings } from '$lib/stores/settingsStore.svelte.ts';
+    import { rotationStore } from '$lib/stores/rotationStore.svelte.ts';
     import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
     import ActionIcon from '$components/UI/ActionIcon.svelte';
-    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.js';
+    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.ts';
     import { perks as perkDefs } from '$lib/data/perks';
     import { bossPresets, getBossPresetWithEnrage } from '$lib/data/bosses/boss_presets';
     import { weapons } from '$lib/data/weapons';
@@ -410,7 +410,8 @@
                 {#if currentAbility}
                     <img src={currentAbility.icon}
                         alt={currentAbility.title}
-                        style="width: 36px; height: 36px; background-color: #333; border: 1px solid #666;"
+                        class="ability-icon"
+                        style="width: 36px; height: 36px; border: 1px solid #666;"
                         title="{currentAbility.title}"
                     />
                     <div>
@@ -457,7 +458,8 @@
                 <div class="flex items-center gap-2 mt-1">
                     <img src={currentStalledAbility.icon}
                         alt={currentStalledAbility.title}
-                        style="width: 24px; height: 24px; background-color: #333; border: 1px solid #555;"
+                        class="ability-icon"
+                        style="width: 24px; height: 24px; border: 1px solid #555;"
                         title="Stalled: {currentStalledAbility.title}"
                     />
                     <p class="text-xs text-gray-300">Stalled: {currentStalledAbility.title}</p>
@@ -569,7 +571,12 @@
                     {#key uiState.extraActions.tick}
                     {@const gs = buildGearState(uiState.extraActions.tick)}
                     {@const mhValue = getWeaponValue('mh')}
-                    {@const isTwoHanded = mhValue !== 'none' && weapons[mhValue]?.['weapon type'] === 'two-hand'}
+                    {@const thValue = getWeaponValue('th')}
+                    <!-- The gear registry has no two-hand slot, so 2H weapons are registered as
+                         'mainhand' and a swap writes them to the main-hand settings key. Base
+                         settings keep them under the two-hand key instead, so check both. -->
+                    {@const twoHandValue = [mhValue, thValue].find(v => v !== 'none' && weapons[v]?.['weapon type'] === 'two-hand') ?? 'none'}
+                    {@const isTwoHanded = twoHandValue !== 'none'}
                     <!-- Weapon perks -->
                     {@const wpnPerks = [...getPerksForItem(getWeaponValue('mh')), ...getPerksForItem(getWeaponValue('oh'))]}
                     {#if wpnPerks.length > 0}
@@ -594,7 +601,7 @@
                         <div class="equip-cell"><ActionIcon value={getEquipValue('ammo')} folder="ranged" fallback={slotFallbacks.ammo} size="lg" bare={true} title="Ammo" /></div>
                         <!-- Row3:  MH/2H   Body    OH/empty -->
                         {#if isTwoHanded}
-                            <div class="equip-cell"><ActionIcon value={getWeaponValue('th')} folder={stylePrefix[uiState.activeTab]} fallback={getWeaponFallback('th')} size="lg" bare={true} title="2H" /></div>
+                            <div class="equip-cell"><ActionIcon value={twoHandValue} folder={stylePrefix[uiState.activeTab]} fallback={getWeaponFallback('th')} size="lg" bare={true} title="2H" /></div>
                             <div class="equip-cell"><ActionIcon value={getEquipValue('body')} folder={getEquipFolder('body')} fallback={slotFallbacks.body} size="lg" bare={true} title="Body" /></div>
                             <div></div>
                         {:else}

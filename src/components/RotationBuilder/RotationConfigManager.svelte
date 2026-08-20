@@ -1,7 +1,7 @@
 <script>
-    import { rotationStore, rotationActions } from '$lib/stores/rotationStore.svelte.js';
-    import { notificationStore, notifActions } from '$lib/stores/notificationStore.svelte.js';
-    import { uiStore, uiActions } from '$lib/stores/uiStore.svelte.js';
+    import { rotationStore, rotationActions } from '$lib/stores/rotationStore.svelte.ts';
+    import { notificationStore, notifActions } from '$lib/stores/notificationStore.svelte.ts';
+    import { uiStore, uiActions } from '$lib/stores/uiStore.svelte.ts';
     import { exportToPvme } from '$lib/utils/pvmeExport.js';
 
     let { refreshUI, onOpenKeybinds = () => {}, onShowKeypresses = () => {} } = $props();

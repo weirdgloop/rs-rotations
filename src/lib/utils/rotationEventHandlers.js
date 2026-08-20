@@ -1,10 +1,10 @@
 import { ToolMode } from '$lib/calc/rotation_builder/ui_material/toolModes';
 import { abils } from '$lib/data/abilities.ts';
 import { calculateTotalDamage, calculateGaussianParameters } from '$lib/calc/rotation_builder/rotation-damage-calculator';
-import { rotationStore, rotationActions } from '$lib/stores/rotationStore.svelte.js';
-import { uiStore, uiActions } from '$lib/stores/uiStore.svelte.js';
-import { settingsStore } from '$lib/stores/settingsStore.svelte.js';
-import { notifActions } from '$lib/stores/notificationStore.svelte.js';
+import { rotationStore, rotationActions } from '$lib/stores/rotationStore.svelte.ts';
+import { uiStore, uiActions } from '$lib/stores/uiStore.svelte.ts';
+import { settingsStore } from '$lib/stores/settingsStore.svelte.ts';
+import { notifActions } from '$lib/stores/notificationStore.svelte.ts';
 import { Logger, LogCategory } from './Logger';
 import { gearSwaps, allExtraActions } from '$lib/special/abilities';
 import { isExtraAction } from '$lib/calc/rotation_builder/extra-action';

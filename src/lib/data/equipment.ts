@@ -209,7 +209,7 @@ const ammoSettings = new Set(['ammo', 'melee ammo slot', 'ranged ammo slot', 'ma
 export function coerceEquipmentValue(value: unknown, settingKey?: string): EquipmentValue | unknown {
     if (value == null || value === '') return value;
     if (value === 'none') return 'none';
-    if (typeof value === 'number') return equipment[value] ? value : value;
+    if (typeof value === 'number') return value; //equipment[value] ? value : value; TODO why was this here?
     if (typeof value !== 'string') return value;
 
     const numeric = Number(value);

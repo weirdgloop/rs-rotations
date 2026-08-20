@@ -5,7 +5,7 @@
         getCoreRowModel,
         getSortedRowModel
     } from '@tanstack/svelte-table';
-    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.js';
+    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.ts';
     import PillToggle from '$components/UI/PillToggle.svelte';
     import AbilityOwnershipModal from './AbilityOwnershipModal.svelte';
 

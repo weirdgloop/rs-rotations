@@ -1001,35 +1001,18 @@ function calc_on_npc(settings, dmgObject) {
             dmgObject['damage list'][i] = Math.floor(dmgObject['damage list'][i] * 1.2);
         }*/
 
-        // undead slayer perk
-        if (settings[SETTINGS.SLAYER_PERK] === SETTINGS.SLAYER_PERK_VALUES.UNDEAD) {
+
+        // slayer perks
+        if (settings[SETTINGS.SLAYER_PERK_DEMON] || settings[SETTINGS.SLAYER_PERK_DRAGON] || settings[SETTINGS.SLAYER_PERK_UNDEAD]) {
             dmgObject['damage list'][i] = Math.floor(dmgObject['damage list'][i] * 1.07);
         }
 
-        // undead slayer sigil
-        if (settings[SETTINGS.SLAYER_SIGIL] === SETTINGS.SLAYER_SIGIL_VALUES.UNDEAD) {
+
+        // slayer abilities
+        if (settings[SETTINGS.UNDEAD_SLAYER_ABILITY] || settings[SETTINGS.DRAGON_SLAYER_ABILITY] || settings[SETTINGS.DEMON_SLAYER_ABILITY]) {
             dmgObject['damage list'][i] = Math.floor(dmgObject['damage list'][i] * 1.15);
         }
 
-        // dragon slayer perk
-        if (settings[SETTINGS.SLAYER_PERK] === SETTINGS.SLAYER_PERK_VALUES.DRAGON) {
-            dmgObject['damage list'][i] = Math.floor(dmgObject['damage list'][i] * 1.07);
-        }
-
-        // dragon slayer sigil
-        if (settings[SETTINGS.SLAYER_SIGIL] === SETTINGS.SLAYER_SIGIL_VALUES.DRAGON) {
-            dmgObject['damage list'][i] = Math.floor(dmgObject['damage list'][i] * 1.15);
-        }
-
-        // demon slayer perk
-        if (settings[SETTINGS.SLAYER_PERK] === SETTINGS.SLAYER_PERK_VALUES.DEMON) {
-            dmgObject['damage list'][i] = Math.floor(dmgObject['damage list'][i] * 1.07);
-        }
-
-        // demon slayer sigil
-        if (settings[SETTINGS.SLAYER_SIGIL] === SETTINGS.SLAYER_SIGIL_VALUES.DEMON) {
-            dmgObject['damage list'][i] = Math.floor(dmgObject['damage list'][i] * 1.15);
-        }
 
         // nopenopenope (pof spider buff)
         dmgObject['damage list'][i] = Math.floor(
@@ -1224,13 +1207,6 @@ function calc_damage_object(settings) {
     return get_user_value(settings, dmgObject);
 }
 
-function calc_bolg(settings) {
-    settings['ability'] = 'bolg proc';
-    // calc base bolg damage
-    let bolg_base = calc_damage_object(settings);
-    return bolg_base;
-}
-
 function calc_bloat(settings) {
     let bloat_dot = create_object(settings);
     for (let key in settings['bloat damage']) {
@@ -1266,13 +1242,6 @@ function calc_fsoa(settings) {
     settings['ability'] = 'time strike';
 
     return Math.floor(settings['fsoa damage']['crit']['probability'] * calc_damage_object(settings));
-}
-
-function calc_sgb(settings, dmg) {
-    const hits = [0, 1, 1.5, 2.33, 3.5, 5.0];
-    const size = Math.min(settings[SETTINGS.TARGET_SIZE], 5);
-
-    return Math.floor(dmg * (hits[size] - 1));
 }
 
 function add_split_soul(settings, dmgObject) {
@@ -1528,31 +1497,40 @@ function style_specific_unification(settings, style = null) {
         settings[SETTINGS.AMMO] = settings[SETTINGS.NECRO_AMMO_SLOT];
     }
 
-    const weaponModeByStyle = {
-        magic: SETTINGS.WEAPON_TYPE_MAGE,
-        ranged: SETTINGS.WEAPON_TYPE_RANGED,
-        melee: SETTINGS.WEAPON_TYPE_MELEE,
-        necromancy: SETTINGS.WEAPON_TYPE_NECRO,
-    };
-    const weaponKeysByStyle = {
-        magic: { mh: SETTINGS.MAGIC_MH, th: SETTINGS.MAGIC_TH },
-        ranged: { mh: SETTINGS.RANGED_MH, th: SETTINGS.RANGED_TH },
-        melee: { mh: SETTINGS.MELEE_MH, th: SETTINGS.MELEE_TH },
-        necromancy: { mh: SETTINGS.NECRO_MH, th: SETTINGS.NECRO_TH },
-    };
-    const styleWeaponKeys = weaponKeysByStyle[effectiveStyle];
-    const isEquipped = (value) => value != null && value !== 'none';
-    const isTwoHand = (value) => weapons[value]?.['weapon type'] === 'two-hand';
+    // Only used by the disabled block below — commented out together so they can be restored as a unit.
+    // const weaponModeByStyle = {
+    //     magic: SETTINGS.WEAPON_TYPE_MAGE,
+    //     ranged: SETTINGS.WEAPON_TYPE_RANGED,
+    //     melee: SETTINGS.WEAPON_TYPE_MELEE,
+    //     necromancy: SETTINGS.WEAPON_TYPE_NECRO,
+    // };
+    // const weaponKeysByStyle = {
+    //     magic: { mh: SETTINGS.MAGIC_MH, th: SETTINGS.MAGIC_TH },
+    //     ranged: { mh: SETTINGS.RANGED_MH, th: SETTINGS.RANGED_TH },
+    //     melee: { mh: SETTINGS.MELEE_MH, th: SETTINGS.MELEE_TH },
+    //     necromancy: { mh: SETTINGS.NECRO_MH, th: SETTINGS.NECRO_TH },
+    // };
+    // const styleWeaponKeys = weaponKeysByStyle[effectiveStyle];
+    // const isEquipped = (value) => value != null && value !== 'none';
+    // const isTwoHand = (value) => weapons[value]?.['weapon type'] === 'two-hand';
 
-    if (settings[weaponModeByStyle[effectiveStyle]] === SETTINGS.WEAPON_VALUES.TH && styleWeaponKeys) {
-        const styleMh = settings[styleWeaponKeys.mh];
-        const styleTh = settings[styleWeaponKeys.th];
-        const preferredTh = (isTwoHand(styleMh) && !isCustomEquipment(styleMh)) || !isEquipped(styleTh) ? styleMh : styleTh;
-        if (isEquipped(preferredTh)) {
-            settings[SETTINGS.TH] = preferredTh;
-            settings[SETTINGS.MH] = preferredTh;
-        }
-    }
+    // DISABLED: reconciled a separate two-hand dropdown that no longer exists. Since the
+    // wiki refactor, GearSelection writes only *_MH (one combined MH/2H picker) and nothing
+    // writes *_TH or WEAPON_TYPE_*. WEAPON_TYPE_MAGE therefore sat at its 'two-hand' default,
+    // so this always ran and overwrote the real main-hand with *_TH's stale default — every
+    // magic main-hand collapsed to 1000002 ('custom two-hand weapon'), which also broke the
+    // Song of Destruction check (needs MH=RoA and WEAPON=DW).
+    // The block below already derives the mode from the equipped MH, which is the UI's contract.
+    // TODO: delete once old saved configs carrying *_TH are migrated (copy *_TH -> *_MH).
+    // if (settings[weaponModeByStyle[effectiveStyle]] === SETTINGS.WEAPON_VALUES.TH && styleWeaponKeys) {
+    //     const styleMh = settings[styleWeaponKeys.mh];
+    //     const styleTh = settings[styleWeaponKeys.th];
+    //     const preferredTh = (isTwoHand(styleMh) && !isCustomEquipment(styleMh)) || !isEquipped(styleTh) ? styleMh : styleTh;
+    //     if (isEquipped(preferredTh)) {
+    //         settings[SETTINGS.TH] = preferredTh;
+    //         settings[SETTINGS.MH] = preferredTh;
+    //     }
+    // }
 
     // Derive weapon type from the equipped MH weapon
     const mhWeapon = weapons[settings[SETTINGS.MH]];

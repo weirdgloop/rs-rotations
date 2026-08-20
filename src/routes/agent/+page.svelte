@@ -6,8 +6,8 @@
     import Navbar from '$components/Layout/Navbar.svelte';
     import ActionIcon from '$components/UI/ActionIcon.svelte';
     import RotationSettings from '$components/Settings/RotationSettings.svelte';
-    import { settingsStore, initializeSettings } from '$lib/stores/settingsStore.svelte.js';
-    import { rotationStore } from '$lib/stores/rotationStore.svelte.js';
+    import { settingsStore, initializeSettings } from '$lib/stores/settingsStore.svelte.ts';
+    import { rotationStore } from '$lib/stores/rotationStore.svelte.ts';
 
     initializeSettings();
 

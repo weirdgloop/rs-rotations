@@ -15,6 +15,12 @@ export interface DamageModifierContext {
     abilityKey: ABILITIES;
 }
 
+function multiplyDamageList(list: number[], multiplier: number): void {
+    for (let i = 0; i < list.length; i++) {
+        list[i] = Math.floor(list[i] * multiplier);
+    }
+}
+
 // =============================================================================
 // Vulnerability & Debuff Effects
 // =============================================================================
@@ -24,110 +30,67 @@ export interface DamageModifierContext {
  */
 export function applyVulnerabilityEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    list: number[]
+): void {
     const { settings } = ctx;
 
+    let multiplier: number;
     if (settings[SETTINGS.VULN] === SETTINGS.VULN_VALUES.VULNERABILITY) {
-        return Math.floor(damage * 1.1);
+        multiplier = 1.1;
     } else if (settings[SETTINGS.VULN] === SETTINGS.VULN_VALUES.CURSE) {
-        return Math.floor(damage * 1.05);
+        multiplier = 1.05;
+    } else {
+        return;
     }
 
-    return damage;
+    multiplyDamageList(list, multiplier);
+    
 }
 
 // =============================================================================
-// Slayer Effects (Perks & Sigils)
+// Slayer Effects (Perks & Abilities)
 // =============================================================================
 
-/**
- * Apply undead slayer effects (perk + sigil)
- */
 export function applyUndeadSlayerEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    damageList: number[]
+): void {   
     const { settings } = ctx;
-
     if (settings[SETTINGS.SLAYER_PERK_UNDEAD] === true) {
-        damage = Math.floor(damage * 1.07);
+        multiplyDamageList(damageList, 1.07);
     }
-
     if (settings[SETTINGS.UNDEAD_SLAYER_ABILITY] === true) {
-        damage = Math.floor(damage * 1.15);
+        multiplyDamageList(damageList, 1.15);
     }
-
-    if (settings[SETTINGS.DEMON_SLAYER_ABILITY] === true) {
-        damage = Math.floor(damage * 1.15);
-    }
-
-
-    return damage;
+    return;
 }
 
-/**
- * Apply dragon slayer effects (perk + sigil)
- */
 export function applyDragonSlayerEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    damageList: number[]
+): void {
     const { settings } = ctx;
-
     if (settings[SETTINGS.SLAYER_PERK_DRAGON] === true) {
-        damage = Math.floor(damage * 1.07);
+        multiplyDamageList(damageList, 1.07);
     }
-
     if (settings[SETTINGS.DRAGON_SLAYER_ABILITY] === true) {
-        damage = Math.floor(damage * 1.15);
+        multiplyDamageList(damageList, 1.15);
     }
-
-    return damage;
+    return;
 }
 
-/**
- * Apply demon slayer effects (perk + sigil)
- */
 export function applyDemonSlayerEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    damageList: number[]
+): void {
     const { settings } = ctx;
-
-    if (settings[SETTINGS.SLAYER_PERK] === SETTINGS.SLAYER_PERK_VALUES.UNDEAD ) {
-        damage = Math.floor(damage * 1.07);
-    }
-
-    if (settings[SETTINGS.SLAYER_SIGIL] === SETTINGS.SLAYER_SIGIL_VALUES.UNDEAD) {
-        damage = Math.floor(damage * 1.15);
-    }
-
-    if (settings[SETTINGS.SLAYER_PERK] === SETTINGS.SLAYER_PERK_VALUES.DRAGON ) {
-        damage = Math.floor(damage * 1.07);
-    }
-
-    if (settings[SETTINGS.SLAYER_SIGIL] === SETTINGS.SLAYER_SIGIL_VALUES.DRAGON) {
-        damage = Math.floor(damage * 1.15);
-    }
-
-    if (settings[SETTINGS.SLAYER_PERK] === SETTINGS.SLAYER_PERK_VALUES.DEMON ) {
-        damage = Math.floor(damage * 1.07);
-    }
-
-    if (settings[SETTINGS.SLAYER_SIGIL] === SETTINGS.SLAYER_SIGIL_VALUES.DEMON) {
-        damage = Math.floor(damage * 1.15);
-    }
-    
     if (settings[SETTINGS.SLAYER_PERK_DEMON] === true) {
-        damage = Math.floor(damage * 1.07);
+        multiplyDamageList(damageList, 1.07);
     }
-
     if (settings[SETTINGS.DEMON_SLAYER_ABILITY] === true) {
-        damage = Math.floor(damage * 1.15);
+        multiplyDamageList(damageList, 1.15);
     }
-
-    return damage;
+    return;
 }
 
 /**
@@ -135,12 +98,12 @@ export function applyDemonSlayerEffect(
  */
 export function applyAllSlayerEffects(
     ctx: DamageModifierContext,
-    damage: number
-): number {
-    damage = applyUndeadSlayerEffect(ctx, damage);
-    damage = applyDragonSlayerEffect(ctx, damage);
-    damage = applyDemonSlayerEffect(ctx, damage);
-    return damage;
+    damageList: number[]
+): void {
+    applyUndeadSlayerEffect(ctx, damageList);
+    applyDragonSlayerEffect(ctx, damageList);
+    applyDemonSlayerEffect(ctx, damageList);
+    return;
 }
 
 // =============================================================================
@@ -152,22 +115,22 @@ export function applyAllSlayerEffects(
  */
 export function applyElementsScrimshawEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    damageList: number[]
+): void {
     const { settings, abilityKey } = ctx;
     const style = abils[abilityKey]?.mainStyle;
 
     if (style !== 'magic') {
-        return damage;
+        return;
     }
 
     if (settings[SETTINGS.POCKET] === ARMOUR.SCRIMSHAW_OF_ELEMENTS) {
-        return Math.floor(damage * 1.05);
+        multiplyDamageList(damageList, 1.05);
     } else if (settings[SETTINGS.POCKET] === ARMOUR.SUPERIOR_SCRIMSHAW_OF_ELEMENTS) {
-        return Math.floor(damage * 1.0666);
+        multiplyDamageList(damageList, 1.0666);
     }
 
-    return damage;
+    return;
 }
 
 /**
@@ -175,22 +138,22 @@ export function applyElementsScrimshawEffect(
  */
 export function applyCrueltyScrimshawEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    damageList: number[]
+): void {
     const { settings, abilityKey } = ctx;
     const style = abils[abilityKey]?.mainStyle;
 
     if (style !== 'ranged') {
-        return damage;
+        return;
     }
 
     if (settings[SETTINGS.POCKET] === ARMOUR.SCRIMSHAW_OF_CRUELTY) {
-        return Math.floor(damage * 1.05);
+        multiplyDamageList(damageList, 1.05);
     } else if (settings[SETTINGS.POCKET] === ARMOUR.SUPERIOR_SCRIMSHAW_OF_CRUELTY) {
-        return Math.floor(damage * 1.0666);
+        multiplyDamageList(damageList, 1.0666);
     }
 
-    return damage;
+    return;
 }
 
 // =============================================================================
@@ -209,20 +172,20 @@ export function countGhostHunterPieces(settings: Record<string, any>): number {
  */
 export function applyGhostHunterEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    damageList: number[]
+): void {
     const { settings } = ctx;
     const pieces = countGhostHunterPieces(settings);
 
     if (pieces === 1) {
-        return Math.floor(damage * 1.03);
+        multiplyDamageList(damageList, 1.03);
     } else if (pieces === 2) {
-        return Math.floor(damage * 1.06);
+        multiplyDamageList(damageList, 1.06);
     } else if (pieces >= 3) {
-        return Math.floor(damage * 1.1);
+        multiplyDamageList(damageList, 1.1);
     }
 
-    return damage;
+    return;
 }
 
 /**
@@ -230,15 +193,15 @@ export function applyGhostHunterEffect(
  */
 export function applyCryptbloomEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    damageList: number[]
+): void {
     const { settings } = ctx;
 
     if (settings[SETTINGS.CRYPTBLOOM] === true) {
-        return Math.floor(damage * 1.1);
+        multiplyDamageList(damageList, 1.1);
     }
 
-    return damage;
+    return;
 }
 
 // =============================================================================
@@ -250,15 +213,15 @@ export function applyCryptbloomEffect(
  */
 export function applySalamancyEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    damageList: number[]
+): void {
     const { settings } = ctx;
 
     if (settings[SETTINGS.NECKLACE] === ARMOUR.NECKLACE_OF_SALAMANCY) {
-        return Math.floor(damage * 1.1);
+        multiplyDamageList(damageList, 1.1);
     }
 
-    return damage;
+    return;
 }
 
 // =============================================================================
@@ -285,16 +248,17 @@ export function calculateHauntedBonus(
  */
 export function applyHauntedEffect(
     ctx: DamageModifierContext,
-    damage: number,
-    hauntedBonus: number
-): number {
+    damageList: number[],
+    hauntedBonuses: number[]
+): void {
     const { settings } = ctx;
 
     if (settings[SETTINGS.HAUNTED] === true) {
-        return damage + hauntedBonus;
+        for (let i = 0; i < damageList.length; i++) {
+            damageList[i] = damageList[i] + hauntedBonuses[i];
+        }
     }
-
-    return damage;
+    return;
 }
 
 /**
@@ -302,15 +266,15 @@ export function applyHauntedEffect(
  */
 export function applyWildernessPuzzleboxEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    damageList: number[]
+): void {
     const { settings } = ctx;
 
     if (settings['wilderness puzzlebox'] > 1) {
-        return Math.floor(damage * (1 + 0.03 + settings['wilderness puzzlebox']));
+        multiplyDamageList(damageList, 1 + 0.03 + settings['wilderness puzzlebox']);
     }
 
-    return damage;
+    return;
 }
 
 /**
@@ -318,8 +282,8 @@ export function applyWildernessPuzzleboxEffect(
  */
 export function applyNopeEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    damageList: number[]
+): void {
     const { settings } = ctx;
     let boost = 0;
     if (settings[SETTINGS.NOPE] == 1) {
@@ -328,8 +292,8 @@ export function applyNopeEffect(
     else if (settings[SETTINGS.NOPE] == 2) {
         boost = 0.03
     }
-
-    return Math.floor(damage * (1 + boost));
+    multiplyDamageList(damageList, 1 + boost);
+    return;
 }
 
 /**
@@ -337,15 +301,15 @@ export function applyNopeEffect(
  */
 export function applyVanquishEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    damageList: number[]
+): void {
     const { settings } = ctx;
 
     if (settings['two-hand weapon'] === 'vanquish') {
-        return Math.floor(damage * (1 + 0.05 * settings['quest deaths']));
+        multiplyDamageList(damageList, 1 + 0.05 * settings['quest deaths']);
     }
 
-    return damage;
+    return;
 }
 
 /**
@@ -353,8 +317,8 @@ export function applyVanquishEffect(
  */
 export function applyEssenceCorruptionEffect(
     ctx: DamageModifierContext,
-    damage: number
-): number {
+    damageList: number[]
+): void {
     const { settings, abilityKey } = ctx;
     const damageType = abils[abilityKey]?.damageType;
 
@@ -362,37 +326,45 @@ export function applyEssenceCorruptionEffect(
         damageType === 'magic' &&
         settings[SETTINGS.ESSENCE_CORRUPTION] >= 25
     ) {
-        return damage + settings[SETTINGS.MAGIC_LEVEL] + settings[SETTINGS.ESSENCE_CORRUPTION];
+        let bonus = settings[SETTINGS.MAGIC_LEVEL] + settings[SETTINGS.ESSENCE_CORRUPTION];
+        for (let i = 0; i < damageList.length; i++) {
+            damageList[i] = damageList[i] + bonus;
+        }
     }
 
-    return damage;
+    return;
 }
 
 /**
  * Apply Enduring Ruin bleed bonus (Gloves of Passage effect)
  * +20% (regular) or +25% (enchanted) to bleed abilities
  */
-function applyEnduringRuinBleedEffect(ctx: DamageModifierContext, damage: number): number {
+function applyEnduringRuinBleedEffect(ctx: DamageModifierContext, damageList: number[]): void {
     const classification = abils[ctx.abilityKey]?.abilityClassification;
-    if (classification !== 'bleed') return damage;
+    if (classification !== 'bleed') return
 
     if (ctx.settings[SETTINGS.ENDURING_RUIN_BLEED] === SETTINGS.ENDURING_RUIN_BLEED_VALUES.REGULAR) {
-        return Math.floor(damage * 1.2);
+        multiplyDamageList(damageList, 1.2);
     }
     if (ctx.settings[SETTINGS.ENDURING_RUIN_BLEED] === SETTINGS.ENDURING_RUIN_BLEED_VALUES.ENCHANTED) {
-        return Math.floor(damage * 1.25);
+        multiplyDamageList(damageList, 1.25);
     }
-    return damage;
+    return;
 }
 
 /**
- * Apply hit cap (30000 max damage)
+ * Apply hit cap (30000 max damage) when the hitcap setting is enabled
  */
-export function applyHitCap(ctx, damage: number): number {
-    if (ctx.settings[SETTINGS.HITCAP] === true) {
-        return Math.min(damage, 30000);
+export function applyHitCap(ctx: DamageModifierContext, damageList: number[]): void {
+    if (ctx.settings[SETTINGS.HITCAP] !== true) {
+        return;
     }
-    return damage
+    if (damageList[damageList.length - 1] < 30000) {
+        return; // return early if max value is <30k
+    }
+    for (let i = 0; i < damageList.length; i++) {
+        damageList[i] = Math.min(damageList[i], 30000);
+    }
 }
 
 // =============================================================================
@@ -405,74 +377,85 @@ export function applyHitCap(ctx, damage: number): number {
  */
 export function applyAllDamageModifiers(
     ctx: DamageModifierContext,
-    damage: number
-): number {
-    // Calculate haunted bonus before other modifiers (based on pre-modified damage)
-    const hauntedBonus = calculateHauntedBonus(ctx, damage);
+    distribution: DamageDistribution
+): DamageDistribution {
+    const dmgList: number[] = distribution['damage list'];
+
+    // Haunted reads pre-modifier damage, so the bonuses must be captured before any
+    // pass below mutates the list. Skipped entirely when haunted is off, since
+    // applyHauntedEffect ignores the bonus in that case.
+    const hauntedBonuses: number[] | null =
+        ctx.settings[SETTINGS.HAUNTED] === true
+            ? dmgList.map((damage) => calculateHauntedBonus(ctx, damage))
+            : null;
 
     // Vulnerability/curse
-    damage = applyVulnerabilityEffect(ctx, damage);
+    applyVulnerabilityEffect(ctx, dmgList);
 
     // Enduring Ruin bleed bonus (Gloves of Passage)
-    damage = applyEnduringRuinBleedEffect(ctx, damage);
+    applyEnduringRuinBleedEffect(ctx, dmgList);
 
     // Wilderness puzzlebox
-    damage = applyWildernessPuzzleboxEffect(ctx, damage);
+    applyWildernessPuzzleboxEffect(ctx, dmgList);
 
     // Cryptbloom
-    damage = applyCryptbloomEffect(ctx, damage);
+    applyCryptbloomEffect(ctx, dmgList);
 
     // Slayer effects
-    damage = applyAllSlayerEffects(ctx, damage);
+    applyAllSlayerEffects(ctx, dmgList);
 
     // Nope (spider buff)
-    damage = applyNopeEffect(ctx, damage);
+    applyNopeEffect(ctx, dmgList);
 
-    // Ghost hunter
-    damage = applyGhostHunterEffect(ctx, damage);
+     // Ghost hunter
+    applyGhostHunterEffect(ctx, dmgList);
 
-    // Vanquish
-    damage = applyVanquishEffect(ctx, damage);
+     // Vanquish
+    applyVanquishEffect(ctx, dmgList);
 
     // Scrimshaws
-    damage = applyElementsScrimshawEffect(ctx, damage);
-    damage = applyCrueltyScrimshawEffect(ctx, damage);
-
+    applyElementsScrimshawEffect(ctx, dmgList);
+    applyCrueltyScrimshawEffect(ctx, dmgList);
+    
     // Haunted (flat addition)
-    damage = applyHauntedEffect(ctx, damage, hauntedBonus);
+    applyHauntedEffect(ctx, dmgList, hauntedBonuses);
 
-    // Essence corruption (flat addition)
-    damage = applyEssenceCorruptionEffect(ctx, damage);
-    
+    // Essence corruption (flat addition) 
+    applyEssenceCorruptionEffect(ctx, dmgList);
+
+    // Leagues 2 — Big Boned (flat addition from max LP)
     if (ctx.settings[SETTINGS.LEAGUES_TWO_TOGGLE] === true && ctx.settings[SETTINGS.LEAGUES_TWO_BIG_BONED] === true) {
-        damage += Math.floor(0.05 * ctx.settings[SETTINGS.MAX_LIFE_POINTS]);
+        const bonus = Math.floor(0.05 * ctx.settings[SETTINGS.MAX_LIFE_POINTS]);
+        for (let i = 0; i < dmgList.length; i++) {
+            dmgList[i] += bonus;
+        }
     }
-    
+
     // Tokkul-zo ring (+10%)
     if (ctx.settings[SETTINGS.RING] === ARMOUR.TOKKUL_ZO) {
-        damage = Math.floor(damage * 1.1);
+        multiplyDamageList(dmgList, 1.1);
     }
 
     // Necklace of salamancy
-    damage = applySalamancyEffect(ctx, damage);
+    applySalamancyEffect(ctx, dmgList);
 
     // Balance of Power (Zamorak, +6% per rank)
     if (ctx.settings[SETTINGS.BALANCE_OF_POWER] > 0) {
-        damage = Math.floor(damage * (1 + 0.06 * ctx.settings[SETTINGS.BALANCE_OF_POWER]));
+        multiplyDamageList(dmgList, 1 + 0.06 * ctx.settings[SETTINGS.BALANCE_OF_POWER]);
     }
 
     // Telos red beam (+30%)
     if (ctx.settings[SETTINGS.TELOS_RED_BEAM] === true) {
-        damage = Math.floor(damage * 1.3);
+        multiplyDamageList(dmgList, 1.3);
     }
 
     // Telos black beam (-30%)
     if (ctx.settings[SETTINGS.TELOS_BLACK_BEAM] === true) {
-        damage = Math.floor(damage * 0.7);
+        multiplyDamageList(dmgList, 0.7);
     }
 
     // Hit cap (must be last)
-    damage = applyHitCap(ctx, damage);
+    applyHitCap(ctx, dmgList);
 
-    return damage;
+    return distribution;
 }

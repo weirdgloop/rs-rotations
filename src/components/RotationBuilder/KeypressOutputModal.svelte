@@ -1,6 +1,6 @@
 <script>
-    import { keybindStore, keybindActions } from '$lib/stores/keybindStore.svelte.js';
-    import { rotationStore } from '$lib/stores/rotationStore.svelte.js';
+    import { keybindStore, keybindActions } from '$lib/stores/keybindStore.svelte.ts';
+    import { rotationStore } from '$lib/stores/rotationStore.svelte.ts';
     import { allExtraActions } from '$lib/special/abilities';
     import { abils } from '$lib/data/abilities';
     import { armour } from '$lib/data/armour';
@@ -323,7 +323,7 @@
                                         {:else if bound && bound.length > 0}
                                             <div class="kb-icons">
                                                 {#each bound.slice(0, 2) as b}
-                                                    <img src={b.icon} alt={b.title} class="kb-abil-icon" />
+                                                    <img src={b.icon} alt={b.title} class="kb-abil-icon ability-icon" />
                                                 {/each}
                                                 {#if bound.length > 2}
                                                     <span class="kb-overflow">+{bound.length - 2}</span>

@@ -4,10 +4,10 @@
     import { getItemsForSlot } from '$lib/calc/rotation_builder/gear-registry';
     import { GearSlots } from '$lib/calc/rotation_builder/gear';
     import { offGcdAbilities, prayers, spells, consumables } from '$lib/special/abilities';
-    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.js';
+    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.ts';
     import { PERKABLE_SLOTS, formatPerkAbbrev } from '$lib/data/perks';
     import ActionIcon from '$components/UI/ActionIcon.svelte';
-    import { settingsStore } from '$lib/stores/settingsStore.svelte.js';
+    import { settingsStore } from '$lib/stores/settingsStore.svelte.ts';
 
     export let handleAbilityClick;
     export let handleDragStart;

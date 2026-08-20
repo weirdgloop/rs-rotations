@@ -1,6 +1,6 @@
 <script>
     import { abils } from '$lib/data/abilities';
-    import { ownedItemsStore, ownedItemsActions } from '$lib/stores/ownedItemsStore.svelte.js';
+    import { ownedItemsStore, ownedItemsActions } from '$lib/stores/ownedItemsStore.svelte.ts';
     import { getAbilityType } from '$lib/types/AbilityTypes';
 
     let { show = $bindable(false), style = 'magic' } = $props();

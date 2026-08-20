@@ -17,16 +17,18 @@
     import KeypressOutputModal from '../../components/RotationBuilder/KeypressOutputModal.svelte';
     import { allExtraActions } from '$lib/special/abilities';
     import * as eventHandlers from '$lib/utils/rotationEventHandlers';
-    import { uiStore, uiActions } from '$lib/stores/uiStore.svelte.js';
-    import { notificationStore, notifActions } from '$lib/stores/notificationStore.svelte.js';
-    import { rotationStore } from '$lib/stores/rotationStore.svelte.js';
-    import { settingsStore } from '$lib/stores/settingsStore.svelte.js';
+    import { uiStore, uiActions } from '$lib/stores/uiStore.svelte.ts';
+    import { notificationStore, notifActions } from '$lib/stores/notificationStore.svelte.ts';
+    import { rotationStore } from '$lib/stores/rotationStore.svelte.ts';
+    import { settingsStore } from '$lib/stores/settingsStore.svelte.ts';
     import { getBossPresetWithEnrage, type BossAttack, type BossAttackPattern } from '$lib/data/bosses/boss_presets';
     import { suggestNextAbility, resolveTumekensAsphyxiate, type AbilitySuggestion } from '$lib/calc/rotation_builder/rotation-damage-calculator';
+    import type { CombatStyle } from '$lib/types/AbilityTypes';
 
-    const filterByStyle = (style) => Object.fromEntries(
+    const filterByStyle = (style: CombatStyle) => Object.fromEntries(
         Object.entries(abils).filter(([, a]) => a.title && a.mainStyle === style)
     );
+
     const rangedAbils = filterByStyle('ranged');
     const magicAbils = filterByStyle('magic');
     const meleeAbils = filterByStyle('melee');
@@ -577,7 +579,7 @@
 <Header img="/rs-rot/range_background.png" text="Rotation Calculator Beta" icon="/rs-rot/style_icons/rota_icon.svg" />
 
 <div class="space-y-14 mt-10 z-20">
-	<div class="responsive-container {uiStore.activeTool.toLowerCase()}-cursor {uiStore.stallingAbility ? 'stalling' : ''}"
+	<div class="wide-container {uiStore.activeTool.toLowerCase()}-cursor {uiStore.stallingAbility ? 'stalling' : ''}"
 		tabindex="-1"
 		role="button"
 		onkeydown={handleKeypress}
@@ -694,6 +696,7 @@
                                 {#if ability && allAbils[ability]}
                                     <img src={allAbils[ability].icon}
                                         alt={allAbils[ability].title}
+                                        class="ability-icon"
                                         style="width: 100%; height: 100%;"
                                         title="{allAbils[ability].title}{invalidTicks[index] ? ` (${invalidTicks[index]})` : ''}"
                                         draggable="true"
@@ -710,7 +713,7 @@
                                 {/if}
                                 {#if rotationStore.stalledAbilities[index] && allAbils[rotationStore.stalledAbilities[index]]}
                                     <img
-                                        class="stalled-ability"
+                                        class="stalled-ability ability-icon"
                                         src={allAbils[rotationStore.stalledAbilities[index]].icon}
                                         alt="Stalled ability"
                                         title="Stalled: {allAbils[rotationStore.stalledAbilities[index]].title}"
@@ -723,7 +726,7 @@
                                             {@const abilInfo = allExtraActions[readyAbilKey] || allAbils[readyAbilKey]}
                                             {#if abilInfo?.icon}
                                                 <img
-                                                    class="cooldown-ready-icon"
+                                                    class="cooldown-ready-icon ability-icon"
                                                     src={abilInfo.icon}
                                                     alt="Off cooldown"
                                                     title="{abilInfo.title} ready"
@@ -1003,7 +1006,7 @@
 						title="{suggestion.title}: +{suggestion.damage.toLocaleString()} damage"
 						onclick={(e) => handleAbilityClick(e, suggestion.key)}
 					>
-						<img src={suggestion.icon} alt={suggestion.title} class="suggestion-icon" />
+						<img src={suggestion.icon} alt={suggestion.title} class="suggestion-icon ability-icon" />
 						<span class="suggestion-dmg">+{suggestion.damage >= 1000 ? Math.round(suggestion.damage / 1000) + 'K' : suggestion.damage}</span>
 					</button>
 				{/each}
@@ -1020,6 +1023,16 @@
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 0.5rem;
+
+        /* Pinned so the damage total stays visible deep in a long rotation.
+           The negative margins bleed the background across the card's 1rem
+           padding, otherwise content scrolling past shows through at the edges. */
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        background: #171d21;
+        margin: -1rem -1rem 0;
+        padding: 1rem 1rem 0.5rem;
     }
 
     .rotation-header {
@@ -1530,6 +1543,14 @@
         top: 1rem;
         max-height: calc(100vh - 2rem);
         overflow-y: auto;
+
+        /* position:sticky creates a stacking context even at z-index:auto, which traps
+           modals rendered inside this column (GearManager is z-1100, but that only
+           applies *within* here). Without a z-index this column competes at level 0 and
+           anything positive elsewhere on the page paints over those modals — the pinned
+           title row (30) and the floating suggestions bar (50). Keep this above both.
+           Proper fix: portal modals to <body> so they don't live under a sticky parent. */
+        z-index: 60;
     }
 
     .card-rotation {

@@ -19,10 +19,10 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
     import PillToggle from '../UI/PillToggle.svelte';
     import { SETTINGS } from '$lib/calc/settings_rb';
     import { SettingsCombatStyles } from '$lib/calc/rotation_builder/types/SettingsCombatStyles.ts';
-    import { settingsStore, settingsActions, initializeSettings } from '$lib/stores/settingsStore.svelte.js';
+    import { settingsStore, settingsActions, initializeSettings } from '$lib/stores/settingsStore.svelte.ts';
     import { bossPresets, getBossPresetWithEnrage } from '$lib/data/bosses/boss_presets';
     import { familiars, calculateFamiliarHitChance } from '$lib/data/familiars';
-    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.js';
+    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.ts';
     import { getStyleColor } from '$lib/utils/colors';
     import { perks as perkDefs, formatPerkAbbrev } from '$lib/data/perks';
     import { STYLE_COLORS } from '$lib/utils/colors';
@@ -529,6 +529,14 @@ import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
                                 const idx = levels.indexOf(v);
                                 return idx >= 0 ? '+'.repeat(idx) || '0' : null;
                             }}
+                            borderColor={activeStyleColor}
+                            onchange={updateDamages}
+                        />
+                        <ToggleButton
+                            bind:setting={settings[SETTINGS.KWUARM_INCENSE]}
+                            img="/rs-rot/effect_icons/Kwuarm_incense_sticks.png"
+                            title="Kwuarm Incense (click to cycle)"
+                            cycle={[SETTINGS.INCENSE_VALUES.NONE, SETTINGS.INCENSE_VALUES.LVL1, SETTINGS.INCENSE_VALUES.LVL2, SETTINGS.INCENSE_VALUES.LVL3, SETTINGS.INCENSE_VALUES.LVL4]}
                             borderColor={activeStyleColor}
                             onchange={updateDamages}
                         />

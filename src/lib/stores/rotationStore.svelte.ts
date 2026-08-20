@@ -1,5 +1,5 @@
 import { createBuffTimings, createStackTimings } from '$lib/calc/rotation_builder/rotation_consts.ts';
-import { settingsStore } from '$lib/stores/settingsStore.svelte.js';
+import { settingsStore } from '$lib/stores/settingsStore.svelte.ts';
 import { normalizeLegacy } from '$lib/calc/rotation_builder/extra-action';
 import { gearSwaps, allExtraActions } from '$lib/special/abilities';
 import { migrateEquipmentSettings } from '$lib/data/equipment';
@@ -10,24 +10,98 @@ const MAX_SAVED_CONFIGS = 20;
 const BAR_SIZE = 300;
 const EXTRA_BAR_SIZE = 12;
 
+type AbilitySlot = string | null;
+type ExtraActionRow = AbilitySlot[] | null;
+
+export type RotationData = {
+    a: string[];
+    e: string[][];
+    n: boolean[];
+    t: string[];
+    s: Record<string, unknown>;
+};
+
+export type SavedRotation = {
+    id: string;
+    name: string;
+    timestamp: number;
+    data: RotationData;
+};
+
+export type DistributionStat = {
+    tick: number;
+    likelihood: number;
+    minDamage: number;
+    maxDamage: number;
+    ability: string;
+    distributionType: 'crit' | 'non_crit' | 'combined';
+    source?: 'familiar' | 'dreadnip' | 'conjure' | 'poison' | 'perk';
+    critProbability?: number;
+    critMean?: number;
+    critVariance?: number;
+    critMin?: number;
+    critMax?: number;
+    nonCritProbability?: number;
+    nonCritMean?: number;
+    nonCritVariance?: number;
+    nonCritMin?: number;
+    nonCritMax?: number;
+};
+
+export type PhaseTransition = {
+    tick: number;
+    phaseIdx: number;
+    label: string;
+    hp: number;
+    pause: number;
+};
+
+export type TickMeta = {
+    resolvedAbility: string;
+    duration: number;
+};
+
+type MessageCallback = (message: string) => void;
+type StorageResult = { success: true } | { success: false; error: string };
+
+type DamageCalcResult = {
+    regularDamage: number;
+    poisonDamage: number;
+    familiarDamage: number;
+    dreadnipDamage?: number;
+    conjureDamage?: number;
+    distributionStats: DistributionStat[];
+    poisonPerTick?: number[];
+    familiarPerTick?: number[];
+    familiarVariancePerTick?: number[];
+    dreadnipPerTick?: number[];
+    dreadnipVariancePerTick?: number[];
+    conjurePerTick?: number[];
+    conjureVariancePerTick?: number[];
+    phaseTransitions?: PhaseTransition[];
+    tickMetadata?: Record<number, TickMeta>;
+};
+
+type BarKey = 'abilityBar' | 'extraActionBar' | 'nulledTicks' | 'stalledAbilities';
+
 // Rotation store
 export const rotationStore = $state({
     // Saved rotations
-    savedRotations: [],
-    activeRotationId: null, // ID of the currently loaded rotation
+    savedRotations: [] as SavedRotation[],
+    activeRotationId: null as string | null,
 
     // Current rotation data
-    abilityBar: Array(BAR_SIZE).fill(null),
-    extraActionBar: Array(BAR_SIZE).fill(null),
-    nulledTicks: Array(BAR_SIZE).fill(false),
-    stalledAbilities: Array(BAR_SIZE).fill(null),
+    abilityBar: Array(BAR_SIZE).fill(null) as AbilitySlot[],
+    extraActionBar: Array(BAR_SIZE).fill(null) as ExtraActionRow[],
+    nulledTicks: Array(BAR_SIZE).fill(false) as boolean[],
+    stalledAbilities: Array(BAR_SIZE).fill(null) as AbilitySlot[],
 
     // Buffs and stacks
     buffs: createBuffTimings(BAR_SIZE),
     stacks: createStackTimings(BAR_SIZE),
 
     // Cooldown tracking - array of (string[] | null) per tick
-    cooldownReady: Array(BAR_SIZE).fill(null),
+    cooldownReady: Array(BAR_SIZE).fill(null) as (string[] | null)[],
 
     // Damage calculations
     totalDamage: 0,
@@ -35,20 +109,20 @@ export const rotationStore = $state({
     familiarDamage: 0,
     dreadnipDamage: 0,
     conjureDamage: 0,
-    distributionStats: [],
-    poisonPerTick: [],
-    familiarPerTick: [],
-    familiarVariancePerTick: [],
-    dreadnipPerTick: [],
-    dreadnipVariancePerTick: [],
-    conjurePerTick: [],
-    conjureVariancePerTick: [],
-    phaseTransitions: [],
-    tickMetadata: {}
+    distributionStats: [] as DistributionStat[],
+    poisonPerTick: [] as number[],
+    familiarPerTick: [] as number[],
+    familiarVariancePerTick: [] as number[],
+    dreadnipPerTick: [] as number[],
+    dreadnipVariancePerTick: [] as number[],
+    conjurePerTick: [] as number[],
+    conjureVariancePerTick: [] as number[],
+    phaseTransitions: [] as PhaseTransition[],
+    tickMetadata: {} as Record<number, TickMeta>
 });
 
 // Helper: snapshot current settings values as a plain object
-function getSettingsSnapshot() {
+function getSettingsSnapshot(): Record<string, unknown> {
     if (!settingsStore.initialized) return {};
     return Object.fromEntries(
         Object.entries(settingsStore.settings).map(([key, setting]) => [key, setting.value])
@@ -56,7 +130,7 @@ function getSettingsSnapshot() {
 }
 
 // Helper: restore settings values from a snapshot
-function restoreSettings(snapshot) {
+function restoreSettings(snapshot: Record<string, unknown> | null | undefined) {
     if (!snapshot || !settingsStore.initialized) return;
     migrateEquipmentSettings(snapshot);
     for (const [key, value] of Object.entries(snapshot)) {
@@ -77,7 +151,7 @@ export const rotationActions = {
         try {
             const stored = localStorage.getItem(STORAGE_KEY);
             if (stored) {
-                rotationStore.savedRotations = JSON.parse(stored);
+                rotationStore.savedRotations = JSON.parse(stored) as SavedRotation[];
             }
         } catch (e) {
             console.error('Failed to load saved rotations:', e);
@@ -86,7 +160,7 @@ export const rotationActions = {
     },
 
     // Save rotations to localStorage
-    saveRotationsToStorage() {
+    saveRotationsToStorage(): StorageResult {
         if (typeof localStorage === 'undefined') {
             return { success: true };
         }
@@ -100,7 +174,7 @@ export const rotationActions = {
     },
 
     // Get current rotation data for export (includes settings)
-    getCurrentRotationData() {
+    getCurrentRotationData(): RotationData {
         return {
             a: rotationStore.abilityBar.map(a => a || ''),
             e: rotationStore.extraActionBar.map(row => row ? row.map(a => a || '') : []),
@@ -111,7 +185,7 @@ export const rotationActions = {
     },
 
     // Save a new rotation
-    saveRotation(name, onSuccess, onError) {
+    saveRotation(name: string, onSuccess: MessageCallback, onError: MessageCallback) {
         if (!name.trim()) {
             onError('Please enter a name for your rotation.');
             return;
@@ -119,7 +193,7 @@ export const rotationActions = {
 
         const existingIndex = rotationStore.savedRotations.findIndex(config => config.name === name.trim());
 
-        const newConfig = {
+        const newConfig: SavedRotation = {
             id: existingIndex >= 0 ? rotationStore.savedRotations[existingIndex].id : crypto.randomUUID(),
             name: name.trim(),
             timestamp: Date.now(),
@@ -128,7 +202,7 @@ export const rotationActions = {
 
         if (existingIndex >= 0) {
             // Return overwrite confirmation needed
-            return { needsConfirmation: true, config: newConfig, existingIndex };
+            return { needsConfirmation: true as const, config: newConfig, existingIndex };
         } else {
             // Add new config
             if (rotationStore.savedRotations.length >= MAX_SAVED_CONFIGS) {
@@ -143,12 +217,17 @@ export const rotationActions = {
             } else {
                 onError(saveResult.error);
             }
-            return { success: true };
+            return { success: true as const };
         }
     },
 
     // Overwrite existing rotation
-    overwriteRotation(config, existingIndex, onSuccess, onError) {
+    overwriteRotation(
+        config: SavedRotation,
+        existingIndex: number,
+        onSuccess: MessageCallback,
+        onError: MessageCallback
+    ) {
         rotationStore.savedRotations[existingIndex] = config;
 
         const saveResult = this.saveRotationsToStorage();
@@ -161,7 +240,7 @@ export const rotationActions = {
     },
 
     // Build a config object from the current rotation state (for updating existing saves)
-    buildCurrentConfig(name, existingId) {
+    buildCurrentConfig(name: string, existingId?: string | null): SavedRotation {
         return {
             id: existingId || crypto.randomUUID(),
             name: name,
@@ -171,7 +250,12 @@ export const rotationActions = {
     },
 
     // Load a rotation
-    async loadRotation(configId, onSuccess, onError, refreshUICallback) {
+    async loadRotation(
+        configId: string,
+        onSuccess: MessageCallback,
+        onError: MessageCallback,
+        refreshUICallback?: () => void
+    ) {
         const config = rotationStore.savedRotations.find(c => c.id === configId);
         if (!config) {
             onError('Rotation not found.');
@@ -180,7 +264,9 @@ export const rotationActions = {
 
         try {
             rotationStore.abilityBar = config.data.a.map(a => a || null);
-            rotationStore.extraActionBar = config.data.e.map(row => row.map(a => a ? (normalizeLegacy(a, gearSwaps, allExtraActions) || a) : null));
+            rotationStore.extraActionBar = config.data.e.map(row =>
+                row.map(a => (a ? (normalizeLegacy(a, gearSwaps, allExtraActions) || a) : null))
+            );
             rotationStore.nulledTicks = config.data.n;
             rotationStore.stalledAbilities = config.data.t.map(a => a || null);
 
@@ -207,7 +293,7 @@ export const rotationActions = {
     },
 
     // Delete a rotation
-    deleteRotation(configId, onSuccess, onError) {
+    deleteRotation(configId: string, onSuccess: MessageCallback, onError: MessageCallback) {
         const config = rotationStore.savedRotations.find(c => c.id === configId);
         if (!config) {
             onError('Rotation not found.');
@@ -225,7 +311,7 @@ export const rotationActions = {
     },
 
     // Clear all saved configurations
-    clearAllSavedConfigs(onSuccess, onError) {
+    clearAllSavedConfigs(onSuccess: MessageCallback, onError: MessageCallback) {
         rotationStore.savedRotations = [];
 
         const saveResult = this.saveRotationsToStorage();
@@ -252,40 +338,64 @@ export const rotationActions = {
         }
 
         // Reset buffs
-        for (let key in rotationStore.buffs) {
-            if (Object.hasOwnProperty.call(rotationStore.buffs, key)) {
-                rotationStore.buffs[key].buffTicks = Array(BAR_SIZE).fill(0);
-                rotationStore.buffs[key].activeRows = [];
-                rotationStore.buffs[key].idx = -1;
-            }
+        for (const key of Object.keys(rotationStore.buffs) as (keyof typeof rotationStore.buffs)[]) {
+            rotationStore.buffs[key].buffTicks = Array(BAR_SIZE).fill(0);
+            rotationStore.buffs[key].activeRows = [];
+            rotationStore.buffs[key].idx = -1;
         }
     },
 
-    insertTicks(pos, count) {
-        const fills = { abilityBar: null, extraActionBar: null, nulledTicks: false, stalledAbilities: null };
-        for (const [key, fill] of Object.entries(fills)) {
-            const arr = rotationStore[key];
-            rotationStore[key] = [...arr.slice(0, pos), ...Array(count).fill(fill), ...arr.slice(pos)].slice(0, BAR_SIZE);
+    insertTicks(pos: number, count: number) {
+        const fills: Record<BarKey, AbilitySlot | ExtraActionRow | boolean> = {
+            abilityBar: null,
+            extraActionBar: null,
+            nulledTicks: false,
+            stalledAbilities: null
+        };
+        for (const key of Object.keys(fills) as BarKey[]) {
+            const fill = fills[key];
+            const arr = rotationStore[key] as unknown[];
+            (rotationStore as Record<BarKey, unknown>)[key] = [
+                ...arr.slice(0, pos),
+                ...Array(count).fill(fill),
+                ...arr.slice(pos)
+            ].slice(0, BAR_SIZE);
         }
     },
 
-    removeTicks(pos, count) {
-        const fills = { abilityBar: null, extraActionBar: null, nulledTicks: false, stalledAbilities: null };
-        for (const [key, fill] of Object.entries(fills)) {
-            const arr = rotationStore[key];
+    removeTicks(pos: number, count: number) {
+        const fills: Record<BarKey, AbilitySlot | ExtraActionRow | boolean> = {
+            abilityBar: null,
+            extraActionBar: null,
+            nulledTicks: false,
+            stalledAbilities: null
+        };
+        for (const key of Object.keys(fills) as BarKey[]) {
+            const fill = fills[key];
+            const arr = rotationStore[key] as unknown[];
             const removed = [...arr.slice(0, pos), ...arr.slice(pos + count)];
-            rotationStore[key] = [...removed, ...Array(BAR_SIZE - removed.length).fill(fill)];
+            (rotationStore as Record<BarKey, unknown>)[key] = [
+                ...removed,
+                ...Array(BAR_SIZE - removed.length).fill(fill)
+            ];
         }
     },
 
     // Import rotation from data
-    async importRotation(data, onSuccess, onError, refreshUICallback) {
+    async importRotation(
+        data: { data?: RotationData } | RotationData,
+        onSuccess: MessageCallback,
+        onError: MessageCallback,
+        refreshUICallback?: () => void
+    ) {
         try {
             // Handle both old format (just data) and new format (with metadata)
-            const rotationData = data.data || data;
+            const rotationData = ('data' in data && data.data) ? data.data : data as RotationData;
 
             rotationStore.abilityBar = rotationData.a.map(a => a || null);
-            rotationStore.extraActionBar = rotationData.e.map(row => row.map(a => a ? (normalizeLegacy(a, gearSwaps, allExtraActions) || a) : null));
+            rotationStore.extraActionBar = rotationData.e.map(row =>
+                row.map(a => (a ? (normalizeLegacy(a, gearSwaps, allExtraActions) || a) : null))
+            );
             rotationStore.nulledTicks = rotationData.n;
             rotationStore.stalledAbilities = rotationData.t.map(a => a || null);
 
@@ -310,7 +420,7 @@ export const rotationActions = {
     },
 
     // Export rotation to a JSON file download
-    exportToFile(name, onSuccess, onError) {
+    exportToFile(name: string, onSuccess: MessageCallback, onError: MessageCallback) {
         try {
             const exportData = {
                 name: name.trim(),
@@ -331,12 +441,12 @@ export const rotationActions = {
     },
 
     // Import rotation from a JSON file
-    importFromFile(onSuccess, onError, refreshUICallback) {
+    importFromFile(onSuccess: MessageCallback, onError: MessageCallback, refreshUICallback?: () => void) {
         const input = document.createElement('input');
         input.type = 'file';
         input.accept = '.json';
         input.onchange = async (e) => {
-            const file = e.target.files?.[0];
+            const file = (e.target as HTMLInputElement).files?.[0];
             if (!file) return;
             try {
                 const text = await file.text();
@@ -350,7 +460,7 @@ export const rotationActions = {
     },
 
     // Export rotation as a base64 string to clipboard
-    exportToString(onSuccess, onError) {
+    exportToString(onSuccess: MessageCallback, onError: MessageCallback) {
         try {
             const exportData = {
                 data: this.getCurrentRotationData()
@@ -364,7 +474,12 @@ export const rotationActions = {
     },
 
     // Import rotation from a base64 string
-    async importFromString(importStr, onSuccess, onError, refreshUICallback) {
+    async importFromString(
+        importStr: string,
+        onSuccess: MessageCallback,
+        onError: MessageCallback,
+        refreshUICallback?: () => void
+    ) {
         try {
             const data = JSON.parse(atob(importStr.trim()));
             await this.importRotation(data, onSuccess, onError, refreshUICallback);
@@ -374,7 +489,10 @@ export const rotationActions = {
     },
 
     // Update damage calculations
-    updateDamageCalculations(calculateTotalDamage, calculateGaussianParameters) {
+    updateDamageCalculations(
+        calculateTotalDamage: (barSize: number) => DamageCalcResult,
+        calculateGaussianParameters: (stats: DistributionStat[]) => { mean: number; stdDev: number }
+    ) {
         const dmgResult = calculateTotalDamage(BAR_SIZE);
         rotationStore.totalDamage = dmgResult.regularDamage;
         rotationStore.poisonDamage = dmgResult.poisonDamage;
@@ -392,7 +510,7 @@ export const rotationActions = {
         rotationStore.phaseTransitions = dmgResult.phaseTransitions || [];
 
         // Calculate Gaussian parameters for more accurate damage modeling
-        const gaussianParams = calculateGaussianParameters(rotationStore.distributionStats);
+        calculateGaussianParameters(rotationStore.distributionStats);
     }
 };
 

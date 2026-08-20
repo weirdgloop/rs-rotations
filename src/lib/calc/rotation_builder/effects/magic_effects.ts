@@ -86,6 +86,7 @@ function applyAbilitySpecificEffects(
 
     // Dragon Breath — 25% more damage if target is combusted
     if (abilityKey === ABILITIES.DRAGON_BREATH && settings[SETTINGS.COMBUSTED] === true) {
+        console.log('Dbreath boosted by 25%');
         distribution['boosted AD'] = Math.floor(distribution['boosted AD'] * 1.25);
     }
 
@@ -94,7 +95,6 @@ function applyAbilitySpecificEffects(
         distribution['boosted AD'] = Math.floor(distribution['boosted AD'] * 1.4);
     }
 
-    // Song of Destruction 2-piece set effect (RoA + OtD)
     if (
         ['bleed', 'burn', 'dot'].includes(abils[abilityKey]?.abilityClassification) &&
         (settings[SETTINGS.MH] === WEAPONS.ROAR_OF_AWAKENING || settings[SETTINGS.MH] === WEAPONS.ROAR_OF_AWAKENING_IM) &&

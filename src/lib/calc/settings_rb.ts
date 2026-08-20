@@ -159,13 +159,14 @@ const SETTINGS = {
     SPIRIT_CAPE: 'spirit cape',
     SUMMONING_RENEWAL: 'summoning renewal',
     SPIRIT_WEED_INCENSE: 'spirit weed incense',
-    SPIRIT_WEED_INCENSE_VALUES: {
+    INCENSE_VALUES: {
         NONE: 0,
         LVL1: 1,
         LVL2: 2,
         LVL3: 3,
         LVL4: 4
     },
+    KWUARM_INCENSE: 'kwuarm incense',
     PRISM_OF_RESTORATION: 'prism of restoration',
 
     AURA: 'aura',
@@ -210,6 +211,7 @@ const SETTINGS = {
         DRAGON: 'dragon',
         DEMON: 'demon'
     },
+    // SLAYER_ABILITY: 'slayer ability', // Generic slayer ability for ability damage pages
     HAUNTED: 'haunted',
     HAUNTED_AD: 'haunted AD',
     THREADS_OF_FATE: 'threads of fate',
@@ -931,13 +933,24 @@ const settingsConfig = {
     },
     [SETTINGS.SPIRIT_WEED_INCENSE]: {
         label: 'Spirit Incense',
-        default: SETTINGS.SPIRIT_WEED_INCENSE_VALUES.NONE,
+        default: SETTINGS.INCENSE_VALUES.NONE,
         options: [
-            { text: 'None', value: SETTINGS.SPIRIT_WEED_INCENSE_VALUES.NONE },
-            { text: 'Potency 1 (10%)', value: SETTINGS.SPIRIT_WEED_INCENSE_VALUES.LVL1 },
-            { text: 'Potency 2 (20%)', value: SETTINGS.SPIRIT_WEED_INCENSE_VALUES.LVL2 },
-            { text: 'Potency 3 (30%)', value: SETTINGS.SPIRIT_WEED_INCENSE_VALUES.LVL3 },
-            { text: 'Potency 4 (40%)', value: SETTINGS.SPIRIT_WEED_INCENSE_VALUES.LVL4 },
+            { text: 'None', value: SETTINGS.INCENSE_VALUES.NONE },
+            { text: 'Potency 1 (10%)', value: SETTINGS.INCENSE_VALUES.LVL1 },
+            { text: 'Potency 2 (20%)', value: SETTINGS.INCENSE_VALUES.LVL2 },
+            { text: 'Potency 3 (30%)', value: SETTINGS.INCENSE_VALUES.LVL3 },
+            { text: 'Potency 4 (40%)', value: SETTINGS.INCENSE_VALUES.LVL4 },
+        ]
+    },
+    [SETTINGS.KWUARM_INCENSE]: {
+        label: 'Kwuarm Incense',
+        default: SETTINGS.INCENSE_VALUES.NONE,
+        options: [
+            { text: 'None', value: SETTINGS.INCENSE_VALUES.NONE },
+            { text: 'Potency 1 (10%)', value: SETTINGS.INCENSE_VALUES.LVL1 },
+            { text: 'Potency 2 (20%)', value: SETTINGS.INCENSE_VALUES.LVL2 },
+            { text: 'Potency 3 (30%)', value: SETTINGS.INCENSE_VALUES.LVL3 },
+            { text: 'Potency 4 (40%)', value: SETTINGS.INCENSE_VALUES.LVL4 },
         ]
     },
     [SETTINGS.PRISM_OF_RESTORATION]: {
@@ -1040,7 +1053,7 @@ const settingsConfig = {
     },
     [SETTINGS.SLAYER_PERK]: {
         label: 'Slayer perk',
-        default: SETTINGS.SLAYER_PERK.NONE,
+        default: SETTINGS.SLAYER_PERK_VALUES.NONE,
         options: [
             { text: 'None', value: SETTINGS.SLAYER_PERK_VALUES.NONE },
             { text: 'Undead', value: SETTINGS.SLAYER_PERK_VALUES.UNDEAD},
@@ -1053,11 +1066,11 @@ const settingsConfig = {
         default: false
     },
     [SETTINGS.DRAGON_SLAYER_ABILITY]: {
-        label: 'Dragon slayer Sigil',
+        label: 'Slayer ability',
         default: false
     },
     [SETTINGS.DEMON_SLAYER_ABILITY]: {
-        label: 'Demon slayer Sigil',
+        label: 'Demon slayer ability',
         default: false
     },
     [SETTINGS.SLAYER_SIGIL]: {

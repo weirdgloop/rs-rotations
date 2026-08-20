@@ -7,7 +7,7 @@
 
     import { getStyleColor } from '$lib/utils/colors';
     import { groupAbilitiesByType } from '$lib/utils/abilityClassifier';
-    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.js';
+    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.ts';
     import { getAbilityClassification, getAbilityType } from '$lib/types/AbilityTypes';
 
     $: grouped = groupAbilitiesByType(abilities);
@@ -43,10 +43,13 @@
                                 draggable="true"
                                 on:dragstart={(e) => handleDragStart(e, key)}
                                 title={ability.title || key}
-                                style="width: 30px; height: 30px; object-fit: contain; background-color: #333; border: 1px solid {styleColor};"
+                                style="width: 30px; height: 30px; object-fit: contain; border: 1px solid {styleColor};"
+                                class="ability-icon"
                             />
                         {:else}
                             <div
+                                role="img"
+                                aria-label={ability.title || key}
                                 style="width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; background-color: #444; color: white; font-size: 10px; border: 1px solid {styleColor};"
                                 draggable="true"
                                 on:dragstart={(e) => handleDragStart(e, key)}
@@ -100,4 +103,13 @@
         width: 30px;
         height: 30px;
     }
+
+    .ability-icon {
+    }
+
+    .ability-icon:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease-in-out;
+    }
+
 </style>

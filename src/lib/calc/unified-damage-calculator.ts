@@ -9,7 +9,7 @@ import { abils, ABILITIES } from '$lib/data/abilities';
 import { SETTINGS } from './settings_rb';
 import { calculateRotationDamageCore } from './rotation_builder/rotation-damage-calculator';
 import { attachGearPerks } from '$lib/data/perks';
-import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.js';
+import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.ts';
 import type { RotationInput, SingleAbilityInput } from './types';
 
 interface SingleAbilityResult {

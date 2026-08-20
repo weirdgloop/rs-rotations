@@ -1,8 +1,8 @@
 // Import stores and actions
-import { rotationStore, rotationActions } from './rotationStore.svelte.js';
-import { uiStore, uiActions } from './uiStore.svelte.js';
-import { notificationStore, notifActions } from './notificationStore.svelte.js';
-import { settingsStore, settingsActions } from './settingsStore.svelte.js';
+import { rotationStore, rotationActions } from './rotationStore.svelte.ts';
+import { uiStore, uiActions } from './uiStore.svelte.ts';
+import { notificationStore, notifActions } from './notificationStore.svelte.ts';
+import { settingsStore, settingsActions } from './settingsStore.svelte.ts';
 
 // Export all stores and actions
 export { rotationStore, rotationActions };

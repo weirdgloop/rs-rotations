@@ -968,7 +968,14 @@ const nexAoD: BossPreset = {
     curseImmune: false,
 
     health: 3000000,
-    phases: [{ hp: 900000 }, { hp: 300000 }, { hp: 1200000 }]
+    // Phase transitions at 2.1M / 1.8M / 600k remaining HP.
+    // Thresholds below are cumulative damage dealt (3,000,000 - remaining HP).
+    phases: [
+        { hp: 900000 },  // P1 → P2 at 2.1M remaining
+        { hp: 1200000 }, // P2 → P3 at 1.8M remaining
+        { hp: 2400000 }, // P3 → P4 at 600k remaining
+        { hp: 3000000 }  // Kill
+    ]
 };
 
 const nexAoDMinion: BossPreset = {
@@ -1498,6 +1505,36 @@ const voragoStoneCloneRanged: BossPreset = {
     affinities: { weakness: 0.4, melee: 0.65, ranged: 0.55, magic: 0.45 },
     taggable: false,
     curseImmune: true
+};
+
+// Vorkath (hard mode) — Zemouregal takes over once Vorkath dies
+// Fight flow: Vorkath P1 (1.5M → 1.125M) → P2 (1.125M → 750k) → P3 (750k → 0)
+//           → Zemouregal spawns with 500k HP
+// Thresholds below are cumulative damage dealt across both NPCs.
+const vorkathHM: BossPreset = {
+    name: 'Vorkath (Hard Mode)',
+    defenceLevel: 65,
+    armour: 65, // tier 65 → armour rating 1,299
+    weakness: 'None',
+    style: 'Magic',
+    affinities: { weakness: 0.55, melee: 0.55, ranged: 0.55, magic: 0.55 },
+    taggable: false,
+    curseImmune: false,
+
+    health: 2000000, // 1.5M Vorkath + 500k Zemouregal
+    phases: [
+        { hp: 375000 },  // P1 → P2 at 1.125M remaining
+        { hp: 750000 },  // P2 → P3 at 750k remaining
+        // Vorkath dies; Zemouregal is a separate NPC so overkill damage is wasted
+        { hp: 1500000, capped: true, stats: {
+            name: 'Zemouregal',
+            defenceLevel: 70,
+            armour: 95, // tier 95 → armour rating 2,765
+            style: 'Necromancy',
+            affinities: { weakness: 0.55, melee: 0.55, ranged: 0.55, magic: 0.55 }
+        }},
+        { hp: 2000000 } // Kill
+    ]
 };
 
 // Raids - Yakamaru
@@ -2494,6 +2531,9 @@ export const bossPresets: Record<string, BossPreset> = {
     'Vorago - Stone Clone (Magic)': voragoStoneCloneMagic,
     'Vorago - Stone Clone (Melee)': voragoStoneCloneMelee,
     'Vorago - Stone Clone (Ranged)': voragoStoneCloneRanged,
+
+    // Vorkath
+    'Vorkath (Hard Mode)': vorkathHM,
 
     // Raids - Yakamaru
     'Yakamaru': yakamaru,

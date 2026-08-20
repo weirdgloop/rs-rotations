@@ -29,7 +29,7 @@
     import ActionIcon from '$components/UI/ActionIcon.svelte';
     import { perks as perkDefs } from '$lib/data/perks';
     import { STYLE_COLORS } from '$lib/utils/colors';
-    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.js';
+    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.ts';
     import { weapons } from '$lib/data/weapons';
     import { coerceEquipmentValue, isCustomEquipment, migrateEquipmentSettings } from '$lib/data/equipment';
 
@@ -321,10 +321,10 @@
                                     onchange={() => updateDamages()}
                                     img="/rs-rot/effect_icons/Cryptbloom_helm.png"
                                 />
-                                <Select
-                                    bind:setting={settings[SETTINGS.SLAYER_SIGIL]}
+                                <Checkbox
+                                    bind:setting={settings[SETTINGS.DRAGON_SLAYER_ABILITY]}
                                     onchange={() => updateDamages()}
-                                    img="/rs-rot/effect_icons/Undead_slayer_sigil_detail.png"
+                                    img="/rs-rot/ability_icons/special/Dragon_Slayer_(ability).png"
                                 />
                                 <Number
                                     bind:setting={settings[SETTINGS.NOPE]}

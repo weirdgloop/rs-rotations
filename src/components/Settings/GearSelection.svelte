@@ -4,7 +4,7 @@
     import { WEAPONS, weapons } from '$lib/data/weapons';
     import { SettingsCombatStyles } from '$lib/calc/rotation_builder/types/SettingsCombatStyles.ts';
     import { getItemsForSlot, getItemForValue } from '$lib/calc/rotation_builder/gear-registry';
-    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.js';
+    import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.ts';
     import { formatPerkAbbrev, itemDisplayText as _itemDisplayText, expandOptionsWithInstances as _expandOptions } from '$lib/data/perks';
     import { getEquipmentIcon, isCustomEquipment } from '$lib/data/equipment';
     import ActionIcon from '$components/UI/ActionIcon.svelte';

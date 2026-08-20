@@ -59,6 +59,17 @@ body {
     }
 }
 
+/* Full-bleed alternative to .responsive-container, for pages whose content
+   needs the whole viewport rather than a breakpoint-capped column. */
+.wide-container {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
 .bg-card {
     background-color: #171d21;
 }
@@ -72,6 +83,14 @@ body {
     height: auto;
     width: 20px;
     margin-right: 10px;
+}
+
+/* Shared background panel for ability icons. Applied wherever an ability
+   icon needs a solid backdrop so transparent-background PNGs stay legible.
+   Deliberately NOT applied to ghost/channel or cursor icons. */
+.ability-icon {
+    background-color: var(--icon-bg);
+    border-radius: 3px;
 }
 .effect-container {
     display: flex;

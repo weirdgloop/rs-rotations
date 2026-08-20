@@ -300,12 +300,10 @@ function on_damage(settings: Record<string, any>, dmgObject: DamageObject): { re
 
     // Apply final damage modifiers (vulnerability, slayer sigil, etc.)
     iterateDistributions(dmgObject, (distribution) => {
-        for (let i = 0; i < distribution['damage list'].length; i++) {
-            distribution['damage list'][i] = applyAllDamageModifiers(
+            distribution = applyAllDamageModifiers(
                 modifierCtx,
-                distribution['damage list'][i]
+                distribution
             );
-        }
         settings['soul split'] = distribution;
     });
 
@@ -369,12 +367,13 @@ function consumeAnimaCharged(settings: Record<string, any>, timers: Record<strin
  * Consumes the Deathspore buff if applicable (next ranged ability that costs adrenaline is free).
  * @returns true if the buff was consumed (skip normal adrenaline cost), false otherwise
  */
-function consumeDeathsporeBuff(settings: Record<string, any>, abilityKey: string, timers?: Record<string, number>): boolean {
+function consumeDeathsporeBuff(settings: Record<string, any>, abilityKey: ABILITIES, timers?: Record<string, number>): boolean {
     const type = abils[abilityKey].abilityType;
     const isRanged = abils[abilityKey]?.mainStyle === 'ranged';
     const costsAdrenaline = ['threshold', 'ultimate', 'special attack'].includes(type);
+    const deathsporeBuff = settings[SETTINGS.DEATHSPORE_BUFF] && settings[SETTINGS.AMMO] === ARMOUR.DEATHSPORE_ARROWS;
 
-    if (settings[SETTINGS.DEATHSPORE_BUFF] && isRanged && costsAdrenaline) {
+    if (settings[SETTINGS.DEATHSPORE_BUFF] && isRanged && costsAdrenaline && deathsporeBuff) {
         settings[SETTINGS.DEATHSPORE_BUFF] = false;
         if (timers) {
             delete timers[SETTINGS.DEATHSPORE_BUFF];
@@ -548,13 +547,14 @@ function set_min_var(settings: Record<string, any>, dmgObject: DamageObject) {
         }
 
         if (abilityKey === ABILITIES.POISON_DAMAGE) {
+
             let poison_tier = Object.values(SETTINGS.POISON_VALUES).indexOf(settings[SETTINGS.POISON]);
             if (poison_tier !== 0) {
                 if (settings[SETTINGS.GLOVES] === ARMOUR.CINDERBANE_GLOVES) {
                     poison_tier = Math.min(5, Math.max(2, poison_tier + 1));
                 }
                 let multi = 1 + 0.25 * (poison_tier - 1);
-                multi *= 1 + 0.03 * settings[SETTINGS.BIK_STACKS];
+                multi *= 1 + 0.03 * settings[SETTINGS.BIK_STACKS] + 0.025 * settings[SETTINGS.KWUARM_INCENSE];
                 distribution.minHit = distribution.minHit * multi;
                 distribution.varHit = distribution.varHit * multi;
             }

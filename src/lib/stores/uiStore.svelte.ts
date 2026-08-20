@@ -1,37 +1,35 @@
 import { ToolMode } from '$lib/calc/rotation_builder/ui_material/toolModes.ts';
-import { rotationStore } from '$lib/stores/rotationStore.svelte.js';
+import { rotationStore } from '$lib/stores/rotationStore.svelte.ts';
 
 // UI Constants
 const BASE_BAR_ROW_GAP = 30;
 const BAR_SIZE = 200;
-const EXTRA_BAR_SIZE = 12;
-const stackFontSize = 10;
-const baseStackOffset = 32;
-const stackPadding = 2;
-const buffLineWidth = 32;
-const buffLineHeight = 6;
+
+export type CombatTab = 'ranged' | 'magic' | 'melee' | 'necro' | 'defence';
+export type AbilityFilter = 'popular' | 'owned' | 'all';
+export type ExtraActionsTab = string;
 
 // UI store
 export const uiStore = $state({
     // Tab management
-    activeTab: 'ranged',
+    activeTab: 'ranged' as CombatTab,
 
     // Tool management
-    activeTool: ToolMode.Regular,
-    stallingAbility: null,
+    activeTool: ToolMode.Regular as ToolMode,
+    stallingAbility: null as string | null,
 
     // Panel states
     settingsPanelCollapsed: false,
     configSectionCollapsed: true,
-    abilityFilter: 'popular', // 'popular' | 'owned' | 'all'
+    abilityFilter: 'popular' as AbilityFilter,
     showSuggestions: { value: false },
 
     // Extra actions panel
     extraActions: {
         show: false,
         tick: -1,
-        tab: 'info',
-        infoAbility: null,
+        tab: 'info' as ExtraActionsTab,
+        infoAbility: null as string | null,
         barIndex: 0
     },
 
@@ -46,7 +44,7 @@ export const uiStore = $state({
 
     // Drag and drop state
     dragDrop: {
-        hoveredSlot: null,
+        hoveredSlot: null as number | null,
         validSlot: true
     }
 });
@@ -54,17 +52,17 @@ export const uiStore = $state({
 // UI actions
 export const uiActions = {
     // Tab management
-    setActiveTab(tab) {
-        uiStore.activeTab = tab;
+    setActiveTab(tab: string) {
+        uiStore.activeTab = tab as CombatTab;
     },
 
     // Tool management
-    setActiveTool(tool) {
+    setActiveTool(tool: ToolMode) {
         uiStore.activeTool = tool;
         uiStore.stallingAbility = null;
     },
 
-    setStallingAbility(ability) {
+    setStallingAbility(ability: string | null) {
         uiStore.stallingAbility = ability;
     },
 
@@ -82,13 +80,13 @@ export const uiActions = {
     },
 
     cycleAbilityFilter() {
-        const filters = ['popular', 'owned', 'all'];
+        const filters: AbilityFilter[] = ['popular', 'owned', 'all'];
         const idx = filters.indexOf(uiStore.abilityFilter);
         uiStore.abilityFilter = filters[(idx + 1) % filters.length];
     },
 
     // Extra actions panel
-    showExtraActions(tick, ability) {
+    showExtraActions(tick: number, ability: string | null) {
         uiStore.extraActions.show = true;
         uiStore.extraActions.tick = tick;
         uiStore.extraActions.infoAbility = ability;
@@ -110,33 +108,33 @@ export const uiActions = {
         uiStore.extraActions.barIndex = 0;
     },
 
-    setExtraActionsTab(tab) {
+    setExtraActionsTab(tab: ExtraActionsTab) {
         uiStore.extraActions.tab = tab;
     },
 
     // Ability bar management
-    updateBarIndex(index) {
+    updateBarIndex(index: number) {
         uiStore.bar.index = index;
     },
 
-    updateBarLastIndex(index) {
+    updateBarLastIndex(index: number) {
         uiStore.bar.lastIndex = index;
     },
 
-    updateBarRowGap(gap) {
+    updateBarRowGap(gap: number) {
         uiStore.bar.rowGap = gap;
     },
 
-    updateBarLineGap(gap) {
+    updateBarLineGap(gap: number) {
         uiStore.bar.lineGap = gap;
     },
 
     // Drag and drop management
-    setDragDropHoveredSlot(slot) {
+    setDragDropHoveredSlot(slot: number | null) {
         uiStore.dragDrop.hoveredSlot = slot;
     },
 
-    setDragDropValidSlot(valid) {
+    setDragDropValidSlot(valid: boolean) {
         uiStore.dragDrop.validSlot = valid;
     },
 
@@ -146,11 +144,11 @@ export const uiActions = {
     },
 
     // Keyboard shortcuts — ignore when user is typing in an input field
-    handleKeypress(event) {
-        const el = event.target;
+    handleKeypress(event: KeyboardEvent) {
+        const el = event.target as HTMLElement | null;
         const tag = el?.tagName;
         if (tag === 'TEXTAREA' || tag === 'SELECT') return;
-        if (tag === 'INPUT' && el.type !== 'checkbox' && el.type !== 'radio') return;
+        if (tag === 'INPUT' && (el as HTMLInputElement).type !== 'checkbox' && (el as HTMLInputElement).type !== 'radio') return;
 
         switch (event.key) {
             case "r":

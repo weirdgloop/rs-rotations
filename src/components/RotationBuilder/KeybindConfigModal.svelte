@@ -1,7 +1,7 @@
 <script>
-    import { keybindStore, keybindActions } from '$lib/stores/keybindStore.svelte.js';
-    import { ownedItemsStore, ownedItemsActions } from '$lib/stores/ownedItemsStore.svelte.js';
-    import { notifActions } from '$lib/stores/notificationStore.svelte.js';
+    import { keybindStore, keybindActions } from '$lib/stores/keybindStore.svelte.ts';
+    import { ownedItemsStore, ownedItemsActions } from '$lib/stores/ownedItemsStore.svelte.ts';
+    import { notifActions } from '$lib/stores/notificationStore.svelte.ts';
     import { allExtraActions } from '$lib/special/abilities';
     import { abils } from '$lib/data/abilities';
     import { armour } from '$lib/data/armour';

@@ -18,10 +18,10 @@ import { familiars, dreadnipData, calculateFamiliarHitChance } from '$lib/data/f
 import { getBossPresetWithEnrage, type BossPhase, type BossPreset } from '$lib/data/bosses/boss_presets';
 import { Logger, LogCategory } from '$lib/utils/Logger';
 import { attachGearPerks } from '$lib/data/perks';
-import { rotationStore } from '$lib/stores/rotationStore.svelte.js';
-import { settingsStore } from '$lib/stores/settingsStore.svelte.js';
+import { rotationStore } from '$lib/stores/rotationStore.svelte.ts';
+import { settingsStore } from '$lib/stores/settingsStore.svelte.ts';
 import { uiActions, uiStore } from '$lib/stores/uiStore.svelte';
-import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.js';
+import { ownedItemsStore } from '$lib/stores/ownedItemsStore.svelte.ts';
 const logger = Logger.getInstance();
 
 type OnTickCallback = (tick: number, settings: any, timers: Record<string, number>, rotation?: RotationInput, state?: RotationState) => void;

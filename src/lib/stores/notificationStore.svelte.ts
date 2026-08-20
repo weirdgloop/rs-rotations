@@ -1,3 +1,5 @@
+type NotificationType = 'info' | 'success' | 'warning' | 'error';
+
 // Notification store
 export const notificationStore = $state({
     // Simple notification
@@ -5,7 +7,7 @@ export const notificationStore = $state({
         show: false,
         title: '',
         message: '',
-        type: 'info'
+        type: 'info' as NotificationType
     },
 
     // Confirmation dialog
@@ -13,8 +15,8 @@ export const notificationStore = $state({
         show: false,
         title: '',
         message: '',
-        onConfirm: null,
-        onCancel: null
+        onConfirm: null as (() => void) | null,
+        onCancel: null as (() => void) | null
     },
 
     // Input prompt
@@ -24,8 +26,8 @@ export const notificationStore = $state({
         message: '',
         placeholder: '',
         value: '',
-        onSubmit: null,
-        onCancel: null
+        onSubmit: null as ((value: string) => void) | null,
+        onCancel: null as (() => void) | null
     },
 
     // Legacy modal states (for backward compatibility)
@@ -38,7 +40,7 @@ export const notificationStore = $state({
 // Notification actions
 export const notifActions = {
     // Simple notification
-    showNotification(title, message, type = 'info') {
+    showNotification(title: string, message: string, type: NotificationType = 'info') {
         notificationStore.notification = {
             show: true,
             title,
@@ -52,7 +54,12 @@ export const notifActions = {
     },
 
     // Confirmation dialog
-    showConfirmation(title, message, onConfirm, onCancel = null) {
+    showConfirmation(
+        title: string,
+        message: string,
+        onConfirm: () => void,
+        onCancel: (() => void) | null = null
+    ) {
         notificationStore.confirmationDialog = {
             show: true,
             title,
@@ -67,7 +74,13 @@ export const notifActions = {
     },
 
     // Input prompt
-    showInputPrompt(title, message, placeholder, onSubmit, onCancel = null) {
+    showInputPrompt(
+        title: string,
+        message: string,
+        placeholder: string,
+        onSubmit: (value: string) => void,
+        onCancel: (() => void) | null = null
+    ) {
         notificationStore.inputPrompt = {
             show: true,
             title,
@@ -102,28 +115,28 @@ export const notifActions = {
         notificationStore.selectedConfigId = '';
     },
 
-    setSaveConfigName(name) {
+    setSaveConfigName(name: string) {
         notificationStore.saveConfigName = name;
     },
 
-    setSelectedConfigId(id) {
+    setSelectedConfigId(id: string) {
         notificationStore.selectedConfigId = id;
     },
 
     // Helper methods for common patterns
-    showSuccess(title, message) {
+    showSuccess(title: string, message: string) {
         this.showNotification(title, message, 'success');
     },
 
-    showError(title, message) {
+    showError(title: string, message: string) {
         this.showNotification(title, message, 'error');
     },
 
-    showWarning(title, message) {
+    showWarning(title: string, message: string) {
         this.showNotification(title, message, 'warning');
     },
 
-    showInfo(title, message) {
+    showInfo(title: string, message: string) {
         this.showNotification(title, message, 'info');
     }
 };

@@ -1,20 +1,28 @@
-import { settingsConfig } from '$lib/calc/settings_rb';
-import { SETTINGS } from '$lib/calc/settings_rb';
+import { settingsConfig, SETTINGS } from '$lib/calc/settings_rb';
 import { coerceEquipmentValue, migrateEquipmentSettings } from '$lib/data/equipment';
+
+type SettingConfigEntry = (typeof settingsConfig)[keyof typeof settingsConfig];
+
+export type SettingEntry = SettingConfigEntry & {
+    key: string;
+    value: unknown;
+};
+
+export type SettingsMap = Record<string, SettingEntry>;
 
 // Settings store
 export const settingsStore = $state({
     initialized: false,
-    settings: {}
+    settings: {} as SettingsMap
 });
 
 // Initialize settings
 export function initializeSettings() {
     if (settingsStore.initialized) return;
 
-    let storedSettings = {};
+    let storedSettings: Record<string, { value?: unknown }> = {};
     if (typeof localStorage !== 'undefined') {
-        storedSettings = JSON.parse(localStorage.getItem('rotation_settings')) || {};
+        storedSettings = JSON.parse(localStorage.getItem('rotation_settings') || '{}') || {};
     }
 
     settingsStore.settings =
@@ -24,10 +32,14 @@ export function initializeSettings() {
                 {
                     ...value,
                     key,
-                    value: coerceEquipmentValue(storedSettings[key]?.value ?? value.default?.rotation ?? value.default, key)
+                    // defaults are heterogeneous; some are `{ rotation, ability }` objects
+                    value: coerceEquipmentValue(
+                        storedSettings[key]?.value ?? (value.default as any)?.rotation ?? value.default,
+                        key
+                    )
                 }
             ])
-        );
+        ) as SettingsMap;
     migrateEquipmentSettings(settingsStore.settings);
     settingsStore.settings[SETTINGS.INSTABILITY].value = false;
     settingsStore.settings[SETTINGS.BALANCE_BY_FORCE].value = false;
@@ -43,10 +55,11 @@ export function initializeSettings() {
 }
 
 initializeSettings();
+
 // Settings actions
 export const settingsActions = {
     // Update a setting value
-    updateSetting(key, value) {
+    updateSetting(key: string, value: unknown) {
         if (!settingsStore.initialized) return;
         if (settingsStore.settings[key]) {
             settingsStore.settings[key].value = value;
@@ -54,14 +67,14 @@ export const settingsActions = {
     },
 
     // Get a setting value
-    getSetting(key) {
+    getSetting(key: string) {
         if (!settingsStore.initialized) return null;
-        return settingsStore.settings[key]?.value;
+        return settingsStore.settings[key]?.value ?? null;
     },
 
     // Get all settings
     getAllSettings() {
-        if (!settingsStore.initialized) return {};
+        if (!settingsStore.initialized) return {} as SettingsMap;
         return settingsStore.settings;
     },
 
@@ -86,7 +99,7 @@ export const settingsActions = {
                 key,
                 { ...value, key: key, value: coerceEquipmentValue(value.default, key) }
             ])
-        );
+        ) as SettingsMap;
         migrateEquipmentSettings(settingsStore.settings);
     }
 };

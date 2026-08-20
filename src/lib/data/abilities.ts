@@ -2752,8 +2752,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         abilityClassification: 'regular', // bleed, dot, burn, channel, regular, multihit
         abilityType: 'special attack', // basic, threshold, special attack, ability (necromancy classification), ultimate
         mainStyle: 'magic',
-        damageType: 'magic'
-    ,
+        damageType: 'magic',
         cooldown: 0,
         parent: ABILITIES.TEMPEST_OF_ARMADYL},
     [ABILITIES.TEMPEST_OF_ARMADYL_HIT_5]: {
@@ -2766,8 +2765,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         abilityClassification: 'regular', // bleed, dot, burn, channel, regular, multihit
         abilityType: 'special attack', // basic, threshold, special attack, ability (necromancy classification), ultimate
         mainStyle: 'magic',
-        damageType: 'magic'
-    ,
+        damageType: 'magic',
         cooldown: 0,
         parent: ABILITIES.TEMPEST_OF_ARMADYL},
     [ABILITIES.TEMPEST_OF_ARMADYL]: {

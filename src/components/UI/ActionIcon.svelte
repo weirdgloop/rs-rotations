@@ -60,6 +60,11 @@
         type === 'gear' ? getGearBadge(value) : null
     );
 
+    // Ability and spell icons have transparent backgrounds; give them the
+    // shared .ability-icon panel so they stay legible on dark surfaces.
+    // Gear/perk/prayer/consumable icons already have their own backgrounds.
+    let hasIconBg = $derived(type === 'ability' || type === 'spell');
+
     let errorAttempt = $state(0);
     $effect(() => { iconSrc; errorAttempt = 0; });
 
@@ -82,6 +87,7 @@
         alt={title}
         style="width: {s.icon}px; height: {s.icon}px;"
         class="action-icon-img"
+        class:ability-icon={hasIconBg}
         onerror={handleError}
     />
     {#if badge?.img}
@@ -105,6 +111,7 @@
         alt={title}
         style="width: {s.icon}px; height: {s.icon}px;"
         class="action-icon-img"
+        class:ability-icon={hasIconBg}
         onerror={handleError}
         draggable={draggable ? 'true' : 'false'}
         {ondragstart}

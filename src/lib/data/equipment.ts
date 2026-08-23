@@ -106,6 +106,7 @@ function normalizeWeaponType(record: RawEquipmentRecord, slot: EquipmentSlot): W
     if (rawSlot === '2h weapon') return 'two-hand';
     if (rawSlot === 'main hand weapon') return 'main-hand';
     if (slot === 'offhand' && (rawType.includes('shield') || name.includes('shield'))) return 'shield';
+    if (slot === 'offhand' && (rawType.includes('defender') || name.includes('defender'))) return 'defender';
     if (rawSlot === 'off-hand weapon' || rawSlot === 'off-hand') return 'off-hand';
     return undefined;
 }

@@ -5,7 +5,7 @@ export type CombatStyle = 'melee' | 'ranged' | 'magic' | 'necro' | 'necromancy' 
 
 export type EquipmentSlot = 'helmet' | 'body' | 'legs' | 'gloves' | 'boots' | 'necklace' | 'ring' | 'cape' | 'pocket' | 'ammo' | 'mainhand' | 'offhand' | 'not used';
 export type EquipmentStyle = 'melee' | 'ranged' | 'magic' | 'necromancy' | 'hybrid';
-export type WeaponType = 'main-hand' | 'off-hand' | 'two-hand' | 'shield';
+export type WeaponType = 'main-hand' | 'off-hand' | 'two-hand' | 'shield' | 'defender';
 
 export interface OffensiveTier {
     melee: number;

@@ -36,8 +36,15 @@ function calc_base_ad(settings) {
         logger.trace('AD (Main-Hand)', AD_mh, `floor(${levelDmg} + 9.6 × ${mhTier} + ${bonus})`);
 
         let AD_oh = 0;
-        if (weapons[settings[SETTINGS.OH]]?.['weapon type'] === 'off-hand') {
+        if (weapons[settings[SETTINGS.OH]]?.['weapon type'] === 'off-hand'
+        ) {
             const ohTier = calc_weapon_tier(settings, 'off-hand weapon');
+            AD_oh = Math.floor(0.5 * Math.floor(levelDmg + 9.6 * ohTier + bonus));
+            logger.trace('AD (Off-Hand)', AD_oh, `floor(0.5 × floor(${levelDmg} + 9.6 × ${ohTier} + ${bonus}))`);
+        }
+        else if (weapons[settings[SETTINGS.OH]]?.['weapon type'] === 'defender'
+        ) {
+            const ohTier = Math.floor(0.5*calc_weapon_tier(settings, 'off-hand weapon'));
             AD_oh = Math.floor(0.5 * Math.floor(levelDmg + 9.6 * ohTier + bonus));
             logger.trace('AD (Off-Hand)', AD_oh, `floor(0.5 × floor(${levelDmg} + 9.6 × ${ohTier} + ${bonus}))`);
         }

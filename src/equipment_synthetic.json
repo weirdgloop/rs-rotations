@@ -287,12 +287,6 @@
     "image": ["None tank.png"],
     "bonuses": { "class": "hybrid", "slot": "head", "type": "Tank armour", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 0, "ranged": 0, "magic": 0, "necromancy": 0, "tier": 0 }
   },
-  "1000319": {
-    "name": "Leagues pocket",
-    "id": 1000319,
-    "image": ["Leagues pocket.png"],
-    "bonuses": { "class": "hybrid", "slot": "pocket", "type": "", "damage": 0, "ability_damage": 0, "accuracy": 0, "style": "", "attack_range": 0, "armour": 0, "life": 0, "speed": 0, "prayer": 0, "strength": 15, "ranged": 15, "magic": 15, "necromancy": 15, "tier": 0 }
-  },
   "1000320": {
     "name": "Pernix quiver",
     "id": 1000320,

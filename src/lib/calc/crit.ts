@@ -78,11 +78,6 @@ export function calc_crit_chance(settings: Record<string, any>, abilityKey: ABIL
         crit_chance += 0.07;
     }
 
-    // leagues pocket
-    if (settings[SETTINGS.POCKET] === ARMOUR.LEAGUES_POCKET) {
-        crit_chance += 0.12;
-    }
-
     // reaver's ring
     if (settings[SETTINGS.RING] === ARMOUR.REAVERS_RING) {
         crit_chance += 0.05;

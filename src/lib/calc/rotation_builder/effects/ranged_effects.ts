@@ -110,10 +110,6 @@ function applyAbilitySpecificEffects(
     distribution: DamageDistribution
 ): void {
     const { settings, abilityKey } = ctx;
-    // Leagues 2 striking light
-    if (abilityKey === ABILITIES.RANGED_AUTO && settings[SETTINGS.LEAGUES_TWO_TOGGLE] === true && settings[SETTINGS.LEAGUES_TWO_STRIKING_LIGHT]) {
-        distribution['boosted AD'] = Math.floor(distribution['boosted AD'] * 1.4);
-    }
 }
 
 /**
@@ -321,12 +317,6 @@ function applyBonusDamageEffects(
     // Searing Winds (Galeshot buff) - adds 20% of ability damage as flat bonus to each hit
     if (settings[SETTINGS.SEARING_WINDS] === true && abilityKey != ABILITIES.GALESHOT) {
         const bonus = Math.floor(settings[SETTINGS.ABILITY_DAMAGE] * 0.2);
-        distribution.minHit += bonus;
-    }
-
-    // Leagues 2 abyssal cinders
-    if (settings[SETTINGS.LEAGUES_TWO_TOGGLE] === true && settings[SETTINGS.LEAGUES_TWO_ABYSSAL_CINDERS] === true) {
-        const bonus = Math.floor(settings[SETTINGS.ABILITY_DAMAGE] * 0.15);
         distribution.minHit += bonus;
     }
 }

@@ -201,10 +201,6 @@ export function applyStyleMultiplicativeEffects(
         boost = Math.floor(boost * (1 + revenge));
     }
 
-    if (settings[SETTINGS.LEAGUES_TWO_TOGGLE] === true && settings[SETTINGS.LEAGUES_TWO_SPLASH_ZONE] === true && settings[SETTINGS.MAKE_ALL_AOE] === true) {
-        boost += Math.floor(0.3*boost + 0.05*settings[SETTINGS.TARGET_SIZE]);
-    }
-
     // Crystal weapons (proc based, addsd later
     // Spendthrift?
     // Ruthless perk

@@ -71,11 +71,6 @@ function applyAbilitySpecificEffects(
     if (abilityKey === ABILITIES.SPECTRAL_SCYTHE_3) {
         distribution['boosted AD'] = Math.floor(distribution['boosted AD'] * (1 + (1-settings[SETTINGS.TARGET_HP_PERCENT]/100)));
     }
-
-    // Leagues 2 striking light
-    if (abilityKey === ABILITIES.NECRO_AUTO && settings[SETTINGS.LEAGUES_TWO_TOGGLE] === true && settings[SETTINGS.LEAGUES_TWO_STRIKING_LIGHT]) {
-        distribution['boosted AD'] = Math.floor(distribution['boosted AD'] * 1.4);
-    }
 }
 
 /**
@@ -202,11 +197,6 @@ function applyBonusDamageEffects(
     distribution: DamageDistribution
 ): void {
     // Necromancy currently has no flat bonus damage effects
-    // Leagues 2 abyssal cinders
-    if (ctx.settings[SETTINGS.LEAGUES_TWO_TOGGLE] === true && ctx.settings[SETTINGS.LEAGUES_TWO_ABYSSAL_CINDERS] === true) {
-        const bonus = Math.floor(ctx.settings[SETTINGS.ABILITY_DAMAGE] * 0.15);
-        distribution.minHit += bonus;
-    }
 }
 
 /**

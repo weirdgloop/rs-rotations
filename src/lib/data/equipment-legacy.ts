@@ -130,7 +130,6 @@ export const LEGACY_EQUIPMENT_NAME_TO_ID = {
     "keris avg": 1000202,
     "keris proc": 1000201,
     "laceration boots": 48081,
-    "leagues pocket": 1000319,
     "luck of the dwarves": 39812,
     "luck of the dwarves (i)": 44559,
     "mask of tumeken's resplendence": 59344,

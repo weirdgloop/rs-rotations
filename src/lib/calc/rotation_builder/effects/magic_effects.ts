@@ -124,11 +124,6 @@ function applyAbilitySpecificEffects(
     ) {
         distribution['boosted AD'] = Math.floor(distribution['boosted AD'] * 0.5);
     }
-
-    // Leagues 2 striking light
-    if (abilityKey === ABILITIES.MAGIC_AUTO && settings[SETTINGS.LEAGUES_TWO_TOGGLE] === true && settings[SETTINGS.LEAGUES_TWO_STRIKING_LIGHT]) {
-        distribution['boosted AD'] = Math.floor(distribution['boosted AD'] * 1.4);
-    }
 }
 
 /**
@@ -267,11 +262,6 @@ function applyBonusDamageEffects(
     distribution: DamageDistribution
 ): void {
     // Magic currently has no flat bonus damage effects
-    // Leagues 2 abyssal cinders
-    if (ctx.settings[SETTINGS.LEAGUES_TWO_TOGGLE] === true && ctx.settings[SETTINGS.LEAGUES_TWO_ABYSSAL_CINDERS] === true) {
-        const bonus = Math.floor(ctx.settings[SETTINGS.ABILITY_DAMAGE] * 0.15);
-        distribution.minHit += bonus;
-    }
 }
 
 export const magicEffects: StyleEffects = {

@@ -400,7 +400,7 @@ export function handleChannellers(settings: Record<string, any>, timers: Record<
  * @returns Array of damage objects representing all hits
  */
 export function handle_sgb(settings: Record<string, any>, dmgObject: DamageObject): DamageObject[] {
-    const hitMultipliers = [0, 1.16, 1.64, 2.44, 3.56, 5.0];
+    const hitMultipliers = [0, 1.0, 1.5, 2.33, 3.5, 5.0];
     const size = Math.min(settings[SETTINGS.TARGET_SIZE], 5);
     const hitMultiplier = hitMultipliers[size] - 1; // don't include guaranteed hit
 

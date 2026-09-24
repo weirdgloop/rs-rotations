@@ -604,46 +604,6 @@
                             </div>
                             {:else if tab === 'Leagues'}
                             <div class="md:col-span-1 space-y-2">
-                                <Checkbox
-                                    bind:setting={settings[SETTINGS.LEAGUES_TWO_TOGGLE]}
-                                    onchange={() => updateDamages()}
-                                />
-                                <Checkbox
-                                    bind:setting={settings[SETTINGS.LEAGUES_TWO_ABYSSAL_CINDERS]}
-                                    onchange={() => updateDamages()}
-                                />
-                                <Checkbox
-                                    bind:setting={settings[SETTINGS.LEAGUES_TWO_STRIKING_LIGHT]}
-                                    onchange={() => updateDamages()}
-                                />
-                                <Checkbox
-                                    bind:setting={settings[SETTINGS.LEAGUES_TWO_BIG_BONED]}
-                                    onchange={() => updateDamages()}
-                                />
-                                <Number
-                                    bind:setting={settings[SETTINGS.MAX_LIFE_POINTS]}
-                                    onchange={() => updateDamages()}
-                                />
-                                <Checkbox
-                                    bind:setting={settings[SETTINGS.LEAGUES_TWO_TERAGARDS_AEGIS]}
-                                    onchange={() => updateDamages()}
-                                />
-                                <Number
-                                    bind:setting={settings[SETTINGS.ARMOUR_VALUE]}
-                                    onchange={() => updateDamages()}
-                                />
-                                <Select
-                                    bind:setting={settings[SETTINGS.AEGIS_OFF_HAND]}
-                                    onchange={() => updateDamages()}
-                                />
-                                <Checkbox
-                                    bind:setting={settings[SETTINGS.LEAGUES_TWO_SPLASH_ZONE]}
-                                    onchange={() => updateDamages()}
-                                />
-                                <Checkbox
-                                    bind:setting={settings[SETTINGS.MAKE_ALL_AOE]}
-                                    onchange={() => updateDamages()}
-                                />
                             </div>
                         {/if}
                     </div>

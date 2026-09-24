@@ -612,23 +612,6 @@ const SETTINGS = {
     GCONC_UNLOCK: 'gconc unlock',
     STRENGTH_MASTER_CAPE: 'strength master cape',
 
-    // Leagues
-    LEAGUES_TWO_TOGGLE: 'leagues 2 toggle',
-    LEAGUES_TWO_ABYSSAL_CINDERS: 'leagues 2 abyssal cinders',
-    LEAGUES_TWO_STRIKING_LIGHT: 'leagues 2 striking light',
-    LEAGUES_TWO_BIG_BONED: 'leagues 2 big boned',
-    MAX_LIFE_POINTS: 'max life points',
-    LEAGUES_TWO_TERAGARDS_AEGIS: 'leagues 2 teragards aegis',
-    ARMOUR_VALUE: 'armour value',
-    AEGIS_OFF_HAND: 'aegis offhand',
-    AEGIS_OFF_HAND_VALUES: {
-        WEAPON: 'weapon',
-        DEFENDER: 'defender',
-        SHIELD: 'shield,'
-    },
-    LEAGUES_TWO_SPLASH_ZONE: 'leagues 2 splash zone',
-    MAKE_ALL_AOE: 'make all aoe',
-
     // Testing/utility flags
     USE_RAW_ABILITY_DAMAGE: 'use raw ability damage', // Skip recalculating AD from equipment
 };
@@ -2406,51 +2389,6 @@ const settingsConfig = {
     [SETTINGS.STRENGTH_MASTER_CAPE]: {
         label: '120 str cape',
         default: true
-    },
-    [SETTINGS.LEAGUES_TWO_TOGGLE]: {
-        label: 'League 2 effects',
-        default: false
-    },
-    [SETTINGS.LEAGUES_TWO_ABYSSAL_CINDERS]: {
-        label: 'Abyssal cinders relic',
-        default: false
-    },
-    [SETTINGS.LEAGUES_TWO_STRIKING_LIGHT]: {
-        label: 'Striking light relic',
-        default: false
-    },
-    [SETTINGS.LEAGUES_TWO_BIG_BONED]: {
-        label: 'Big boned relic',
-        default: false
-    },
-    [SETTINGS.MAX_LIFE_POINTS]: {
-        label: 'Max life points',
-        default: 9900
-    },
-    [SETTINGS.LEAGUES_TWO_TERAGARDS_AEGIS]: {
-        label: 'Terraguards aegis relic',
-        default: false
-    },
-    [SETTINGS.ARMOUR_VALUE]: {
-        label: 'Armour value',
-        default: 0
-    },
-    [SETTINGS.AEGIS_OFF_HAND]: {
-        label: 'off hand type',
-        default: SETTINGS.AEGIS_OFF_HAND_VALUES.WEAPON,
-        options: [
-            { text: 'wep/nothing', value: SETTINGS.AEGIS_OFF_HAND_VALUES.WEAPON },
-            { text: 'defender', value: SETTINGS.AEGIS_OFF_HAND_VALUES.DEFENDER },
-            { text: 'shield', value: SETTINGS.AEGIS_OFF_HAND_VALUES.SHIELD }
-        ]
-    },
-    [SETTINGS.LEAGUES_TWO_SPLASH_ZONE]: {
-        label: 'Splash zone relic',
-        default: false
-    },
-    [SETTINGS.MAKE_ALL_AOE]: {
-        label: 'Make all abils aoe',
-        default: false
     },
 };
 

@@ -90,11 +90,6 @@ function applyAbilitySpecificEffects(
     if (abilityKey === ABILITIES.PUNISH && settings[SETTINGS.TARGET_HP_PERCENT] <= 50) {
         distribution['boosted AD'] = Math.floor(distribution['boosted AD'] * 2.5);
     }
-
-    // Leagues 2 striking light
-    if (abilityKey === ABILITIES.MELEE_AUTO && settings[SETTINGS.LEAGUES_TWO_TOGGLE] === true && settings[SETTINGS.LEAGUES_TWO_STRIKING_LIGHT]) {
-        distribution['boosted AD'] = Math.floor(distribution['boosted AD'] * 1.4);
-    }
 }
 
 /**
@@ -265,12 +260,6 @@ function applyBonusDamageEffects(
     // Am-zi necklace (melee only: +floor(1.35 * Attack level) to min hit)
     if (settings[SETTINGS.NECKLACE] === ARMOUR.AM_ZI) {
         distribution.minHit += Math.floor(1.35 * settings[SETTINGS.ATTACK_LEVEL]);
-    }
-
-    // Leagues 2 abyssal cinders
-    if (settings[SETTINGS.LEAGUES_TWO_TOGGLE] === true && settings[SETTINGS.LEAGUES_TWO_ABYSSAL_CINDERS] === true) {
-        const bonus = Math.floor(settings[SETTINGS.ABILITY_DAMAGE] * 0.15);
-        distribution.minHit += bonus;
     }
 }
 

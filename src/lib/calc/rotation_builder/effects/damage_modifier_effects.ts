@@ -444,10 +444,6 @@ export function applyAllDamageModifiers(
     // Essence corruption (flat addition)
     damage = applyEssenceCorruptionEffect(ctx, damage);
     
-    if (ctx.settings[SETTINGS.LEAGUES_TWO_TOGGLE] === true && ctx.settings[SETTINGS.LEAGUES_TWO_BIG_BONED] === true) {
-        damage += Math.floor(0.05 * ctx.settings[SETTINGS.MAX_LIFE_POINTS]);
-    }
-    
     // Tokkul-zo ring (+10%)
     if (ctx.settings[SETTINGS.RING] === ARMOUR.TOKKUL_ZO) {
         damage = Math.floor(damage * 1.1);

@@ -959,7 +959,7 @@
                                             "
                                             class="stacks-text"
                                         >
-                                            {+rotationStore.stacks[key].stackTicks[index].toFixed(0)}
+                                            {+rotationStore.stacks[key].stackTicks[index].toFixed(key === SETTINGS.ADRENALINE ? 1 : 0)}
                                         </span>
                                         <img src={rotationStore.stacks[key].image}
                                             style="

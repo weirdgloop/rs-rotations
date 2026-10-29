@@ -92,7 +92,7 @@ export const specialAttackReference = [
     "name": "Draconic Puncture",
     "style": "melee",
     "weapons": "Dragon dagger Superior dragon dagger",
-    "adrenaline": 50,
+    "adrenaline": 25,
     "damage": "280%",
     "target": "Single-target",
     "cooldown": 0,

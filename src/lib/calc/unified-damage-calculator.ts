@@ -62,7 +62,7 @@ export function calculateSingleAbilityDamage(
 
     if (!input.rawBuffs) {
         // Disable aftershock for single-ability calculations — it distorts per-ability comparisons
-        settingsWithBuffs[SETTINGS.AFTERSHOCK] = 0;
+        settingsWithBuffs.aftershockDisabled = true;
 
         // Disable rotation builder buff booleans — single-ability pages use dropdown settings instead
         settingsWithBuffs[SETTINGS.GREATER_DRACOLICH_INFUSION] = false;

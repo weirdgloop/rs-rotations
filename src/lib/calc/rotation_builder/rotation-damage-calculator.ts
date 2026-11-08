@@ -745,7 +745,7 @@ function processTickOperations(
         + Object.values(state.secondaryDamage ?? {}).reduce((sum: number, damage: number) => sum + damage, 0);
     const otherBefore = otherDamage();
     processQueuedDamage(tickToProcess, state, settingsCopy);
-    handleAftershock(state, settingsCopy);
+    if (!settingsCopy.aftershockDisabled) handleAftershock(state, settingsCopy);
     handleCrackling(state, settingsCopy);
     processSecondaryDamageWithBudget(state, settingsCopy);
     updateBossHpPercent(state, settingsCopy);

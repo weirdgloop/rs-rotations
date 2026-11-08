@@ -1460,7 +1460,7 @@ const settingsConfig = {
             { text: 'ROD', value: ARMOUR.RING_OF_DEATH },
             { text: 'ASR (i)', value: ARMOUR.ASYLUM_SURGEONS_RING_I },
             { text: 'ASR', value: ARMOUR.ASYLUM_SURGEONS_RING },
-            { text: 'Channeler', value: ARMOUR.CHANNELLERS_RING },
+            { text: 'Channeller', value: ARMOUR.CHANNELLERS_RING },
             { text: 'Channeller+', value: ARMOUR.CHANNELLERS_RING_E },
             { text: 'Stalker', value: ARMOUR.STALKERS_RING },
             { text: 'Stalker+', value: ARMOUR.STALKERS_RING_E },
@@ -2189,7 +2189,7 @@ const settingsConfig = {
         default: 10
     },
     [SETTINGS.CHANNELLER_RING_STACKS]: {
-        label: 'Channelers ring stacks',
+        label: 'Channellers ring stacks',
         default: 0
     },
     [SETTINGS.NUMBER_OF_BLEEDS]: {

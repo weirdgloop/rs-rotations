@@ -95,7 +95,7 @@ describe('calc_crit_damage', () => {
         });
     });
 
-    describe("Channeler's Ring", () => {
+    describe("Channeller's Ring", () => {
         it('should add crit damage for magic channel hits (0 stacks)', () => {
             const settings = critDmgSettings({
                 [SETTINGS.RING]: ARMOUR.CHANNELLERS_RING_E,

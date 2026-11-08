@@ -43,7 +43,7 @@ function magicSettings(overrides: Record<string, any> = {}) {
     return createBlankSettings(115, 60, {
         [SETTINGS.MAGIC_LEVEL]: 115,
         [SETTINGS.WEAPON]: SETTINGS.WEAPON_VALUES.TH,
-        [SETTINGS.WEAPON_TYPE_MAGE]: SETTINGS.WEAPON_VALUES.TH,
+        [SETTINGS.WEAPON_TYPE_MAGIC]: SETTINGS.WEAPON_VALUES.TH,
         ...overrides,
     });
 }

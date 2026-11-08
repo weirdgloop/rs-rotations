@@ -170,7 +170,7 @@ describe('Verified In-Game Values', () => {
         it('Dragon Breath: Lv114 Magic, t60 magic 2h, no perks/buffs → 1442-1704 non-crit', () => {
             const settings = createBlankSettings(114, 60, {
                 [SETTINGS.WEAPON]: SETTINGS.WEAPON_VALUES.TH,
-                [SETTINGS.WEAPON_TYPE_MAGE]: SETTINGS.WEAPON_VALUES.TH,
+                [SETTINGS.WEAPON_TYPE_MAGIC]: SETTINGS.WEAPON_VALUES.TH,
                 [SETTINGS.MODE]: SETTINGS.MODE_VALUES.MIN_NO_CRIT,
             });
             const minResult = calculateSingleAbilityDamage(settings, { ability: ABILITIES.DRAGON_BREATH });
@@ -221,7 +221,7 @@ describe('Verified In-Game Values', () => {
         it('Dragon Breath + Torment: Lv114 Magic, t60 2h → non-crit min 1586, crit max 2811', () => {
             const settings = createBlankSettings(114, 60, {
                 [SETTINGS.WEAPON]: SETTINGS.WEAPON_VALUES.TH,
-                [SETTINGS.WEAPON_TYPE_MAGE]: SETTINGS.WEAPON_VALUES.TH,
+                [SETTINGS.WEAPON_TYPE_MAGIC]: SETTINGS.WEAPON_VALUES.TH,
                 [SETTINGS.MAGIC_PRAYER]: SETTINGS.MAGIC_PRAYER_VALUES.TORMENT,
                 [SETTINGS.MODE]: SETTINGS.MODE_VALUES.MIN_NO_CRIT,
             });
@@ -251,7 +251,7 @@ describe('Verified In-Game Values', () => {
         it('Dragon Breath + Sunshine: Lv114 Magic, t60 2h → 2163-2556', () => {
             const settings = createBlankSettings(114, 60, {
                 [SETTINGS.WEAPON]: SETTINGS.WEAPON_VALUES.TH,
-                [SETTINGS.WEAPON_TYPE_MAGE]: SETTINGS.WEAPON_VALUES.TH,
+                [SETTINGS.WEAPON_TYPE_MAGIC]: SETTINGS.WEAPON_VALUES.TH,
                 [SETTINGS.SUNSHINE]: true,
                 [SETTINGS.MODE]: SETTINGS.MODE_VALUES.MIN_NO_CRIT,
             });

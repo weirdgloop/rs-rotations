@@ -125,7 +125,7 @@ export enum ABILITIES {
     BOLG_PROC = 'bolg proc',
     BOLG_PROC_PERCENTAGES = 'bolg proc percentages',
 
-    // Mage Basics
+    // Magic Basics
     MAGIC_AUTO = 'magic auto',
     GREATER_CONCENTRATED_BLAST_1 = 'greater concentrated blast 1',
     GREATER_CONCENTRATED_BLAST_2 = 'greater concentrated blast 2',
@@ -145,7 +145,7 @@ export enum ABILITIES {
     CONCENTRATED_BLAST_3 = 'concentrated blast 3',
     CONCENTRATED_BLAST = 'concentrated blast',
 
-    // Mage Enhanced
+    // Magic Enhanced
     ASPHYXIATE_HIT = 'asphyxiate hit',
     ASPHYXIATE_LAST_HIT = 'asphyxiate last hit',
     ASPHYXIATE = 'asphyxiate',
@@ -169,7 +169,7 @@ export enum ABILITIES {
     CORRUPTION_BLAST_HIT_4 = 'corruption blast hit 4',
     CORRUPTION_BLAST_HIT_5 = 'corruption blast hit 5',
 
-    // Mage Ults
+    // Magic Ults
     OMNIPOWER_REGULAR = 'omnipower regular',
     OMNIPOWER_IGNEOUS_HIT = 'omnipower igneous',
     OMNIPOWER = 'omnipower',
@@ -178,7 +178,7 @@ export enum ABILITIES {
     SUNSHINE = 'sunshine',
     GREATER_SUNSHINE = 'greater sunshine',
 
-    // Mage Specs
+    // Magic Specs
     INSTABILITY = 'instability',
     TIME_STRIKE = 'time strike',
     SOULFIRE_INITIAL = 'soulfire initial',
@@ -1827,7 +1827,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         title: 'Blackhole',
         icon: '/rs-rot/ability_icons/melee/blackhole.webp',
     },
-    // Mage Basic Abilities
+    // Magic Basic Abilities
     [ABILITIES.MAGIC_AUTO]: {
         // ability name
         minHit: 0.9, // min % of abil expressed as a decimal
@@ -2118,7 +2118,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         damageType: 'magic' // basic, threshold, special attack, ability (necromancy classification), ultimate
     ,
         cooldown: 15},
-    // Mage Abilities
+    // Magic Abilities
     [ABILITIES.SMOKE_CLOUD]: {
         // ability name
         minHit: 0.0, // min % of abil expressed as a decimal
@@ -2135,7 +2135,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         title: 'Smoke cloud',
         icon: '/rs-rot/effect_icons/smoke_cloud.png',
     },
-    // Mage Enhanced Abilities
+    // Magic Enhanced Abilities
     [ABILITIES.ASPHYXIATE_HIT]: {
         // ability name
         minHit: 1.2, // min % of abil expressed as a decimal
@@ -2491,7 +2491,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         cooldown: 15,
         parent: ABILITIES.CORRUPTION_BLAST
     },
-    // Mage Ultimate Abilities
+    // Magic Ultimate Abilities
     [ABILITIES.OMNIPOWER_REGULAR]: {
         // ability name
         minHit: 4.2, // min % of abil expressed as a decimal
@@ -2606,7 +2606,7 @@ export const abils: Record<ABILITIES, AbilityInfo> = {
         title: 'Greater Sunshine',
         icon: '/rs-rot/ability_icons/magic/Greater_Sunshine.png',
     },
-    // Mage Special Attacks
+    // Magic Special Attacks
     [ABILITIES.INSTABILITY]: {
         // ability name
         minHit: 1.2, // min % of abil expressed as a decimal

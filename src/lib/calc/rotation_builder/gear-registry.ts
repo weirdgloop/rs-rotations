@@ -143,7 +143,7 @@ const STYLE_SLOT_TO_SETTINGS_KEY: Record<string, Record<string, string>> = {
     },
     magic: {
         helmet: 'magic helmet', body: 'magic body', legs: 'magic legs',
-        gloves: 'magic gloves', boots: 'magic boots', pocket: 'mage pocket',
+        gloves: 'magic gloves', boots: 'magic boots', pocket: 'magic pocket',
         ring: 'magic ring', necklace: 'magic necklace', cape: 'magic cape',
         mainhand: 'magic main-hand weapon', offhand: 'magic off-hand weapon',
         ammo: 'magic ammo slot',

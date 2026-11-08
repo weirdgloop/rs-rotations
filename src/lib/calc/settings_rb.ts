@@ -277,13 +277,13 @@ const SETTINGS = {
     RANGED_RING: 'range ring',
     MELEE_RING: 'melee ring',
     NECRO_RING: 'necro ring',
-    MAGIC_POCKET: 'mage pocket',
+    MAGIC_POCKET: 'magic pocket',
     RANGED_POCKET: 'range pocket',
     MELEE_POCKET: 'melee pocket',
     NECRO_POCKET: 'necro pocket',
     POCKET: 'pocket',
     WEAPON: 'weapon type',
-    WEAPON_TYPE_MAGE: 'weapon type mage',
+    WEAPON_TYPE_MAGIC: 'weapon type magic',
     WEAPON_TYPE_MELEE: 'weapon type melee',
     WEAPON_TYPE_RANGED: 'weapon type ranged',
     WEAPON_TYPE_NECRO: 'weapon type necro',
@@ -1618,7 +1618,7 @@ const settingsConfig = {
             { text: 'Two handed', value: SETTINGS.WEAPON_VALUES.TH }
         ]
     },
-    [SETTINGS.WEAPON_TYPE_MAGE]: {
+    [SETTINGS.WEAPON_TYPE_MAGIC]: {
         label: 'Weapon type',
         default: SETTINGS.WEAPON_VALUES.TH,
         options: [

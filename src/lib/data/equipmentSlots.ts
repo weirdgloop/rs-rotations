@@ -10,7 +10,7 @@ export function equipmentSlotKey(style: string, slot: string): string {
     if (slot === 'offhand') return `${prefix} off-hand weapon`;
     if (slot === 'ammo') return `${prefix} ammo slot`;
     const shared = ['necklace', 'cape', 'ring', 'pocket'].includes(slot);
-    return `${shared && prefix === 'ranged' ? 'range' : shared && prefix === 'magic' ? 'mage' : prefix} ${slot}`;
+    return `${shared && prefix === 'ranged' ? 'range' : shared && prefix === 'magic' ? 'magic' : prefix} ${slot}`;
 }
 
 export function weaponSelectionUpdates(slot: string, value: any): Record<string, any> {
@@ -21,7 +21,7 @@ export function weaponSelectionUpdates(slot: string, value: any): Record<string,
     const style = prefix.trim();
     return {
         [prefix + 'main-hand weapon']: value,
-        ['weapon type ' + (style === 'magic' ? 'mage' : style)]: twoHand ? 'two-hand' : 'main-hand',
+        ['weapon type ' + style]: twoHand ? 'two-hand' : 'main-hand',
         ...(twoHand ? {[prefix + 'two-hand weapon']: value} : {}),
     };
 }

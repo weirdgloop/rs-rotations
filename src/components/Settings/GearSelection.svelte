@@ -9,7 +9,7 @@
         const result = Object.fromEntries(Object.entries(settings).map(([key, entry]) => [key, entry?.value]));
         const prefix = styleTab === 'necromancy' ? 'necro' : styleTab;
         const mh = `${prefix} main-hand weapon`;
-        if (result[`weapon type ${prefix === 'magic' ? 'mage' : prefix}`] === 'two-hand' && weapons[result[mh]]?.['weapon type'] !== 'two-hand') result[mh] = result[`${prefix} two-hand weapon`];
+        if (result[`weapon type ${prefix}`] === 'two-hand' && weapons[result[mh]]?.['weapon type'] !== 'two-hand') result[mh] = result[`${prefix} two-hand weapon`];
         return result;
     });
     function select(action) {

@@ -1524,7 +1524,7 @@ function style_specific_unification(settings, style = null) {
     }
 
     const weaponModeByStyle = {
-        magic: SETTINGS.WEAPON_TYPE_MAGE,
+        magic: SETTINGS.WEAPON_TYPE_MAGIC,
         ranged: SETTINGS.WEAPON_TYPE_RANGED,
         melee: SETTINGS.WEAPON_TYPE_MELEE,
         necromancy: SETTINGS.WEAPON_TYPE_NECRO,

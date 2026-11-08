@@ -43,7 +43,7 @@ function specialLabel(key: string, settings: Record<string, any>): 'spec' | 'eof
     const reference = specialAttackReference.find(entry => entry.style === info.mainStyle &&
         [key, info.title ?? ''].some(name => specialName(name) === specialName(entry.name)));
     const style = info.mainStyle === 'necromancy' ? 'necro' : info.mainStyle;
-    const typeKey = 'weapon type ' + (style === 'magic' ? 'mage' : style);
+    const typeKey = 'weapon type ' + style;
     const twoHand = settings[typeKey] === 'two-hand';
     const equipped = getEquipment(equipmentMechanicId(settings[`${style} ${twoHand ? 'two-hand' : 'main-hand'} weapon`]));
     const weaponName = equipped?.name.replace(/ \[IM\]$|\+$/, '') ?? '';

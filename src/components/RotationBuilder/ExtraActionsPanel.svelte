@@ -178,7 +178,7 @@
 
     const weaponTypeKeys = {
         ranged: SETTINGS.WEAPON_TYPE_RANGED,
-        magic: SETTINGS.WEAPON_TYPE_MAGE,
+        magic: SETTINGS.WEAPON_TYPE_MAGIC,
         melee: SETTINGS.WEAPON_TYPE_MELEE,
     };
     const weaponKeys = {
@@ -455,7 +455,7 @@
     let currentGear = $derived.by(() => {
         const result = buildGearState(tick);
         const prefix = stylePrefix[uiState.activeTab] ?? 'ranged';
-        const mode = result[`weapon type ${prefix === 'magic' ? 'mage' : prefix}`];
+        const mode = result[`weapon type ${prefix}`];
         const mh = `${prefix} main-hand weapon`;
         if (mode === 'two-hand' && weapons[result[mh]]?.['weapon type'] !== 'two-hand') result[mh] = result[`${prefix} two-hand weapon`];
         return result;

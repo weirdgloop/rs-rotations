@@ -296,7 +296,7 @@ export function isEquipmentNone(value: unknown): boolean {
 const gearSettingKeys = new Set([
     'helmet', 'body', 'legs', 'gloves', 'boots', 'necklace', 'cape', 'ring', 'pocket', 'ammo',
     'main-hand weapon', 'off-hand weapon', 'two-hand weapon',
-    'magic helmet', 'magic body', 'magic legs', 'magic gloves', 'magic boots', 'magic necklace', 'magic cape', 'magic ring', 'mage pocket', 'magic ammo slot',
+    'magic helmet', 'magic body', 'magic legs', 'magic gloves', 'magic boots', 'magic necklace', 'magic cape', 'magic ring', 'magic pocket', 'magic ammo slot',
     'ranged helmet', 'ranged body', 'ranged legs', 'ranged gloves', 'ranged boots', 'range necklace', 'range cape', 'range ring', 'range pocket', 'ranged ammo slot',
     'melee helmet', 'melee body', 'melee legs', 'melee gloves', 'melee boots', 'melee necklace', 'melee cape', 'melee ring', 'melee pocket', 'melee ammo slot',
     'necro helmet', 'necro body', 'necro legs', 'necro gloves', 'necro boots', 'necro necklace', 'necro cape', 'necro ring', 'necro pocket', 'necro ammo slot',
